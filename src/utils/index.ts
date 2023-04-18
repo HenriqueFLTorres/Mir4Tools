@@ -2,6 +2,8 @@ import CraftCost from '@/data/CraftCost';
 import { SetStateAction, atom } from 'jotai';
 
 export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
+  if (typeof window === 'undefined') return atom(initialValue) as any;
+
   const getInitialValue = () => {
     const item = localStorage.getItem(key);
     try {
@@ -75,7 +77,7 @@ export const calculateCraftByItem = ({
         parentRarity: value.rarity,
         multiply: value.cost * multiply,
         displayRarity,
-        parentIsBase: false
+        parentIsBase: false,
       });
     } else {
       setAtom((prev) => ({

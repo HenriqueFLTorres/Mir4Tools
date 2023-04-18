@@ -31,7 +31,7 @@ export default function ItemComponent({
     setInventory((prev) => ({
       ...prev,
       [item]: {
-        ...prev[item],
+        ...(prev[item] as unknown as object),
         [rarity]: {
           ...(prev[item][rarity] as unknown as object),
           [type]: value,

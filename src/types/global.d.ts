@@ -30,6 +30,7 @@ type InventoryType = {
   dark_steel: number;
   energy: number;
   glittering_powder: number;
+  dragon_scale: number;
 };
 
 type ItemsForRecipe = ItemTypes | 'dragon_scale';
