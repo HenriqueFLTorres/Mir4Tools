@@ -23,7 +23,7 @@ export default function CraftingMain() {
       displayRarity: settings.displayRarity,
       parentIsBase: true
     });
-  }, [settings.displayRarity]);
+  }, [setCraftCost, settings.displayRarity]);
 
   return (
     <div className='flex w-full flex-col gap-4 p-14'>
