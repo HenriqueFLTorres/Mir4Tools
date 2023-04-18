@@ -7,6 +7,7 @@ import ToggleFilter from '@/components/ToggleFilter';
 import Inventory from '@/components/crafting/Inventory';
 import Backpack from '@/icons/Backpack';
 import Settings from '@/icons/Settings';
+import * as Portal from '@radix-ui/react-portal';
 import { useAtom } from 'jotai';
 
 export default function Navbar() {
@@ -36,7 +37,13 @@ export default function Navbar() {
         <Backpack className='inline-block h-8 fill-white' />
       </button>
 
-      {showInventory ? <Inventory /> : <></>}
+      {showInventory ? (
+        <Portal.Root>
+          <Inventory />
+        </Portal.Root>
+      ) : (
+        <></>
+      )}
 
       <Popover.Wrapper>
         <Popover.Trigger className='w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors'>
@@ -62,7 +69,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <hr className='border-primary-400 border-2 rounded-full my-4' />
+          <hr className='my-4 rounded-full border-2 border-primary-400' />
 
           <h2 className='mx-2 mb-4'>Advanced View</h2>
 
