@@ -9,17 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "13.1",
+    "@radix-ui/react-popover": "^1.0.5",
+    "@radix-ui/react-tooltip": "^1.0.5",
+    "@tailwindui/react": "^0.1.1",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
+    "clsx": "^1.2.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
+    "jotai": "^2.0.4",
+    "millify": "^6.1.0",
+    "next": "^13.0.0",
     "postcss": "8.4.21",
+    "r": "^0.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "tailwind-merge": "^1.12.0",
     "tailwindcss": "3.3.1",
+    "type-fest": "^3.8.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.7"
   }
 }
