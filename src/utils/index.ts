@@ -98,7 +98,8 @@ export const formatForExperience = (value: string) => {
 
 export const formatLevel = (value: string) => {
   value = value.replace(/\D/g, '');
-  return value.replace(/^(\d{3})(.+)/g, '$1');
+  value = value.replace(/^(\d{3})(.+)/g, '$1'); 
+  return Number(value) > 190 ? "190" : value
 };
 
 export const getPercentage = (

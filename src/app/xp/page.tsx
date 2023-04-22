@@ -9,6 +9,7 @@ import { getPercentage } from '@/utils/index';
 import { useState } from 'react';
 
 export default function Home() {
+  const [isInvalid, setIsInvalid] = useState(false)
   const [percentages, setPercentages] = useState<PercentageState>({
     initial: undefined,
     final: undefined,
@@ -35,7 +36,8 @@ export default function Home() {
   const XPPerMinute =
     levels.initial && levels.final && percentages.initial && percentages.final
       ? getPercentage(
-          XPPerLevel[Number(levels.initial) + 1 as Level] - XPPerLevel[levels.initial],
+          XPPerLevel[(Number(levels.initial) + 1) as unknown as Level] -
+            XPPerLevel[levels.initial],
           (Number(percentages.final) - Number(percentages.initial)) / 5
         )
       : 0;
@@ -47,6 +49,8 @@ export default function Home() {
       <PercentageDifference
         percentages={percentages}
         setPercentages={setPercentages}
+        invalidInput={isInvalid}
+        setIsInvalid={setIsInvalid}
       />
 
       <LevelCalculations
@@ -56,9 +60,14 @@ export default function Home() {
         setLevels={setLevels}
         XPToTargetLevel={XPToTargetLevel}
         XPPerMinute={XPPerMinute}
+        invalidInput={isInvalid}
       />
 
-      <GeneratedXPTable XPPerMinute={XPPerMinute} currentXP={currentXP} />
+      <GeneratedXPTable
+        XPPerMinute={XPPerMinute}
+        currentXP={currentXP}
+        invalidInput={isInvalid}
+      />
 
       <section></section>
     </>

@@ -18,6 +18,7 @@ export default function LevelCalculations({
   setPercentages,
   XPToTargetLevel = 0,
   XPPerMinute,
+  invalidInput,
 }: {
   levels: LevelState;
   setLevels: React.Dispatch<SetStateAction<LevelState>>;
@@ -25,14 +26,13 @@ export default function LevelCalculations({
   setPercentages: React.Dispatch<SetStateAction<PercentageState>>;
   XPToTargetLevel?: number;
   XPPerMinute: number;
+  invalidInput: boolean;
 }) {
-  console.log(XPToTargetLevel);
-  console.log(XPPerMinute);
   return (
     <section className='flex w-full items-center gap-4'>
-      <div className='flex h-32 w-32 flex-col items-center justify-center rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
+      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
         <input
-          className='appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
           placeholder='100'
           value={levels.initial ?? ''}
           onChange={(e) =>
@@ -53,7 +53,7 @@ export default function LevelCalculations({
         <Input
           placeholder='0.0000'
           value={percentages.final}
-          className='bg-transparent py-0 focus-within:bg-transparent hover:bg-transparent'
+          className='bg-transparent py-0 focus-within:bg-transparent hover:bg-transparent [&>input]:w-16'
           onChange={(value) =>
             setPercentages((prev) => ({
               ...prev,
@@ -64,9 +64,9 @@ export default function LevelCalculations({
         />
       </div>
 
-      <div className='flex w-full flex-col items-center gap-2'>
-        <p className='mt-6 text-center text-xl font-medium text-white'>
-          {XPToTargetLevel
+      <div className='grid h-full w-full grid-rows-[1fr_4px_1fr] flex-col items-center gap-2'>
+        <p className='px-4 text-center text-xl font-medium text-neutral-200'>
+          {XPToTargetLevel && !invalidInput
             ? `${getReadableNumber(XPToTargetLevel)} (${millify(
                 XPToTargetLevel
               )})`
@@ -75,30 +75,35 @@ export default function LevelCalculations({
 
         <span className='flex h-1 w-full rounded-full bg-primary-400' />
 
-        <p className='text-center text-base font-light text-white'>
-          <b className='font-bold'>
-            {XPToTargetLevel
-              ? humanizeDuration(
-                  moment
-                    .duration((XPToTargetLevel / XPPerMinute) * 5, 'minutes')
-                    .asMilliseconds(),
-                  { round: true }
-                )
-              : 0}{' '}
-            minutes
-          </b>{' '}
-          to level up
-        </p>
+        <div className='flex flex-col items-center gap-2 px-4'>
+          <p className='text-center text-base font-light text-neutral-200'>
+            <b className='font-bold'>
+              {XPToTargetLevel && !invalidInput
+                ? humanizeDuration(
+                    moment
+                      .duration((XPToTargetLevel / XPPerMinute) * 5, 'minutes')
+                      .asMilliseconds(),
+                    { round: true }
+                  )
+                : 0}{' '}
+              minutes
+            </b>{' '}
+            to level up
+          </p>
 
-        <p className='text-center text-base font-light text-white'>
-          You are earning {getReadableNumber(XPPerMinute * 5)} XP every 5
-          minutes
-        </p>
+          <p className='text-center text-base font-light text-neutral-200'>
+            You are earning{' '}
+            <b className='font-bold'>
+              {invalidInput ? 0 : getReadableNumber(XPPerMinute * 5)}
+            </b>{' '}
+            XP every <b className='font-bold'>5 minutes</b>
+          </p>
+        </div>
       </div>
 
-      <div className='flex h-32 w-32 flex-col items-center justify-center gap-1 rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
+      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
         <input
-          className='appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
           placeholder='100'
           value={levels.final ?? ''}
           onChange={(e) =>

@@ -13,9 +13,11 @@ import { useMemo } from 'react';
 export default function GeneratedXPTable({
   XPPerMinute,
   currentXP,
+  invalidInput,
 }: {
   XPPerMinute: number;
   currentXP: number;
+  invalidInput: boolean;
 }) {
   const data = useMemo(
     () => generateTableData(XPPerMinute, currentXP),
@@ -28,7 +30,7 @@ export default function GeneratedXPTable({
     getCoreRowModel: getCoreRowModel(),
   });
 
-  if (!XPPerMinute) return <></>;
+  if (!XPPerMinute || invalidInput) return <></>;
 
   return (
     <section className='relative my-16 flex flex-col rounded-md border-2 border-primary-400 bg-input-bottom-to-top'>
@@ -39,7 +41,7 @@ export default function GeneratedXPTable({
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className='px-4 py-2 text-xl font-medium text-white'
+                  className='px-4 py-2 text-base font-bold text-neutral-200'
                 >
                   {flexRender(
                     header.column.columnDef.header,

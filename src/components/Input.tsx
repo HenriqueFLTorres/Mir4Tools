@@ -14,7 +14,7 @@ export default function Input({
   return (
     <label
       className={cn(
-        'flex w-full flex-row items-center justify-center gap-1.5 bg-input-bottom-to-top px-3 py-2 font-bold text-primary-400 focus-within:bg-primary-700 motion-safe:transition-colors motion-safe:duration-500',
+        'flex w-full flex-row items-center justify-center gap-1.5 bg-input-bottom-to-top px-3 py-2 font-bold text-primary-400 focus-within:bg-primary-700 motion-safe:transition-colors',
         className
       )}
     >
@@ -25,11 +25,6 @@ export default function Input({
         {...props}
         onChange={(e) => onChange(e.target.value)}
         value={value}
-        style={{
-          width: `${
-            (value?.length ? value?.length : props.placeholder?.length ?? 1) * 9
-          }px`,
-        }}
       />
       {suffix && suffix}
     </label>
