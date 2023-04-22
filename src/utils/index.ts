@@ -105,3 +105,6 @@ export const getPercentage = (
   value: string | number,
   percentage?: string | number
 ) => Number(value) * (Number(percentage ?? 0) / 100);
+
+export const getReadableNumber = (number: number) =>
+  number.toLocaleString('en', { useGrouping: true }).replace(/\,/g, '.');

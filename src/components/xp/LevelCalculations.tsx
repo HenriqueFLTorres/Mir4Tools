@@ -1,8 +1,14 @@
 import { Level, LevelState } from '@/app/xp/page';
 import Input from '@/components/Input';
-import { formatForExperience, formatLevel } from '@/utils/index';
+import {
+  formatForExperience,
+  formatLevel,
+  getReadableNumber,
+} from '@/utils/index';
+import humanizeDuration from 'humanize-duration';
 import { SetStateAction } from 'jotai';
 import millify from 'millify';
+import moment from 'moment';
 import React from 'react';
 
 export default function LevelCalculations({
@@ -10,7 +16,7 @@ export default function LevelCalculations({
   setLevels,
   percentages,
   setPercentages,
-  XPToTargetLevel,
+  XPToTargetLevel = 0,
   XPPerMinute,
 }: {
   levels: LevelState;
@@ -20,6 +26,8 @@ export default function LevelCalculations({
   XPToTargetLevel?: number;
   XPPerMinute: number;
 }) {
+  console.log(XPToTargetLevel);
+  console.log(XPPerMinute);
   return (
     <section className='flex w-full items-center gap-4'>
       <div className='flex h-32 w-32 flex-col items-center justify-center rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
@@ -57,29 +65,34 @@ export default function LevelCalculations({
       </div>
 
       <div className='flex w-full flex-col items-center gap-2'>
-        <p className='mt-6 text-xl font-medium text-white'>
+        <p className='mt-6 text-center text-xl font-medium text-white'>
           {XPToTargetLevel
-            ? `${XPToTargetLevel.toLocaleString('en', {
-                useGrouping: true,
-              }).replace(/\,/g, '.')} (${millify(XPToTargetLevel)})`
+            ? `${getReadableNumber(XPToTargetLevel)} (${millify(
+                XPToTargetLevel
+              )})`
             : ''}
         </p>
 
         <span className='flex h-1 w-full rounded-full bg-primary-400' />
 
-        <p className='text-base font-light text-white'>
+        <p className='text-center text-base font-light text-white'>
           <b className='font-bold'>
-            {((XPToTargetLevel ?? 0) / XPPerMinute).toLocaleString('en', { maximumFractionDigits: 0 })} minutes
+            {XPToTargetLevel
+              ? humanizeDuration(
+                  moment
+                    .duration((XPToTargetLevel / XPPerMinute) * 5, 'minutes')
+                    .asMilliseconds(),
+                  { round: true }
+                )
+              : 0}{' '}
+            minutes
           </b>{' '}
           to level up
         </p>
 
-        <p className='text-base font-light text-white'>
-          XP per minute:{' '}
-          {XPPerMinute.toLocaleString('en', { useGrouping: true }).replace(
-            /\,/g,
-            '.'
-          )}
+        <p className='text-center text-base font-light text-white'>
+          You are earning {getReadableNumber(XPPerMinute * 5)} XP every 5
+          minutes
         </p>
       </div>
 

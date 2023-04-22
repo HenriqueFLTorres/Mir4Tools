@@ -35,7 +35,7 @@ export default function Home() {
   const XPPerMinute =
     levels.initial && levels.final && percentages.initial && percentages.final
       ? getPercentage(
-          XPPerLevel[levels.final] - XPPerLevel[levels.initial],
+          XPPerLevel[Number(levels.initial) + 1 as Level] - XPPerLevel[levels.initial],
           (Number(percentages.final) - Number(percentages.initial)) / 5
         )
       : 0;
