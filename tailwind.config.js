@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ubuntu: ['var(--font-ubuntu)'],
+        ubuntu: ['var(--font-notoSansKR)'],
       },
       backgroundImage: {
         'inventory-gradient':

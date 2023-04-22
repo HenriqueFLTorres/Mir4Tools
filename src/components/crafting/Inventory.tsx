@@ -23,7 +23,7 @@ export default function Inventory() {
 
         <section className='mt-8 flex flex-col gap-8 p-4'>
           {Object.entries(inventory).map(([name, rarities]) => (
-            <ul key={name} className='flex flex-row gap-2'>
+            <ul key={name} className='flex gap-2'>
               {Object.keys(rarities).map((rarity) => (
                 <ItemComponent
                   key={rarity}
@@ -36,7 +36,7 @@ export default function Inventory() {
         </section>
 
         <section className='my-4 flex flex-col gap-8 p-4'>
-          <ul className='flex flex-row gap-2'>
+          <ul className='flex gap-2'>
             {Object.entries(inventory)
               .filter(([, value]) => typeof value === 'number')
               ?.map(([name]) => (

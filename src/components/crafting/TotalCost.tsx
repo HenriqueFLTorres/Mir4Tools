@@ -23,7 +23,7 @@ export default function TotalCost({
     <section className='flex flex-col gap-8 w-full'>
       <h2 className='text-3xl font-bold text-primary-200'>Total</h2>
 
-      <div className='flex w-full flex-row gap-5'>
+      <div className='flex w-full gap-5'>
         <ul className='flex w-full gap-5'>
           {Object.entries(craftCost).map(
             ([name, item]) =>
@@ -44,7 +44,7 @@ export default function TotalCost({
           )}
         </ul>
 
-        <ul className='flex flex-row gap-5'>
+        <ul className='flex gap-5'>
           <CostFragment
             name='dark_steel'
             cost={craftCost['dark_steel']}

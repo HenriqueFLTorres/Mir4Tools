@@ -90,12 +90,18 @@ export const calculateCraftByItem = ({
   return;
 };
 
-const callmelater = (
-  setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>,
-  parentName: string,
-  parentRarity?: RarityTypes
-) => {
-  if (!parentRarity) return;
-
-  console.log(parentName);
+export const formatForExperience = (value: string) => {
+  value = value.replace(/\D/g, '');
+  value = value.replace(/^(\d{6})(.+)/g, '$1');
+  return value.replace(/^(\d{2})(\d{1,4})/, '$1.$2');
 };
+
+export const formatLevel = (value: string) => {
+  value = value.replace(/\D/g, '');
+  return value.replace(/^(\d{3})(.+)/g, '$1');
+};
+
+export const getPercentage = (
+  value: string | number,
+  percentage?: string | number
+) => Number(value) * (Number(percentage ?? 0) / 100);

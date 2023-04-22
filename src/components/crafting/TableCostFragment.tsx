@@ -58,7 +58,7 @@ function ShowInventoryItem({
   const NonTraddableItem = targetItem?.nonTraddable ?? 0;
 
   return (
-    <div className='flex flex-row border-b-2 border-b-primary-400'>
+    <div className='flex border-b-2 border-b-primary-400'>
       <RCT cost={traddableItem}>
         <span className={'flex w-full items-center gap-1.5 px-2'}>
           <Balance className='h-5 w-5 fill-primary-400' />{' '}

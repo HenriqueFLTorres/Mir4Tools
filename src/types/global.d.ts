@@ -13,7 +13,7 @@ type ItemTypes =
   | 'moon_shadow_stone'
   | 'platinum'
   | 'steel'
-  | 'dragon_scale'
+  | 'dragon_scale';
 
 type ItemWithRarity = Exclude<
   ItemTypes,
@@ -53,4 +53,9 @@ type CraftingCalcObject = {
   };
 } & { [key in NonRarityItems]: number };
 
-type InventoryItem = { traddable: number, nonTraddable: number }
+type InventoryItem = { traddable: number; nonTraddable: number };
+
+type PercentageState = {
+  initial?: string;
+  final?: string;
+};

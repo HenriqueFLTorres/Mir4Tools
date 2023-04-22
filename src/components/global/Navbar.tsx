@@ -29,7 +29,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className='fixed flex h-max w-full flex-row items-center justify-end gap-4 p-4'>
+    <nav className='fixed flex h-max w-full items-center justify-end gap-4 p-4'>
       <button
         onClick={() => setShowInventory((prev) => !prev)}
         className='w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors'
