@@ -9,7 +9,7 @@ import { getPercentage } from '@/utils/index';
 import { useState } from 'react';
 
 export default function Home() {
-  const [isInvalid, setIsInvalid] = useState(false)
+  const [isInvalid, setIsInvalid] = useState(false);
   const [percentages, setPercentages] = useState<PercentageState>({
     initial: undefined,
     final: undefined,
@@ -36,8 +36,7 @@ export default function Home() {
   const XPPerMinute =
     levels.initial && levels.final && percentages.initial && percentages.final
       ? getPercentage(
-          XPPerLevel[(Number(levels.initial) + 1) as unknown as Level] -
-            XPPerLevel[levels.initial],
+          XPPerLevel[levels.initial],
           (Number(percentages.final) - Number(percentages.initial)) / 5
         )
       : 0;
