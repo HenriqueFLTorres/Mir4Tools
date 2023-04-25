@@ -61,6 +61,7 @@ export default function LevelCalculations({
             }))
           }
           suffix='%'
+          defaultValue={54.2638}
         />
       </div>
 
@@ -74,6 +75,7 @@ export default function LevelCalculations({
         </p>
 
         <span className='flex h-1 w-full rounded-full bg-primary-400' />
+        {XPToTargetLevel}
 
         <div className='flex flex-col items-center gap-2 px-4'>
           <p className='text-center text-base font-light text-neutral-200'>
@@ -81,7 +83,7 @@ export default function LevelCalculations({
               {XPToTargetLevel && !invalidInput
                 ? humanizeDuration(
                     moment
-                      .duration((XPToTargetLevel / XPPerMinute) * 5, 'minutes')
+                      .duration((XPToTargetLevel / XPPerMinute), 'minutes')
                       .asMilliseconds(),
                     { round: true }
                   )

@@ -22,11 +22,11 @@ export default function Home() {
 
   const LevelGap =
     levels.initial && levels.final
-      ? XPPerLevel[levels.final] - XPPerLevel[levels.initial]
+      ? XPPerLevel[`${levels.final - 1}`]
       : '';
 
   const currentXP = levels.initial
-    ? XPPerLevel[levels.initial] + getPercentage(LevelGap, percentages.final)
+    ? XPPerLevel[`${levels.initial}`] + getPercentage(LevelGap, percentages.final)
     : 0;
 
   const XPToTargetLevel = !!LevelGap
@@ -36,7 +36,7 @@ export default function Home() {
   const XPPerMinute =
     levels.initial && levels.final && percentages.initial && percentages.final
       ? getPercentage(
-          XPPerLevel[levels.initial],
+          XPPerLevel[`${levels.initial}`],
           (Number(percentages.final) - Number(percentages.initial)) / 5
         )
       : 0;

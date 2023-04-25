@@ -21,7 +21,6 @@ export default function PercentageDifference({
       Number(percentages.initial) >= Number(percentages.final)
     ) {
       setIsInvalid(true);
-      console.log('asdfsd');
     } else setIsInvalid(false);
   };
 
@@ -45,6 +44,7 @@ export default function PercentageDifference({
         value={percentages.initial}
         suffix='%'
         onBlur={handleInvalid}
+        defaultValue={54.0319}
       />
       <Input
         className={cn(
@@ -61,6 +61,7 @@ export default function PercentageDifference({
         }
         value={percentages.final}
         onBlur={handleInvalid}
+        defaultValue={54.2638}
       />
     </div>
   );
