@@ -30,9 +30,9 @@ export default function LevelCalculations({
 }) {
   return (
     <section className='flex w-full items-center gap-4'>
-      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
+      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-[.375rem] border-secondary-300 bg-black/20 p-4'>
         <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-secondary-100 outline-none placeholder:text-secondary-100/50'
           placeholder='100'
           value={levels.initial ?? ''}
           onChange={(e) =>
@@ -75,7 +75,6 @@ export default function LevelCalculations({
         </p>
 
         <span className='flex h-1 w-full rounded-full bg-primary-400' />
-        {XPToTargetLevel}
 
         <div className='flex flex-col items-center gap-2 px-4'>
           <p className='text-center text-base font-light text-neutral-200'>
@@ -87,8 +86,7 @@ export default function LevelCalculations({
                       .asMilliseconds(),
                     { round: true }
                   )
-                : 0}{' '}
-              minutes
+                : 0}
             </b>{' '}
             to level up
           </p>
@@ -103,9 +101,9 @@ export default function LevelCalculations({
         </div>
       </div>
 
-      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-[.375rem] border-primary-400 bg-input-bottom-to-top p-4'>
+      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-[.375rem] border-secondary-300 bg-black/20 p-4'>
         <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-primary-200 outline-none placeholder:text-primary-200/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-secondary-100 outline-none placeholder:text-secondary-100/50'
           placeholder='100'
           value={levels.final ?? ''}
           onChange={(e) =>

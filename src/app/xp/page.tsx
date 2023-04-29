@@ -11,13 +11,13 @@ import { useState } from 'react';
 export default function Home() {
   const [isInvalid, setIsInvalid] = useState(false);
   const [percentages, setPercentages] = useState<PercentageState>({
-    initial: undefined,
-    final: undefined,
+    initial: "93.7718",
+    final: "93.9311",
   });
   const [levels, setLevels] = useState<LevelState>({
-    initial: undefined,
-    initialPercentage: undefined,
-    final: undefined,
+    initial: "80",
+    initialPercentage: "93.9311",
+    final: "81",
   });
 
   const LevelGap =
@@ -76,6 +76,6 @@ export type Level = keyof typeof XPPerLevel;
 
 export type LevelState = {
   initial?: Level;
-  initialPercentage?: Level;
+  initialPercentage?: string;
   final?: Level;
 };

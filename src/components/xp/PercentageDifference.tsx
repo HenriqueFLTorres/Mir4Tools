@@ -44,11 +44,10 @@ export default function PercentageDifference({
         value={percentages.initial}
         suffix='%'
         onBlur={handleInvalid}
-        defaultValue={54.0319}
       />
       <Input
         className={cn(
-          'border-t-2 border-primary-400 bg-transparent bg-input-top-to-bottom motion-safe:transition-colors',
+          'border-t-2 border-secondary-100 bg-transparent rounded-t-none rounded-b-md bg-inputalt-top-to-bottom motion-safe:transition-colors',
           { ['border-red-400']: invalidInput }
         )}
         suffix='%'
@@ -61,7 +60,6 @@ export default function PercentageDifference({
         }
         value={percentages.final}
         onBlur={handleInvalid}
-        defaultValue={54.2638}
       />
     </div>
   );

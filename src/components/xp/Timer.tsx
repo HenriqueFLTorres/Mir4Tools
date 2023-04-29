@@ -36,7 +36,7 @@ export default function Timer() {
 
   return (
     <>
-      <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-primary-400 bg-input-bottom-to-top p-4'>
+      <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-secondary-300 bg-black/20 p-4'>
         <p className='text-lg font-bold text-primary-200'>
           {minutes} : {seconds}
         </p>
@@ -45,7 +45,7 @@ export default function Timer() {
       <div className='flex flex-row gap-2'>
         <button
           onClick={handleStart}
-          className='w-28 rounded-md bg-primary-400 py-2 text-sm font-bold text-primary-200 disabled:opacity-50'
+          className='w-36 rounded-md bg-[#368D6E] py-2 text-sm font-bold text-primary-200 disabled:opacity-50'
           disabled={timerState.isActive}
         >
           Start
@@ -53,7 +53,7 @@ export default function Timer() {
 
         <button
           onClick={handleReset}
-          className='w-28 rounded-md bg-primary-200 py-2 text-sm font-bold text-primary-400 disabled:opacity-50'
+          className='w-36 rounded-md bg-[#77757E] py-2 text-sm font-bold text-primary-200 disabled:opacity-50'
           disabled={!timerState.isActive}
         >
           Reset

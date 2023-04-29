@@ -14,7 +14,7 @@ export default function Input({
   return (
     <label
       className={cn(
-        'flex w-full flex-row items-center justify-center gap-1.5 bg-input-bottom-to-top px-3 py-2 font-bold text-primary-400 focus-within:bg-primary-700 motion-safe:transition-colors',
+        'flex w-full flex-row items-center justify-center gap-1.5 bg-inputalt-bottom-to-top px-3 py-2 font-bold text-primary-200 focus-within:bg-primary-400/50 rounded-t-md motion-safe:transition-colors',
         className
       )}
     >

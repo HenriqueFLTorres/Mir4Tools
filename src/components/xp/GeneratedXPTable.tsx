@@ -33,9 +33,9 @@ export default function GeneratedXPTable({
   if (!XPPerMinute || invalidInput) return <></>;
 
   return (
-    <section className='relative my-16 flex flex-col rounded-md border-2 border-primary-400 bg-input-bottom-to-top'>
+    <section className='relative my-16 flex flex-col rounded-md border-2 border-black/40'>
       <table className='relative w-full'>
-        <thead className='border-b-2 border-primary-400'>
+        <thead className='border-b-2 border-primary-200'>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
