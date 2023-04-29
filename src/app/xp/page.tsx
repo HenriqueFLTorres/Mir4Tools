@@ -21,12 +21,11 @@ export default function Home() {
   });
 
   const LevelGap =
-    levels.initial && levels.final
-      ? XPPerLevel[`${levels.final - 1}`]
-      : '';
+    levels.initial && levels.final ? XPPerLevel[`${levels.final - 1}`] : '';
 
   const currentXP = levels.initial
-    ? XPPerLevel[`${levels.initial}`] + getPercentage(LevelGap, percentages.final)
+    ? XPPerLevel[`${levels.initial}`] +
+      getPercentage(LevelGap, percentages.final)
     : 0;
 
   const XPToTargetLevel = !!LevelGap
