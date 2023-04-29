@@ -1,4 +1,5 @@
 import XPPerLevel from '@/data/XPPerLevel';
+import { getReadableNumber } from '@/utils/index';
 import {
   ColumnDef,
   flexRender,
@@ -33,7 +34,7 @@ export default function GeneratedXPTable({
   if (!XPPerMinute || invalidInput) return <></>;
 
   return (
-    <section className='relative my-16 flex flex-col rounded-md border-2 border-black/40'>
+    <section className='relative my-16 flex flex-col rounded-md border-2 border-black/40 bg-black/20'>
       <table className='relative w-full'>
         <thead className='border-b-2 border-primary-200'>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -115,9 +116,7 @@ const columns: ColumnDef<TableXP>[] = [
     cell: ({ getValue }) => (
       <>
         <b className='font-extrabold'>{`${millify(getValue() as number)} -`}</b>{' '}
-        {(getValue() as number)
-          .toLocaleString('en', { useGrouping: true })
-          .replace(/\,/g, '.')}
+        {getReadableNumber(Math.round(getValue() as number))}
       </>
     ),
     enableSorting: false,
