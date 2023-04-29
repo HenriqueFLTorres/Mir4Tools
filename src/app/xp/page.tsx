@@ -21,7 +21,7 @@ export default function Home() {
   });
 
   const LevelGap =
-    levels.initial && levels.final ? XPPerLevel[`${levels.final - 1}`] : '';
+    levels.initial && levels.final ? XPPerLevel[`${Number(levels.final) - 1}` as Level] : '';
 
   const currentXP = levels.initial
     ? XPPerLevel[`${levels.initial}`] +
