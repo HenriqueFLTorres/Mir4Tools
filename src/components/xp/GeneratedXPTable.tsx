@@ -1,3 +1,4 @@
+import { Level } from '@/app/xp/page';
 import XPPerLevel from '@/data/XPPerLevel';
 import { getReadableNumber } from '@/utils/index';
 import {
@@ -13,22 +14,37 @@ import { useMemo } from 'react';
 
 export default function GeneratedXPTable({
   XPPerMinute,
-  currentXP,
+  XPToTargetLevel,
   invalidInput,
+  currentLvl,
+  currentXP,
 }: {
   XPPerMinute: number;
-  currentXP: number;
+  XPToTargetLevel?: number;
   invalidInput: boolean;
+  currentLvl?: Level;
+  currentXP: number;
 }) {
   const data = useMemo(
-    () => generateTableData(XPPerMinute, currentXP),
-    [XPPerMinute, currentXP]
+    () =>
+      currentLvl
+        ? generateTableData(
+            XPPerMinute,
+            XPToTargetLevel ?? 0,
+            currentLvl,
+            currentXP
+          )
+        : [],
+    [XPPerMinute, XPToTargetLevel, currentLvl, currentXP]
   );
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    state: {
+      columnVisibility: { currentPercentage: false },
+    },
   });
 
   if (!XPPerMinute || invalidInput) return <></>;
@@ -73,42 +89,66 @@ export default function GeneratedXPTable({
 }
 
 type TableXP = {
-  levelReached: number;
+  levelReached: Level;
+  currentPercentage: number;
   XPEarned: number;
   timeInMinutes: number;
 };
 
 const generateTableData = (
   XPPerMinute: number,
+  XPToTargetLevel: number,
+  currentLvl: Level,
   currentXP: number
 ): TableXP[] => {
   const timeSets = [30, 60, 240, 480, 720];
+  const result: TableXP[] = [];
 
-  return timeSets.map((timeInMinutes) => {
+  timeSets.map((timeInMinutes) => {
     const XPEarned = timeInMinutes * XPPerMinute;
-    const levelReached = Object.entries(XPPerLevel).find(
-      ([lvl, value]) =>
-        currentXP + XPEarned > value &&
-        currentXP + XPEarned <=
-          XPPerLevel[(Number(lvl) + 1) as unknown as keyof typeof XPPerLevel]
-    )?.[0];
 
-    return {
-      levelReached: Number(levelReached) ?? 0,
+    if (XPToTargetLevel - XPEarned < 0) return;
+
+    const percentageOfCurrent =
+      ((XPEarned) / XPPerLevel[currentLvl]) * 100;
+
+    return result.push({
+      levelReached: currentLvl,
+      currentPercentage: percentageOfCurrent,
       timeInMinutes,
       XPEarned,
-    };
+    });
   });
+
+  return [
+    ...result,
+    {
+      levelReached: String(Number(currentLvl) + 1) as Level,
+      currentPercentage: 0,
+      timeInMinutes: XPToTargetLevel / XPPerMinute,
+      XPEarned: XPToTargetLevel,
+    },
+  ];
 };
 
 const columns: ColumnDef<TableXP>[] = [
   {
     accessorKey: 'levelReached',
-    header: () => 'LVL Reached',
-    cell: ({ getValue }) => (
-      <span className='font-bold'>{`${getValue()}`}</span>
-    ),
+    header: () => 'Progression',
+    cell: ({ getValue, row }) => {
+      const percentage = row.getValue('currentPercentage') as number;
+      return (
+        <span className='font-light'>
+          <b className='font-bold'>{String(getValue())}</b>{' '}
+          {percentage ? `(+${percentage.toFixed(2)}%)` : ''}
+        </span>
+      );
+    },
     enableSorting: false,
+  },
+  {
+    accessorKey: 'currentPercentage',
+    enableHiding: true,
   },
   {
     accessorKey: 'XPEarned',
@@ -123,11 +163,16 @@ const columns: ColumnDef<TableXP>[] = [
   },
   {
     accessorKey: 'timeInMinutes',
-    header: () => 'Time',
+    header: () => <span className='flex w-full justify-end'>Time</span>,
     cell: ({ getValue }) => (
-      <span className='flex w-full justify-end whitespace-nowrap'>{`${humanizeDuration(
-        moment.duration(getValue() as number, 'minutes').asMilliseconds()
-      )}`}</span>
+      <span className='flex w-full justify-end whitespace-nowrap'>
+        {humanizeDuration(
+          moment
+            .duration(getValue() as moment.DurationInputArg1, 'minutes')
+            .asMilliseconds(),
+          { round: true }
+        )}
+      </span>
     ),
     enableSorting: false,
   },

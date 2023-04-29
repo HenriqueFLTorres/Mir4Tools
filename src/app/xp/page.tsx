@@ -6,17 +6,18 @@ import PercentageDifference from '@/components/xp/PercentageDifference';
 import Timer from '@/components/xp/Timer';
 import XPPerLevel from '@/data/XPPerLevel';
 import { getPercentage } from '@/utils/index';
+import millify from 'millify';
 import { useState } from 'react';
 
 export default function Home() {
   const [isInvalid, setIsInvalid] = useState(false);
   const [percentages, setPercentages] = useState<PercentageState>({
-    initial: "93.7718",
-    final: "93.9311",
+    initial: "40",
+    final: "49",
   });
   const [levels, setLevels] = useState<LevelState>({
     initial: "80",
-    initialPercentage: "93.9311",
+    initialPercentage: "49",
     final: "81",
   });
 
@@ -24,8 +25,7 @@ export default function Home() {
     levels.initial && levels.final ? XPPerLevel[`${Number(levels.final) - 1}` as Level] : '';
 
   const currentXP = levels.initial
-    ? XPPerLevel[`${levels.initial}`] +
-      getPercentage(LevelGap, percentages.final)
+    ? getPercentage(LevelGap, percentages.final)
     : 0;
 
   const XPToTargetLevel = !!LevelGap
@@ -63,8 +63,10 @@ export default function Home() {
 
       <GeneratedXPTable
         XPPerMinute={XPPerMinute}
-        currentXP={currentXP}
+        XPToTargetLevel={XPToTargetLevel}
         invalidInput={isInvalid}
+        currentLvl={levels.initial}
+        currentXP={currentXP}
       />
 
       <section></section>
