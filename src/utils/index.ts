@@ -93,7 +93,12 @@ export const calculateCraftByItem = ({
 export const formatForExperience = (value: string) => {
   value = value.replace(/\D/g, '');
   value = value.replace(/^(\d{6})(.+)/g, '$1');
-  return value.replace(/^(\d{2})(\d{1,4})/, '$1.$2');
+  return value.replace(/^(\d{1,2})(\d{4})/, '$1.$2');
+};
+
+export const formatForPercentage = (value: string) => {
+  value = value.replace(/\D/g, '');
+  return value.replace(/^(\d{3})(.+)/g, '$1');
 };
 
 export const formatLevel = (value: string) => {

@@ -18,12 +18,14 @@ export default function GeneratedXPTable({
   invalidInput,
   currentLvl,
   currentXP,
+  vigor
 }: {
   XPPerMinute: number;
   XPToTargetLevel?: number;
   invalidInput: boolean;
   currentLvl?: Level;
   currentXP: number;
+  vigor: number
 }) {
   const data = useMemo(
     () =>

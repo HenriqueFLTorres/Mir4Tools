@@ -19,6 +19,7 @@ export default function LevelCalculations({
   XPToTargetLevel = 0,
   XPPerMinute,
   invalidInput,
+  vigor
 }: {
   levels: LevelState;
   setLevels: React.Dispatch<SetStateAction<LevelState>>;
@@ -27,6 +28,7 @@ export default function LevelCalculations({
   XPToTargetLevel?: number;
   XPPerMinute: number;
   invalidInput: boolean;
+  vigor: number
 }) {
   return (
     <section className='flex w-full items-center gap-4'>
@@ -61,7 +63,6 @@ export default function LevelCalculations({
             }))
           }
           suffix='%'
-          defaultValue={54.2638}
         />
       </div>
 
