@@ -1,5 +1,6 @@
 import { Level, LevelState } from '@/app/xp/page';
 import Input from '@/components/Input';
+import { cn } from '@/utils/classNames';
 import {
   formatForExperience,
   formatLevel,
@@ -19,7 +20,6 @@ export default function LevelCalculations({
   XPToTargetLevel = 0,
   XPPerMinute,
   invalidInput,
-  vigor
 }: {
   levels: LevelState;
   setLevels: React.Dispatch<SetStateAction<LevelState>>;
@@ -28,13 +28,14 @@ export default function LevelCalculations({
   XPToTargetLevel?: number;
   XPPerMinute: number;
   invalidInput: boolean;
-  vigor: number
 }) {
+  const successfulInput = !!levels.initial && !!levels.final;
+
   return (
     <section className='flex w-full items-center gap-4'>
-      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-[.375rem] border-secondary-300 bg-black/20 p-4'>
+      <div className={cn('flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-8 border-white/10 bg-black/10 p-4 motion-safe:transition-colors', { ["border-white/80"]: successfulInput })}>
         <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-secondary-100 outline-none placeholder:text-secondary-100/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-white outline-none placeholder:text-white/20'
           placeholder='100'
           value={levels.initial ?? ''}
           onChange={(e) =>
@@ -55,7 +56,7 @@ export default function LevelCalculations({
         <Input
           placeholder='0.0000'
           value={percentages.final}
-          className='bg-transparent py-0 focus-within:bg-transparent hover:bg-transparent [&>input]:w-16'
+          className='bg-transparent bg-none py-0 focus-within:bg-transparent hover:bg-transparent [&>input]:w-16'
           onChange={(value) =>
             setPercentages((prev) => ({
               ...prev,
@@ -75,7 +76,12 @@ export default function LevelCalculations({
             : ''}
         </p>
 
-        <span className='flex h-1 w-full rounded-full bg-primary-400' />
+        <span
+          className={cn(
+            'flex h-1 w-full rounded-full bg-white/10 motion-safe:transition-colors',
+            { ['bg-white/80']: successfulInput }
+          )}
+        />
 
         <div className='flex flex-col items-center gap-2 px-4'>
           <p className='text-center text-base font-light text-neutral-200'>
@@ -83,7 +89,7 @@ export default function LevelCalculations({
               {XPToTargetLevel && !invalidInput
                 ? humanizeDuration(
                     moment
-                      .duration((XPToTargetLevel / XPPerMinute), 'minutes')
+                      .duration(XPToTargetLevel / XPPerMinute, 'minutes')
                       .asMilliseconds(),
                     { round: true }
                   )
@@ -102,9 +108,9 @@ export default function LevelCalculations({
         </div>
       </div>
 
-      <div className='flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-[.375rem] border-secondary-300 bg-black/20 p-4'>
+      <div className={cn('flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-8 border-white/10 bg-black/10 p-4 motion-safe:transition-colors', { ["border-white/80"]: successfulInput })}>
         <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-secondary-100 outline-none placeholder:text-secondary-100/50'
+          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-white outline-none placeholder:text-white/20'
           placeholder='100'
           value={levels.final ?? ''}
           onChange={(e) =>

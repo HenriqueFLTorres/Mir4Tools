@@ -57,16 +57,16 @@ export default function Timer() {
         {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
       </title>
 
-      <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-secondary-300 bg-black/20 p-4'>
-        <p className='text-lg font-bold text-primary-200'>
-          {showStopwatch ? `${minutes} : ${seconds}` : `05 : 00`}
+      <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-8 border-white/10 bg-black/10 p-4'>
+        <p className='text-lg font-bold text-white'>
+          {minutes} : {seconds}
         </p>
       </div>
 
       <div className='flex flex-row gap-2'>
         <button
           onClick={handleStart}
-          className='w-36 rounded-md bg-[#368D6E] py-2 text-sm font-bold text-primary-200 disabled:opacity-50'
+          className='w-36 rounded-md bg-[#368D6E] py-2 text-sm font-bold text-white disabled:opacity-50'
           disabled={timerState.isActive}
         >
           Start
@@ -74,7 +74,7 @@ export default function Timer() {
 
         <button
           onClick={handleReset}
-          className='w-36 rounded-md bg-[#77757E] py-2 text-sm font-bold text-primary-200 disabled:opacity-50'
+          className='w-36 rounded-md bg-white/20 py-2 text-sm font-bold text-white disabled:opacity-50'
           disabled={!timerState.isActive}
         >
           Reset

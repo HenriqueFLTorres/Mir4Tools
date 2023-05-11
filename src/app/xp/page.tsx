@@ -63,9 +63,9 @@ export default function Home() {
 
         <Input
           className={
-            'rounded-md bg-black/40 hover:bg-black/60 focus-within:bg-black/60 text-secondary-100 [&>input]:max-w-[5rem]'
+            'rounded-md bg-black/40 [&>input]:max-w-[5rem]'
           }
-          suffix='hour'
+          suffix='h'
           placeholder='duration'
           onChange={(value) =>
             setVigor((prev) =>
@@ -98,7 +98,6 @@ export default function Home() {
         XPToTargetLevel={XPToTargetLevel}
         XPPerMinute={XPPerMinute}
         invalidInput={isInvalid}
-        vigor={vigor}
       />
 
       <GeneratedXPTable

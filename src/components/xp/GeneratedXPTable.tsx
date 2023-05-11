@@ -54,7 +54,7 @@ export default function GeneratedXPTable({
   return (
     <section className='relative my-16 flex flex-col rounded-md border-2 border-black/40 bg-black/20'>
       <table className='relative w-full'>
-        <thead className='border-b-2 border-primary-200'>
+        <thead className='border-b-2 border-white'>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
@@ -73,11 +73,11 @@ export default function GeneratedXPTable({
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='even:bg-primary-400/20'>
+            <tr key={row.id} className='even:bg-neutral-400/10'>
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className='px-6 py-3 text-sm font-light text-primary-200'
+                  className='px-6 py-3 text-sm font-light text-white'
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

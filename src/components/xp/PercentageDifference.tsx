@@ -34,7 +34,7 @@ export default function PercentageDifference({
       )}
     >
       <Input
-        placeholder='Initial percentage'
+        placeholder='Start'
         onChange={(value) =>
           setPercentages((prev) => ({
             ...prev,
@@ -48,11 +48,11 @@ export default function PercentageDifference({
       />
       <Input
         className={cn(
-          'border-t-2 border-secondary-100 bg-transparent [&>input]:max-w-[15rem] rounded-t-none rounded-b-md bg-inputalt-top-to-bottom motion-safe:transition-colors',
+          'border-t-4 border-neutral-400/20 bg-transparent [&>input]:max-w-[15rem] rounded-t-none rounded-b-md bg-gradient-to-t motion-safe:transition-colors',
           { ['border-red-400']: invalidInput }
         )}
         suffix='%'
-        placeholder='Percentage after the timer'
+        placeholder='End'
         onChange={(value) =>
           setPercentages((prev) => ({
             ...prev,
