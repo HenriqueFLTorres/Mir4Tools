@@ -52,7 +52,7 @@ export default function GeneratedXPTable({
   if (!XPPerMinute || invalidInput) return <></>;
 
   return (
-    <section className='relative my-16 flex flex-col rounded-md border-2 border-black/40 bg-black/20'>
+    <section className='relative mt-16 flex flex-col rounded-md border-2 border-black/40 bg-black/20'>
       <table className='relative w-full'>
         <thead className='border-b-2 border-white'>
           {table.getHeaderGroups().map((headerGroup) => (
