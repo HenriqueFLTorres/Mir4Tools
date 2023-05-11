@@ -24,7 +24,7 @@ export default function Timer() {
 
         if (timeDifference <= 0) {
           play();
-          clearInterval(countRef.current);
+          handleReset()
         }
 
         return { ...prev, now: moment.now() };
@@ -49,17 +49,17 @@ export default function Timer() {
     minimumIntegerDigits: 2,
   });
 
-  const showStopwatchTitle = !!timerState.start && differenceDate > 0;
+  const showStopwatch = !!timerState.start && differenceDate > 0;
 
   return (
     <>
       <title>
-        {showStopwatchTitle ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
+        {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
       </title>
 
       <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-secondary-300 bg-black/20 p-4'>
         <p className='text-lg font-bold text-primary-200'>
-          {minutes} : {seconds}
+          {showStopwatch ? `${minutes} : ${seconds}` : `05 : 00`}
         </p>
       </div>
 
