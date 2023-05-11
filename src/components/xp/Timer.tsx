@@ -1,36 +1,51 @@
+import moment from 'moment';
 import { useRef, useState } from 'react';
 import useSound from 'use-sound';
 
-const INITIAL_COUNT = 300;
-
 export default function Timer() {
   const [play] = useSound('/audio/timer.mp3', { volume: 0.2 });
-  const [timerState, setTimerState] = useState({
+  const [timerState, setTimerState] = useState<TimerState>({
+    start: undefined,
+    now: moment.now(),
     isActive: false,
-    count: INITIAL_COUNT,
   });
   const countRef = useRef<any>(null);
 
   const handleStart = () => {
-    setTimerState((prev) => ({ ...prev, isActive: true }));
+    setTimerState((prev) => ({ ...prev, isActive: true, start: moment.now() }));
+
     countRef.current = setInterval(() => {
       setTimerState((prev) => {
-        if (prev.count === 1) {
+        const targetTime = moment
+          .duration(moment.now())
+          .subtract({ minutes: 5 })
+          .as('milliseconds');
+        const timeDifference = moment(prev.start).diff(targetTime);
+
+        if (timeDifference <= 0) {
           play();
           clearInterval(countRef.current);
-          return { isActive: false, count: INITIAL_COUNT };
-        } else return { ...prev, count: prev.count - 1 };
+        }
+
+        return { ...prev, now: moment.now() };
       });
     }, 1000);
   };
 
   const handleReset = () => {
     clearInterval(countRef.current);
-    setTimerState({ isActive: false, count: INITIAL_COUNT });
+    setTimerState((prev) => ({ ...prev, isActive: false, start: undefined }));
   };
 
-  const minutes = Math.floor(timerState.count / 60);
-  const seconds = Number(timerState.count % 60).toLocaleString('en', {
+  const differenceDate = Math.round(
+    moment
+      .duration(moment(timerState.start).diff(moment.now()))
+      .add({ minutes: 5 })
+      .asSeconds()
+  );
+
+  const minutes = Math.floor(differenceDate / 60);
+  const seconds = Number(differenceDate % 60).toLocaleString('en', {
     minimumIntegerDigits: 2,
   });
 
@@ -38,7 +53,7 @@ export default function Timer() {
     <>
       <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-secondary-300 bg-black/20 p-4'>
         <p className='text-lg font-bold text-primary-200'>
-          {minutes} : {seconds}
+          {minutes} : {seconds ? seconds : 0}
         </p>
       </div>
 
@@ -62,3 +77,5 @@ export default function Timer() {
     </>
   );
 }
+
+type TimerState = { start?: number; now?: number; isActive: boolean };
