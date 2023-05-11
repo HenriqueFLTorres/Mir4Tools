@@ -18,7 +18,7 @@ export default function Timer() {
       setTimerState((prev) => {
         const targetTime = moment
           .duration(moment.now())
-          .subtract({ seconds: 5 })
+          .subtract({ minutes: 5 })
           .as('milliseconds');
         const timeDifference = moment(prev.start).diff(targetTime);
 
@@ -40,7 +40,7 @@ export default function Timer() {
   const differenceDate = Math.round(
     moment
       .duration(moment(timerState.start).diff(moment.now()))
-      .add({ seconds: 5 })
+      .add({ minutes: 5 })
       .asSeconds()
   );
 
