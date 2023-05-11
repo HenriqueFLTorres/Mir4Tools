@@ -18,7 +18,7 @@ export default function Timer() {
       setTimerState((prev) => {
         const targetTime = moment
           .duration(moment.now())
-          .subtract({ minutes: 5 })
+          .subtract({ seconds: 5 })
           .as('milliseconds');
         const timeDifference = moment(prev.start).diff(targetTime);
 
@@ -40,7 +40,7 @@ export default function Timer() {
   const differenceDate = Math.round(
     moment
       .duration(moment(timerState.start).diff(moment.now()))
-      .add({ minutes: 5 })
+      .add({ seconds: 5 })
       .asSeconds()
   );
 
@@ -49,11 +49,17 @@ export default function Timer() {
     minimumIntegerDigits: 2,
   });
 
+  const showStopwatchTitle = !!timerState.start && differenceDate > 0;
+
   return (
     <>
+      <title>
+        {showStopwatchTitle ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
+      </title>
+
       <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-4 border-secondary-300 bg-black/20 p-4'>
         <p className='text-lg font-bold text-primary-200'>
-          {minutes} : {seconds ? seconds : 0}
+          {minutes} : {seconds}
         </p>
       </div>
 
