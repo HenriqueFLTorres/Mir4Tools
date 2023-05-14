@@ -62,9 +62,7 @@ export default function Home() {
         />
 
         <Input
-          className={
-            'rounded-md bg-black/40 [&>input]:max-w-[5rem]'
-          }
+          className={'rounded-md bg-black/40 [&>input]:max-w-[5rem]'}
           suffix='h'
           placeholder='duration'
           onChange={(value) =>
@@ -76,7 +74,7 @@ export default function Home() {
         />
       </div>
 
-      <span className='absolute right-4 text-white flex flex-col text-right font-light top-72 items-end gap-2 p-2 rounded-md bg-black/40'>
+      <span className='absolute right-4 top-72 flex flex-col items-end gap-2 rounded-md bg-black/40 p-2 text-right font-light text-white'>
         <b className='font-bold'>{millify(acquiredXPWithVigor)} XP</b>
         {acquiredPercentage} %
       </span>
