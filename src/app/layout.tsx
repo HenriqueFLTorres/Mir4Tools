@@ -1,4 +1,3 @@
-"use client";
 import '@/styles/globals.css';
 import { cn } from '@/utils/classNames';
 import { Noto_Sans_KR } from '@next/font/google';
@@ -21,7 +20,7 @@ export default function RootLayout({
     <html lang='en' className={cn(notoSansKR.variable, 'antialiased')}>
       <head />
       <Providers>
-        {children}
+        <body>{children}</body>
       </Providers>
     </html>
   );

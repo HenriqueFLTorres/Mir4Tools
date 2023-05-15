@@ -14,23 +14,20 @@ export default function Home() {
   }
 
   return (
-    <body className='flex min-h-screen w-full bg-primary-900 font-ubuntu'>
-      <div className='pointer-events-none fixed left-0 top-0 -z-10 flex h-screen w-full justify-center overflow-hidden'>
-        <Image
-          src={'/images/main-background.webp'}
-          alt=''
-          width={1946}
-          height={829}
-          className='pointer-events-none absolute top-0 min-w-[120rem] shrink-0 overflow-hidden object-contain opacity-20 blur-lg'
-          quality={10}
-          priority
-        />
-      </div>
+    <div className='flex min-h-screen w-full bg-primary-900 font-ubuntu'>
+      <Image
+        src={'/images/main-background.webp'}
+        alt=''
+        fill
+        className='blur-lg fixed pointer-events-none overflow-hidden object-cover opacity-20'
+        quality={10}
+        priority
+      />
       <main className='min-w-screen relative flex h-full w-full'>
         <Navbar />
         <Sidebar />
         <CraftingMain />
       </main>
-    </body>
+    </div>
   );
 }

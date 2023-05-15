@@ -106,8 +106,6 @@ export default function Home() {
         currentXP={currentXP}
         vigor={vigor}
       />
-
-      <section></section>
     </>
   );
 }
