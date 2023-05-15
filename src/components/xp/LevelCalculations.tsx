@@ -1,15 +1,11 @@
 import { Level, LevelState } from '@/app/xp/page';
-import Input from '@/components/Input';
 import { cn } from '@/utils/classNames';
-import {
-  formatForExperience,
-  formatLevel,
-  getReadableNumber,
-} from '@/utils/index';
+import { formatLevel, getReadableNumber } from '@/utils/index';
 import humanizeDuration from 'humanize-duration';
 import { SetStateAction } from 'jotai';
 import millify from 'millify';
 import moment from 'moment';
+import Image from 'next/image';
 import React from 'react';
 
 export default function LevelCalculations({
@@ -33,41 +29,29 @@ export default function LevelCalculations({
 
   return (
     <section className='flex w-full items-center gap-4'>
-      <div className={cn('flex h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border-8 border-white/10 bg-black/10 p-4 motion-safe:transition-colors', { ["border-white/80"]: successfulInput })}>
-        <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-white outline-none placeholder:text-white/20'
-          placeholder='100'
-          value={levels.initial ?? ''}
-          onChange={(e) =>
-            setLevels((prev) => ({
-              ...prev,
-              initial: formatLevel(e.target.value) as Level,
-            }))
-          }
-          onBlur={() =>
-            !levels.final &&
-            setLevels((prev) =>
-              prev.initial
-                ? { ...prev, final: `${Number(prev.initial) + 1}` as Level }
-                : prev
-            )
-          }
-        />
-        <Input
-          placeholder='0.0000'
-          value={percentages.final}
-          className='bg-transparent bg-none py-0 focus-within:bg-transparent hover:bg-transparent [&>input]:w-16'
-          onChange={(value) =>
-            setPercentages((prev) => ({
-              ...prev,
-              final: formatForExperience(value),
-            }))
-          }
-          suffix='%'
-        />
-      </div>
+      <LevelFrame
+        label='Current Level'
+        placeholder='100'
+        percentage={`${percentages.final ?? 0}%`}
+        value={levels.initial ?? ''}
+        onChange={(value) =>
+          setLevels((prev) => ({
+            ...prev,
+            initial: formatLevel(value),
+          }))
+        }
+        onBlur={() =>
+          !levels.final &&
+          setLevels((prev) =>
+            prev.initial
+              ? { ...prev, final: `${Number(prev.initial) + 1}` as Level }
+              : prev
+          )
+        }
+        success={successfulInput}
+      />
 
-      <div className='grid h-full w-full grid-rows-[1fr_4px_1fr] flex-col items-center gap-2'>
+      <div className='grid h-full w-full pt-11 grid-rows-[1fr_4px_1fr] flex-col items-center gap-2'>
         <p className='px-4 text-center text-xl font-medium text-neutral-200'>
           {XPToTargetLevel && !invalidInput
             ? `${getReadableNumber(XPToTargetLevel)} (${millify(
@@ -78,8 +62,8 @@ export default function LevelCalculations({
 
         <span
           className={cn(
-            'flex h-1 w-full rounded-full bg-white/10 motion-safe:transition-colors',
-            { ['bg-white/80']: successfulInput }
+            'flex h-1 w-full rounded-full bg-primary-500 motion-safe:transition-colors',
+            { ['bg-primary-400']: successfulInput }
           )}
         />
 
@@ -108,19 +92,69 @@ export default function LevelCalculations({
         </div>
       </div>
 
-      <div className={cn('flex h-32 w-32 shrink-0 flex-col items-center justify-center gap-1 rounded-full border-8 border-white/10 bg-black/10 p-4 motion-safe:transition-colors', { ["border-white/80"]: successfulInput })}>
-        <input
-          className='w-20 appearance-none bg-transparent text-center text-4xl font-bold text-white outline-none placeholder:text-white/20'
-          placeholder='100'
-          value={levels.final ?? ''}
-          onChange={(e) =>
-            setLevels((prev) => ({
-              ...prev,
-              final: formatLevel(e.target.value) as Level,
-            }))
-          }
-        />
-      </div>
+      <LevelFrame
+        label='Desired Level'
+        placeholder='100'
+        value={levels.final ?? ''}
+        onChange={(value) =>
+          setLevels((prev) => ({
+            ...prev,
+            final: formatLevel(value),
+          }))
+        }
+        success={successfulInput}
+      />
     </section>
+  );
+}
+
+function LevelFrame({
+  label,
+  percentage,
+  onChange,
+  value,
+  success,
+  ...props
+}: {
+  label: string;
+  percentage?: string;
+  onChange: (value: string) => void;
+  value?: string;
+  success: boolean;
+} & Omit<React.HTMLAttributes<HTMLElement>, 'value' | 'onChange'>) {
+  return (
+    <label className='flex shrink-0 flex-col gap-4 text-center text-lg font-bold text-white'>
+      {label}
+
+      <div
+        className={
+          'relative flex h-32 w-32 flex-col items-center justify-center'
+        }
+      >
+        <Image
+          src={'/images/level-frame.svg'}
+          alt=''
+          width={136}
+          height={136}
+          className='pointer-events-none absolute select-none'
+        />
+        <input
+          className={cn(
+            'relative z-10 w-28 bg-transparent text-center text-4xl font-bold text-white outline-none drop-shadow-sm selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            { ['pt-4']: !!percentage }
+          )}
+          {...props}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+        {percentage ? (
+          <p className='relative z-10 text-sm font-normal text-white'>
+            {percentage}
+          </p>
+        ) : (
+          <></>
+        )}
+      </div>
+    </label>
   );
 }

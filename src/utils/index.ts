@@ -1,3 +1,4 @@
+import { Level } from '@/app/xp/page';
 import CraftCost from '@/data/CraftCost';
 import { SetStateAction, atom } from 'jotai';
 
@@ -101,10 +102,10 @@ export const formatForPercentage = (value: string) => {
   return value.replace(/^(\d{3})(.+)/g, '$1');
 };
 
-export const formatLevel = (value: string) => {
+export const formatLevel = (value: string): Level => {
   value = value.replace(/\D/g, '');
   value = value.replace(/^(\d{3})(.+)/g, '$1'); 
-  return Number(value) > 190 ? "190" : value
+  return Number(value) > 190 ? "190" : value as Level
 };
 
 export const getPercentage = (
