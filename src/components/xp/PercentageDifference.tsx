@@ -1,5 +1,4 @@
 import Input from '@/components/Input';
-import { cn } from '@/utils/classNames';
 import { formatForExperience } from '@/utils/index';
 import { SetStateAction } from 'jotai';
 
@@ -25,16 +24,10 @@ export default function PercentageDifference({
   };
 
   return (
-    <div
-      className={cn(
-        'my-16 flex w-full max-w-xs flex-col rounded-md border-2 border-transparent motion-safe:transition-colors',
-        {
-          ['border-red-400 bg-red-400/10']: invalidInput,
-        }
-      )}
-    >
+    <div className={'my-8 flex'}>
       <Input
         placeholder='Start'
+        label='Before Timer'
         onChange={(value) =>
           setPercentages((prev) => ({
             ...prev,
@@ -44,15 +37,13 @@ export default function PercentageDifference({
         value={percentages.initial}
         suffix='%'
         onBlur={handleInvalid}
-        className='[&>input]:max-w-[15rem]'
+        error={!!invalidInput}
+        className='max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500'
       />
       <Input
-        className={cn(
-          'border-t-4 border-neutral-400/20 bg-transparent [&>input]:max-w-[15rem] rounded-t-none rounded-b-md bg-gradient-to-t motion-safe:transition-colors',
-          { ['border-red-400']: invalidInput }
-        )}
         suffix='%'
         placeholder='End'
+        label='After Timer'
         onChange={(value) =>
           setPercentages((prev) => ({
             ...prev,
@@ -61,6 +52,8 @@ export default function PercentageDifference({
         }
         value={percentages.final}
         onBlur={handleInvalid}
+        error={!!invalidInput}
+        className='max-w-[10rem] [&>div]:rounded-l-none'
       />
     </div>
   );
