@@ -2,6 +2,7 @@
 
 import CraftingMain from '@/components/crafting/CraftingMain';
 import Navbar from '@/components/global/Navbar';
+import Sidebar from '@/components/global/Sidebar';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -27,6 +28,7 @@ export default function Home() {
       </div>
       <main className='min-w-screen relative flex h-full w-full'>
         <Navbar />
+        <Sidebar />
         <CraftingMain />
       </main>
     </body>
