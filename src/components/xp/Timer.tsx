@@ -1,4 +1,5 @@
 import moment from 'moment';
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 import useSound from 'use-sound';
 
@@ -24,7 +25,7 @@ export default function Timer() {
 
         if (timeDifference <= 0) {
           play();
-          handleReset()
+          handleReset();
         }
 
         return { ...prev, now: moment.now() };
@@ -57,29 +58,36 @@ export default function Timer() {
         {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
       </title>
 
-      <div className='mb-5 flex h-32 w-32 items-center justify-center rounded-full border-8 border-white/10 bg-black/10 p-4'>
-        <p className='text-lg font-bold text-white'>
+      <section className='relative flex w-80 flex-col items-center gap-6 overflow-hidden rounded-lg border-2 border-[#7E73AD30] py-4 backdrop-blur-2xl'>
+        <h1 className='text-6xl font-bold text-white'>
           {minutes} : {seconds}
-        </p>
-      </div>
+        </h1>
 
-      <div className='flex flex-row gap-2'>
-        <button
-          onClick={handleStart}
-          className='w-36 rounded-md bg-[#368D6E] py-2 text-sm font-bold text-white disabled:opacity-50'
-          disabled={timerState.isActive}
-        >
-          Start
-        </button>
+        <Image
+          fill
+          alt=''
+          src='/images/timer-background.svg'
+          className='pointer-events-none absolute object-cover'
+        />
 
-        <button
-          onClick={handleReset}
-          className='w-36 rounded-md bg-white/20 py-2 text-sm font-bold text-white disabled:opacity-50'
-          disabled={!timerState.isActive}
-        >
-          Reset
-        </button>
-      </div>
+        <div className='flex flex-row gap-3'>
+          <button
+            onClick={handleStart}
+            className='w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50'
+            disabled={timerState.isActive}
+          >
+            Start
+          </button>
+
+          <button
+            onClick={handleReset}
+            className='w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50'
+            disabled={!timerState.isActive}
+          >
+            Reset
+          </button>
+        </div>
+      </section>
     </>
   );
 }
