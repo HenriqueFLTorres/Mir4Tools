@@ -24,7 +24,7 @@ export default function PercentageDifference({
   };
 
   return (
-    <div className={'my-8 flex'}>
+    <div className={'mt-8 mb-2 flex'}>
       <Input
         placeholder='Start'
         label='Before Timer'

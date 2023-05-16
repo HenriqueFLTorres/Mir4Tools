@@ -1,14 +1,12 @@
 'use client';
 
-import Input from '@/components/Input';
 import GeneratedXPTable from '@/components/xp/GeneratedXPTable';
 import LevelCalculations from '@/components/xp/LevelCalculations';
 import PercentageDifference from '@/components/xp/PercentageDifference';
 import Timer from '@/components/xp/Timer';
+import Vigor from '@/components/xp/Vigor';
 import XPPerLevel from '@/data/XPPerLevel';
 import { getPercentage } from '@/utils/index';
-import millify from 'millify';
-import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Home() {
@@ -22,16 +20,11 @@ export default function Home() {
     initialPercentage: undefined,
     final: undefined,
   });
-  const [vigor, setVigor] = useState(0);
 
   const LevelGap =
     levels.initial && levels.final
       ? XPPerLevel[`${Number(levels.final) - 1}` as Level]
       : '';
-
-  const currentXP = levels.initial
-    ? getPercentage(LevelGap, percentages.final)
-    : 0;
 
   const XPToTargetLevel = !!LevelGap
     ? getPercentage(LevelGap, 100 - Number(percentages.final))
@@ -45,41 +38,11 @@ export default function Home() {
         )
       : 0;
 
-  const acquiredXPWithVigor = XPPerMinute * 60 * vigor;
-  const acquiredPercentage = levels.initial
-    ? ((acquiredXPWithVigor / XPPerLevel[`${levels.initial}`]) * 100).toFixed(4)
-    : 0;
-
   return (
     <>
-      <div className='absolute right-4 top-56 flex flex-row items-center gap-2'>
-        <Image
-          src='/items/vigor.png'
-          alt=''
-          width={72}
-          height={72}
-          className='rounded-full bg-black/40 p-2'
-        />
-
-        <Input
-          className={'rounded-md bg-black/40 [&>input]:max-w-[5rem]'}
-          suffix='h'
-          placeholder='duration'
-          onChange={(value) =>
-            setVigor((prev) =>
-              Number.isInteger(Number(value)) ? Number(value) : prev
-            )
-          }
-          value={String(vigor)}
-        />
-      </div>
-
-      <span className='absolute right-4 top-72 flex flex-col items-end gap-2 rounded-md bg-black/40 p-2 text-right font-light text-white'>
-        <b className='font-bold'>{millify(acquiredXPWithVigor)} XP</b>
-        {acquiredPercentage} %
-      </span>
-
       <Timer />
+
+      <Vigor XPPerMinute={XPPerMinute} levels={levels} />
 
       <PercentageDifference
         percentages={percentages}
@@ -103,8 +66,6 @@ export default function Home() {
         XPToTargetLevel={XPToTargetLevel}
         invalidInput={isInvalid}
         currentLvl={levels.initial}
-        currentXP={currentXP}
-        vigor={vigor}
       />
     </>
   );

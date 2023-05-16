@@ -17,15 +17,11 @@ export default function GeneratedXPTable({
   XPToTargetLevel,
   invalidInput,
   currentLvl,
-  currentXP,
-  vigor
 }: {
   XPPerMinute: number;
   XPToTargetLevel?: number;
   invalidInput: boolean;
   currentLvl?: Level;
-  currentXP: number;
-  vigor: number
 }) {
   const data = useMemo(
     () =>
@@ -33,11 +29,10 @@ export default function GeneratedXPTable({
         ? generateTableData(
             XPPerMinute,
             XPToTargetLevel ?? 0,
-            currentLvl,
-            currentXP
+            currentLvl
           )
         : [],
-    [XPPerMinute, XPToTargetLevel, currentLvl, currentXP]
+    [XPPerMinute, XPToTargetLevel, currentLvl]
   );
 
   const table = useReactTable({
@@ -101,7 +96,6 @@ const generateTableData = (
   XPPerMinute: number,
   XPToTargetLevel: number,
   currentLvl: Level,
-  currentXP: number
 ): TableXP[] => {
   const timeSets = [30, 60, 240, 480, 720];
   const result: TableXP[] = [];

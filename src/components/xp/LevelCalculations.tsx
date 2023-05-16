@@ -51,8 +51,8 @@ export default function LevelCalculations({
         success={successfulInput}
       />
 
-      <div className='grid h-full w-full pt-11 grid-rows-[1fr_4px_1fr] flex-col items-center gap-2'>
-        <p className='px-4 text-center text-xl font-medium text-neutral-200'>
+      <div className='grid h-full w-full pt-11 grid-rows-[1fr_4px_1fr] flex-col items-center gap-4'>
+        <p className='px-4 text-center mt-auto text-xl font-medium text-white'>
           {XPToTargetLevel && !invalidInput
             ? `${getReadableNumber(XPToTargetLevel)} (${millify(
                 XPToTargetLevel
@@ -63,12 +63,12 @@ export default function LevelCalculations({
         <span
           className={cn(
             'flex h-1 w-full rounded-full bg-primary-500 motion-safe:transition-colors',
-            { ['bg-primary-400']: successfulInput }
+            { ['bg-white']: successfulInput }
           )}
         />
 
         <div className='flex flex-col items-center gap-2 px-4'>
-          <p className='text-center text-base font-light text-neutral-200'>
+          <p className='text-center text-base font-light text-white'>
             <b className='font-bold'>
               {XPToTargetLevel && !invalidInput
                 ? humanizeDuration(
@@ -82,7 +82,7 @@ export default function LevelCalculations({
             to level up
           </p>
 
-          <p className='text-center text-base font-light text-neutral-200'>
+          <p className='text-center text-base font-light text-white'>
             You are earning{' '}
             <b className='font-bold'>
               {invalidInput ? 0 : getReadableNumber(XPPerMinute * 5)}
@@ -140,7 +140,7 @@ function LevelFrame({
         />
         <input
           className={cn(
-            'relative z-10 w-28 bg-transparent text-center text-4xl font-bold text-white outline-none drop-shadow-sm selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            'relative z-10 w-28 bg-transparent text-center text-4xl font-bold text-white outline-none drop-shadow-sm selection:bg-primary-800 placeholder:text-white/70 motion-safe:transition-colors',
             { ['pt-4']: !!percentage }
           )}
           {...props}
