@@ -3,8 +3,8 @@
 import { LevelState } from '@/app/xp/page';
 import Input from '@/components/Input';
 import XPPerLevel from '@/data/XPPerLevel';
+import Info from '@/icons/Info';
 import millify from 'millify';
-import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Vigor({
@@ -22,33 +22,40 @@ export default function Vigor({
     : 0;
 
   return (
-    <>
-      <div className='absolute right-4 top-56 flex flex-row items-center gap-2'>
-        <Image
-          src='/items/vigor.png'
-          alt=''
-          width={72}
-          height={72}
-          className='rounded-full bg-black/40 p-2'
-        />
-
+    <section className='absolute right-4 top-56 flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
+      <header className='flex justify-between'>
+        <h2 className='text-2xl font-bold text-white'>Vigor</h2>
+        <button className='p-1'>
+          <Info className='h-6 w-6' />
+        </button>
+      </header>
+      
+      <div className='flex items-center gap-2'>
         <Input
-          className={'rounded-md bg-black/40 [&>input]:max-w-[5rem]'}
+          className={'max-w-[5rem] shrink-0'}
           suffix='h'
           placeholder='duration'
           onChange={(value) =>
             setVigor((prev) =>
-              Number.isInteger(Number(value)) ? Number(value) : prev
+              Number.isInteger(Number(value)) && Number(value) < 1000
+                ? Number(value)
+                : prev
             )
           }
           value={String(vigor)}
         />
-      </div>
 
-      <span className='absolute right-4 top-72 flex flex-col items-end gap-2 rounded-md bg-black/40 p-2 text-right font-light text-white'>
-        <b className='font-bold'>{millify(acquiredXPWithVigor)} XP</b>
-        {acquiredPercentage} %
-      </span>
-    </>
+        <div className='flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-2 text-base text-white'>
+          <span className='inline-flex gap-2'>
+            <p className='truncate'>{millify(acquiredXPWithVigor)} </p>
+            <b className='shrink-0 font-bold'>XP</b>
+          </span>
+          <span className='inline-flex gap-2'>
+            <p className='truncate'>{acquiredPercentage}</p>
+            <b className='shrink-0 font-bold'>%</b>
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }
