@@ -52,15 +52,15 @@ export default function GeneratedXPTable({
   if (!XPPerMinute || invalidInput) return <></>;
 
   return (
-    <section className='relative mt-16 flex flex-col rounded-md border-2 border-black/40 bg-black/20'>
+    <section className='relative mt-16 flex flex-col rounded-xl p-1 bg-primary-600'>
       <table className='relative w-full'>
-        <thead className='border-b-2 border-white'>
+        <thead className='border-b-2 border-primary-500/50'>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className='px-4 py-2 text-base font-bold text-neutral-200'
+                  className='px-6 py-2 text-xl font-bold text-white'
                 >
                   {flexRender(
                     header.column.columnDef.header,
@@ -73,11 +73,11 @@ export default function GeneratedXPTable({
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='even:bg-neutral-400/10'>
+            <tr key={row.id} className='[&:nth-child(even)>*]:bg-primary-500/20'>
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className='px-6 py-3 text-sm font-light text-white'
+                  className='px-6 py-3 text-sm font-light first:rounded-l-md last:rounded-r-md text-white'
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
