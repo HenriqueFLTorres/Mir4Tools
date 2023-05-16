@@ -1,4 +1,3 @@
-'use client';
 import MainBackground from '@/components/global/MainBackground';
 import Sidebar from '@/components/global/Sidebar';
 

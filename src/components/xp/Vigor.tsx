@@ -1,5 +1,3 @@
-'use client';
-
 import { LevelState } from '@/app/xp/page';
 import Input from '@/components/Input';
 import XPPerLevel from '@/data/XPPerLevel';
@@ -29,7 +27,7 @@ export default function Vigor({
           <Info className='h-6 w-6' />
         </button>
       </header>
-      
+
       <div className='flex items-center gap-2'>
         <Input
           className={'max-w-[5rem] shrink-0'}
