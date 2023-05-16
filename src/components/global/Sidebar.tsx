@@ -50,7 +50,7 @@ export default function Sidebar() {
         className='mb-2'
       />
 
-      {/* <ProfileSection /> */}
+      <ProfileSection />
     </aside>
   );
 }
