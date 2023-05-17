@@ -116,5 +116,7 @@ export const getPercentage = (
 export const getReadableNumber = (number: number) =>
   Math.round(number).toLocaleString('en', { useGrouping: true });
 
-export const getValidNumber = (value: string | number, fallbackValue: number) =>
-  Number.isInteger(Number(value)) ? Number(value) : fallbackValue;
+export const getValidNumber = (value: string | number, fallbackValue: number) =>{
+  value = String(value).replace(/\D/g, '')
+  return Number.isInteger(Number(value)) ? Number(value) : fallbackValue;
+}

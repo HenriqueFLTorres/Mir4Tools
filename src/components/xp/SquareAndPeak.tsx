@@ -1,5 +1,5 @@
 import Info from '@/icons/Info';
-import { getValidNumber } from '@/utils/index';
+import { getReadableNumber, getValidNumber } from '@/utils/index';
 import humanizeDuration from 'humanize-duration';
 import moment from 'moment';
 import Image from 'next/image';
@@ -29,7 +29,7 @@ export default function SquareAndPeak({
     (0.5 * magicSquare.tickets + 0.5 * secretPeak.tickets) / 24;
 
   return (
-    <section className='absolute right-4 top-4 z-50 flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
+    <section className='flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
       <div className='flex items-center gap-2.5'>
         <div className='flex h-12 w-12 items-center justify-center rounded-full border border-primary-500 bg-primary-600'>
           <Image
@@ -72,7 +72,8 @@ export default function SquareAndPeak({
               },
             }))
           }
-          value={String(magicSquare.xpPerRun)}
+          value={getReadableNumber(magicSquare.xpPerRun)}
+          suffix="XP"
         />
       </div>
 
@@ -115,7 +116,8 @@ export default function SquareAndPeak({
               },
             }))
           }
-          value={String(secretPeak.xpPerRun)}
+          value={getReadableNumber(secretPeak.xpPerRun)}
+          suffix="XP"
         />
       </div>
 

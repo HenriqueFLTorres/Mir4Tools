@@ -43,13 +43,15 @@ export default function Home() {
     <>
       <Timer />
 
-      <Vigor XPPerMinute={XPPerMinute} levels={levels} />
+      <div className='absolute right-4 top-4 z-50 flex flex-col gap-4'>
+        <SquareAndPeak
+          XPPerHour={XPPerMinute * 60}
+          currentXP={getPercentage(LevelGap, Number(percentages.final))}
+          totalXP={LevelGap ? LevelGap : 0}
+        />
 
-      <SquareAndPeak
-        XPPerHour={XPPerMinute * 60}
-        currentXP={getPercentage(LevelGap, Number(percentages.final))}
-        totalXP={LevelGap ? LevelGap : 0}
-      />
+        <Vigor XPPerMinute={XPPerMinute} levels={levels} />
+      </div>
 
       <PercentageDifference
         percentages={percentages}
