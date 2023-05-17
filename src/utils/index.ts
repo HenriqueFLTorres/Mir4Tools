@@ -104,8 +104,8 @@ export const formatForPercentage = (value: string) => {
 
 export const formatLevel = (value: string): Level => {
   value = value.replace(/\D/g, '');
-  value = value.replace(/^(\d{3})(.+)/g, '$1'); 
-  return Number(value) > 190 ? "190" : value as Level
+  value = value.replace(/^(\d{3})(.+)/g, '$1');
+  return Number(value) > 190 ? '190' : (value as Level);
 };
 
 export const getPercentage = (
@@ -115,3 +115,6 @@ export const getPercentage = (
 
 export const getReadableNumber = (number: number) =>
   Math.round(number).toLocaleString('en', { useGrouping: true });
+
+export const getValidNumber = (value: string | number, fallbackValue: number) =>
+  Number.isInteger(Number(value)) ? Number(value) : fallbackValue;

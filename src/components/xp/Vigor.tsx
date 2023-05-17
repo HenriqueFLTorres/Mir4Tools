@@ -20,7 +20,7 @@ export default function Vigor({
     : 0;
 
   return (
-    <section className='absolute right-4 top-56 flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
+    <section className='absolute right-4 top-96 z-50 flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
       <header className='flex justify-between'>
         <h2 className='text-2xl font-bold text-white'>Vigor</h2>
         <button className='p-1'>
@@ -30,7 +30,7 @@ export default function Vigor({
 
       <div className='flex items-center gap-2'>
         <Input
-          className={'max-w-[5rem] shrink-0'}
+          className={'max-w-[5rem] shrink-0 [&>div]:py-1'}
           suffix='h'
           placeholder='duration'
           onChange={(value) =>
@@ -43,7 +43,7 @@ export default function Vigor({
           value={String(vigor)}
         />
 
-        <div className='flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-2 text-base text-white'>
+        <div className='flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-1 text-base text-white'>
           <span className='inline-flex gap-2'>
             <p className='truncate'>{millify(acquiredXPWithVigor)} </p>
             <b className='shrink-0 font-bold'>XP</b>

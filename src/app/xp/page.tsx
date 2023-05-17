@@ -3,6 +3,7 @@
 import GeneratedXPTable from '@/components/xp/GeneratedXPTable';
 import LevelCalculations from '@/components/xp/LevelCalculations';
 import PercentageDifference from '@/components/xp/PercentageDifference';
+import SquareAndPeak from '@/components/xp/SquareAndPeak';
 import Timer from '@/components/xp/Timer';
 import Vigor from '@/components/xp/Vigor';
 import XPPerLevel from '@/data/XPPerLevel';
@@ -43,6 +44,12 @@ export default function Home() {
       <Timer />
 
       <Vigor XPPerMinute={XPPerMinute} levels={levels} />
+
+      <SquareAndPeak
+        XPPerHour={XPPerMinute * 60}
+        currentXP={getPercentage(LevelGap, Number(percentages.final))}
+        totalXP={LevelGap ? LevelGap : 0}
+      />
 
       <PercentageDifference
         percentages={percentages}
