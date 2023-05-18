@@ -68,6 +68,7 @@ export default function Timer() {
           alt=''
           src='/images/timer-background.svg'
           className='pointer-events-none absolute object-cover'
+          sizes='100%'
         />
 
         <div className='flex flex-row gap-3'>

@@ -12,6 +12,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [isInvalid, setIsInvalid] = useState(false);
+  const [xpPerMinute, setXPperMinute] = useState<undefined | number>(undefined);
   const [percentages, setPercentages] = useState<PercentageState>({
     initial: undefined,
     final: undefined,
@@ -28,16 +29,17 @@ export default function Home() {
       : '';
 
   const XPToTargetLevel = !!LevelGap
-    ? getPercentage(LevelGap, 100 - Number(percentages.final))
+    ? getPercentage(LevelGap, 100 - Number(levels.initialPercentage ?? percentages.final))
     : undefined;
 
-  const XPPerMinute =
-    levels.initial && levels.final && percentages.initial && percentages.final
-      ? getPercentage(
-          XPPerLevel[`${levels.initial}`],
-          (Number(percentages.final) - Number(percentages.initial)) / 5
-        )
-      : 0;
+  const XPPerMinute = xpPerMinute
+    ? xpPerMinute
+    : levels.initial && levels.final && percentages.initial && percentages.final
+    ? getPercentage(
+        XPPerLevel[`${levels.initial}`],
+        (Number(levels.initialPercentage ?? percentages.final) - Number(percentages.initial)) / 5
+      )
+    : 0;
 
   return (
     <>
@@ -46,7 +48,7 @@ export default function Home() {
       <div className='absolute right-4 top-4 z-50 flex flex-col gap-4'>
         <SquareAndPeak
           XPPerHour={XPPerMinute * 60}
-          currentXP={getPercentage(LevelGap, Number(percentages.final))}
+          currentXP={getPercentage(LevelGap, Number(levels.initialPercentage ?? percentages.final))}
           totalXP={LevelGap ? LevelGap : 0}
         />
 
@@ -58,6 +60,10 @@ export default function Home() {
         setPercentages={setPercentages}
         invalidInput={isInvalid}
         setIsInvalid={setIsInvalid}
+        xpPerMinute={xpPerMinute}
+        setXPperMinute={setXPperMinute}
+        initialPercentage={levels.initialPercentage}
+        onChangeInitial={(value) => setLevels(prev => ({ ...prev, initialPercentage: value }))}
       />
 
       <LevelCalculations

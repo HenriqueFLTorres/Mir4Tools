@@ -32,7 +32,7 @@ export default function LevelCalculations({
       <LevelFrame
         label='Current Level'
         placeholder='100'
-        percentage={`${percentages.final ?? 0}%`}
+        percentage={`${levels.initialPercentage ?? percentages.final ?? 0}%`}
         value={levels.initial ?? ''}
         onChange={(value) =>
           setLevels((prev) => ({
