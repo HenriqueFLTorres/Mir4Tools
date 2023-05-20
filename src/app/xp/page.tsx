@@ -49,29 +49,18 @@ export default function Home() {
     setXPCalc,
   ]);
 
-  const XPPerMinute = xpPerMinute
-    ? xpPerMinute
-    : levels.initial && levels.final && percentages.initial && percentages.final
-    ? getPercentage(
-        XPPerLevel[`${levels.initial}`],
-        (Number(levels.initialPercentage ?? percentages.final) -
-          Number(percentages.initial)) /
-          5
-      )
-    : 0;
-
   return (
     <>
       <Timer />
 
       <div className='absolute right-4 top-4 z-50 flex flex-col gap-4'>
         <SquareAndPeak
-          XPPerHour={XPPerMinute * 60}
           currentXP={getPercentage(
             LevelGap,
             Number(levels.initialPercentage ?? percentages.final)
           )}
           totalXP={LevelGap ? LevelGap : 0}
+          XPToTargetLevel={XPToTargetLevel}
         />
 
         <Vigor />

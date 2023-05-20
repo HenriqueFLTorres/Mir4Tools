@@ -1,4 +1,4 @@
-import { XPExtension } from '@/atoms/XPCalculator';
+import { XPCalculatorAtom, XPExtension } from '@/atoms/XPCalculator';
 import Info from '@/icons/Info';
 import { getReadableNumber, getValidNumber } from '@/utils/index';
 import humanizeDuration from 'humanize-duration';
@@ -8,23 +8,25 @@ import Image from 'next/image';
 import Input from '../Input';
 
 export default function SquareAndPeak({
-  XPPerHour,
   currentXP,
   totalXP,
+  XPToTargetLevel,
 }: {
-  XPPerHour: number;
   currentXP: number;
   totalXP: number;
+  XPToTargetLevel: number | undefined;
 }) {
+  const [{ xpPerMinute, manualCalculation }] = useAtom(XPCalculatorAtom);
   const [{ magicSquare, secretPeak }, setExtension] = useAtom(XPExtension);
 
-  const combinedValues =
+  const XPPerMinute = xpPerMinute ? xpPerMinute : manualCalculation.xpPerMinute;
+  const XPPerHour = (XPPerMinute ?? 0) * 60;
+
+  const XPPerReset =
     magicSquare.xpPerRun * magicSquare.tickets +
-    secretPeak.xpPerRun * secretPeak.tickets +
-    currentXP;
-  const result =
-    (totalXP - combinedValues) / XPPerHour / 24 +
-    (0.5 * magicSquare.tickets + 0.5 * secretPeak.tickets) / 24;
+    secretPeak.xpPerRun * secretPeak.tickets;
+  const hoursTaken = 0.5 * magicSquare.tickets + 0.5 * secretPeak.tickets; // 30 minutes each ticket
+  const ticketsXPPerMinute = XPPerReset / 1440; // XP per day divided by minutes per day
 
   return (
     <section className='flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg'>
@@ -120,9 +122,22 @@ export default function SquareAndPeak({
       </div>
 
       <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
-        {humanizeDuration(moment.duration(result, 'day').asMilliseconds(), {
-          round: true,
-        })}
+        {getReadableNumber(XPPerReset)} XP
+      </p>
+      <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
+        {hoursTaken} hours
+      </p>
+      <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
+        {humanizeDuration(
+          moment
+            .duration(
+              (XPToTargetLevel ?? 0) /
+                (ticketsXPPerMinute + (XPPerMinute ?? 0)),
+              'minutes'
+            )
+            .asMilliseconds(),
+          { round: true }
+        )}
       </p>
     </section>
   );
