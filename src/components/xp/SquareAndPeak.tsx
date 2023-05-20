@@ -120,13 +120,7 @@ export default function SquareAndPeak({
           suffix='XP'
         />
       </div>
-
-      <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
-        {getReadableNumber(XPPerReset)} XP
-      </p>
-      <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
-        {hoursTaken} hours
-      </p>
+      
       <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
         {humanizeDuration(
           moment
