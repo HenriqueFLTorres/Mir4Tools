@@ -1,18 +1,18 @@
-import { LevelState } from '@/app/xp/page';
+import { XPCalculatorAtom, XPExtension } from '@/atoms/XPCalculator';
 import Input from '@/components/Input';
 import XPPerLevel from '@/data/XPPerLevel';
 import Info from '@/icons/Info';
+import { useAtom } from 'jotai';
 import millify from 'millify';
-import { useState } from 'react';
 
-export default function Vigor({
-  XPPerMinute,
-  levels,
-}: {
-  XPPerMinute: number;
-  levels: LevelState;
-}) {
-  const [vigor, setVigor] = useState(0);
+export default function Vigor() {
+  const [{ levels, xpPerMinute = 0, manualCalculation }] =
+    useAtom(XPCalculatorAtom);
+  const [{ vigor }, setExtension] = useAtom(XPExtension);
+
+  const XPPerMinute = xpPerMinute
+    ? xpPerMinute
+    : manualCalculation.xpPerMinute ?? 0;
 
   const acquiredXPWithVigor = XPPerMinute * 60 * vigor;
   const acquiredPercentage = levels.initial
@@ -34,11 +34,13 @@ export default function Vigor({
           suffix='h'
           placeholder='duration'
           onChange={(value) =>
-            setVigor((prev) =>
-              Number.isInteger(Number(value)) && Number(value) < 1000
-                ? Number(value)
-                : prev
-            )
+            setExtension((prev) => ({
+              ...prev,
+              vigor:
+                Number.isInteger(Number(value)) && Number(value) < 1000
+                  ? Number(value)
+                  : prev.vigor,
+            }))
           }
           value={String(vigor)}
         />

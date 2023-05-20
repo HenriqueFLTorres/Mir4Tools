@@ -1,31 +1,30 @@
-import { Level, LevelState } from '@/app/xp/page';
+import { Level } from '@/app/xp/page';
+import { XPCalculatorAtom } from '@/atoms/XPCalculator';
 import { cn } from '@/utils/classNames';
 import { formatLevel, getReadableNumber } from '@/utils/index';
 import humanizeDuration from 'humanize-duration';
-import { SetStateAction } from 'jotai';
+import { useAtom } from 'jotai';
 import millify from 'millify';
 import moment from 'moment';
 import Image from 'next/image';
 import React from 'react';
 
 export default function LevelCalculations({
-  levels,
-  setLevels,
-  percentages,
-  setPercentages,
   XPToTargetLevel = 0,
-  XPPerMinute,
   invalidInput,
 }: {
-  levels: LevelState;
-  setLevels: React.Dispatch<SetStateAction<LevelState>>;
-  percentages: PercentageState;
-  setPercentages: React.Dispatch<SetStateAction<PercentageState>>;
   XPToTargetLevel?: number;
-  XPPerMinute: number;
   invalidInput: boolean;
 }) {
+  const [
+    { levels, percentages, xpPerMinute = 0, manualCalculation },
+    setXPCalc,
+  ] = useAtom(XPCalculatorAtom);
   const successfulInput = !!levels.initial && !!levels.final;
+
+  const XPPerMinute = xpPerMinute
+    ? xpPerMinute
+    : manualCalculation.xpPerMinute ?? 0;
 
   return (
     <section className='flex w-full items-center gap-4'>
@@ -35,24 +34,31 @@ export default function LevelCalculations({
         percentage={`${levels.initialPercentage ?? percentages.final ?? 0}%`}
         value={levels.initial ?? ''}
         onChange={(value) =>
-          setLevels((prev) => ({
+          setXPCalc((prev) => ({
             ...prev,
-            initial: formatLevel(value),
+            levels: {
+              ...prev.levels,
+              initial: formatLevel(value),
+            },
           }))
         }
         onBlur={() =>
           !levels.final &&
-          setLevels((prev) =>
-            prev.initial
-              ? { ...prev, final: `${Number(prev.initial) + 1}` as Level }
-              : prev
-          )
+          setXPCalc((prev) => ({
+            ...prev,
+            levels: {
+              ...prev.levels,
+              final: prev.levels.initial
+                ? (`${Number(prev.levels.initial) + 1}` as Level)
+                : prev.levels.final,
+            },
+          }))
         }
         success={successfulInput}
       />
 
-      <div className='grid h-full w-full pt-11 grid-rows-[1fr_4px_1fr] flex-col items-center gap-4'>
-        <p className='px-4 text-center mt-auto text-xl font-medium text-white'>
+      <div className='grid h-full w-full grid-rows-[1fr_4px_1fr] flex-col items-center gap-4 pt-11'>
+        <p className='mt-auto px-4 text-center text-xl font-medium text-white'>
           {XPToTargetLevel && !invalidInput
             ? `${getReadableNumber(XPToTargetLevel)} (${millify(
                 XPToTargetLevel
@@ -97,9 +103,12 @@ export default function LevelCalculations({
         placeholder='100'
         value={levels.final ?? ''}
         onChange={(value) =>
-          setLevels((prev) => ({
+          setXPCalc((prev) => ({
             ...prev,
-            final: formatLevel(value),
+            levels: {
+              ...prev.levels,
+              final: formatLevel(value),
+            },
           }))
         }
         success={successfulInput}

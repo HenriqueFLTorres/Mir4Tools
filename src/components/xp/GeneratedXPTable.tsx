@@ -1,4 +1,5 @@
 import { Level } from '@/app/xp/page';
+import { XPCalculatorAtom } from '@/atoms/XPCalculator';
 import XPPerLevel from '@/data/XPPerLevel';
 import { getReadableNumber } from '@/utils/index';
 import {
@@ -8,29 +9,31 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import humanizeDuration from 'humanize-duration';
+import { useAtom } from 'jotai';
 import millify from 'millify';
 import moment from 'moment';
 import { useMemo } from 'react';
 
 export default function GeneratedXPTable({
-  XPPerMinute,
   XPToTargetLevel,
   invalidInput,
-  currentLvl,
 }: {
-  XPPerMinute: number;
   XPToTargetLevel?: number;
   invalidInput: boolean;
-  currentLvl?: Level;
 }) {
+  const [{ levels, xpPerMinute = 0, manualCalculation }] =
+    useAtom(XPCalculatorAtom);
+
+  const XPPerMinute = xpPerMinute
+    ? xpPerMinute
+    : manualCalculation.xpPerMinute ?? 0;
+
+  const currentLvl = levels.initial;
+
   const data = useMemo(
     () =>
       currentLvl
-        ? generateTableData(
-            XPPerMinute,
-            XPToTargetLevel ?? 0,
-            currentLvl
-          )
+        ? generateTableData(XPPerMinute, XPToTargetLevel ?? 0, currentLvl)
         : [],
     [XPPerMinute, XPToTargetLevel, currentLvl]
   );
@@ -47,7 +50,7 @@ export default function GeneratedXPTable({
   if (!XPPerMinute || invalidInput) return <></>;
 
   return (
-    <section className='relative mt-16 flex flex-col rounded-xl p-1 bg-primary-600'>
+    <section className='relative mt-16 flex flex-col rounded-xl bg-primary-600 p-1'>
       <table className='relative w-full'>
         <thead className='border-b-2 border-primary-500/50'>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -68,11 +71,14 @@ export default function GeneratedXPTable({
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='[&:nth-child(even)>*]:bg-primary-500/20'>
+            <tr
+              key={row.id}
+              className='[&:nth-child(even)>*]:bg-primary-500/20'
+            >
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className='px-6 py-3 text-sm font-light first:rounded-l-md last:rounded-r-md text-white'
+                  className='px-6 py-3 text-sm font-light text-white first:rounded-l-md last:rounded-r-md'
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
@@ -95,7 +101,7 @@ type TableXP = {
 const generateTableData = (
   XPPerMinute: number,
   XPToTargetLevel: number,
-  currentLvl: Level,
+  currentLvl: Level
 ): TableXP[] => {
   const timeSets = [30, 60, 240, 480, 720];
   const result: TableXP[] = [];
@@ -105,8 +111,7 @@ const generateTableData = (
 
     if (XPToTargetLevel - XPEarned < 0) return;
 
-    const percentageOfCurrent =
-      ((XPEarned) / XPPerLevel[currentLvl]) * 100;
+    const percentageOfCurrent = (XPEarned / XPPerLevel[currentLvl]) * 100;
 
     return result.push({
       levelReached: currentLvl,

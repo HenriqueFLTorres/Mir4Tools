@@ -1,24 +1,26 @@
+import { XPCalculatorAtom } from '@/atoms/XPCalculator';
 import Input from '@/components/Input';
 import {
   formatForExperience,
   getReadableNumber,
   getValidNumber,
 } from '@/utils/index';
+import { useAtom } from 'jotai';
 import { SetStateAction } from 'react';
 
 export default function PercentageDifference({
-  percentages,
-  setPercentages,
   invalidInput,
   setIsInvalid,
-  xpPerMinute,
-  setXPperMinute,
-  initialPercentage,
-  onChangeInitial,
 }: PercentageProps) {
+  const [{ levels, percentages, manualCalculation }, setXPCalc] =
+    useAtom(XPCalculatorAtom);
+
   const handleInvalid = () => {
-    setXPperMinute(undefined);
-    onChangeInitial(undefined);
+    setXPCalc((prev) => ({ ...prev, manualCalculation: { xpPerMinute: undefined } }));
+    setXPCalc((prev) => ({
+      ...prev,
+      levels: { ...prev.levels, initialPercentage: undefined },
+    }));
     if (
       percentages.initial &&
       percentages.final &&
@@ -29,7 +31,10 @@ export default function PercentageDifference({
   };
 
   const resetPercentages = () =>
-    setPercentages({ initial: undefined, final: undefined });
+    setXPCalc((prev) => ({
+      ...prev,
+      percentages: { initial: undefined, final: undefined },
+    }));
 
   return (
     <div className='flex flex-col gap-3'>
@@ -38,9 +43,12 @@ export default function PercentageDifference({
           placeholder='Start'
           label='Before Timer'
           onChange={(value) =>
-            setPercentages((prev) => ({
+            setXPCalc((prev) => ({
               ...prev,
-              initial: formatForExperience(value),
+              percentages: {
+                ...prev.percentages,
+                initial: formatForExperience(value),
+              },
             }))
           }
           value={percentages.initial ?? ''}
@@ -54,9 +62,12 @@ export default function PercentageDifference({
           placeholder='End'
           label='After Timer'
           onChange={(value) =>
-            setPercentages((prev) => ({
+            setXPCalc((prev) => ({
               ...prev,
-              final: formatForExperience(value),
+              percentages: {
+                ...prev.percentages,
+                final: formatForExperience(value),
+              },
             }))
           }
           value={percentages.final ?? ''}
@@ -76,18 +87,30 @@ export default function PercentageDifference({
         <Input
           suffix='XP'
           label='XP Per Minute'
-          onChange={(value) => setXPperMinute(getValidNumber(value, 0))}
-          value={getReadableNumber(xpPerMinute ?? 0)}
+          onChange={(value) =>
+            setXPCalc((prev) => ({
+              ...prev,
+              manualCalculation: { xpPerMinute: getValidNumber(value, 0) },
+            }))
+          }
+          value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
           onBlur={resetPercentages}
           className='max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500'
         />
         <Input
           suffix='%'
           placeholder='0.0000'
-          label='Current Percentage
-          '
-          onChange={(value) => onChangeInitial(formatForExperience(value))}
-          value={initialPercentage ?? ''}
+          label='Current Percentage'
+          onChange={(value) =>
+            setXPCalc((prev) => ({
+              ...prev,
+              levels: {
+                ...prev.levels,
+                initialPercentage: formatForExperience(value),
+              },
+            }))
+          }
+          value={levels.initialPercentage ?? ''}
           onBlur={resetPercentages}
           className='max-w-[10rem] [&>div]:rounded-l-none'
         />
@@ -97,12 +120,6 @@ export default function PercentageDifference({
 }
 
 type PercentageProps = {
-  percentages: PercentageState;
-  setPercentages: React.Dispatch<SetStateAction<PercentageState>>;
   invalidInput: boolean;
   setIsInvalid: React.Dispatch<SetStateAction<boolean>>;
-  xpPerMinute?: number;
-  setXPperMinute: React.Dispatch<SetStateAction<number | undefined>>;
-  initialPercentage?: string;
-  onChangeInitial: (value: string | undefined) => void;
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import { XPCalculatorAtom } from '@/atoms/XPCalculator';
 import GeneratedXPTable from '@/components/xp/GeneratedXPTable';
 import LevelCalculations from '@/components/xp/LevelCalculations';
 import PercentageDifference from '@/components/xp/PercentageDifference';
@@ -8,20 +9,13 @@ import Timer from '@/components/xp/Timer';
 import Vigor from '@/components/xp/Vigor';
 import XPPerLevel from '@/data/XPPerLevel';
 import { getPercentage } from '@/utils/index';
-import { useState } from 'react';
+import { useAtom } from 'jotai';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [{ levels, percentages, xpPerMinute }, setXPCalc] =
+    useAtom(XPCalculatorAtom);
   const [isInvalid, setIsInvalid] = useState(false);
-  const [xpPerMinute, setXPperMinute] = useState<undefined | number>(undefined);
-  const [percentages, setPercentages] = useState<PercentageState>({
-    initial: undefined,
-    final: undefined,
-  });
-  const [levels, setLevels] = useState<LevelState>({
-    initial: undefined,
-    initialPercentage: undefined,
-    final: undefined,
-  });
 
   const LevelGap =
     levels.initial && levels.final
@@ -29,15 +23,40 @@ export default function Home() {
       : '';
 
   const XPToTargetLevel = !!LevelGap
-    ? getPercentage(LevelGap, 100 - Number(levels.initialPercentage ?? percentages.final))
+    ? getPercentage(
+        LevelGap,
+        100 - Number(levels.initialPercentage ?? percentages.final)
+      )
     : undefined;
+
+  useEffect(() => {
+    if (!!levels.initial) {
+      setXPCalc((prev) => ({
+        ...prev,
+        xpPerMinute: getPercentage(
+          XPPerLevel[levels.initial as Level],
+          (Number(levels.initialPercentage ?? percentages.final) -
+            Number(percentages.initial)) /
+            5
+        ),
+      }));
+    }
+  }, [
+    levels.initial,
+    levels.initialPercentage,
+    percentages.final,
+    percentages.initial,
+    setXPCalc,
+  ]);
 
   const XPPerMinute = xpPerMinute
     ? xpPerMinute
     : levels.initial && levels.final && percentages.initial && percentages.final
     ? getPercentage(
         XPPerLevel[`${levels.initial}`],
-        (Number(levels.initialPercentage ?? percentages.final) - Number(percentages.initial)) / 5
+        (Number(levels.initialPercentage ?? percentages.final) -
+          Number(percentages.initial)) /
+          5
       )
     : 0;
 
@@ -48,39 +67,29 @@ export default function Home() {
       <div className='absolute right-4 top-4 z-50 flex flex-col gap-4'>
         <SquareAndPeak
           XPPerHour={XPPerMinute * 60}
-          currentXP={getPercentage(LevelGap, Number(levels.initialPercentage ?? percentages.final))}
+          currentXP={getPercentage(
+            LevelGap,
+            Number(levels.initialPercentage ?? percentages.final)
+          )}
           totalXP={LevelGap ? LevelGap : 0}
         />
 
-        <Vigor XPPerMinute={XPPerMinute} levels={levels} />
+        <Vigor />
       </div>
 
       <PercentageDifference
-        percentages={percentages}
-        setPercentages={setPercentages}
         invalidInput={isInvalid}
         setIsInvalid={setIsInvalid}
-        xpPerMinute={xpPerMinute}
-        setXPperMinute={setXPperMinute}
-        initialPercentage={levels.initialPercentage}
-        onChangeInitial={(value) => setLevels(prev => ({ ...prev, initialPercentage: value }))}
       />
 
       <LevelCalculations
-        percentages={percentages}
-        setPercentages={setPercentages}
-        levels={levels}
-        setLevels={setLevels}
         XPToTargetLevel={XPToTargetLevel}
-        XPPerMinute={XPPerMinute}
         invalidInput={isInvalid}
       />
 
       <GeneratedXPTable
-        XPPerMinute={XPPerMinute}
         XPToTargetLevel={XPToTargetLevel}
         invalidInput={isInvalid}
-        currentLvl={levels.initial}
       />
     </>
   );

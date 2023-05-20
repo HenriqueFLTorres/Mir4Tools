@@ -1,9 +1,10 @@
+import { XPExtension } from '@/atoms/XPCalculator';
 import Info from '@/icons/Info';
 import { getReadableNumber, getValidNumber } from '@/utils/index';
 import humanizeDuration from 'humanize-duration';
+import { useAtom } from 'jotai';
 import moment from 'moment';
 import Image from 'next/image';
-import { useState } from 'react';
 import Input from '../Input';
 
 export default function SquareAndPeak({
@@ -15,10 +16,7 @@ export default function SquareAndPeak({
   currentXP: number;
   totalXP: number;
 }) {
-  const [{ magicSquare, secretPeak }, setSquareAndPeak] = useState({
-    magicSquare: { tickets: 0, xpPerRun: 0 },
-    secretPeak: { tickets: 0, xpPerRun: 0 },
-  });
+  const [{ magicSquare, secretPeak }, setExtension] = useAtom(XPExtension);
 
   const combinedValues =
     magicSquare.xpPerRun * magicSquare.tickets +
@@ -50,7 +48,7 @@ export default function SquareAndPeak({
           label='Tickets'
           className='w-16 text-xs text-white [&>div]:rounded-r-none [&>div]:py-1'
           onChange={(value) =>
-            setSquareAndPeak((prev) => ({
+            setExtension((prev) => ({
               ...prev,
               magicSquare: {
                 ...prev.magicSquare,
@@ -64,7 +62,7 @@ export default function SquareAndPeak({
           label='XP per run'
           className='w-full text-xs text-white [&>div]:rounded-l-none [&>div]:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1'
           onChange={(value) =>
-            setSquareAndPeak((prev) => ({
+            setExtension((prev) => ({
               ...prev,
               magicSquare: {
                 ...prev.magicSquare,
@@ -73,7 +71,7 @@ export default function SquareAndPeak({
             }))
           }
           value={getReadableNumber(magicSquare.xpPerRun)}
-          suffix="XP"
+          suffix='XP'
         />
       </div>
 
@@ -94,7 +92,7 @@ export default function SquareAndPeak({
           label='Tickets'
           className='w-16 text-xs text-white [&>div]:rounded-r-none [&>div]:py-1'
           onChange={(value) =>
-            setSquareAndPeak((prev) => ({
+            setExtension((prev) => ({
               ...prev,
               secretPeak: {
                 ...prev.secretPeak,
@@ -108,7 +106,7 @@ export default function SquareAndPeak({
           label='XP per run'
           className='w-full text-xs text-white [&>div]:rounded-l-none [&>div]:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1'
           onChange={(value) =>
-            setSquareAndPeak((prev) => ({
+            setExtension((prev) => ({
               ...prev,
               secretPeak: {
                 ...prev.secretPeak,
@@ -117,11 +115,11 @@ export default function SquareAndPeak({
             }))
           }
           value={getReadableNumber(secretPeak.xpPerRun)}
-          suffix="XP"
+          suffix='XP'
         />
       </div>
 
-      <p className='bg-primary-600 py-2 px-4 rounded-md text-white text-sm'>
+      <p className='rounded-md bg-primary-600 px-4 py-2 text-sm text-white'>
         {humanizeDuration(moment.duration(result, 'day').asMilliseconds(), {
           round: true,
         })}
