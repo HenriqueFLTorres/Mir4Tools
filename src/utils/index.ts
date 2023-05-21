@@ -37,30 +37,37 @@ export const ComplementaryItems = [
 
 export const calculateCraftByItem = ({
   setAtom,
-  parentName,
+  name,
+  category,
   parentRarity,
   multiply,
   displayRarity,
   parentIsBase,
+  weaponType,
+  tier,
 }: {
+  name?: ItemTypes;
   setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>;
-  parentName: string;
+  category?: ItemCategory;
   parentRarity?: RarityTypes;
   multiply: number;
   displayRarity: RarityTypes[];
   parentIsBase: boolean;
+  weaponType?: 'primary' | 'secondary';
+  tier?: ItemTier;
 }) => {
   if (!parentRarity || (!displayRarity.includes(parentRarity) && !parentIsBase))
     return;
 
-  // const targetItem = CraftCost.find(
-  //   (obj) => obj.name === parentName && obj.rarity === parentRarity
-  // );
-  const targetItem = CraftCost?.[parentName]?.[parentRarity]
+  let targetItem;
 
-  if (!targetItem) return;
+  if (tier && !!weaponType && !!parentRarity && parentRarity !== 'Common')
+    targetItem = WeaponCraftCost?.[weaponType]?.[parentRarity]?.[tier];
+  else if (!!name) targetItem = CraftCost?.[name]?.[parentRarity];
 
-  Object.entries(targetItem.recipe).map(([name, value]) => {
+  if (!!!targetItem) return;
+
+  Object.entries(targetItem).map(([name, value]) => {
     if (value.rarity && !ComplementaryItems.includes(name)) {
       setAtom((prev) => ({
         ...prev,
@@ -75,7 +82,7 @@ export const calculateCraftByItem = ({
       }));
       calculateCraftByItem({
         setAtom,
-        parentName: name,
+        name: name as unknown as ItemTypes,
         parentRarity: value.rarity,
         multiply: value.cost * multiply,
         displayRarity,
@@ -117,7 +124,10 @@ export const getPercentage = (
 export const getReadableNumber = (number: number) =>
   Math.round(number).toLocaleString('en', { useGrouping: true });
 
-export const getValidNumber = (value: string | number, fallbackValue: number) =>{
-  value = String(value).replace(/\D/g, '')
+export const getValidNumber = (
+  value: string | number,
+  fallbackValue: number
+) => {
+  value = String(value).replace(/\D/g, '');
   return Number.isInteger(Number(value)) ? Number(value) : fallbackValue;
-}
+};

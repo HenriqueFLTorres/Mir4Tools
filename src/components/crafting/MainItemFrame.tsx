@@ -2,9 +2,11 @@ import ItemFrame from '@/components/crafting/ItemFrame';
 import { cn } from '@/utils/classNames';
 import * as Popover from '@radix-ui/react-popover';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function MainItemFrame({
+  name,
+  rarity,
   targetItem,
   category,
   setCategory,
@@ -13,25 +15,15 @@ export default function MainItemFrame({
   weaponType,
   setWeaponType,
   itemRarity,
-  setItemRarity
-}: {
-  targetItem: CraftCostType;
-  category: string
-  setCategory: React.Dispatch<React.SetStateAction<string>>
-  selectedTier: 1 | 2 | 3 | 4
-  setTier: React.Dispatch<React.SetStateAction<1 | 2 | 3 | 4>>
-  weaponType: "primary" | "secondary"
-  setWeaponType: React.Dispatch<React.SetStateAction<"primary" | "secondary">>
-  itemRarity: RarityTypes
-  setItemRarity: React.Dispatch<React.SetStateAction<RarityTypes>>
-}) {
-
+  setItemRarity,
+}: MainItemFrameProps) {
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <ItemFrame
-          item={targetItem.name as ItemTypes}
-          rarity={targetItem.rarity}
+          item={name as ItemTypes}
+          rarity={rarity}
+          tier={selectedTier}
           size='lg'
           className='my-auto shrink-0'
         />
@@ -165,7 +157,7 @@ const Items = [
     value: 'earrings',
     image: ['/items/earrings.png', '/items/ring.png'],
   },
-];
+] as const;
 
 function MenuButton({
   children,
@@ -183,3 +175,21 @@ function MenuButton({
     </button>
   );
 }
+
+type MainItemFrameProps = {
+  name: string;
+  rarity: RarityTypes;
+  targetItem: Partial<{
+    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number };
+  }>;
+  category: ItemCategory;
+  setCategory: React.Dispatch<React.SetStateAction<ItemCategory>>;
+  selectedTier: ItemTier;
+  setTier: React.Dispatch<React.SetStateAction<ItemTier>>;
+  weaponType: 'primary' | 'secondary';
+  setWeaponType: React.Dispatch<React.SetStateAction<'primary' | 'secondary'>>;
+  itemRarity: RarityTypes;
+  setItemRarity: React.Dispatch<
+    React.SetStateAction<Exclude<RarityTypes, 'Common'>>
+  >;
+};

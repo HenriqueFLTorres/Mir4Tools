@@ -1,5 +1,48 @@
-const CraftCost = {
+const recipePlaceholder = {
   steel: {
+    rarity: 'Epic',
+    cost: 1,
+  },
+  evil_minded_orb: {
+    rarity: 'Epic',
+    cost: 1,
+  },
+  moon_shadow_stone: {
+    rarity: 'Epic',
+    cost: 1,
+  },
+  dragon_scale: {
+    rarity: 'Epic',
+    cost: 1,
+  },
+  copper: {
+    rarity: null,
+    cost: 1,
+  },
+  dark_steel: {
+    rarity: null,
+    cost: 1,
+  },
+};
+
+const rarityPlaceholder = {
+  copper: {
+    rarity: null,
+    cost: 1,
+  },
+};
+
+const itemPlaceholder = {
+  Legendary: rarityPlaceholder,
+  Epic: rarityPlaceholder,
+  Rare: rarityPlaceholder,
+  Uncommon: rarityPlaceholder,
+  Common: rarityPlaceholder,
+};
+
+const CraftCost: CraftCostType = {
+  steel: {
+    ...itemPlaceholder,
     Epic: {
       steel: {
         rarity: 'Rare',
@@ -10,9 +53,11 @@ const CraftCost = {
         cost: 25,
       },
       copper: {
+        rarity: null,
         cost: 20000,
       },
       dark_steel: {
+        rarity: null,
         cost: 5000,
       },
     },
@@ -26,14 +71,17 @@ const CraftCost = {
         cost: 2,
       },
       copper: {
+        rarity: null,
         cost: 2000,
       },
       dark_steel: {
+        rarity: null,
         cost: 1000,
       },
     },
   },
   evil_minded_orb: {
+    ...itemPlaceholder,
     Epic: {
       evil_minded_orb: {
         rarity: 'Rare',
@@ -44,9 +92,11 @@ const CraftCost = {
         cost: 25,
       },
       copper: {
+        rarity: null,
         cost: 20000,
       },
       dark_steel: {
+        rarity: null,
         cost: 5000,
       },
     },
@@ -60,14 +110,17 @@ const CraftCost = {
         cost: 2,
       },
       copper: {
+        rarity: null,
         cost: 2000,
       },
       dark_steel: {
+        rarity: null,
         cost: 1000,
       },
     },
   },
   moon_shadow_stone: {
+    ...itemPlaceholder,
     Epic: {
       moon_shadow_stone: {
         rarity: 'Rare',
@@ -78,9 +131,11 @@ const CraftCost = {
         cost: 25,
       },
       copper: {
+        rarity: null,
         cost: 20000,
       },
       dark_steel: {
+        rarity: null,
         cost: 5000,
       },
     },
@@ -94,9 +149,11 @@ const CraftCost = {
         cost: 2,
       },
       copper: {
+        rarity: null,
         cost: 2000,
       },
       dark_steel: {
+        rarity: null,
         cost: 1000,
       },
     },
@@ -105,9 +162,25 @@ const CraftCost = {
 
 export default CraftCost;
 
-export const WeaponCraftCost = {
+const weaponRecipePlaceholder = {
+  copper: {
+    rarity: null,
+    cost: 1,
+  },
+};
+
+const weaponRarityPlaceholder = {
+  1: weaponRecipePlaceholder,
+  2: weaponRecipePlaceholder,
+  3: weaponRecipePlaceholder,
+  4: weaponRecipePlaceholder,
+};
+
+export const WeaponCraftCost: WeaponCraftCostType = {
   primary: {
-    Legendary: { 1: '', 2: '', 3: '', 4: '' },
+    Legendary: weaponRarityPlaceholder,
+    Rare: weaponRarityPlaceholder,
+    Uncommon: weaponRarityPlaceholder,
     Epic: {
       1: {
         steel: {
@@ -127,23 +200,23 @@ export const WeaponCraftCost = {
           cost: 1,
         },
         copper: {
+          rarity: null,
           cost: 800000,
         },
         dark_steel: {
+          rarity: null,
           cost: 100000,
         },
       },
-      2: '',
-      3: '',
-      4: '',
+      2: weaponRecipePlaceholder,
+      3: weaponRecipePlaceholder,
+      4: weaponRecipePlaceholder,
     },
-    Rare: { 1: '', 2: '', 3: '', 4: '' },
-    Uncommon: { 1: '', 2: '', 3: '', 4: '' },
   },
   secondary: {
-    Legendary: { 1: '', 2: '', 3: '', 4: '' },
-    Epic: { 1: '', 2: '', 3: '', 4: '' },
-    Rare: { 1: '', 2: '', 3: '', 4: '' },
-    Uncommon: { 1: '', 2: '', 3: '', 4: '' },
+    Legendary: weaponRarityPlaceholder,
+    Epic: weaponRarityPlaceholder,
+    Rare: weaponRarityPlaceholder,
+    Uncommon: weaponRarityPlaceholder,
   },
 };

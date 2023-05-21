@@ -35,17 +35,23 @@ type InventoryType = {
 
 type ItemsForRecipe = ItemTypes | 'dragon_scale';
 
-type CraftCostType = {
-  name: string;
-  tier?: 1 | 2 | 3 | 4;
-  rarity: RarityTypes;
-  recipe: {
-    [key: string]: {
-      rarity?: RarityTypes;
-      cost: number;
+type CraftCostType = Partial<{
+  [key in ItemTypes]: {
+    [key in RarityTypes]: Partial<{
+      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number };
+    }>;
+  };
+}>
+
+type WeaponCraftCostType = {
+  [key in 'primary' | 'secondary']: {
+    [key in Exclude<RarityTypes, "Common">]: {
+      [key in "1" | "2" | "3" | "4"]: Partial<{
+        [key in ItemTypes]: { rarity: RarityTypes | null; cost: number };
+      }>;
     };
   };
-};
+}
 
 type CraftingCalcObject = {
   [key in ItemWithRarity]: {
@@ -59,3 +65,9 @@ type PercentageState = {
   initial?: string;
   final?: string;
 };
+
+type ItemWithRarity = { rarity: string };
+
+type ItemCategory = 'weapon' | 'armor' | 'necklace' | 'earrings';
+
+type ItemTier = 1 | 2 | 3 | 4

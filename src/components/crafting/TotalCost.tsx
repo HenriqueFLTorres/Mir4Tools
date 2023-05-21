@@ -7,7 +7,9 @@ export default function TotalCost({
   targetRecipe,
 }: {
   craftCost: CraftingCalcObject;
-  targetRecipe: CraftCostType['recipe'];
+  targetRecipe: Partial<{
+    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number };
+  }>;
 }) {
   const [settings] = useAtom(SettingsAtom);
 
@@ -15,12 +17,12 @@ export default function TotalCost({
     const baseResources = Object.entries(targetRecipe);
 
     return baseResources.some(
-      ([baseName, baseItem]) => baseName === name && baseItem.rarity === rarity
+      ([baseName, baseItem]) => baseName === name && baseItem?.rarity === rarity
     );
   };
 
   return (
-    <section className='flex flex-col gap-8 w-full'>
+    <section className='flex w-full flex-col gap-8'>
       <h2 className='text-3xl font-bold text-primary-200'>Total</h2>
 
       <div className='flex w-full gap-5'>
