@@ -1,6 +1,6 @@
 import { cn } from '@/utils/classNames';
 import Image from 'next/image';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useState } from 'react';
 
 export default function ItemFrame({
   item,
@@ -10,6 +10,7 @@ export default function ItemFrame({
   className,
   ...props
 }: ItemFrameProps) {
+  
   return (
     <span
       className={cn(
@@ -41,7 +42,8 @@ const sizeToPX = {
 
 const variantStyles: { [key in RarityTypes | 'Default']: string } = {
   Default: 'border-[#272043] bg-default-frame drop-shadow-[0_0_8px_#272043]',
-  Legendary: 'border-[#DCC529] bg-legendary-frame drop-shadow-[0_0_8px_#DCC529]',
+  Legendary:
+    'border-[#DCC529] bg-legendary-frame drop-shadow-[0_0_8px_#DCC529]',
   Epic: 'border-[#761B29] bg-epic-frame drop-shadow-[0_0_8px_#761B29]',
   Rare: 'border-[#2F60A8] bg-rare-frame drop-shadow-[0_0_8px_#2F60A8]',
   Uncommon: 'border-[#38896B] bg-uncommon-frame drop-shadow-[0_0_8px_#38896B]',

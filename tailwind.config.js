@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         ubuntu: ['var(--font-notoSansKR)'],
+        ptSerif: ['var(--font-ptSerif)'],
       },
       backgroundImage: {
         'inventory-gradient':

@@ -1,16 +1,24 @@
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc';
 import { SettingsAtom } from '@/atoms/Settings';
-import ItemFrame from '@/components/crafting/ItemFrame';
 import TableCostFragment from '@/components/crafting/TableCostFragment';
 import CraftCost from '@/data/CraftCost';
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index';
 import { useAtom } from 'jotai';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import MainItemFrame from './MainItemFrame';
 import TotalCost from './TotalCost';
 
 export default function CraftingMain() {
   const [settings] = useAtom(SettingsAtom);
   const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom);
+
+  const [category, setCategory] = useState('weapon');
+  const [selectedTier, setTier] = useState<1 | 2 | 3 | 4>(1);
+  const [weaponType, setWeaponType] = useState<'primary' | 'secondary'>(
+    'primary'
+  );
+  const [itemRarity, setItemRarity] = useState<RarityTypes>('Epic');
+
   const targetItem = CraftCost.find((obj) => obj.name === 'weapon')!;
 
   useEffect(() => {
@@ -28,11 +36,16 @@ export default function CraftingMain() {
   return (
     <div className='flex w-full flex-col gap-4 p-14'>
       <section className='mb-4 flex justify-center gap-16'>
-        <ItemFrame
-          item={targetItem.name as ItemTypes}
-          rarity={targetItem.rarity}
-          size='lg'
-          className='my-auto shrink-0'
+        <MainItemFrame
+          targetItem={targetItem}
+          category={category}
+          setCategory={setCategory}
+          selectedTier={selectedTier}
+          setTier={setTier}
+          weaponType={weaponType}
+          setWeaponType={setWeaponType}
+          itemRarity={itemRarity}
+          setItemRarity={setItemRarity}
         />
 
         <table>
