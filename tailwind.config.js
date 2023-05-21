@@ -3,13 +3,13 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
       fontFamily: {
         ubuntu: ['var(--font-notoSansKR)'],
-        ptSerif: ['var(--font-ptSerif)'],
+        ptSerif: ['var(--font-ptSerif)']
       },
       backgroundImage: {
         'inventory-gradient':
@@ -27,7 +27,7 @@ module.exports = {
         'epic-frame': 'linear-gradient(180deg, #2F0D16 0%, #A42522 100%);',
         'rare-frame': 'linear-gradient(180deg, #152333 0%, #295491 100%);',
         'uncommon-frame': 'linear-gradient(180deg, #153627 0%, #368D6E 100%);',
-        'common-frame': 'linear-gradient(180deg, #2B3136 0%, #677479 100%);',
+        'common-frame': 'linear-gradient(180deg, #2B3136 0%, #677479 100%);'
       },
       colors: {
         primary: {
@@ -38,10 +38,10 @@ module.exports = {
           600: '#2C2542',
           700: '#272043',
           800: '#1A1830',
-          900: '#1D1822',
-        },
-      },
-    },
+          900: '#1D1822'
+        }
+      }
+    }
   },
-  plugins: [],
-};
+  plugins: []
+}

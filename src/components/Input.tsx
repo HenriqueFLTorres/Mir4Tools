@@ -1,4 +1,4 @@
-import { cn } from '@/utils/classNames';
+import { cn } from '@/utils/classNames'
 
 export default function Input({
   label,
@@ -10,10 +10,10 @@ export default function Input({
   ...props
 }: {
   label?: string
-  suffix?: React.ReactNode;
-  onChange: (value: string) => void;
-  value?: string;
-  error?: React.ReactNode;
+  suffix?: React.ReactNode
+  onChange: (value: string) => void
+  value?: string
+  error?: React.ReactNode
 } & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'>) {
   return (
     <label
@@ -26,22 +26,28 @@ export default function Input({
       <div
         className={cn(
           'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-3 py-2 font-bold text-white motion-safe:transition-colors',
-          { ['!border-red-400 bg-red-400/10']: error }
+          { '!border-red-400 bg-red-400/10': error }
         )}
       >
         <input
           className={cn(
-            'flex appearance-none w-full items-center justify-center bg-transparent text-center text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
             {
-              ['text-red-200']: error,
+              'text-red-200': error
             }
           )}
           {...props}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => {
+            onChange(e.target.value)
+          }}
           value={value}
         />
-        {suffix && <div className='text-white shrink-0 font-bold text-base'>{suffix}</div>}
+        {suffix && (
+          <div className="shrink-0 text-base font-bold text-white">
+            {suffix}
+          </div>
+        )}
       </div>
     </label>
-  );
+  )
 }

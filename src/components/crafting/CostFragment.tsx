@@ -1,20 +1,20 @@
-import millify from 'millify';
-import ItemFrame from './ItemFrame';
+import millify from 'millify'
+import ItemFrame from './ItemFrame'
 
 export default function CostFragment({
   name,
   rarity,
   size = 'md',
-  cost,
+  cost
 }: {
-  name: ItemTypes;
-  rarity: RarityTypes | 'Default';
-  size?: 'sm' | 'md' | 'lg';
-  cost: number;
+  name: ItemTypes
+  rarity: RarityTypes | 'Default'
+  size?: 'sm' | 'md' | 'lg'
+  cost: number
 }) {
   if (!cost) return <></>
   return (
-    <span className='flex flex-col gap-2'>
+    <span className="flex flex-col gap-2">
       <ItemFrame item={name} rarity={rarity} size={size} />
 
       <span
@@ -25,5 +25,5 @@ export default function CostFragment({
         {millify(cost)}
       </span>
     </span>
-  );
+  )
 }

@@ -1,3 +1,3 @@
 export default function Head() {
-  return <title>XP Calculator</title>;
+  return <title>XP Calculator</title>
 }

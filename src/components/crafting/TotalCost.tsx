@@ -1,32 +1,32 @@
-import { SettingsAtom } from '@/atoms/Settings';
-import CostFragment from '@/components/crafting/CostFragment';
-import { useAtom } from 'jotai';
+import { SettingsAtom } from '@/atoms/Settings'
+import CostFragment from '@/components/crafting/CostFragment'
+import { useAtom } from 'jotai'
 
 export default function TotalCost({
   craftCost,
-  targetRecipe,
+  targetRecipe
 }: {
-  craftCost: CraftingCalcObject;
+  craftCost: CraftingCalcObject
   targetRecipe: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number };
-  }>;
+    [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+  }>
 }) {
-  const [settings] = useAtom(SettingsAtom);
+  const [settings] = useAtom(SettingsAtom)
 
   const isBaseRecipe = (name: string, rarity: string) => {
-    const baseResources = Object.entries(targetRecipe);
+    const baseResources = Object.entries(targetRecipe)
 
     return baseResources.some(
       ([baseName, baseItem]) => baseName === name && baseItem?.rarity === rarity
-    );
-  };
+    )
+  }
 
   return (
-    <section className='flex w-full flex-col gap-8'>
-      <h2 className='text-3xl font-bold text-primary-200'>Total</h2>
+    <section className="flex w-full flex-col gap-8">
+      <h2 className="text-3xl font-bold text-primary-200">Total</h2>
 
-      <div className='flex w-full gap-5'>
-        <ul className='flex w-full gap-5'>
+      <div className="flex w-full gap-5">
+        <ul className="flex w-full gap-5">
           {Object.entries(craftCost).map(
             ([name, item]) =>
               typeof item !== 'number' &&
@@ -46,26 +46,26 @@ export default function TotalCost({
           )}
         </ul>
 
-        <ul className='flex gap-5'>
+        <ul className="flex gap-5">
           <CostFragment
-            name='dark_steel'
-            cost={craftCost['dark_steel']}
-            rarity='Default'
+            name="dark_steel"
+            cost={craftCost.dark_steel}
+            rarity="Default"
           />
 
           <CostFragment
-            name='copper'
-            cost={craftCost['copper']}
-            rarity='Default'
+            name="copper"
+            cost={craftCost.copper}
+            rarity="Default"
           />
 
           <CostFragment
-            name='glittering_powder'
-            cost={craftCost['glittering_powder']}
-            rarity='Default'
+            name="glittering_powder"
+            cost={craftCost.glittering_powder}
+            rarity="Default"
           />
         </ul>
       </div>
     </section>
-  );
+  )
 }

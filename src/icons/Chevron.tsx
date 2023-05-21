@@ -15,5 +15,5 @@ export default function Chevron(props: React.SVGProps<SVGSVGElement>) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import * as CPopover from '@radix-ui/react-popover';
-import { HTMLAttributes } from 'react';
+import * as CPopover from '@radix-ui/react-popover'
+import { type HTMLAttributes } from 'react'
 
 function Wrapper({ children }: { children: React.ReactNode }) {
-  return <CPopover.Root>{children}</CPopover.Root>;
+  return <CPopover.Root>{children}</CPopover.Root>
 }
 
 function Trigger({
   children,
   ...props
 }: { children: React.ReactNode } & HTMLAttributes<HTMLButtonElement>) {
-  return <CPopover.Trigger {...props}>{children}</CPopover.Trigger>;
+  return <CPopover.Trigger {...props}>{children}</CPopover.Trigger>
 }
 
 function Content({
@@ -20,13 +20,13 @@ function Content({
     <CPopover.Portal>
       <CPopover.Content {...props}>{children}</CPopover.Content>
     </CPopover.Portal>
-  );
+  )
 }
 
 const Popover = {
   Wrapper,
   Content,
-  Trigger,
-};
+  Trigger
+}
 
-export default Popover;
+export default Popover

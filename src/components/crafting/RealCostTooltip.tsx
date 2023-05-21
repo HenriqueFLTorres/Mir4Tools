@@ -1,11 +1,11 @@
-import * as Tooltip from '@radix-ui/react-tooltip';
+import * as Tooltip from '@radix-ui/react-tooltip'
 
 export default function RealCostTooltip({
   cost,
-  children,
+  children
 }: {
-  cost: number;
-  children: React.ReactNode;
+  cost: number
+  children: React.ReactNode
 }) {
   return (
     <Tooltip.Provider delayDuration={0}>
@@ -13,14 +13,14 @@ export default function RealCostTooltip({
         <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            align='center'
+            align="center"
             sideOffset={6}
-            className='bg-primary-700 text-primary-400 font-medium font-ubuntu text-sm px-2 py-1 rounded-md will-change-[transform,opacity]'
+            className="rounded-md bg-primary-700 px-2 py-1 font-ubuntu text-sm font-medium text-primary-400 will-change-[transform,opacity]"
           >
             {cost}
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
     </Tooltip.Provider>
-  );
+  )
 }

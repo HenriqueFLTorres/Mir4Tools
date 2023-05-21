@@ -1,12 +1,12 @@
-import { Atom, PrimitiveAtom } from 'jotai';
-import { atomWithLocalStorage } from '../utils';
+import { type Atom, type PrimitiveAtom } from 'jotai'
+import { atomWithLocalStorage } from '../utils'
 
 export const SettingsAtom: PrimitiveAtom<SettingsObject> &
   Atom<SettingsObject> = atomWithLocalStorage('Mir4Tools_Settings', {
-  displayRarity: ['Epic', 'Rare'],
-});
+  displayRarity: ['Epic', 'Rare']
+})
 
-type SettingsObject = {
-  displayRarity: RarityTypes[];
-  showOwnedItems: boolean;
-};
+interface SettingsObject {
+  displayRarity: RarityTypes[]
+  showOwnedItems: boolean
+}

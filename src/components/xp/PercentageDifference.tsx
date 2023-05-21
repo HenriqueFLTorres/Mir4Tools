@@ -1,125 +1,129 @@
-import { XPCalculatorAtom } from '@/atoms/XPCalculator';
-import Input from '@/components/Input';
+import { XPCalculatorAtom } from '@/atoms/XPCalculator'
+import Input from '@/components/Input'
 import {
   formatForExperience,
   getReadableNumber,
-  getValidNumber,
-} from '@/utils/index';
-import { useAtom } from 'jotai';
-import { SetStateAction } from 'react';
+  getValidNumber
+} from '@/utils/index'
+import { useAtom } from 'jotai'
+import { type SetStateAction } from 'react'
 
 export default function PercentageDifference({
   invalidInput,
-  setIsInvalid,
+  setIsInvalid
 }: PercentageProps) {
   const [{ levels, percentages, manualCalculation }, setXPCalc] =
-    useAtom(XPCalculatorAtom);
+    useAtom(XPCalculatorAtom)
 
   const handleInvalid = () => {
-    setXPCalc((prev) => ({ ...prev, manualCalculation: { xpPerMinute: undefined } }));
     setXPCalc((prev) => ({
       ...prev,
-      levels: { ...prev.levels, initialPercentage: undefined },
-    }));
+      manualCalculation: { xpPerMinute: undefined }
+    }))
+    setXPCalc((prev) => ({
+      ...prev,
+      levels: { ...prev.levels, initialPercentage: undefined }
+    }))
     if (
       percentages.initial &&
       percentages.final &&
       Number(percentages.initial) >= Number(percentages.final)
     ) {
-      setIsInvalid(true);
-    } else setIsInvalid(false);
-  };
+      setIsInvalid(true)
+    } else setIsInvalid(false)
+  }
 
-  const resetPercentages = () =>
+  const resetPercentages = () => {
     setXPCalc((prev) => ({
       ...prev,
-      percentages: { initial: undefined, final: undefined },
-    }));
+      percentages: { initial: undefined, final: undefined }
+    }))
+  }
 
   return (
-    <div className='flex flex-col gap-3'>
+    <div className="flex flex-col gap-3">
       <div className={'mt-8 flex'}>
         <Input
-          placeholder='Start'
-          label='Before Timer'
-          onChange={(value) =>
+          placeholder="Start"
+          label="Before Timer"
+          onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                initial: formatForExperience(value),
-              },
+                initial: formatForExperience(value)
+              }
             }))
-          }
+          }}
           value={percentages.initial ?? ''}
-          suffix='%'
+          suffix="%"
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className='max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500'
+          className="max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500"
         />
         <Input
-          suffix='%'
-          placeholder='End'
-          label='After Timer'
-          onChange={(value) =>
+          suffix="%"
+          placeholder="End"
+          label="After Timer"
+          onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                final: formatForExperience(value),
-              },
+                final: formatForExperience(value)
+              }
             }))
-          }
+          }}
           value={percentages.final ?? ''}
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className='max-w-[10rem] [&>div]:rounded-l-none'
+          className="max-w-[10rem] [&>div]:rounded-l-none"
         />
       </div>
 
-      <div className='flex items-center gap-3 px-8'>
-        <span className='h-[2px] w-full rounded-full bg-primary-100' />
-        <p className='text-2xl font-bold text-primary-100'>OR</p>
-        <span className='h-[2px] w-full rounded-full bg-primary-100' />
+      <div className="flex items-center gap-3 px-8">
+        <span className="h-[2px] w-full rounded-full bg-primary-100" />
+        <p className="text-2xl font-bold text-primary-100">OR</p>
+        <span className="h-[2px] w-full rounded-full bg-primary-100" />
       </div>
 
       <div className={'mb-2 flex'}>
         <Input
-          suffix='XP'
-          label='XP Per Minute'
-          onChange={(value) =>
+          suffix="XP"
+          label="XP Per Minute"
+          onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
-              manualCalculation: { xpPerMinute: getValidNumber(value, 0) },
+              manualCalculation: { xpPerMinute: getValidNumber(value, 0) }
             }))
-          }
+          }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
           onBlur={resetPercentages}
-          className='max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500'
+          className="max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500"
         />
         <Input
-          suffix='%'
-          placeholder='0.0000'
-          label='Current Percentage'
-          onChange={(value) =>
+          suffix="%"
+          placeholder="0.0000"
+          label="Current Percentage"
+          onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
               levels: {
                 ...prev.levels,
-                initialPercentage: formatForExperience(value),
-              },
+                initialPercentage: formatForExperience(value)
+              }
             }))
-          }
+          }}
           value={levels.initialPercentage ?? ''}
           onBlur={resetPercentages}
-          className='max-w-[10rem] [&>div]:rounded-l-none'
+          className="max-w-[10rem] [&>div]:rounded-l-none"
         />
       </div>
     </div>
-  );
+  )
 }
 
-type PercentageProps = {
-  invalidInput: boolean;
-  setIsInvalid: React.Dispatch<SetStateAction<boolean>>;
-};
+interface PercentageProps {
+  invalidInput: boolean
+  setIsInvalid: React.Dispatch<SetStateAction<boolean>>
+}

@@ -20,7 +20,6 @@
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
-    "eslint": "8.38.0",
     "humanize-duration": "^3.28.0",
     "jotai": "^2.0.4",
     "millify": "^6.1.0",
@@ -32,13 +31,21 @@
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.12.0",
     "tailwindcss": "3.3.1",
-    "typescript": "5.0.4",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/humanize-duration": "^3.27.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "eslint": "^8.41.0",
     "eslint-config-next": "^13.4.2",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7"
+    "prettier-plugin-tailwindcss": "^0.2.7",
+    "typescript": "^5.0.4"
   }
 }
