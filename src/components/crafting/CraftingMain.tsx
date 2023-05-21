@@ -1,7 +1,7 @@
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc';
 import { SettingsAtom } from '@/atoms/Settings';
 import TableCostFragment from '@/components/crafting/TableCostFragment';
-import CraftCost from '@/data/CraftCost';
+import CraftCost, { WeaponCraftCost } from '@/data/CraftCost';
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index';
 import { useAtom } from 'jotai';
 import React, { useEffect, useState } from 'react';
@@ -17,21 +17,22 @@ export default function CraftingMain() {
   const [weaponType, setWeaponType] = useState<'primary' | 'secondary'>(
     'primary'
   );
-  const [itemRarity, setItemRarity] = useState<RarityTypes>('Epic');
+  const [itemRarity, setItemRarity] = useState<Exclude<RarityTypes, "Common">>('Epic');
 
-  const targetItem = CraftCost.find((obj) => obj.name === 'weapon')!;
+  // const targetItem = CraftCost.find((obj) => obj.name === category)!;
+  const targetItem = (category === "Weapon" ? WeaponCraftCost[weaponType][itemRarity][selectedTier] : CraftCost)
 
   useEffect(() => {
     setCraftCost(defaultCostObject);
     calculateCraftByItem({
       setAtom: setCraftCost,
-      parentName: 'weapon',
-      parentRarity: 'Epic',
+      parentName: category,
+      parentRarity: itemRarity,
       multiply: 1,
       displayRarity: settings.displayRarity,
       parentIsBase: true,
     });
-  }, [setCraftCost, settings.displayRarity]);
+  }, [category, itemRarity, setCraftCost, settings.displayRarity]);
 
   return (
     <div className='flex w-full flex-col gap-4 p-14'>
@@ -50,7 +51,7 @@ export default function CraftingMain() {
 
         <table>
           <tbody className='w-full gap-5'>
-            {Object.entries(targetItem.recipe).map(
+            {Object.entries(targetItem)?.map(
               ([name, item]) =>
                 !ComplementaryItems.includes(name) && (
                   <tr className='items-center gap-20' key={name}>
@@ -84,15 +85,13 @@ function RecursiveCostFragment({
   rarity: parentRarity,
   multiplier,
 }: {
-  name: string;
+  name: keyof typeof CraftCost;
   rarity?: RarityTypes;
   multiplier: number;
 }) {
   const [settings] = useAtom(SettingsAtom);
-
-  const craftable = CraftCost.find(
-    (obj) => obj.name === parentName && obj.rarity === parentRarity
-  );
+  
+  const craftable = CraftCost?.[parentName]?.[parentRarity]
 
   if (!craftable) return <></>;
 

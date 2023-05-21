@@ -1,5 +1,5 @@
 import { Level } from '@/app/xp/page';
-import CraftCost from '@/data/CraftCost';
+import CraftCost, { WeaponCraftCost } from '@/data/CraftCost';
 import { SetStateAction, atom } from 'jotai';
 
 export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
@@ -53,9 +53,10 @@ export const calculateCraftByItem = ({
   if (!parentRarity || (!displayRarity.includes(parentRarity) && !parentIsBase))
     return;
 
-  const targetItem = CraftCost.find(
-    (obj) => obj.name === parentName && obj.rarity === parentRarity
-  );
+  // const targetItem = CraftCost.find(
+  //   (obj) => obj.name === parentName && obj.rarity === parentRarity
+  // );
+  const targetItem = CraftCost?.[parentName]?.[parentRarity]
 
   if (!targetItem) return;
 
