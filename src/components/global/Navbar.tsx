@@ -7,7 +7,7 @@ import ToggleFilter from '@/components/ToggleFilter'
 import Inventory from '@/components/crafting/Inventory'
 import Backpack from '@/icons/Backpack'
 import Settings from '@/icons/Settings'
-import * as Portal from '@radix-ui/react-portal'
+import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
 
 export default function Navbar() {
@@ -18,35 +18,45 @@ export default function Navbar() {
     if (settings.displayRarity.includes(option)) {
       setSettings((prev) => ({
         ...prev,
-        displayRarity: prev.displayRarity.filter((r) => r !== option)
+        displayRarity: prev.displayRarity.filter((r) => r !== option),
       }))
       return
     }
 
     setSettings((prev) => ({
       ...prev,
-      displayRarity: [...prev.displayRarity, option]
+      displayRarity: [...prev.displayRarity, option],
     }))
   }
 
   return (
     <nav className="fixed flex h-max w-full items-center justify-end gap-4 p-4">
-      <button
-        onClick={() => {
-          setShowInventory((prev) => !prev)
-        }}
-        className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
-      >
-        <Backpack className="inline-block h-8 fill-white" />
-      </button>
-
-      {showInventory ? (
-        <Portal.Root>
-          <Inventory />
-        </Portal.Root>
-      ) : (
-        <></>
-      )}
+      {/* <Transition
+        show={showInventory}
+        enter="transition-all duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-all duration-300"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className={'z-[100]'}
+      > */}
+      <Dialog.Root open={showInventory}>
+        <Dialog.Trigger
+          onClick={() => {
+            setShowInventory((prev) => !prev)
+          }}
+          className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+        >
+          <Backpack className="inline-block h-8 fill-white" />
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-14 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow">
+            <Inventory />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+      {/* </Transition> */}
 
       <Popover.Wrapper>
         <Popover.Trigger className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors">
@@ -84,7 +94,7 @@ export default function Navbar() {
             onClick={() => {
               setSettings((prev) => ({
                 ...prev,
-                showOwnedItems: !prev.showOwnedItems
+                showOwnedItems: !prev.showOwnedItems,
               }))
             }}
           >

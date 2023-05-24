@@ -9,7 +9,7 @@ export default function Inventory() {
   const [, setShowInventory] = useAtom(showInventoryAtom)
 
   return (
-    <section className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto bg-inventory-gradient p-14 backdrop-blur-xl">
+    <>
       <header className="flex items-center justify-between">
         <h2 className="text-3xl text-primary-200">Inventory</h2>
 
@@ -50,6 +50,6 @@ export default function Inventory() {
             ))}
         </ul>
       </section>
-    </section>
+    </>
   )
 }

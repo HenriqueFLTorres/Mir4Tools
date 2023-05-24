@@ -22,14 +22,14 @@ export default function BasicItemComponent({
 
   const modifyInventory = ({
     item,
-    value
+    value,
   }: {
     item: ItemWithRarity
     value: number
   }) => {
     setInventory((prev) => ({
       ...prev,
-      [item]: value
+      [item]: value,
     }))
   }
 
@@ -54,7 +54,7 @@ export default function BasicItemComponent({
             modifyInventory({ item, value: Number(e.target.value) })
           }}
           className={
-            'flex w-full appearance-none items-center justify-center gap-1.5 rounded-md border-b-2 border-b-primary-400 bg-transparent bg-input-bottom-to-top px-3 py-1 font-bold text-primary-400 outline-none selection:bg-primary-200/40 focus:bg-primary-700 motion-safe:transition-colors'
+            'flex w-full appearance-none items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
           }
         />
       </div>

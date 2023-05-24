@@ -25,7 +25,7 @@ export default function ItemComponent({
     item,
     value,
     type,
-    rarity
+    rarity,
   }: {
     item: ItemWithRarity
     value: number
@@ -38,9 +38,9 @@ export default function ItemComponent({
         ...(prev[item] as unknown as object),
         [rarity]: {
           ...(prev[item][rarity] as unknown as object),
-          [type]: value
-        }
-      }
+          [type]: value,
+        },
+      },
     }))
   }
 
@@ -56,12 +56,12 @@ export default function ItemComponent({
           { 'px-0': isEditing }
         )}
       >
-        <label className="flex w-full cursor-text items-center justify-center gap-1.5 border-b-2 border-b-primary-400 bg-transparent bg-input-bottom-to-top px-2 py-1 focus-within:bg-primary-700 motion-safe:transition-colors motion-safe:duration-500">
-          <Balance className="inline-block h-5 w-5 shrink-0 fill-primary-400" />
+        <label className="flex w-full cursor-text items-center justify-center gap-1.5 rounded-t border-b-2 border-b-primary-400 bg-primary-600 px-2 py-1">
+          <Balance className="inline-block h-5 w-5 shrink-0 fill-white" />
           <input
             onFocus={onFocus}
             onBlur={onBlur}
-            className="w-full bg-transparent font-bold text-primary-400 outline-none selection:bg-primary-200/40"
+            className="w-full bg-transparent font-medium text-white outline-none"
             type="number"
             value={
               (inventory[item][rarity] as unknown as { traddable: number })
@@ -72,7 +72,7 @@ export default function ItemComponent({
                 item,
                 value: Number(e.target.value),
                 type: 'traddable',
-                rarity
+                rarity,
               })
             }}
           />
@@ -80,7 +80,7 @@ export default function ItemComponent({
         <input
           onFocus={onFocus}
           onBlur={onBlur}
-          className="flex w-full appearance-none items-center justify-center gap-1.5 bg-transparent bg-input-top-to-bottom px-3 py-1 font-bold text-primary-400 outline-none selection:bg-primary-200/40 focus:bg-primary-700 motion-safe:transition-colors motion-safe:duration-500"
+          className="flex w-full appearance-none items-center justify-center gap-1.5 rounded-b bg-primary-600 px-3 py-1 font-medium text-white outline-none"
           type="number"
           value={
             (inventory[item][rarity] as unknown as { nonTraddable: number })
@@ -91,7 +91,7 @@ export default function ItemComponent({
               item,
               value: Number(e.target.value),
               type: 'nonTraddable',
-              rarity
+              rarity,
             })
           }}
         />
