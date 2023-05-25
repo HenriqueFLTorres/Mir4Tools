@@ -67,6 +67,13 @@ export const defaultCostObject: CraftingCalcObject = {
     Rare: 0,
     Uncommon: 0,
     Common: 0
+  },
+  dragon_claw: {
+    Legendary: 0,
+    Epic: 0,
+    Rare: 0,
+    Uncommon: 0,
+    Common: 0
   }
 }
 

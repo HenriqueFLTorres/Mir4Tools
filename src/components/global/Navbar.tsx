@@ -64,7 +64,7 @@ export default function Navbar() {
         </Popover.Trigger>
         <Popover.Content
           align="end"
-          className="min-w-[15rem] rounded-lg bg-primary-800 p-2 shadow-md"
+          className="min-w-[15rem] rounded-lg bg-primary-800 p-2 shadow-md data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow"
           sideOffset={8}
         >
           <h2 className="mx-2 mb-4">Resources Filter</h2>

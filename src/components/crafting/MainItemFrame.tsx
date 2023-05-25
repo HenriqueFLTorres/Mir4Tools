@@ -15,7 +15,7 @@ export default function MainItemFrame({
   weaponType,
   setWeaponType,
   itemRarity,
-  setItemRarity
+  setItemRarity,
 }: MainItemFrameProps) {
   return (
     <Popover.Root>
@@ -56,7 +56,7 @@ export default function MainItemFrame({
                 className={cn(
                   'h-8 w-8 rounded-md bg-epic-frame opacity-30 motion-safe:transition-opacity',
                   {
-                    'opacity-100': itemRarity === 'Epic'
+                    'opacity-100': itemRarity === 'Epic',
                   }
                 )}
               />
@@ -67,21 +67,21 @@ export default function MainItemFrame({
                 className={cn(
                   'h-8 w-8 rounded-md bg-rare-frame opacity-30 motion-safe:transition-opacity',
                   {
-                    'opacity-100': itemRarity === 'Rare'
+                    'opacity-100': itemRarity === 'Rare',
                   }
                 )}
               />
-              <button
+              {/* <button
                 onClick={() => {
                   setItemRarity('Uncommon')
                 }}
                 className={cn(
                   'h-8 w-8 rounded-md bg-uncommon-frame opacity-30 motion-safe:transition-opacity',
                   {
-                    'opacity-100': itemRarity === 'Uncommon'
+                    'opacity-100': itemRarity === 'Uncommon',
                   }
                 )}
-              />
+              /> */}
             </div>
           </header>
 
@@ -90,7 +90,7 @@ export default function MainItemFrame({
               <MenuButton
                 key={value}
                 className={cn({
-                  'bg-primary-100/10': category === value
+                  'bg-primary-100/10': category === value,
                 })}
                 onClick={() => {
                   setCategory(value)
@@ -115,7 +115,7 @@ export default function MainItemFrame({
               <MenuButton
                 key={tier}
                 className={cn('font-ptSerif text-3xl font-bold text-white', {
-                  'bg-primary-100/10': selectedTier === tier
+                  'bg-primary-100/10': selectedTier === tier,
                 })}
                 onClick={() => {
                   setTier(tier)
@@ -133,7 +133,7 @@ export default function MainItemFrame({
                   setWeaponType('primary')
                 }}
                 className={cn('py-2', {
-                  'bg-primary-100/10': weaponType === 'primary'
+                  'bg-primary-100/10': weaponType === 'primary',
                 })}
               >
                 Primary
@@ -143,7 +143,7 @@ export default function MainItemFrame({
                   setWeaponType('secondary')
                 }}
                 className={cn('py-2', {
-                  'bg-primary-100/10': weaponType === 'secondary'
+                  'bg-primary-100/10': weaponType === 'secondary',
                 })}
               >
                 Secondary
@@ -159,20 +159,20 @@ export default function MainItemFrame({
 const Items = [
   {
     value: 'weapon',
-    image: ['/items/weapon.png']
+    image: ['/items/weapon.png'],
   },
   {
     value: 'armor',
-    image: ['/items/armor.png']
+    image: ['/items/armor.png'],
   },
   {
     value: 'necklace',
-    image: ['/items/necklace.png', '/items/bracelet.png']
+    image: ['/items/necklace.png', '/items/bracelet.png'],
   },
   {
     value: 'earrings',
-    image: ['/items/earrings.png', '/items/ring.png']
-  }
+    image: ['/items/earrings.png', '/items/ring.png'],
+  },
 ] as const
 
 function MenuButton({
@@ -207,6 +207,6 @@ interface MainItemFrameProps {
   setWeaponType: React.Dispatch<React.SetStateAction<'primary' | 'secondary'>>
   itemRarity: RarityTypes
   setItemRarity: React.Dispatch<
-    React.SetStateAction<Exclude<RarityTypes, 'Common'>>
+    React.SetStateAction<Exclude<RarityTypes, 'Common' | 'Uncommon'>>
   >
 }

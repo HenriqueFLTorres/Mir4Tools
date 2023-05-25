@@ -32,7 +32,7 @@ export const ComplementaryItems = [
   'dark_steel',
   'copper',
   'energy',
-  'glittering_powder'
+  'glittering_powder',
 ]
 
 export const calculateCraftByItem = ({
@@ -44,12 +44,12 @@ export const calculateCraftByItem = ({
   displayRarity,
   parentIsBase,
   weaponType,
-  tier
+  tier,
 }: {
   name?: ItemTypes
   setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>
   category?: ItemCategory
-  parentRarity?: RarityTypes
+  parentRarity?: Exclude<RarityTypes, 'Uncommon' | 'Common'>
   multiply: number
   displayRarity: RarityTypes[]
   parentIsBase: boolean
@@ -66,8 +66,8 @@ export const calculateCraftByItem = ({
 
   let targetItem
 
-  if (!!tier && !!weaponType && !!parentRarity && parentRarity !== 'Common') {
-    targetItem = WeaponCraftCost?.[weaponType]?.[parentRarity]?.[tier]
+  if (!!tier && !!weaponType && !!parentRarity) {
+    targetItem = WeaponCraftCost?.[weaponType]?.[parentRarity]
   } else if (name && parentRarity) {
     targetItem = CraftCost?.[name]?.[parentRarity]
   }
@@ -83,22 +83,25 @@ export const calculateCraftByItem = ({
             ...prev[name as ItemWithRarity],
             [value.rarity as RarityTypes]:
               prev[name as ItemWithRarity][value.rarity as RarityTypes] +
-              value.cost * multiply
-          }
-        }
+              value.cost * multiply,
+          },
+        },
       }))
       calculateCraftByItem({
         setAtom,
         name: name as unknown as ItemTypes,
-        parentRarity: value.rarity,
+        parentRarity: value.rarity as Exclude<
+          RarityTypes,
+          'Uncommon' | 'Common'
+        >,
         multiply: value.cost * multiply,
         displayRarity,
-        parentIsBase: false
+        parentIsBase: false,
       })
     } else {
       setAtom((prev) => ({
         ...prev,
-        [name]: prev[name as NonRarityItems] + value.cost * multiply
+        [name]: prev[name as NonRarityItems] + value.cost * multiply,
       }))
     }
   })
@@ -118,7 +121,7 @@ export const formatForPercentage = (value: string) => {
 export const formatLevel = (value: string): Level => {
   value = value.replace(/\D/g, '')
   value = value.replace(/^(\d{3})(.+)/g, '$1')
-  return Number(value) > 190 ? 190 : Number(value) as Level
+  return Number(value) > 190 ? 190 : (Number(value) as Level)
 }
 
 export const getPercentage = (

@@ -18,10 +18,10 @@ export default function CraftingMain() {
     'primary'
   )
   const [itemRarity, setItemRarity] =
-    useState<Exclude<RarityTypes, 'Common'>>('Epic')
+    useState<Exclude<RarityTypes, 'Common' | 'Uncommon'>>('Epic')
 
   // const targetItem = CraftCost.find((obj) => obj.name === category)!;
-  const targetItem = WeaponCraftCost[weaponType][itemRarity][selectedTier]
+  const targetItem = WeaponCraftCost[weaponType][itemRarity]
 
   useEffect(() => {
     setCraftCost(defaultCostObject)
@@ -33,7 +33,7 @@ export default function CraftingMain() {
       displayRarity: settings.displayRarity,
       parentIsBase: true,
       weaponType,
-      tier: selectedTier
+      tier: selectedTier,
     })
   }, [
     category,
@@ -41,7 +41,7 @@ export default function CraftingMain() {
     selectedTier,
     setCraftCost,
     settings.displayRarity,
-    weaponType
+    weaponType,
   ])
 
   return (
@@ -78,7 +78,7 @@ export default function CraftingMain() {
                     {item?.rarity && (
                       <RecursiveCostFragment
                         name={name as ItemTypes}
-                        rarity={item?.rarity}
+                        rarity={item?.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>}
                         multiplier={item.cost}
                       />
                     )}
@@ -97,10 +97,10 @@ export default function CraftingMain() {
 function RecursiveCostFragment({
   name: parentName,
   rarity: parentRarity,
-  multiplier
+  multiplier,
 }: {
   name: keyof typeof CraftCost
-  rarity: RarityTypes | null
+  rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
   multiplier: number
 }) {
   const [settings] = useAtom(SettingsAtom)
@@ -129,7 +129,7 @@ function RecursiveCostFragment({
 
               <RecursiveCostFragment
                 name={name as keyof typeof CraftCost}
-                rarity={recipe.rarity}
+                rarity={recipe.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>}
                 multiplier={recipe.cost * multiplier}
               />
             </React.Fragment>

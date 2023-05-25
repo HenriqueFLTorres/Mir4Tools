@@ -14,6 +14,7 @@ type ItemTypes =
   | 'platinum'
   | 'steel'
   | 'dragon_scale'
+  | 'dragon_claw'
 
 type ItemWithRarity = Exclude<
   ItemTypes,
@@ -37,7 +38,7 @@ type ItemsForRecipe = ItemTypes | 'dragon_scale'
 
 type CraftCostType = Partial<{
   [key in ItemTypes]: {
-    [key in RarityTypes]: Partial<{
+    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
       [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
     }>
   }
@@ -45,11 +46,9 @@ type CraftCostType = Partial<{
 
 type WeaponCraftCostType = {
   [key in 'primary' | 'secondary']: {
-    [key in Exclude<RarityTypes, 'Common'>]: {
-      [key in '1' | '2' | '3' | '4']: Partial<{
-        [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
-      }>
-    }
+    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
+      [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+    }>
   }
 }
 
