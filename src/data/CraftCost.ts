@@ -1,7 +1,119 @@
 const CraftCost: CraftCostType = {
-  steel: {
+  anima_stone: {
     Legendary: {
-      steel: {
+      anima_stone: {
+        cost: 10,
+        rarity: 'Epic',
+      },
+      glittering_powder: {
+        cost: 125,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 100000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 25000,
+        rarity: null,
+      },
+    },
+    Epic: {
+      anima_stone: {
+        cost: 10,
+        rarity: 'Rare',
+      },
+      glittering_powder: {
+        cost: 25,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 20000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 5000,
+        rarity: null,
+      },
+    },
+    Rare: {
+      anima_stone: {
+        cost: 10,
+        rarity: 'Uncommon',
+      },
+      glittering_powder: {
+        cost: 2,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 2000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 1000,
+        rarity: null,
+      },
+    },
+  },
+  exorcism_bauble: {
+    Legendary: {
+      exorcism_bauble: {
+        cost: 10,
+        rarity: 'Epic',
+      },
+      glittering_powder: {
+        cost: 125,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 100000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 25000,
+        rarity: null,
+      },
+    },
+    Epic: {
+      exorcism_bauble: {
+        cost: 10,
+        rarity: 'Rare',
+      },
+      glittering_powder: {
+        cost: 25,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 20000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 5000,
+        rarity: null,
+      },
+    },
+    Rare: {
+      exorcism_bauble: {
+        cost: 10,
+        rarity: 'Uncommon',
+      },
+      glittering_powder: {
+        cost: 2,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 2000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 1000,
+        rarity: null,
+      },
+    },
+  },
+  moon_shadow_stone: {
+    Legendary: {
+      moon_shadow_stone: {
         rarity: 'Epic',
         cost: 10,
       },
@@ -19,7 +131,7 @@ const CraftCost: CraftCostType = {
       },
     },
     Epic: {
-      steel: {
+      moon_shadow_stone: {
         rarity: 'Rare',
         cost: 10,
       },
@@ -37,7 +149,7 @@ const CraftCost: CraftCostType = {
       },
     },
     Rare: {
-      steel: {
+      moon_shadow_stone: {
         rarity: 'Uncommon',
         cost: 10,
       },
@@ -52,6 +164,118 @@ const CraftCost: CraftCostType = {
       dark_steel: {
         rarity: null,
         cost: 1000,
+      },
+    },
+  },
+  illuminating_fragment: {
+    Legendary: {
+      illuminating_fragment: {
+        cost: 10,
+        rarity: 'Epic',
+      },
+      glittering_powder: {
+        cost: 125,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 100000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 25000,
+        rarity: null,
+      },
+    },
+    Epic: {
+      illuminating_fragment: {
+        cost: 10,
+        rarity: 'Rare',
+      },
+      glittering_powder: {
+        cost: 25,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 20000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 5000,
+        rarity: null,
+      },
+    },
+    Rare: {
+      illuminating_fragment: {
+        cost: 10,
+        rarity: 'Uncommon',
+      },
+      glittering_powder: {
+        cost: 2,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 2000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 1000,
+        rarity: null,
+      },
+    },
+  },
+  quintessence: {
+    Legendary: {
+      quintessence: {
+        cost: 10,
+        rarity: 'Epic',
+      },
+      glittering_powder: {
+        cost: 125,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 100000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 25000,
+        rarity: null,
+      },
+    },
+    Epic: {
+      quintessence: {
+        cost: 10,
+        rarity: 'Rare',
+      },
+      glittering_powder: {
+        cost: 25,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 20000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 5000,
+        rarity: null,
+      },
+    },
+    Rare: {
+      quintessence: {
+        cost: 10,
+        rarity: 'Uncommon',
+      },
+      glittering_powder: {
+        cost: 2,
+        rarity: 'Uncommon',
+      },
+      copper: {
+        cost: 2000,
+        rarity: null,
+      },
+      dark_steel: {
+        cost: 1000,
+        rarity: null,
       },
     },
   },
@@ -111,9 +335,9 @@ const CraftCost: CraftCostType = {
       },
     },
   },
-  moon_shadow_stone: {
+  platinum: {
     Legendary: {
-      moon_shadow_stone: {
+      platinum: {
         rarity: 'Epic',
         cost: 10,
       },
@@ -131,7 +355,7 @@ const CraftCost: CraftCostType = {
       },
     },
     Epic: {
-      moon_shadow_stone: {
+      platinum: {
         rarity: 'Rare',
         cost: 10,
       },
@@ -149,7 +373,63 @@ const CraftCost: CraftCostType = {
       },
     },
     Rare: {
-      moon_shadow_stone: {
+      platinum: {
+        rarity: 'Uncommon',
+        cost: 10,
+      },
+      glittering_powder: {
+        rarity: 'Uncommon',
+        cost: 2,
+      },
+      copper: {
+        rarity: null,
+        cost: 2000,
+      },
+      dark_steel: {
+        rarity: null,
+        cost: 1000,
+      },
+    },
+  },
+  steel: {
+    Legendary: {
+      steel: {
+        rarity: 'Epic',
+        cost: 10,
+      },
+      glittering_powder: {
+        rarity: 'Uncommon',
+        cost: 125,
+      },
+      copper: {
+        rarity: null,
+        cost: 100000,
+      },
+      dark_steel: {
+        rarity: null,
+        cost: 25000,
+      },
+    },
+    Epic: {
+      steel: {
+        rarity: 'Rare',
+        cost: 10,
+      },
+      glittering_powder: {
+        rarity: 'Uncommon',
+        cost: 25,
+      },
+      copper: {
+        rarity: null,
+        cost: 20000,
+      },
+      dark_steel: {
+        rarity: null,
+        cost: 5000,
+      },
+    },
+    Rare: {
+      steel: {
         rarity: 'Uncommon',
         cost: 10,
       },
@@ -352,12 +632,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 5000000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 500000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Epic: {
       steel: {
@@ -378,12 +658,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 400000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 50000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Rare: {
       steel: {
@@ -404,12 +684,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 25000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 5000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
   },
   necklace: {
@@ -432,12 +712,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 10000000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 1000000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Epic: {
       platinum: {
@@ -458,12 +738,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 800000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 100000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Rare: {
       platinum: {
@@ -484,12 +764,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 50000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 10000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
   },
   earrings: {
@@ -512,12 +792,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 10000000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 10000000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Epic: {
       platinum: {
@@ -538,12 +818,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 800000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 800000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
     Rare: {
       platinum: {
@@ -564,12 +844,12 @@ export const ItemCraftCost: ItemCraftCostType = {
       },
       copper: {
         cost: 50000,
-        rarity: null
+        rarity: null,
       },
       dark_steel: {
         cost: 50000,
-        rarity: null
-      }
+        rarity: null,
+      },
     },
   },
 }
