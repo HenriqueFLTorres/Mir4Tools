@@ -1,7 +1,7 @@
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
 import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
-import CraftCost, { WeaponCraftCost } from '@/data/CraftCost'
+import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
 import { useAtom } from 'jotai'
 import React, { useEffect, useState } from 'react'
@@ -21,7 +21,10 @@ export default function CraftingMain() {
     useState<Exclude<RarityTypes, 'Common' | 'Uncommon'>>('Epic')
 
   // const targetItem = CraftCost.find((obj) => obj.name === category)!;
-  const targetItem = WeaponCraftCost[weaponType][itemRarity]
+  const targetItem =
+    category === 'weapon'
+      ? ItemCraftCost[weaponType][itemRarity]
+      : ItemCraftCost[category][itemRarity]
 
   useEffect(() => {
     setCraftCost(defaultCostObject)
@@ -78,7 +81,12 @@ export default function CraftingMain() {
                     {item?.rarity && (
                       <RecursiveCostFragment
                         name={name as ItemTypes}
-                        rarity={item?.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>}
+                        rarity={
+                          item?.rarity as Exclude<
+                            RarityTypes,
+                            'Uncommon' | 'Common'
+                          >
+                        }
                         multiplier={item.cost}
                       />
                     )}
@@ -129,7 +137,9 @@ function RecursiveCostFragment({
 
               <RecursiveCostFragment
                 name={name as keyof typeof CraftCost}
-                rarity={recipe.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>}
+                rarity={
+                  recipe.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>
+                }
                 multiplier={recipe.cost * multiplier}
               />
             </React.Fragment>

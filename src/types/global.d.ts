@@ -5,6 +5,7 @@ type ItemTypes =
   | 'blue_devil_stone'
   | 'copper'
   | 'dark_steel'
+  | 'dragon_leather'
   | 'energy'
   | 'evil_minded_orb'
   | 'exorcism_bauble'
@@ -12,9 +13,12 @@ type ItemTypes =
   | 'illuminating_fragment'
   | 'moon_shadow_stone'
   | 'platinum'
+  | 'quintessence'
   | 'steel'
+  | 'dragon_eye'
   | 'dragon_scale'
   | 'dragon_claw'
+  | 'dragon_horn'
 
 type ItemWithRarity = Exclude<
   ItemTypes,
@@ -39,15 +43,21 @@ type ItemsForRecipe = ItemTypes | 'dragon_scale'
 type CraftCostType = Partial<{
   [key in ItemTypes]: {
     [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
-      [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
     }>
   }
 }>
 
-type WeaponCraftCostType = {
+type ItemCraftCostType = {
   [key in 'primary' | 'secondary']: {
     [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
-      [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
+    }>
+  }
+} & {
+  [key in 'armor' | 'necklace' | 'earrings']: {
+    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
+      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
     }>
   }
 }

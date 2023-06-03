@@ -1,18 +1,3 @@
-const rarityPlaceholder = {
-  copper: {
-    rarity: null,
-    cost: 1,
-  },
-}
-
-const itemPlaceholder = {
-  Legendary: rarityPlaceholder,
-  Epic: rarityPlaceholder,
-  Rare: rarityPlaceholder,
-  Uncommon: rarityPlaceholder,
-  Common: rarityPlaceholder,
-}
-
 const CraftCost: CraftCostType = {
   steel: {
     Legendary: {
@@ -186,7 +171,7 @@ const CraftCost: CraftCostType = {
 
 export default CraftCost
 
-export const WeaponCraftCost: WeaponCraftCostType = {
+export const ItemCraftCost: ItemCraftCostType = {
   primary: {
     Legendary: {
       steel: {
@@ -345,6 +330,246 @@ export const WeaponCraftCost: WeaponCraftCostType = {
         rarity: null,
         cost: 50000,
       },
+    },
+  },
+  armor: {
+    Legendary: {
+      steel: {
+        cost: 300,
+        rarity: 'Legendary',
+      },
+      quintessence: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      exorcism_bauble: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      dragon_leather: {
+        cost: 1,
+        rarity: 'Legendary',
+      },
+      copper: {
+        cost: 5000000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 500000,
+        rarity: null
+      }
+    },
+    Epic: {
+      steel: {
+        cost: 300,
+        rarity: 'Epic',
+      },
+      quintessence: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      exorcism_bauble: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      dragon_leather: {
+        cost: 1,
+        rarity: 'Epic',
+      },
+      copper: {
+        cost: 400000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 50000,
+        rarity: null
+      }
+    },
+    Rare: {
+      steel: {
+        cost: 75,
+        rarity: 'Rare',
+      },
+      quintessence: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      exorcism_bauble: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      dragon_leather: {
+        cost: 1,
+        rarity: 'Rare',
+      },
+      copper: {
+        cost: 25000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 5000,
+        rarity: null
+      }
+    },
+  },
+  necklace: {
+    Legendary: {
+      platinum: {
+        cost: 300,
+        rarity: 'Legendary',
+      },
+      illuminating_fragment: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      anima_stone: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      dragon_horn: {
+        cost: 1,
+        rarity: 'Legendary',
+      },
+      copper: {
+        cost: 10000000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 1000000,
+        rarity: null
+      }
+    },
+    Epic: {
+      platinum: {
+        cost: 300,
+        rarity: 'Epic',
+      },
+      illuminating_fragment: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      anima_stone: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      dragon_horn: {
+        cost: 1,
+        rarity: 'Epic',
+      },
+      copper: {
+        cost: 800000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 100000,
+        rarity: null
+      }
+    },
+    Rare: {
+      platinum: {
+        cost: 75,
+        rarity: 'Rare',
+      },
+      illuminating_fragment: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      anima_stone: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      dragon_horn: {
+        cost: 1,
+        rarity: 'Rare',
+      },
+      copper: {
+        cost: 50000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 10000,
+        rarity: null
+      }
+    },
+  },
+  earrings: {
+    Legendary: {
+      platinum: {
+        cost: 300,
+        rarity: 'Legendary',
+      },
+      illuminating_fragment: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      anima_stone: {
+        cost: 100,
+        rarity: 'Legendary',
+      },
+      dragon_eye: {
+        cost: 1,
+        rarity: 'Legendary',
+      },
+      copper: {
+        cost: 10000000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 10000000,
+        rarity: null
+      }
+    },
+    Epic: {
+      platinum: {
+        cost: 300,
+        rarity: 'Epic',
+      },
+      illuminating_fragment: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      anima_stone: {
+        cost: 100,
+        rarity: 'Epic',
+      },
+      dragon_eye: {
+        cost: 1,
+        rarity: 'Epic',
+      },
+      copper: {
+        cost: 800000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 800000,
+        rarity: null
+      }
+    },
+    Rare: {
+      platinum: {
+        cost: 75,
+        rarity: 'Rare',
+      },
+      illuminating_fragment: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      anima_stone: {
+        cost: 25,
+        rarity: 'Rare',
+      },
+      dragon_eye: {
+        cost: 1,
+        rarity: 'Rare',
+      },
+      copper: {
+        cost: 50000,
+        rarity: null
+      },
+      dark_steel: {
+        cost: 50000,
+        rarity: null
+      }
     },
   },
 }

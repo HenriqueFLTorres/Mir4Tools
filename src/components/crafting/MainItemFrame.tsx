@@ -192,7 +192,7 @@ interface MainItemFrameProps {
   name: string
   rarity: RarityTypes
   targetItem: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
+    [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
   }>
   category: ItemCategory
   setCategory: React.Dispatch<React.SetStateAction<ItemCategory>>

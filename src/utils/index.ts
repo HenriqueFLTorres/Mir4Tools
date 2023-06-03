@@ -1,5 +1,5 @@
 import { type Level } from '@/app/xp/page'
-import CraftCost, { WeaponCraftCost } from '@/data/CraftCost'
+import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { atom, type SetStateAction } from 'jotai'
 
 export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
@@ -67,7 +67,7 @@ export const calculateCraftByItem = ({
   let targetItem
 
   if (!!tier && !!weaponType && !!parentRarity) {
-    targetItem = WeaponCraftCost?.[weaponType]?.[parentRarity]
+    targetItem = ItemCraftCost?.[weaponType]?.[parentRarity]
   } else if (name && parentRarity) {
     targetItem = CraftCost?.[name]?.[parentRarity]
   }
