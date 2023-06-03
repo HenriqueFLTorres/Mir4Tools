@@ -71,17 +71,6 @@ export default function MainItemFrame({
                   }
                 )}
               />
-              {/* <button
-                onClick={() => {
-                  setItemRarity('Uncommon')
-                }}
-                className={cn(
-                  'h-8 w-8 rounded-md bg-uncommon-frame opacity-30 motion-safe:transition-opacity',
-                  {
-                    'opacity-100': itemRarity === 'Uncommon',
-                  }
-                )}
-              /> */}
             </div>
           </header>
 
@@ -120,6 +109,7 @@ export default function MainItemFrame({
                 onClick={() => {
                   setTier(tier)
                 }}
+                disabled={tier !== 1}
               >
                 {tier === 4 ? 'IV' : 'I'.repeat(tier)}
               </MenuButton>
@@ -178,8 +168,12 @@ const Items = [
 function MenuButton({
   children,
   className,
+  disabled = false,
   ...props
-}: { className?: string } & React.HTMLAttributes<HTMLButtonElement>) {
+}: {
+  className?: string
+  disabled?: boolean
+} & React.HTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       {...props}
@@ -187,6 +181,7 @@ function MenuButton({
         'flex grow items-center justify-center gap-2 rounded-md p-4 motion-safe:transition-colors',
         className
       )}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -197,7 +192,7 @@ interface MainItemFrameProps {
   name: string
   rarity: RarityTypes
   targetItem: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
   }>
   category: ItemCategory
   setCategory: React.Dispatch<React.SetStateAction<ItemCategory>>
