@@ -20,7 +20,6 @@ export default function CraftingMain() {
   const [itemRarity, setItemRarity] =
     useState<Exclude<RarityTypes, 'Common' | 'Uncommon'>>('Epic')
 
-  // const targetItem = CraftCost.find((obj) => obj.name === category)!;
   const targetItem =
     category === 'weapon'
       ? ItemCraftCost[weaponType][itemRarity]
@@ -32,11 +31,9 @@ export default function CraftingMain() {
       setAtom: setCraftCost,
       category,
       parentRarity: itemRarity,
-      multiply: 1,
       displayRarity: settings.displayRarity,
       parentIsBase: true,
       weaponType,
-      tier: selectedTier,
     })
   }, [
     category,

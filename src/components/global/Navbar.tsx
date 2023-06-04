@@ -73,11 +73,12 @@ export default function Navbar() {
             {filterOptions.map((option) => (
               <ToggleFilter
                 key={option}
-                className="w-full items-center justify-between rounded-md px-3 py-2 font-normal text-white data-[active=true]:bg-primary-700 motion-safe:transition-colors"
+                className="w-full items-center justify-between rounded-md px-3 py-2 font-normal text-white disabled:opacity-60 data-[active=true]:bg-primary-700 motion-safe:transition-colors"
                 value={settings.displayRarity.includes(option)}
                 onClick={() => {
                   handleFilterChange(option)
                 }}
+                disabled={option === 'Uncommon' || option === 'Common'}
               >
                 {option}
               </ToggleFilter>

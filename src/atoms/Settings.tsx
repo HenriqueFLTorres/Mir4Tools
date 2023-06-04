@@ -3,7 +3,7 @@ import { atomWithLocalStorage } from '../utils'
 
 export const SettingsAtom: PrimitiveAtom<SettingsObject> &
   Atom<SettingsObject> = atomWithLocalStorage('Mir4Tools_Settings', {
-  displayRarity: ['Epic', 'Rare']
+  displayRarity: ['Legendary', 'Epic', 'Rare'],
 })
 
 interface SettingsObject {

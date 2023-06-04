@@ -40,25 +40,26 @@ export const calculateCraftByItem = ({
   name,
   category,
   parentRarity,
-  multiply,
+  multiply = 1,
   displayRarity,
   parentIsBase,
   weaponType,
-  tier,
+  baseRarity,
 }: {
   name?: ItemTypes
   setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>
   category?: ItemCategory
   parentRarity?: Exclude<RarityTypes, 'Uncommon' | 'Common'>
-  multiply: number
+  baseRarity?: Exclude<RarityTypes, 'Uncommon' | 'Common'>
+  multiply?: number
   displayRarity: RarityTypes[]
   parentIsBase: boolean
   weaponType?: 'primary' | 'secondary'
-  tier?: ItemTier
 }) => {
   if (
     parentRarity !== undefined &&
     !displayRarity.includes(parentRarity) &&
+    parentRarity !== (baseRarity ?? parentRarity) &&
     !parentIsBase
   ) {
     return
@@ -66,8 +67,11 @@ export const calculateCraftByItem = ({
 
   let targetItem
 
-  if (!!tier && !!weaponType && !!parentRarity) {
-    targetItem = ItemCraftCost?.[weaponType]?.[parentRarity]
+  if (!!parentRarity && !!category) {
+    targetItem =
+      category === 'weapon'
+        ? ItemCraftCost[weaponType as 'primary' | 'secondary'][parentRarity]
+        : ItemCraftCost[category][parentRarity]
   } else if (name && parentRarity) {
     targetItem = CraftCost?.[name]?.[parentRarity]
   }
@@ -97,6 +101,7 @@ export const calculateCraftByItem = ({
         multiply: value.cost * multiply,
         displayRarity,
         parentIsBase: false,
+        baseRarity: parentRarity,
       })
     } else {
       setAtom((prev) => ({

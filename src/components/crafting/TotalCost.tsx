@@ -2,13 +2,21 @@ import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
 import { useAtom } from 'jotai'
 
+const rarities: RarityTypes[] = [
+  'Common',
+  'Uncommon',
+  'Rare',
+  'Epic',
+  'Legendary',
+]
+
 export default function TotalCost({
   craftCost,
-  targetRecipe
+  targetRecipe,
 }: {
   craftCost: CraftingCalcObject
   targetRecipe: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
   }>
 }) {
   const [settings] = useAtom(SettingsAtom)
@@ -21,6 +29,12 @@ export default function TotalCost({
     )
   }
 
+  const hasOtherRaritiesThanBase = (rarity: RarityTypes) => {
+    return !Array.from(Array(mappedRarity[rarity]).keys())
+      .map((n) => settings.displayRarity.includes(rarities[n - 1]))
+      .some((check) => !!check)
+  }
+
   return (
     <section className="flex w-full flex-col gap-8">
       <h2 className="text-3xl font-bold text-primary-200">Total</h2>
@@ -30,11 +44,18 @@ export default function TotalCost({
           {Object.entries(craftCost).map(
             ([name, item]) =>
               typeof item !== 'number' &&
-              Object.entries(item).map(
-                ([rarity, value]) =>
-                  value > 0 &&
-                  !isBaseRecipe(name, rarity) &&
-                  settings.displayRarity.includes(rarity as RarityTypes) && (
+              Object.entries(item).map(([rarity, value]) => {
+                const showItemRarity = settings.displayRarity.includes(
+                  rarity as RarityTypes
+                )
+                const isNotBaseRecipe = !isBaseRecipe(name, rarity)
+
+                const showItem = value > 0 && isNotBaseRecipe && showItemRarity
+
+                return (
+                  (showItem ||
+                    (isBaseRecipe(name, rarity) &&
+                      hasOtherRaritiesThanBase(rarity as RarityTypes))) && (
                     <CostFragment
                       key={`${name} ${rarity}`}
                       name={name as ItemTypes}
@@ -42,7 +63,8 @@ export default function TotalCost({
                       rarity={rarity as RarityTypes}
                     />
                   )
-              )
+                )
+              })
           )}
         </ul>
 
@@ -68,4 +90,12 @@ export default function TotalCost({
       </div>
     </section>
   )
+}
+
+const mappedRarity = {
+  Legendary: 5,
+  Epic: 4,
+  Rare: 3,
+  Uncommon: 2,
+  Common: 1,
 }
