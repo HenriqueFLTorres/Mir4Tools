@@ -28,6 +28,18 @@ type NonRarityItems = 'copper' | 'dark_steel' | 'energy' | 'glittering_powder'
 
 type InventoryType = {
   [key in ItemWithRarity]: {
+    [key in RarityTypes]: { traddable: number, nonTraddable: number }
+  }
+} & {
+  copper: number
+  dark_steel: number
+  energy: number
+  glittering_powder: number
+  dragon_scale: number
+}
+
+type ParsedInventoryType = {
+  [key in ItemWithRarity]: {
     [key in RarityTypes]: number
   }
 } & {

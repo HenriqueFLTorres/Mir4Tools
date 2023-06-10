@@ -1,3 +1,4 @@
+import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
 import { useAtom } from 'jotai'
@@ -20,6 +21,7 @@ export default function TotalCost({
   }>
 }) {
   const [settings] = useAtom(SettingsAtom)
+  const [inventory] = useAtom(InventoryAtom)
 
   const isBaseRecipe = (name: string, rarity: string) => {
     const baseResources = Object.entries(targetRecipe)
@@ -71,19 +73,19 @@ export default function TotalCost({
         <ul className="flex gap-5">
           <CostFragment
             name="dark_steel"
-            cost={craftCost.dark_steel}
+            cost={craftCost.dark_steel - inventory.dark_steel}
             rarity="Default"
           />
 
           <CostFragment
             name="copper"
-            cost={craftCost.copper}
+            cost={craftCost.copper - inventory.copper}
             rarity="Default"
           />
 
           <CostFragment
             name="glittering_powder"
-            cost={craftCost.glittering_powder}
+            cost={craftCost.glittering_powder - inventory.glittering_powder}
             rarity="Default"
           />
         </ul>

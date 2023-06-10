@@ -45,6 +45,7 @@ export const calculateCraftByItem = ({
   parentIsBase,
   weaponType,
   baseRarity,
+  inventory,
 }: {
   name?: ItemTypes
   setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>
@@ -55,6 +56,7 @@ export const calculateCraftByItem = ({
   displayRarity: RarityTypes[]
   parentIsBase: boolean
   weaponType?: 'primary' | 'secondary'
+  inventory: InventoryType
 }) => {
   if (
     parentRarity !== undefined &&
@@ -79,6 +81,12 @@ export const calculateCraftByItem = ({
   if (targetItem == null) return
 
   Object.entries(targetItem).forEach(([name, value]) => {
+    const ownedAmount =
+      value.rarity === null || name === 'glittering_powder'
+        ? inventory[name as NonRarityItems]
+        : inventory[name as ItemWithRarity][value.rarity]?.traddable +
+          inventory[name as ItemWithRarity][value.rarity]?.nonTraddable
+
     if (value.rarity && !ComplementaryItems.includes(name)) {
       setAtom((prev) => ({
         ...prev,
@@ -87,7 +95,8 @@ export const calculateCraftByItem = ({
             ...prev[name as ItemWithRarity],
             [value.rarity as RarityTypes]:
               prev[name as ItemWithRarity][value.rarity as RarityTypes] +
-              value.cost * multiply,
+              value.cost * multiply -
+              ownedAmount,
           },
         },
       }))
@@ -102,11 +111,13 @@ export const calculateCraftByItem = ({
         displayRarity,
         parentIsBase: false,
         baseRarity: parentRarity,
+        inventory,
       })
     } else {
       setAtom((prev) => ({
         ...prev,
-        [name]: prev[name as NonRarityItems] + value.cost * multiply,
+        [name]:
+          prev[name as NonRarityItems] + value.cost * multiply,
       }))
     }
   })

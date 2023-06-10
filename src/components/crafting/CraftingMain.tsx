@@ -1,8 +1,12 @@
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
+import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
-import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
+import {
+  ComplementaryItems,
+  calculateCraftByItem,
+} from '@/utils/index'
 import { useAtom } from 'jotai'
 import React, { useEffect, useState } from 'react'
 import MainItemFrame from './MainItemFrame'
@@ -10,6 +14,7 @@ import TotalCost from './TotalCost'
 
 export default function CraftingMain() {
   const [settings] = useAtom(SettingsAtom)
+  const [inventory] = useAtom(InventoryAtom)
   const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom)
 
   const [category, setCategory] = useState<ItemCategory>('weapon')
@@ -34,6 +39,7 @@ export default function CraftingMain() {
       displayRarity: settings.displayRarity,
       parentIsBase: true,
       weaponType,
+      inventory
     })
   }, [
     category,
@@ -42,6 +48,7 @@ export default function CraftingMain() {
     setCraftCost,
     settings.displayRarity,
     weaponType,
+    inventory
   ])
 
   return (

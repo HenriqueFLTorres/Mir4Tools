@@ -20,6 +20,13 @@ export default function TableCostFragment({
   cost: number
 }) {
   const [settings] = useAtom(SettingsAtom)
+  const [inventory] = useAtom(InventoryAtom)
+
+  const target =
+    rarity === 'Default'
+      ? inventory[name as NonRarityItems]
+      : inventory[name as ItemWithRarity][rarity]?.traddable +
+        inventory[name as ItemWithRarity][rarity]?.nonTraddable
 
   const hideCost = cost === 1
 
@@ -34,10 +41,10 @@ export default function TableCostFragment({
               name={name as ItemWithRarity}
               rarity={rarity as RarityTypes}
             />
-            <RealCost cost={cost} />
+            <RealCost cost={cost - target} />
           </div>
         ) : (
-          <RealCost cost={cost} />
+          <RealCost cost={cost - target} />
         ))}
     </td>
   )
