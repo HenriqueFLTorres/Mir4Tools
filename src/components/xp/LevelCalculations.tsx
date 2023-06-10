@@ -11,14 +11,14 @@ import React from 'react'
 
 export default function LevelCalculations({
   XPToTargetLevel = 0,
-  invalidInput
+  invalidInput,
 }: {
   XPToTargetLevel?: number
   invalidInput: boolean
 }) {
   const [
     { levels, percentages, xpPerMinute = 0, manualCalculation },
-    setXPCalc
+    setXPCalc,
   ] = useAtom(XPCalculatorAtom)
   const successfulInput = !!levels.initial && !!levels.final
 
@@ -30,14 +30,14 @@ export default function LevelCalculations({
         label="Current Level"
         placeholder="100"
         percentage={`${levels.initialPercentage ?? percentages.final ?? 0}%`}
-        value={String(levels.initial) ?? ''}
+        value={String(levels.initial ?? '')}
         onChange={(value) => {
           setXPCalc((prev) => ({
             ...prev,
             levels: {
               ...prev.levels,
-              initial: formatLevel(value)
-            }
+              initial: formatLevel(value),
+            },
           }))
         }}
         onBlur={() => {
@@ -47,9 +47,9 @@ export default function LevelCalculations({
               levels: {
                 ...prev.levels,
                 final: prev.levels.initial
-                  ? (Number(prev.levels.initial) + 1 as Level)
-                  : prev.levels.final
-              }
+                  ? ((Number(prev.levels.initial) + 1) as Level)
+                  : prev.levels.final,
+              },
             }))
         }}
         success={successfulInput}
@@ -99,14 +99,14 @@ export default function LevelCalculations({
       <LevelFrame
         label="Desired Level"
         placeholder="100"
-        value={String(levels.final) ?? ''}
+        value={String(levels.final ?? '')}
         onChange={(value) => {
           setXPCalc((prev) => ({
             ...prev,
             levels: {
               ...prev.levels,
-              final: formatLevel(value)
-            }
+              final: formatLevel(value),
+            },
           }))
         }}
         success={successfulInput}
