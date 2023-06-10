@@ -80,22 +80,22 @@ export const calculateCraftByItem = ({
 
   if (targetItem == null) return
 
-  Object.entries(targetItem).forEach(([name, value]) => {
+  Object.entries(targetItem).forEach(([name, item]) => {
     const ownedAmount =
-      value.rarity === null || name === 'glittering_powder'
+      item.rarity === null || name === 'glittering_powder'
         ? inventory[name as NonRarityItems]
-        : inventory[name as ItemWithRarity][value.rarity]?.traddable +
-          inventory[name as ItemWithRarity][value.rarity]?.nonTraddable
+        : inventory[name as ItemWithRarity][item.rarity]?.traddable +
+          inventory[name as ItemWithRarity][item.rarity]?.nonTraddable
 
-    if (value.rarity && !ComplementaryItems.includes(name)) {
+    if (item.rarity && !ComplementaryItems.includes(name)) {
       setAtom((prev) => ({
         ...prev,
         ...{
           [name]: {
             ...prev[name as ItemWithRarity],
-            [value.rarity as RarityTypes]:
-              prev[name as ItemWithRarity][value.rarity as RarityTypes] +
-              value.cost * multiply -
+            [item.rarity as RarityTypes]:
+              prev[name as ItemWithRarity][item.rarity as RarityTypes] +
+              item.cost * multiply -
               ownedAmount,
           },
         },
@@ -103,11 +103,11 @@ export const calculateCraftByItem = ({
       calculateCraftByItem({
         setAtom,
         name: name as unknown as ItemTypes,
-        parentRarity: value.rarity as Exclude<
+        parentRarity: item.rarity as Exclude<
           RarityTypes,
           'Uncommon' | 'Common'
         >,
-        multiply: value.cost * multiply,
+        multiply: item.cost * multiply - ownedAmount,
         displayRarity,
         parentIsBase: false,
         baseRarity: parentRarity,
@@ -116,8 +116,7 @@ export const calculateCraftByItem = ({
     } else {
       setAtom((prev) => ({
         ...prev,
-        [name]:
-          prev[name as NonRarityItems] + value.cost * multiply,
+        [name]: prev[name as NonRarityItems] + item.cost * multiply,
       }))
     }
   })
