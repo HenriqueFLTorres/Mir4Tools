@@ -20,6 +20,6 @@ const nextConfig = {
     GOOGLE_CLIENT_SECRET: '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',
     JWT_SECRET: 'fcd7e552129bfd88f74bd525c9072576',
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

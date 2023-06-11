@@ -11,6 +11,9 @@ import XPPerLevel from '@/data/XPPerLevel'
 import { getPercentage } from '@/utils/index'
 import { useAtom } from 'jotai'
 import { useEffect, useState } from 'react'
+import { RouteMetadata } from '../DefaultMetadata'
+
+export const metadata = RouteMetadata.ExperienceCalculator
 
 export default function Home() {
   const [{ levels, percentages }, setXPCalc] = useAtom(XPCalculatorAtom)
@@ -37,7 +40,7 @@ export default function Home() {
           (Number(levels.initialPercentage ?? percentages.final) -
             Number(percentages.initial)) /
             5
-        )
+        ),
       }))
     }
   }, [
@@ -45,7 +48,7 @@ export default function Home() {
     levels.initialPercentage,
     percentages.final,
     percentages.initial,
-    setXPCalc
+    setXPCalc,
   ])
 
   return (

@@ -13,6 +13,9 @@ import Settings from '@/icons/Settings'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
 import { useRouter } from 'next/router'
+import { RouteMetadata } from './DefaultMetadata'
+
+export const metadata = RouteMetadata.CraftingCalculator
 
 export default function Home() {
   const router = useRouter()
