@@ -12,18 +12,8 @@ import Backpack from '@/icons/Backpack'
 import Settings from '@/icons/Settings'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
-import { useRouter } from 'next/router'
-import { RouteMetadata } from './DefaultMetadata'
-
-export const metadata = RouteMetadata.CraftingCalculator
 
 export default function Home() {
-  const router = useRouter()
-
-  if (router?.isFallback) {
-    return <h1>Data is loading</h1>
-  }
-
   return (
     <div className="flex min-h-screen w-full bg-primary-900 font-ubuntu">
       <MainBackground />

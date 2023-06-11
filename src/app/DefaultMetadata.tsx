@@ -1,4 +1,6 @@
-export const DefaultMetadata = {
+import { type Metadata } from 'next'
+
+export const DefaultMetadata: Metadata = {
   applicationName: 'Mir4 Tools',
   referrer: 'origin-when-cross-origin',
   keywords: ['Mir4'],
@@ -59,7 +61,7 @@ export function getSeo({
   title: string
   description: string
   image: string
-}) {
+}): Metadata {
   return {
     title,
     description,
