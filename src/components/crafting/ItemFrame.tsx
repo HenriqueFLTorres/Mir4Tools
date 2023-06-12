@@ -9,6 +9,7 @@ export default function ItemFrame({
   size = 'md',
   className,
   tier,
+  priority,
   ...props
 }: ItemFrameProps) {
   return (
@@ -25,13 +26,14 @@ export default function ItemFrame({
     >
       <Image
         src={`/items/${item}.png`}
-        alt=''
+        alt=""
         width={sizeToPX[size]}
         height={sizeToPX[size]}
-        className='object-contain'
+        className="object-contain"
+        priority={priority}
       />
       {tier && (
-        <p className='absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-2xl font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000]'>
+        <p className="absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-2xl font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000]">
           {tier === 4 ? 'IV' : 'I'.repeat(tier)}
         </p>
       )}
@@ -42,7 +44,7 @@ export default function ItemFrame({
 const sizeToPX = {
   sm: 36,
   md: 56,
-  lg: 74
+  lg: 74,
 }
 
 const variantStyles: { [key in RarityTypes | 'Default']: string } = {
@@ -52,7 +54,7 @@ const variantStyles: { [key in RarityTypes | 'Default']: string } = {
   Epic: 'border-[#761B29] bg-epic-frame drop-shadow-[0_0_5px_#761B29]',
   Rare: 'border-[#2F60A8] bg-rare-frame drop-shadow-[0_0_5px_#2F60A8]',
   Uncommon: 'border-[#38896B] bg-uncommon-frame drop-shadow-[0_0_5px_#38896B]',
-  Common: 'border-[#6D737A] bg-common-frame drop-shadow-[0_0_5px_#6D737A]'
+  Common: 'border-[#6D737A] bg-common-frame drop-shadow-[0_0_5px_#6D737A]',
 }
 
 type ItemFrameProps = {
@@ -60,4 +62,5 @@ type ItemFrameProps = {
   rarity: RarityTypes | 'Default'
   size?: 'sm' | 'md' | 'lg'
   tier?: ItemTier
+  priority?: boolean
 } & HTMLAttributes<HTMLSpanElement>

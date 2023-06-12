@@ -1,16 +1,33 @@
 'use client'
 
 import { XPCalculatorAtom } from '@/atoms/XPCalculator'
-import GeneratedXPTable from '@/components/xp/GeneratedXPTable'
-import LevelCalculations from '@/components/xp/LevelCalculations'
-import PercentageDifference from '@/components/xp/PercentageDifference'
-import SquareAndPeak from '@/components/xp/SquareAndPeak'
-import Timer from '@/components/xp/Timer'
-import Vigor from '@/components/xp/Vigor'
 import XPPerLevel from '@/data/XPPerLevel'
 import { getPercentage } from '@/utils/index'
 import { useAtom } from 'jotai'
+import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+const GeneratedXPTable = dynamic(
+  async () => await import('@/components/xp/GeneratedXPTable'),
+  { ssr: false }
+)
+const LevelCalculations = dynamic(
+  async () => await import('@/components/xp/LevelCalculations'),
+  { ssr: false }
+)
+const PercentageDifference = dynamic(
+  async () => await import('@/components/xp/PercentageDifference'),
+  { ssr: false }
+)
+const SquareAndPeak = dynamic(
+  async () => await import('@/components/xp/SquareAndPeak'),
+  { ssr: false }
+)
+const Timer = dynamic(async () => await import('@/components/xp/Timer'), {
+  ssr: false,
+})
+const Vigor = dynamic(async () => await import('@/components/xp/Vigor'), {
+  ssr: false,
+})
 
 export default function Home() {
   const [{ levels, percentages }, setXPCalc] = useAtom(XPCalculatorAtom)
@@ -52,7 +69,7 @@ export default function Home() {
     <>
       <Timer />
 
-      <section className="absolute items-end right-4 top-4 z-50 flex flex-col gap-4">
+      <section className="absolute right-4 top-4 z-50 flex flex-col items-end gap-4">
         <SquareAndPeak
           currentXP={getPercentage(
             LevelGap,

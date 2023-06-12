@@ -1,3 +1,5 @@
+'use client'
+
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
@@ -79,7 +81,10 @@ export default function CraftingMain() {
                   <tr className="items-center gap-20" key={name}>
                     <TableCostFragment
                       key={name}
-                      cost={item.cost - (Number.isNaN(inventoryCount) ? 0 : inventoryCount)}
+                      cost={
+                        item.cost -
+                        (Number.isNaN(inventoryCount) ? 0 : inventoryCount)
+                      }
                       name={name as ItemTypes}
                       rarity={item?.rarity ? item?.rarity : 'Default'}
                       size="md"

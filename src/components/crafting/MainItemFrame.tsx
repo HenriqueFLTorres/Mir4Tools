@@ -26,6 +26,7 @@ export default function MainItemFrame({
           tier={selectedTier}
           size="lg"
           className="my-auto shrink-0"
+          priority
         />
       </Popover.Trigger>
       <Popover.Anchor />
