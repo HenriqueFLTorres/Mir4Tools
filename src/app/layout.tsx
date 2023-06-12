@@ -1,15 +1,15 @@
 import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
-import { Noto_Sans_KR, PT_Serif } from '@next/font/google'
+import { PT_Serif, Ubuntu } from '@next/font/google'
 import Providers from '../components/Providers'
 import { RouteMetadata } from './DefaultMetadata'
 
-const notoSansKR = Noto_Sans_KR({
+const ubuntu = Ubuntu({
   style: 'normal',
-  display: 'swap',
+  display: 'auto',
   subsets: ['latin'],
-  variable: '--font-notoSansKR',
-  weight: ['100', '300', '400', '500', '700', '900'],
+  variable: '--font-ubuntu',
+  weight: ['300', '400', '500', '700'],
 })
 
 const ptSerif = PT_Serif({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(notoSansKR.variable, ptSerif.variable, 'antialiased')}
+      className={cn(ubuntu.variable, ptSerif.variable, 'subpixel-antialiased')}
     >
       <head />
       <Providers>

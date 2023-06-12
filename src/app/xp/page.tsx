@@ -52,7 +52,7 @@ export default function Home() {
     <>
       <Timer />
 
-      <div className="absolute right-4 top-4 z-50 flex flex-col gap-4">
+      <section className="absolute items-end right-4 top-4 z-50 flex flex-col gap-4">
         <SquareAndPeak
           currentXP={getPercentage(
             LevelGap,
@@ -63,7 +63,7 @@ export default function Home() {
         />
 
         <Vigor />
-      </div>
+      </section>
 
       <PercentageDifference
         invalidInput={isInvalid}
