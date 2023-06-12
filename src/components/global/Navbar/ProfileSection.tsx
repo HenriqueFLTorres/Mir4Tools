@@ -16,7 +16,10 @@ export default function ProfileSection() {
 
   return (
     <ProfileMenu>
-      <button className="flex items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 motion-safe:transition-colors hover:border-white/10">
+      <button
+        aria-label="Main navigation menu"
+        className="flex items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors"
+      >
         {image ? (
           <Image
             width={36}
@@ -58,11 +61,17 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
         ) : (
           <></>
         )}
-        <button className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors">
+        <button
+          aria-label="Manage settings"
+          className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
+        >
           <Settings className="h-5 w-5 fill-white" />
           Manage Settings
         </button>
         <button
+          aria-label={
+            status === 'unauthenticated' ? 'Log in with Google' : 'Log out'
+          }
           onClick={async () => {
             if (status === 'unauthenticated') await signIn('google')
             else await signOut()

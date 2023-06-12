@@ -18,6 +18,7 @@ export default function Inventory() {
             setShowInventory((prev) => !prev)
           }}
           className="h-12 w-12 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          aria-label="Close modal"
         >
           <Close className="fill-white" />
         </button>

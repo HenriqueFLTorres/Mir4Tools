@@ -48,6 +48,7 @@ export default function MainItemFrame({
                   'h-8 w-8 rounded-md bg-legendary-frame opacity-30 motion-safe:transition-opacity',
                   { 'opacity-100': itemRarity === 'Legendary' }
                 )}
+                aria-label="Legendary"
               />
               <button
                 onClick={() => {
@@ -59,6 +60,7 @@ export default function MainItemFrame({
                     'opacity-100': itemRarity === 'Epic',
                   }
                 )}
+                aria-label="Epic"
               />
               <button
                 onClick={() => {
@@ -70,6 +72,7 @@ export default function MainItemFrame({
                     'opacity-100': itemRarity === 'Rare',
                   }
                 )}
+                aria-label="Rare"
               />
             </div>
           </header>
@@ -84,6 +87,7 @@ export default function MainItemFrame({
                 onClick={() => {
                   setCategory(value)
                 }}
+                aria-label={value}
               >
                 {image.map((i, idx) => (
                   <Image

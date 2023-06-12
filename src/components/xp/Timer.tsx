@@ -8,7 +8,7 @@ export default function Timer() {
   const [timerState, setTimerState] = useState<TimerState>({
     start: undefined,
     now: moment.now(),
-    isActive: false
+    isActive: false,
   })
   const countRef = useRef<any>(null)
 
@@ -47,7 +47,7 @@ export default function Timer() {
 
   const minutes = Math.floor(differenceDate / 60)
   const seconds = Number(differenceDate % 60).toLocaleString('en', {
-    minimumIntegerDigits: 2
+    minimumIntegerDigits: 2,
   })
 
   const showStopwatch = !!timerState.start && differenceDate > 0
@@ -73,6 +73,7 @@ export default function Timer() {
 
         <div className="flex flex-row gap-3">
           <button
+            aria-label="Start timer"
             onClick={handleStart}
             className="w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
             disabled={timerState.isActive}
@@ -81,6 +82,7 @@ export default function Timer() {
           </button>
 
           <button
+            aria-label="Reset timer"
             onClick={handleReset}
             className="w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
             disabled={!timerState.isActive}

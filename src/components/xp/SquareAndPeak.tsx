@@ -40,7 +40,7 @@ export default function SquareAndPeak({
           />
         </div>
         <h2 className="text-2xl font-bold text-white">Magic Square</h2>
-        <button className="ml-auto p-1">
+        <button aria-label="More info" className="ml-auto p-1">
           <Info className="h-6 w-6" />
         </button>
       </div>
