@@ -19,7 +19,7 @@ export default function MainItemFrame({
 }: MainItemFrameProps) {
   return (
     <Popover.Root>
-      <Popover.Trigger asChild>
+      <Popover.Trigger>
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}

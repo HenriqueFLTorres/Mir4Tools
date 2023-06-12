@@ -4,7 +4,6 @@ import { showInventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import Popover from '@/components/Popover'
 import ToggleFilter from '@/components/ToggleFilter'
-import CraftingMain from '@/components/crafting/CraftingMain'
 import Inventory from '@/components/crafting/Inventory'
 import MainBackground from '@/components/global/MainBackground'
 import Navbar from '@/components/global/Navbar'
@@ -12,6 +11,11 @@ import Backpack from '@/icons/Backpack'
 import Settings from '@/icons/Settings'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
+import dynamic from 'next/dynamic'
+const CraftingMain = dynamic(
+  async () => await import('@/components/crafting/CraftingMain'),
+  { ssr: false }
+)
 
 export default function Home() {
   return (
@@ -54,6 +58,7 @@ function CraftingNavExtesion() {
             setShowInventory((prev) => !prev)
           }}
           className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          aria-label="Inventory"
         >
           <Backpack className="inline-block h-7 fill-white" />
         </Dialog.Trigger>
@@ -65,7 +70,10 @@ function CraftingNavExtesion() {
       </Dialog.Root>
 
       <Popover.Wrapper>
-        <Popover.Trigger className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors">
+        <Popover.Trigger
+          className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          aria-label="Settings"
+        >
           <Settings className="h-7 fill-white" />
         </Popover.Trigger>
         <Popover.Content

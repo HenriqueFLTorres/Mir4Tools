@@ -3,10 +3,7 @@ import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
-import {
-  ComplementaryItems,
-  calculateCraftByItem,
-} from '@/utils/index'
+import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
 import { useAtom } from 'jotai'
 import React, { useEffect, useState } from 'react'
 import MainItemFrame from './MainItemFrame'
@@ -39,7 +36,7 @@ export default function CraftingMain() {
       displayRarity: settings.displayRarity,
       parentIsBase: true,
       weaponType,
-      inventory
+      inventory,
     })
   }, [
     category,
@@ -48,7 +45,7 @@ export default function CraftingMain() {
     setCraftCost,
     settings.displayRarity,
     weaponType,
-    inventory
+    inventory,
   ])
 
   return (
@@ -70,13 +67,19 @@ export default function CraftingMain() {
 
         <table>
           <tbody className="w-full gap-5">
-            {Object?.entries(targetItem)?.map(
-              ([name, item]) =>
+            {Object?.entries(targetItem)?.map(([name, item]) => {
+              const inventoryCount =
+                item.rarity === null
+                  ? inventory[name as NonRarityItems]
+                  : inventory[name as ItemWithRarity][item.rarity]?.traddable +
+                    inventory[name as ItemWithRarity][item.rarity]?.nonTraddable
+
+              return (
                 !ComplementaryItems.includes(name) && (
                   <tr className="items-center gap-20" key={name}>
                     <TableCostFragment
                       key={name}
-                      cost={item.cost}
+                      cost={item.cost - (Number.isNaN(inventoryCount) ? 0 : inventoryCount)}
                       name={name as ItemTypes}
                       rarity={item?.rarity ? item?.rarity : 'Default'}
                       size="md"
@@ -96,7 +99,8 @@ export default function CraftingMain() {
                     )}
                   </tr>
                 )
-            )}
+              )
+            })}
           </tbody>
         </table>
       </section>

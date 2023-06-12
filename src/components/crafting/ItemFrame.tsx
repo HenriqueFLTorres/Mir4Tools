@@ -12,7 +12,7 @@ export default function ItemFrame({
   ...props
 }: ItemFrameProps) {
   return (
-    <span
+    <div
       className={cn(
         'flex items-center justify-center rounded-lg border-2',
         variantStyles[rarity],
@@ -35,7 +35,7 @@ export default function ItemFrame({
           {tier === 4 ? 'IV' : 'I'.repeat(tier)}
         </p>
       )}
-    </span>
+    </div>
   )
 }
 

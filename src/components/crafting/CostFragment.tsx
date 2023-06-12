@@ -16,7 +16,7 @@ export default function CostFragment({
 }) {
   if (!cost) return <></>
   return (
-    <span className="flex flex-col gap-2">
+    <li className="flex flex-col gap-2">
       <ItemFrame item={name} rarity={rarity} size={size} />
 
       <Tooltip.Wrapper delayDuration={0}>
@@ -33,6 +33,6 @@ export default function CostFragment({
           {getReadableNumber(cost)}
         </Tooltip.Content>
       </Tooltip.Wrapper>
-    </span>
+    </li>
   )
 }
