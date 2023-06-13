@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
 import { PT_Serif, Ubuntu } from '@next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import Providers from '../components/Providers'
 import { RouteMetadata } from './DefaultMetadata'
 
@@ -34,7 +35,10 @@ export default function RootLayout({
     >
       <head />
       <Providers>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Analytics />
+        </body>
       </Providers>
     </html>
   )
