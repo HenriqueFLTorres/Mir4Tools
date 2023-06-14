@@ -41,15 +41,19 @@ export const DefaultMetadata: Metadata = {
 export const RouteMetadata = {
   CraftingCalculator: getSeo({
     title: 'Crafting Calculator',
+    href: '/',
     description:
       'A crafting tool to help players calculate their craft with precision and speed that includes advanced features such as an inventory system and a large variety of customization.',
     image: '/seo/crafting-calculator.webp',
+    imageAlt: 'Crafting calculator banner',
   }),
   ExperienceCalculator: getSeo({
     title: 'Experience Calculator',
+    href: '/xp',
     description:
       'An experience-level calculator to help players measure and calculate their progress through the game with time and item cost predictions.',
     image: '/seo/experience-calculator.webp',
+    imageAlt: 'Experience calculator banner',
   }),
 }
 
@@ -57,10 +61,14 @@ export function getSeo({
   title,
   description,
   image,
+  imageAlt,
+  href,
 }: {
   title: string
   description: string
   image: string
+  imageAlt: string
+  href: string
 }): Metadata {
   return {
     title,
@@ -71,13 +79,16 @@ export function getSeo({
       title,
       description,
       images: image
-        ? { url: image, secureUrl: image }
+        ? { url: image, secureUrl: image, alt: imageAlt }
         : DefaultMetadata.openGraph?.images,
     },
     twitter: {
       title,
       description,
-      images: [image],
+      images: [{ url: image, alt: imageAlt }],
+    },
+    alternates: {
+      canonical: '',
     },
   }
 }

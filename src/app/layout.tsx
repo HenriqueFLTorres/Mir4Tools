@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(ubuntu.variable, ptSerif.variable, 'subpixel-antialiased')}
+      className={cn(ubuntu.variable, ptSerif.variable)}
     >
       <head />
       <Providers>

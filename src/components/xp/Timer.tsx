@@ -55,7 +55,7 @@ export default function Timer() {
   return (
     <>
       <title>
-        {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'XP Calculator'}
+        {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'Experience Calculator'}
       </title>
 
       <section className="relative flex w-80 flex-col items-center gap-6 overflow-hidden rounded-lg border-2 border-[#7E73AD30] py-4 backdrop-blur-2xl">

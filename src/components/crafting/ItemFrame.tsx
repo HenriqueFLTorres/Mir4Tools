@@ -29,6 +29,10 @@ export default function ItemFrame({
         alt=""
         width={sizeToPX[size]}
         height={sizeToPX[size]}
+        style={{
+          width: sizeToPX[size],
+          height: sizeToPX[size],
+        }}
         className="object-contain"
         priority={priority}
       />

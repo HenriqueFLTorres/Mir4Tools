@@ -19,7 +19,7 @@ export default function MainItemFrame({
 }: MainItemFrameProps) {
   return (
     <Popover.Root>
-      <Popover.Trigger>
+      <Popover.Trigger className='h-max my-auto'>
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}
