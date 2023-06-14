@@ -1,6 +1,10 @@
-import MainBackground from '@/components/global/MainBackground'
 import Navbar from '@/components/global/Navbar'
 import dynamic from 'next/dynamic'
+
+const MainBackground = dynamic(
+  async () => await import('@/components/global/MainBackground'),
+  { ssr: false }
+)
 const CraftingMain = dynamic(
   async () => await import('@/components/crafting/CraftingMain'),
   { ssr: false }
