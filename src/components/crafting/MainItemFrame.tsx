@@ -19,14 +19,13 @@ export default function MainItemFrame({
 }: MainItemFrameProps) {
   return (
     <Popover.Root>
-      <Popover.Trigger className='h-max my-auto'>
+      <Popover.Trigger className="my-auto h-max">
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}
           tier={selectedTier}
           size="lg"
           className="my-auto shrink-0"
-          priority
         />
       </Popover.Trigger>
       <Popover.Anchor />
@@ -197,7 +196,7 @@ interface MainItemFrameProps {
   name: string
   rarity: RarityTypes
   targetItem: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null, cost: number }
+    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
   }>
   category: ItemCategory
   setCategory: React.Dispatch<React.SetStateAction<ItemCategory>>

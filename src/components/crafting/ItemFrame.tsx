@@ -9,7 +9,6 @@ export default function ItemFrame({
   size = 'md',
   className,
   tier,
-  priority,
   ...props
 }: ItemFrameProps) {
   return (
@@ -34,7 +33,6 @@ export default function ItemFrame({
           height: sizeToPX[size],
         }}
         className="object-contain"
-        priority={priority}
       />
       {tier && (
         <p className="absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-2xl font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000]">
@@ -48,11 +46,11 @@ export default function ItemFrame({
 const sizeToPX = {
   sm: 36,
   md: 56,
-  lg: 74,
+  lg: 56,
 }
 
 const variantStyles: { [key in RarityTypes | 'Default']: string } = {
-  Default: 'border-[#272043] bg-default-frame drop-shadow-[0_0_8px_#272043]',
+  Default: 'border-[#272043] bg-default-frame drop-shadow-[0_0_5px_#272043]',
   Legendary:
     'border-[#DCC529] bg-legendary-frame drop-shadow-[0_0_5px_#DCC529]',
   Epic: 'border-[#761B29] bg-epic-frame drop-shadow-[0_0_5px_#761B29]',
@@ -66,5 +64,4 @@ type ItemFrameProps = {
   rarity: RarityTypes | 'Default'
   size?: 'sm' | 'md' | 'lg'
   tier?: ItemTier
-  priority?: boolean
 } & HTMLAttributes<HTMLSpanElement>

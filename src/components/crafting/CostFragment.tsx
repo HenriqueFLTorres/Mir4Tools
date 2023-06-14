@@ -1,7 +1,7 @@
+import ItemFrame from '@/components/crafting/ItemFrame'
 import { getReadableNumber } from '@/utils/index'
 import millify from 'millify'
 import Tooltip from '../ToolTip'
-import ItemFrame from './ItemFrame'
 
 export default function CostFragment({
   name,
