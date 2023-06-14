@@ -154,19 +154,19 @@ export default function MainItemFrame({
 const Items = [
   {
     value: 'weapon',
-    image: ['/items/weapon.png'],
+    image: ['/items/weapon.webp'],
   },
   {
     value: 'armor',
-    image: ['/items/armor.png'],
+    image: ['/items/armor.webp'],
   },
   {
     value: 'necklace',
-    image: ['/items/necklace.png', '/items/bracelet.png'],
+    image: ['/items/necklace.webp', '/items/bracelet.webp'],
   },
   {
     value: 'earrings',
-    image: ['/items/earrings.png', '/items/ring.png'],
+    image: ['/items/earrings.webp', '/items/ring.webp'],
   },
 ] as const
 

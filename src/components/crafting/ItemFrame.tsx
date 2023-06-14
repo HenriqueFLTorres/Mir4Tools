@@ -25,7 +25,7 @@ export default function ItemFrame({
       {...props}
     >
       <Image
-        src={`/items/${item}.png`}
+        src={`/items/${item}.webp`}
         alt=""
         width={sizeToPX[size]}
         height={sizeToPX[size]}

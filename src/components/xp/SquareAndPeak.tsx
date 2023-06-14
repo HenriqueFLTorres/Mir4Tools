@@ -33,7 +33,7 @@ export default function SquareAndPeak({
       <div className="flex items-center gap-2.5">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary-500 bg-primary-600">
           <Image
-            src="/items/square_ticket.png"
+            src="/items/square_ticket.webp"
             alt="Magic Square Ticket"
             width={32}
             height={32}
@@ -80,7 +80,7 @@ export default function SquareAndPeak({
       <div className="flex items-center gap-2.5">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary-500 bg-primary-600">
           <Image
-            src="/items/peak_ticket.png"
+            src="/items/peak_ticket.webp"
             alt="Secret Peak Ticket"
             width={32}
             height={32}
