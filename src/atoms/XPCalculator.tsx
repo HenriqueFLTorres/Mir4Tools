@@ -1,23 +1,25 @@
 import { type LevelState } from '@/app/xp/page'
-import { type Atom, type PrimitiveAtom } from 'jotai'
+import { atom, type Atom, type PrimitiveAtom } from 'jotai'
 import { atomWithLocalStorage } from '../utils'
 
 export const XPCalculatorAtom: PrimitiveAtom<XPCalculatorType> &
   Atom<XPCalculatorType> = atomWithLocalStorage('Mir4Tools_XPCalculator', {
   percentages: {
     initial: undefined,
-    final: undefined
+    final: undefined,
   },
   levels: {
     initial: undefined,
     initialPercentage: undefined,
-    final: undefined
+    final: undefined,
   },
   xpPerMinute: undefined,
   manualCalculation: {
-    xpPerMinute: undefined
-  }
+    xpPerMinute: undefined,
+  },
 })
+
+export const XPInvalidInput = atom(false)
 
 interface XPCalculatorType {
   percentages: PercentageState
@@ -30,11 +32,11 @@ export const XPExtension: PrimitiveAtom<XPExtensionType> &
   Atom<XPExtensionType> = atomWithLocalStorage('Mir4Tools_XPExtension', {
   vigor: 0,
   magicSquare: { tickets: 0, xpPerRun: 0 },
-  secretPeak: { tickets: 0, xpPerRun: 0 }
+  secretPeak: { tickets: 0, xpPerRun: 0 },
 })
 
 interface XPExtensionType {
   vigor: number
-  magicSquare: { tickets: number, xpPerRun: number }
-  secretPeak: { tickets: number, xpPerRun: number }
+  magicSquare: { tickets: number; xpPerRun: number }
+  secretPeak: { tickets: number; xpPerRun: number }
 }

@@ -1,28 +1,54 @@
-import { XPCalculatorAtom } from '@/atoms/XPCalculator'
+'use client'
+
+import { XPCalculatorAtom, XPInvalidInput } from '@/atoms/XPCalculator'
 import Input from '@/components/Input'
 import {
   formatForExperience,
+  getPercentage,
   getReadableNumber,
-  getValidNumber
+  getValidNumber,
 } from '@/utils/index'
 import { useAtom } from 'jotai'
-import { type SetStateAction } from 'react'
 
-export default function PercentageDifference({
-  invalidInput,
-  setIsInvalid
-}: PercentageProps) {
+import XPPerLevel from '@/data/XPPerLevel'
+
+import { useEffect } from 'react'
+
+export default function PercentageDifference() {
   const [{ levels, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
+  const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
+
+  useEffect(() => {
+    if (levels.initial !== undefined) {
+      setXPCalc((prev) => ({
+        ...prev,
+        xpPerMinute: levels.initial
+          ? getPercentage(
+              XPPerLevel[levels.initial],
+              (Number(levels.initialPercentage ?? percentages.final) -
+                Number(percentages.initial)) /
+                5
+            )
+          : prev.xpPerMinute,
+      }))
+    }
+  }, [
+    levels.initial,
+    levels.initialPercentage,
+    percentages.final,
+    percentages.initial,
+    setXPCalc,
+  ])
 
   const handleInvalid = () => {
     setXPCalc((prev) => ({
       ...prev,
-      manualCalculation: { xpPerMinute: undefined }
+      manualCalculation: { xpPerMinute: undefined },
     }))
     setXPCalc((prev) => ({
       ...prev,
-      levels: { ...prev.levels, initialPercentage: undefined }
+      levels: { ...prev.levels, initialPercentage: undefined },
     }))
     if (
       percentages.initial &&
@@ -36,7 +62,7 @@ export default function PercentageDifference({
   const resetPercentages = () => {
     setXPCalc((prev) => ({
       ...prev,
-      percentages: { initial: undefined, final: undefined }
+      percentages: { initial: undefined, final: undefined },
     }))
   }
 
@@ -51,8 +77,8 @@ export default function PercentageDifference({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                initial: formatForExperience(value)
-              }
+                initial: formatForExperience(value),
+              },
             }))
           }}
           value={percentages.initial ?? ''}
@@ -70,8 +96,8 @@ export default function PercentageDifference({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                final: formatForExperience(value)
-              }
+                final: formatForExperience(value),
+              },
             }))
           }}
           value={percentages.final ?? ''}
@@ -94,7 +120,7 @@ export default function PercentageDifference({
           onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
-              manualCalculation: { xpPerMinute: getValidNumber(value, 0) }
+              manualCalculation: { xpPerMinute: getValidNumber(value, 0) },
             }))
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
@@ -110,8 +136,8 @@ export default function PercentageDifference({
               ...prev,
               levels: {
                 ...prev.levels,
-                initialPercentage: formatForExperience(value)
-              }
+                initialPercentage: formatForExperience(value),
+              },
             }))
           }}
           value={levels.initialPercentage ?? ''}
@@ -121,9 +147,4 @@ export default function PercentageDifference({
       </div>
     </div>
   )
-}
-
-interface PercentageProps {
-  invalidInput: boolean
-  setIsInvalid: React.Dispatch<SetStateAction<boolean>>
 }

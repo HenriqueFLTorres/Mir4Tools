@@ -1,9 +1,10 @@
+'use client'
+
 import moment from 'moment'
-import Image from 'next/image'
 import { useRef, useState } from 'react'
 import useSound from 'use-sound'
 
-export default function Timer() {
+export default function InnerTimer() {
   const [play] = useSound('/audio/timer.mp3', { volume: 0.2 })
   const [timerState, setTimerState] = useState<TimerState>({
     start: undefined,
@@ -51,47 +52,37 @@ export default function Timer() {
   })
 
   const showStopwatch = !!timerState.start && differenceDate > 0
-
   return (
     <>
       <title>
-        {showStopwatch ? `[${minutes}:${seconds}] Timer` : 'Experience Calculator'}
+        {showStopwatch
+          ? `[${minutes}:${seconds}] Timer`
+          : 'Experience Calculator'}
       </title>
 
-      <section className="relative flex w-80 flex-col items-center gap-6 overflow-hidden rounded-lg border-2 border-[#7E73AD30] py-4 backdrop-blur-2xl">
-        <h1 className="text-6xl font-bold text-white">
-          {minutes} : {seconds}
-        </h1>
+      <h1 className="text-6xl font-bold text-white">
+        {minutes} : {seconds}
+      </h1>
 
-        <Image
-          fill
-          alt=""
-          src="/images/timer-background.svg"
-          className="pointer-events-none absolute object-cover"
-          sizes="100%"
-          priority
-        />
+      <div className="flex flex-row gap-3">
+        <button
+          aria-label="Start timer"
+          onClick={handleStart}
+          className="w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          disabled={timerState.isActive}
+        >
+          Start
+        </button>
 
-        <div className="flex flex-row gap-3">
-          <button
-            aria-label="Start timer"
-            onClick={handleStart}
-            className="w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
-            disabled={timerState.isActive}
-          >
-            Start
-          </button>
-
-          <button
-            aria-label="Reset timer"
-            onClick={handleReset}
-            className="w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
-            disabled={!timerState.isActive}
-          >
-            Reset
-          </button>
-        </div>
-      </section>
+        <button
+          aria-label="Reset timer"
+          onClick={handleReset}
+          className="w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          disabled={!timerState.isActive}
+        >
+          Reset
+        </button>
+      </div>
     </>
   )
 }

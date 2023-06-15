@@ -1,7 +1,10 @@
+'use client'
+
 import { type Level } from '@/app/xp/page'
-import { XPCalculatorAtom } from '@/atoms/XPCalculator'
+import { XPCalculatorAtom, XPInvalidInput } from '@/atoms/XPCalculator'
+import XPPerLevel from '@/data/XPPerLevel'
 import { cn } from '@/utils/classNames'
-import { formatLevel, getReadableNumber } from '@/utils/index'
+import { formatLevel, getPercentage, getReadableNumber } from '@/utils/index'
 import humanizeDuration from 'humanize-duration'
 import { useAtom } from 'jotai'
 import millify from 'millify'
@@ -9,17 +12,25 @@ import moment from 'moment'
 import Image from 'next/image'
 import React from 'react'
 
-export default function LevelCalculations({
-  XPToTargetLevel = 0,
-  invalidInput,
-}: {
-  XPToTargetLevel?: number
-  invalidInput: boolean
-}) {
+export default function LevelCalculations() {
   const [
     { levels, percentages, xpPerMinute = 0, manualCalculation },
     setXPCalc,
   ] = useAtom(XPCalculatorAtom)
+  const [invalidInput] = useAtom(XPInvalidInput)
+
+  const LevelGap =
+    levels.initial && levels.final
+      ? XPPerLevel[(Number(levels.final) - 1) as Level]
+      : ''
+
+  const XPToTargetLevel = LevelGap
+    ? getPercentage(
+        LevelGap,
+        100 - Number(levels.initialPercentage ?? percentages.final)
+      )
+    : undefined
+
   const successfulInput = !!levels.initial && !!levels.final
 
   const XPPerMinute = xpPerMinute || (manualCalculation.xpPerMinute ?? 0)

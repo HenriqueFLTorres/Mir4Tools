@@ -1,12 +1,14 @@
+'use client'
+
 import { type Level } from '@/app/xp/page'
-import { XPCalculatorAtom } from '@/atoms/XPCalculator'
+import { XPCalculatorAtom, XPInvalidInput } from '@/atoms/XPCalculator'
 import XPPerLevel from '@/data/XPPerLevel'
-import { getReadableNumber } from '@/utils/index'
+import { getPercentage, getReadableNumber } from '@/utils/index'
 import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  type ColumnDef
+  type ColumnDef,
 } from '@tanstack/react-table'
 import humanizeDuration from 'humanize-duration'
 import { useAtom } from 'jotai'
@@ -14,15 +16,22 @@ import millify from 'millify'
 import moment from 'moment'
 import { useMemo } from 'react'
 
-export default function GeneratedXPTable({
-  XPToTargetLevel,
-  invalidInput
-}: {
-  XPToTargetLevel?: number
-  invalidInput: boolean
-}) {
-  const [{ levels, xpPerMinute = 0, manualCalculation }] =
+export default function GeneratedXPTable() {
+  const [{ levels, xpPerMinute = 0, manualCalculation, percentages }] =
     useAtom(XPCalculatorAtom)
+  const [invalidInput] = useAtom(XPInvalidInput)
+
+  const LevelGap =
+    levels.initial && levels.final
+      ? XPPerLevel[(Number(levels.final) - 1) as Level]
+      : ''
+
+  const XPToTargetLevel = LevelGap
+    ? getPercentage(
+        LevelGap,
+        100 - Number(levels.initialPercentage ?? percentages.final)
+      )
+    : undefined
 
   const XPPerMinute = xpPerMinute || (manualCalculation.xpPerMinute ?? 0)
 
@@ -41,8 +50,8 @@ export default function GeneratedXPTable({
     columns,
     getCoreRowModel: getCoreRowModel(),
     state: {
-      columnVisibility: { currentPercentage: false }
-    }
+      columnVisibility: { currentPercentage: false },
+    },
   })
 
   if (!XPPerMinute || invalidInput) return <></>
@@ -115,18 +124,18 @@ const generateTableData = (
       levelReached: currentLvl,
       currentPercentage: percentageOfCurrent,
       timeInMinutes,
-      XPEarned
+      XPEarned,
     })
   })
 
   return [
     ...result,
     {
-      levelReached: Number(currentLvl) + 1 as Level,
+      levelReached: (Number(currentLvl) + 1) as Level,
       currentPercentage: 0,
       timeInMinutes: XPToTargetLevel / XPPerMinute,
-      XPEarned: XPToTargetLevel
-    }
+      XPEarned: XPToTargetLevel,
+    },
   ]
 }
 
@@ -145,11 +154,11 @@ const columns: Array<ColumnDef<TableXP>> = [
         </span>
       )
     },
-    enableSorting: false
+    enableSorting: false,
   },
   {
     accessorKey: 'currentPercentage',
-    enableHiding: true
+    enableHiding: true,
   },
   {
     accessorKey: 'XPEarned',
@@ -160,7 +169,7 @@ const columns: Array<ColumnDef<TableXP>> = [
         {getReadableNumber(Math.round(getValue() as number))}
       </>
     ),
-    enableSorting: false
+    enableSorting: false,
   },
   {
     accessorKey: 'timeInMinutes',
@@ -175,6 +184,6 @@ const columns: Array<ColumnDef<TableXP>> = [
         )}
       </span>
     ),
-    enableSorting: false
-  }
+    enableSorting: false,
+  },
 ]
