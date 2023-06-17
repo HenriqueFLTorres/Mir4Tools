@@ -7,7 +7,7 @@ function Wrapper({
   ...props
 }: { children: React.ReactNode } & CTooltip.TooltipProps) {
   return (
-    <CTooltip.Provider>
+    <CTooltip.Provider delayDuration={0}>
       <CTooltip.Root {...props}>{children}</CTooltip.Root>
     </CTooltip.Provider>
   )

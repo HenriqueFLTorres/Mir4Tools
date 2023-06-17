@@ -1,5 +1,5 @@
-import Info from '@/icons/Info'
 import Image from 'next/image'
+import InfoTooltip from './InfoTooltip'
 import InnerMagicSquare from './InnerMagicSquare'
 
 export default function MagicSquare() {
@@ -15,9 +15,7 @@ export default function MagicSquare() {
           />
         </div>
         <h2 className="text-2xl font-bold text-white">Magic Square</h2>
-        <button aria-label="More info" className="ml-auto p-1">
-          <Info className="h-6 w-6" />
-        </button>
+        <InfoTooltip content="Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs." />
       </div>
 
       <InnerMagicSquare />
