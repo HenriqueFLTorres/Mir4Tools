@@ -7,11 +7,10 @@ import { getPercentage } from '@/utils/index'
 import humanizeDuration from 'humanize-duration'
 import { useAtom } from 'jotai'
 import moment from 'moment'
-import { useEffect } from 'react'
-
-let resultInMinutes = 0
+import { useEffect, useState } from 'react'
 
 export default function SquareAndPeakResult() {
+  const [isLoading, setIsLoading] = useState(true)
   const [{ xpPerMinute, manualCalculation, levels, percentages }] =
     useAtom(XPCalculatorAtom)
   const [{ magicSquare, secretPeak }] = useAtom(XPExtension)
@@ -36,16 +35,24 @@ export default function SquareAndPeakResult() {
 
   const ticketsXPPerMinute = XPPerReset / 1440 // XP per day divided by minutes per day
 
+  const resultInMinutes =
+    (XPToTargetLevel ?? 0) / (ticketsXPPerMinute + (XPPerMinute ?? 0))
+
   useEffect(() => {
-    resultInMinutes =
-      (XPToTargetLevel ?? 0) / (ticketsXPPerMinute + (XPPerMinute ?? 0))
-  }, [XPToTargetLevel, ticketsXPPerMinute, XPPerMinute])
+    setIsLoading(false)
+  }, [])
 
   return (
-    <p className="rounded-md bg-primary-600 px-4 py-2 text-sm text-white">
-      {humanizeDuration(
-        moment.duration(resultInMinutes, 'minutes').asMilliseconds(),
-        { round: true }
+    <p className={'rounded-md bg-primary-600 px-4 py-2 text-sm text-white'}>
+      {isLoading ? (
+        <span className="my-1 flex h-4 w-full max-w-[6rem] animate-pulse rounded-full bg-primary-500 text-transparent">
+          Loading...
+        </span>
+      ) : (
+        humanizeDuration(
+          moment.duration(resultInMinutes, 'minutes').asMilliseconds(),
+          { round: true }
+        )
       )}
     </p>
   )
