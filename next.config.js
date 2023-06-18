@@ -1,3 +1,5 @@
+const { i18n } = require('./next-i18next.config')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -19,6 +21,7 @@ const nextConfig = {
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
     JWT_SECRET: process.env.JWT_SECRET,
   },
+  i18n,
 }
 
 module.exports = nextConfig

@@ -9,9 +9,11 @@ import Forge from '@/icons/Forge'
 import Settings from '@/icons/Settings'
 import * as Tabs from '@radix-ui/react-tabs'
 import { useAtom } from 'jotai'
+import { useTranslation } from 'react-i18next'
 
 export default function SettingsModal() {
   const [settings, setSettings] = useAtom(SettingsAtom)
+  const { i18n } = useTranslation()
 
   const handleFilterChange = (option: RarityTypes) => {
     if (settings.displayRarity.includes(option)) {
@@ -45,7 +47,7 @@ export default function SettingsModal() {
 
         <Tabs.Root defaultValue="general">
           <Tabs.List
-            className="flex gap-3 overflow-auto py-2 custom-scroll"
+            className="custom-scroll flex gap-3 overflow-auto py-2"
             aria-label="Manage your settings"
           >
             <Tabs.Trigger
@@ -75,10 +77,12 @@ export default function SettingsModal() {
             <Select
               label="Language"
               defaultValue="en"
+              value={i18n.language}
               items={[
-                { label: 'English', value: 'en' },
-                { label: 'Português', value: 'pt' },
+                { label: 'English', value: 'en-US' },
+                { label: 'Português', value: 'pt-BR' },
               ]}
+              onValueChange={async (val) => await i18n.changeLanguage(val)}
             />
           </Tabs.Content>
 

@@ -4,15 +4,14 @@ import * as CSelect from '@radix-ui/react-select'
 
 export default function Select({
   label,
-  defaultValue,
   items,
+  ...props
 }: {
   label: string
-  defaultValue: string
   items: Array<{ value: string; label: string }>
-}) {
+} & CSelect.SelectProps) {
   return (
-    <CSelect.Root defaultValue={defaultValue}>
+    <CSelect.Root {...props}>
       <Label.Root className="mb-4 text-base font-bold text-white">
         {label}
       </Label.Root>

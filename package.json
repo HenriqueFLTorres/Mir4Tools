@@ -27,6 +27,8 @@
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "humanize-duration": "^3.28.0",
+    "i18next": "^23.1.0",
+    "i18next-browser-languagedetector": "^7.0.2",
     "jotai": "^2.0.4",
     "millify": "^6.1.0",
     "moment": "^2.29.4",
@@ -35,6 +37,7 @@
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-i18next": "^13.0.0",
     "tailwind-merge": "^1.12.0",
     "tailwindcss": "3.3.1",
     "use-sound": "^4.0.1"
