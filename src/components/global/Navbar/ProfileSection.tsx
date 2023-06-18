@@ -2,11 +2,11 @@
 
 import Exit from '@/icons/Exit'
 import Hamburguer from '@/icons/Hamburguer'
-import Settings from '@/icons/Settings'
 import { cn } from '@/utils/classNames'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Popover from '../../Popover'
+import SettingsModal from './SettingsModal'
 
 export default function ProfileSection() {
   const { data: session, status } = useSession()
@@ -61,13 +61,9 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
         ) : (
           <></>
         )}
-        <button
-          aria-label="Manage settings"
-          className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
-        >
-          <Settings className="h-5 w-5 fill-white" />
-          Manage Settings
-        </button>
+
+        <SettingsModal />
+
         <button
           aria-label={
             status === 'unauthenticated' ? 'Log in with Google' : 'Log out'
