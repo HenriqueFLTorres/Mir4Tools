@@ -9,11 +9,13 @@ import Forge from '@/icons/Forge'
 import Settings from '@/icons/Settings'
 import * as Tabs from '@radix-ui/react-tabs'
 import { useAtom } from 'jotai'
+import { useRouter } from 'next/navigation'
 import { useTranslation } from '../../../../public/locales/client'
 
 export default function SettingsModal() {
   const [settings, setSettings] = useAtom(SettingsAtom)
   const { i18n } = useTranslation()
+  const router = useRouter()
 
   const handleFilterChange = (option: RarityTypes) => {
     if (settings.displayRarity.includes(option)) {
@@ -33,6 +35,7 @@ export default function SettingsModal() {
   const changeLanguage = async (val: string) => {
     await i18n.changeLanguage(val)
     setSettings({ ...settings, language: val })
+    router.refresh()
   }
 
   return (
