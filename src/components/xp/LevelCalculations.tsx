@@ -11,6 +11,7 @@ import millify from 'millify'
 import moment from 'moment'
 import Image from 'next/image'
 import React from 'react'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function LevelCalculations() {
   const [
@@ -18,6 +19,7 @@ export default function LevelCalculations() {
     setXPCalc,
   ] = useAtom(XPCalculatorAtom)
   const [invalidInput] = useAtom(XPInvalidInput)
+  const { t, i18n } = useTranslation()
 
   const LevelGap =
     levels.initial && levels.final
@@ -38,7 +40,7 @@ export default function LevelCalculations() {
   return (
     <section className="flex w-full max-w-3xl items-center gap-4">
       <LevelFrame
-        label="Current Level"
+        label={t('Current Level')}
         placeholder="100"
         percentage={`${levels.initialPercentage ?? percentages.final ?? 0}%`}
         value={String(levels.initial ?? '')}
@@ -90,25 +92,25 @@ export default function LevelCalculations() {
                     moment
                       .duration(XPToTargetLevel / XPPerMinute, 'minutes')
                       .asMilliseconds(),
-                    { round: true }
+                    { round: true, language: i18n.language }
                   )
                 : 0}
             </b>{' '}
-            to level up
+            {t('to level up')}
           </p>
 
           <p className="text-center text-base font-light text-white">
-            You are earning{' '}
+            {t('You are earning')}{' '}
             <b className="font-bold">
               {invalidInput ? 0 : getReadableNumber(XPPerMinute * 5)}
             </b>{' '}
-            XP every <b className="font-bold">5 minutes</b>
+            {t('XP every')} <b className="font-bold">5 {t('minutes')}</b>
           </p>
         </div>
       </div>
 
       <LevelFrame
-        label="Desired Level"
+        label={t('Desired Level')}
         placeholder="100"
         value={String(levels.final ?? '')}
         onChange={(value) => {

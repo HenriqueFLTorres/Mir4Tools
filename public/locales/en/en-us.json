@@ -1,6 +1,28 @@
 {
   "translation": {
     "Start": "Start",
-    "Reset": "Reset"
+    "Reset": "Reset",
+    "OR": "OR",
+    "For support": "For support",
+    "Before Timer": "Before Timer",
+    "After Timer": "After Timer",
+    "XP Per Minute": "XP Per Minute",
+    "Current Percentage": "Current Percentage",
+    "Magic Square": "Magic Square",
+    "Secret Peak": "Secret Peak",
+    "Vigor": "Vigor",
+    "Tickets": "Tickets",
+    "XP per run": "XP per run",
+    "Current Level": "Current Level",
+    "Desired Level": "Desired Level",
+    "Progression": "Progression",
+    "XP Earned": "XP Earned",
+    "Time": "Time",
+    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.",
+    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.",
+    "minutes": "minutes",
+    "You are earning": "You are earning",
+    "XP every": "XP every",
+    "to level up": "to level up"
   }
 }

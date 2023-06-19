@@ -2,8 +2,8 @@
 
 import moment from 'moment'
 import { useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import useSound from 'use-sound'
+import { useTranslation } from '../../../../public/locales/client'
 
 export default function InnerTimer() {
   const [play] = useSound('/audio/timer.mp3', { volume: 0.2 })

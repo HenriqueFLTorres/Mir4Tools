@@ -1,6 +1,28 @@
 {
   "translation": {
     "Start": "Iniciar",
-    "Reset": "Resetar"
+    "Reset": "Resetar",
+    "OR": "OU",
+    "For support": "Para suporte",
+    "Before Timer": "Antes do cronômetro",
+    "After Timer": "Depois do cronômetro",
+    "XP Per Minute": "XP Por Minuto",
+    "Current Percentage": "Porcentagem Atual",
+    "Magic Square": "Praça Mágica",
+    "Secret Peak": "Pico Secreto",
+    "Vigor": "Vigor",
+    "Tickets": "Tiquetes",
+    "XP per run": "XP por ronda",
+    "Current Level": "Level Atual",
+    "Desired Level": "Level Desejado",
+    "Progression": "Progressão",
+    "XP Earned": "XP Ganho",
+    "Time": "Tempo",
+    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Insira seus tickets e seu XP ganho por ronda para calcular o tempo necessário para subir de nível junto de rondas de pico/praça.",
+    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Insira seu vigor restante em horas para calcular seu XP e a porcentagem ganha durante um vigor ativo.",
+    "minutes": "minutos",
+    "You are earning": "Você está ganhando",
+    "XP every": "XP a cada",
+    "to level up": "para upar"
   }
 }

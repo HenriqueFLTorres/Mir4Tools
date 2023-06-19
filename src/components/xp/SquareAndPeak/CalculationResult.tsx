@@ -1,6 +1,7 @@
 'use client'
 
 import { type Level } from '@/app/xp/page'
+import { SettingsAtom } from '@/atoms/Settings'
 import { XPCalculatorAtom, XPExtension } from '@/atoms/XPCalculator'
 import XPPerLevel from '@/data/XPPerLevel'
 import { getPercentage } from '@/utils/index'
@@ -14,6 +15,7 @@ export default function SquareAndPeakResult() {
   const [{ xpPerMinute, manualCalculation, levels, percentages }] =
     useAtom(XPCalculatorAtom)
   const [{ magicSquare, secretPeak }] = useAtom(XPExtension)
+  const [{ language }] = useAtom(SettingsAtom)
 
   const LevelGap =
     levels.initial && levels.final
@@ -51,7 +53,7 @@ export default function SquareAndPeakResult() {
       ) : (
         humanizeDuration(
           moment.duration(resultInMinutes, 'minutes').asMilliseconds(),
-          { round: true }
+          { round: true, language }
         )
       )}
     </p>

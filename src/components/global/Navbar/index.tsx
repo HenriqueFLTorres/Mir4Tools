@@ -1,6 +1,6 @@
+import SupportTag from '@/components/global/Navbar/SupportTag'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
-import Info from '@/icons/Info'
 import Link from 'next/link'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
@@ -29,10 +29,9 @@ export default function GlobalNavbar({
         </nav>
         {children}
       </header>
-      <div className="absolute left-4 top-24 flex gap-2 rounded border border-white/10 bg-primary-400/5 p-2 text-sm font-light text-white backdrop-blur-lg">
-        <Info className="fill-white" />
-        <p>For support: Treffy#4964</p>
-      </div>
+
+      {/* @ts-expect-error Server Component */}
+      <SupportTag />
     </>
   )
 }

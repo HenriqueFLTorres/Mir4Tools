@@ -2,6 +2,7 @@
 
 import { XPCalculatorAtom, XPInvalidInput } from '@/atoms/XPCalculator'
 import Input from '@/components/Input'
+import XPPerLevel from '@/data/XPPerLevel'
 import {
   formatForExperience,
   getPercentage,
@@ -9,15 +10,14 @@ import {
   getValidNumber,
 } from '@/utils/index'
 import { useAtom } from 'jotai'
-
-import XPPerLevel from '@/data/XPPerLevel'
-
 import { useEffect } from 'react'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
   const [{ levels, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (levels.initial !== undefined) {
@@ -71,7 +71,7 @@ export default function PercentageDifference() {
       <div className={'mt-8 flex'}>
         <Input
           placeholder="Start"
-          label="Before Timer"
+          label={t('Before Timer')}
           onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
@@ -90,7 +90,7 @@ export default function PercentageDifference() {
         <Input
           suffix="%"
           placeholder="End"
-          label="After Timer"
+          label={t('After Timer')}
           onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
@@ -116,7 +116,7 @@ export default function PercentageDifference() {
       <div className={'mb-2 flex'}>
         <Input
           suffix="XP"
-          label="XP Per Minute"
+          label={t('XP Per Minute')}
           onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,
@@ -130,7 +130,7 @@ export default function PercentageDifference() {
         <Input
           suffix="%"
           placeholder="0.0000"
-          label="Current Percentage"
+          label={t('Current Percentage')}
           onChange={(value) => {
             setXPCalc((prev) => ({
               ...prev,

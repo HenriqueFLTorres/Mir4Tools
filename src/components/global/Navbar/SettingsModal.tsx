@@ -9,7 +9,7 @@ import Forge from '@/icons/Forge'
 import Settings from '@/icons/Settings'
 import * as Tabs from '@radix-ui/react-tabs'
 import { useAtom } from 'jotai'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '../../../../public/locales/client'
 
 export default function SettingsModal() {
   const [settings, setSettings] = useAtom(SettingsAtom)
@@ -17,17 +17,22 @@ export default function SettingsModal() {
 
   const handleFilterChange = (option: RarityTypes) => {
     if (settings.displayRarity.includes(option)) {
-      setSettings((prev) => ({
-        ...prev,
-        displayRarity: prev.displayRarity.filter((r) => r !== option),
-      }))
+      setSettings({
+        ...settings,
+        displayRarity: settings.displayRarity.filter((r) => r !== option),
+      })
       return
     }
 
-    setSettings((prev) => ({
-      ...prev,
-      displayRarity: [...prev.displayRarity, option],
-    }))
+    setSettings({
+      ...settings,
+      displayRarity: [...settings.displayRarity, option],
+    })
+  }
+
+  const changeLanguage = async (val: string) => {
+    await i18n.changeLanguage(val)
+    setSettings({ ...settings, language: val })
   }
 
   return (
@@ -77,12 +82,12 @@ export default function SettingsModal() {
             <Select
               label="Language"
               defaultValue="en"
-              value={i18n.language}
+              value={settings.language}
               items={[
-                { label: 'English', value: 'en-US' },
-                { label: 'Português', value: 'pt-BR' },
+                { label: 'English', value: 'en' },
+                { label: 'Português', value: 'pt' },
               ]}
-              onValueChange={async (val) => await i18n.changeLanguage(val)}
+              onValueChange={changeLanguage}
             />
           </Tabs.Content>
 
@@ -117,10 +122,10 @@ export default function SettingsModal() {
                 label="Show Owned Items"
                 checked={settings.showOwnedItems}
                 onCheckedChange={() => {
-                  setSettings((prev) => ({
-                    ...prev,
-                    showOwnedItems: !prev.showOwnedItems,
-                  }))
+                  setSettings({
+                    ...settings,
+                    showOwnedItems: !settings.showOwnedItems,
+                  })
                 }}
               />
             </div>
