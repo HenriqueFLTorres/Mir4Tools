@@ -11,14 +11,14 @@ const resources = {
   en: ENUS,
 }
 
-const initI18next = async (lng, ns) => {
-  // on server side we create a new instance for each render, because during compilation everything seems to be executed in parallel
+const initI18next = async (lng?: string, ns?: string) => {
   const i18nInstance = createInstance()
   await i18nInstance
     .use(initReactI18next)
     .use(
-      resourcesToBackend((language, namespace) =>
-        import(`./${language}/${namespace}.json`)
+      resourcesToBackend(
+        async (language: string, namespace: string) =>
+          await import(`./${language}/${namespace}.json`)
       )
     )
     .init({ ...getOptions(lng, ns), resources })
