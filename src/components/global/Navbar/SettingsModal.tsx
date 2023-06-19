@@ -14,7 +14,7 @@ import { useTranslation } from '../../../../public/locales/client'
 
 export default function SettingsModal() {
   const [settings, setSettings] = useAtom(SettingsAtom)
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const router = useRouter()
 
   const handleFilterChange = (option: RarityTypes) => {
@@ -41,15 +41,15 @@ export default function SettingsModal() {
   return (
     <Modal.Wrapper>
       <Modal.Trigger
-        aria-label="Manage settings"
+        aria-label={t('Manage settings')}
         className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
       >
         <Settings className="h-5 w-5 fill-white" />
-        Manage Settings
+        {t('Manage Settings')}
       </Modal.Trigger>
       <Modal.Content className="max-w-3xl gap-4 pb-6">
         <header className="flex w-full items-center justify-between">
-          <Modal.Title>Manage Settings</Modal.Title>
+          <Modal.Title>{t('Manage Settings')}</Modal.Title>
           <Modal.Close />
         </header>
 
@@ -63,27 +63,27 @@ export default function SettingsModal() {
               value="general"
             >
               <Settings className="h-5 w-5 fill-white" />
-              General Settings
+              {t('General Settings')}
             </Tabs.Trigger>
             <Tabs.Trigger
               className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
               value="crafting"
             >
               <Forge className="h-5 w-5 fill-white" />
-              Crafting Calculator
+              {t('Crafting Calculator')}
             </Tabs.Trigger>
             <Tabs.Trigger
               className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
               value="experience"
             >
               <EXP className="h-5 w-5 fill-white" />
-              Experience Calculator
+              {t('Experience Calculator')}
             </Tabs.Trigger>
           </Tabs.List>
 
           <Tabs.Content className="flex flex-col pb-2 pt-4" value="general">
             <Select
-              label="Language"
+              label={t('Language')}
               defaultValue="en"
               value={settings.language}
               items={[
@@ -99,10 +99,10 @@ export default function SettingsModal() {
             value="crafting"
           >
             <div className="flex flex-1 flex-col gap-4">
-              <h2>Resources Filter</h2>
+              <h2>{t('Resources Filter')}</h2>
 
               <ul className="flex flex-col gap-2">
-                {filterOptions.map((option) => (
+                {filterOptions(t).map((option) => (
                   <Checkbox
                     key={option}
                     label={option}
@@ -119,10 +119,10 @@ export default function SettingsModal() {
             <hr className="border border-primary-400 md:h-40" />
 
             <div className="flex flex-1 flex-col gap-4">
-              <h2>Advanced View</h2>
+              <h2>{t('Advanced View')}</h2>
 
               <Checkbox
-                label="Show Owned Items"
+                label={t('Show Owned Items')}
                 checked={settings.showOwnedItems}
                 onCheckedChange={() => {
                   setSettings({
@@ -138,11 +138,15 @@ export default function SettingsModal() {
             className="relative flex flex-col gap-4"
             value="experience"
           >
-            <h2>Panel Visibility</h2>
+            <h2>{t('Panel Visibility')}</h2>
 
             <ul className="flex flex-col gap-2">
-              <Checkbox label="Magic Square and Peak" checked disabled />
-              <Checkbox label="Vigor" checked disabled />
+              <Checkbox
+                label={t('Magic Square and Secret Peak')}
+                checked
+                disabled
+              />
+              <Checkbox label={t('Vigor')} checked disabled />
             </ul>
           </Tabs.Content>
         </Tabs.Root>
@@ -151,4 +155,4 @@ export default function SettingsModal() {
   )
 }
 
-const filterOptions: RarityTypes[] = ['Epic', 'Rare', 'Uncommon', 'Common']
+const filterOptions = (t: (key: string) => string): RarityTypes[] => [t('Epic'), t('Rare'), t('Uncommon'), t('Common')]

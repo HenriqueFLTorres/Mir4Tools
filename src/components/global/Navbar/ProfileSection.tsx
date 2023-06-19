@@ -7,6 +7,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Popover from '../../Popover'
 import SettingsModal from './SettingsModal'
+import { useTranslation } from '../../../../public/locales/client'
 
 export default function ProfileSection() {
   const { data: session, status } = useSession()
@@ -45,6 +46,7 @@ export default function ProfileSection() {
 
 function ProfileMenu({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession()
+  const { t } = useTranslation()
 
   const name = session?.user?.name ?? ''
 
@@ -66,7 +68,7 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
 
         <button
           aria-label={
-            status === 'unauthenticated' ? 'Log in with Google' : 'Log out'
+            status === 'unauthenticated' ? t('Log in with Google') : t('Log out')
           }
           onClick={async () => {
             if (status === 'unauthenticated') await signIn('google')
@@ -75,7 +77,7 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
           className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
         >
           <Exit className="h-5 w-5 fill-white" />
-          {status === 'unauthenticated' ? 'Log in with Google' : 'Log out'}
+          {status === 'unauthenticated' ? t('Log in with Google') : t('Log out')}
         </button>
       </Popover.Content>
     </Popover.Wrapper>

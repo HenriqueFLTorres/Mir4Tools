@@ -1,5 +1,23 @@
 {
   "translation": {
+    "Legendary": "Legendary",
+    "Epic": "Epic",
+    "Rare": "Rare",
+    "Uncommon": "Uncommon",
+    "Common": "Common",
+    "Manage Settings": "Manage Settings",
+    "Log in with Google": "Log in with Google",
+    "Log out": "Log out",
+    "Experience Calculator": "Experience Calculator",
+    "Crafting Calculator": "Crafting Calculator",
+    "Support Us": "Support Us",
+    "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.",
+    "Language": "Language",
+    "Resources Filter": "Resources Filter",
+    "Advanced View": "Advanced View",
+    "Show Owned Items": "Show Owned Items",
+    "Panel Visibility": "Panel Visibility",
+    "Magic Square and Secret Peak": "Magic Square and Secret Peak",
     "Start": "Start",
     "Reset": "Reset",
     "OR": "OR",
@@ -23,6 +41,11 @@
     "minutes": "minutes",
     "You are earning": "You are earning",
     "XP every": "XP every",
-    "to level up": "to level up"
+    "to level up": "to level up",
+    "Inventory": "Inventory",
+    "Items": "Items",
+    "Primary": "Primary",
+    "Secondary": "Secondary",
+    "Total": "Total"
   }
 }
