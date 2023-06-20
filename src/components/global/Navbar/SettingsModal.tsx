@@ -102,10 +102,10 @@ export default function SettingsModal() {
               <h2>{t('Resources Filter')}</h2>
 
               <ul className="flex flex-col gap-2">
-                {filterOptions(t).map((option) => (
+                {filterOptions.map((option) => (
                   <Checkbox
                     key={option}
-                    label={option}
+                    label={t(`${option}`)}
                     checked={settings.displayRarity.includes(option)}
                     onCheckedChange={() => {
                       handleFilterChange(option)
@@ -155,4 +155,4 @@ export default function SettingsModal() {
   )
 }
 
-const filterOptions = (t: (key: string) => string): RarityTypes[] => [t('Epic'), t('Rare'), t('Uncommon'), t('Common')]
+const filterOptions: RarityTypes[] = ['Epic', 'Rare', 'Uncommon', 'Common']

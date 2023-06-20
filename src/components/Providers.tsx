@@ -1,12 +1,13 @@
 'use client'
 import { SettingsAtom } from '@/atoms/Settings'
+import { trpc } from '@/utils/trpc'
 import { useHydrateAtoms } from 'jotai/utils'
 import Cookies from 'js-cookie'
 import { SessionProvider } from 'next-auth/react'
 import { I18nextProvider } from 'react-i18next'
 import i18n from '../../public/locales/client'
 
-export default function Providers({ children }: { children: React.ReactNode }) {
+function Providers({ children }: { children: React.ReactNode }) {
   useHydrateAtoms([
     [
       SettingsAtom,
@@ -22,3 +23,5 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     </I18nextProvider>
   )
 }
+
+export default trpc.withTRPC(Providers)

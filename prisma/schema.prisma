@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextIndex", "fullTextSearch"]
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  name     String?
+  email    String    @unique
+  settings Settings?
+}
+
+model Settings {
+  id             Int       @id @default(autoincrement())
+  displayRarity  Json
+  showOwnedItems Boolean
+  language       languages
+  user           User      @relation(fields: [userId], references: [id])
+  userId         Int       @unique
+}
+
+enum RarityTypes {
+  Legendary
+  Epic
+  Rare
+  Uncommon
+  Common
+}
+
+enum languages {
+  pt
+  en
+}
