@@ -24,7 +24,7 @@ void i18next
   .use(LanguageDetector)
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     resources,
     interpolation: {
       escapeValue: false,

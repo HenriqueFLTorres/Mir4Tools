@@ -20,7 +20,7 @@ export const SettingsAtom = atom(
   }
 )
 
-interface SettingsObject {
+export interface SettingsObject {
   displayRarity: RarityTypes[]
   showOwnedItems: boolean
   language: 'en' | 'pt'

@@ -1,25 +1,41 @@
-import { TRPCError } from '@trpc/server'
-import type { CreateNextContextOptions } from '@trpc/server/adapters/next'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { nextAuthOptions } from '@/pages/api/auth/[...nextauth]'
+import { type getUser, type User } from '@/server-rsc/getUser'
+import type * as trpc from '@trpc/server'
+import type * as trpcNext from '@trpc/server/adapters/next'
 import { getServerSession } from 'next-auth'
-import { prisma } from './prisma'
-import Settings from '@/icons/Settings'
-import { SettingsFallback } from '@/atoms/Settings'
 
-export const createTRPCContext = async (opts: CreateNextContextOptions) => {
-  const { req, res } = opts
-
-  const session = await getServerSession(req)
-
-  const settings = session?.user?.email ? await prisma.user.findFirst({
-    where: {
-      email: session?.user?.email,
-    },
-    select: {
-      settings: true,
-    },
-  }) : SettingsFallback
-
-  return { session: { ...session, user: { ...session?.user, settings } }, req, res }
+interface CreateContextOptions {
+  user: User | null
+  rsc: boolean
 }
 
-export type TRPCContext = typeof createTRPCContext
+export async function createContextInner(opts: CreateContextOptions) {
+  return {
+    user: opts.user,
+  }
+}
+
+export async function createContext(
+  opts:
+    | {
+        type: 'rsc'
+        getUser: typeof getUser
+      }
+    | (trpcNext.CreateNextContextOptions & { type: 'api' })
+) {
+  if (opts.type === 'rsc') {
+    return {
+      type: opts.type,
+      user: await opts.getUser(),
+    }
+  }
+
+  const session = await getServerSession(opts.req, opts.res, nextAuthOptions)
+  return {
+    type: opts.type,
+    user: session?.user,
+  }
+}
+
+export type Context = trpc.inferAsyncReturnType<typeof createContext>

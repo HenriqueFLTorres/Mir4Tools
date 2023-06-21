@@ -1,6 +1,6 @@
+import { rsc } from '@/server-rsc/index'
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
-import { cookies } from 'next/headers'
 import { initReactI18next } from 'react-i18next/initReactI18next'
 import ENUS from './en/en-us.json'
 import PTBR from './pt/pt-br.json'
@@ -25,14 +25,9 @@ const initI18next = async (lng?: string, ns?: string) => {
   return i18nInstance
 }
 
-export const getLanguageFromCookie = () => {
-  const nextCookie = cookies().get('Mir4Tools_Settings')
-  if (!nextCookie?.value) return 'en'
-  return JSON.parse(nextCookie?.value)?.language
-}
-
 export async function useTranslation() {
-  const language = getLanguageFromCookie()
+  const { language } = await rsc.getSettings.fetch()
+
   const i18nextInstance = await initI18next(language)
   return {
     t: i18nextInstance.getFixedT(language),
