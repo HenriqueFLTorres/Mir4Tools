@@ -11,11 +11,13 @@ import * as Tabs from '@radix-ui/react-tabs'
 import { useAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
 import { useTranslation } from '../../../../public/locales/client'
+import { trpc } from '../../../client/trpcClient'
 
 export default function SettingsModal() {
   const [settings, setSettings] = useAtom(SettingsAtom)
   const { t, i18n } = useTranslation()
   const router = useRouter()
+  const { isLoading, mutate } = trpc.saveSettings.useMutation()
 
   const handleFilterChange = (option: RarityTypes) => {
     if (settings.displayRarity.includes(option)) {
@@ -149,6 +151,21 @@ export default function SettingsModal() {
               <Checkbox label={t('Vigor')} checked disabled />
             </ul>
           </Tabs.Content>
+
+          <button
+            aria-label={t('Save Settings')}
+            className="ml-auto mt-4 rounded bg-primary-600 px-6 py-2 text-sm font-medium text-white hover:bg-primary-500 motion-safe:transition-colors"
+            onClick={() => {
+              mutate({
+                displayRarity: settings.displayRarity,
+                language: settings.language,
+                showOwndedItems: settings.showOwnedItems,
+              })
+            }}
+            disabled={isLoading}
+          >
+            {t('Save Settings')}
+          </button>
         </Tabs.Root>
       </Modal.Content>
     </Modal.Wrapper>

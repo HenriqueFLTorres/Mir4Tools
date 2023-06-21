@@ -1,7 +1,7 @@
 'use client'
 
-import superjson from 'superjson'
 import { createHydrateClient } from '@/@trpc/next-layout'
+import superjson from 'superjson'
 
 export const HydrateClient = createHydrateClient({
   transformer: superjson,
