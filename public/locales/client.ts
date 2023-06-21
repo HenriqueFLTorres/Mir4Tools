@@ -2,7 +2,6 @@ import { SettingsAtom } from '@/atoms/Settings'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { useAtom } from 'jotai'
-import Cookies from 'js-cookie'
 import { useEffect } from 'react'
 import {
   initReactI18next,
@@ -30,8 +29,7 @@ void i18next
     interpolation: {
       escapeValue: false,
     },
-    lng: JSON.parse(Cookies.get('Mir4Tools_Settings') ?? "{ language: 'en' }")
-      ?.language,
+    lng: 'en',
     detection: {
       order: ['path', 'htmlTag', 'cookie', 'navigator'],
     },

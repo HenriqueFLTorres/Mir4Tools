@@ -27,7 +27,11 @@
       "@/components/*": ["./src/components/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/data/*": ["./src/data/*"]
+      "@/data/*": ["./src/data/*"],
+      "@/server/*": ["./src/server/*"],
+      "@/server-rsc/*": ["./src/server-rsc/*"],
+      "@/@trpc/*": ["./src/@trpc/*"],
+      "@/pages/*": ["./src/pages/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
