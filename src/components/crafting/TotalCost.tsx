@@ -1,7 +1,7 @@
 import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
 
 const rarities: RarityTypes[] = [
@@ -21,7 +21,7 @@ export default function TotalCost({
     [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
   }>
 }) {
-  const [settings] = useAtom(SettingsAtom)
+  const settings = useAtomValue(SettingsAtom)
   const [inventory] = useAtom(InventoryAtom)
   const { t } = useTranslation()
 

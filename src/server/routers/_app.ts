@@ -1,4 +1,4 @@
-import { type SettingsObject } from '@/atoms/Settings'
+import SettingsFallback from '@/utils/SettingsFallback'
 import { z } from 'zod'
 import { prisma } from '../prisma'
 import { authenticatedProcedure, publicProcedure, router } from '../trpc'
@@ -8,42 +8,46 @@ export const SettingsSchema = z.object({
     z.enum(['Legendary', 'Epic', 'Rare', 'Uncommon', 'Common'])
   ),
   language: z.enum(['en', 'pt']),
-  showOwndedItems: z.boolean(),
+  showOwnedItems: z.boolean(),
 })
 
-const SettingsFallback = {
-  displayRarity: ['Legendary', 'Epic', 'Rare'],
-  showOwnedItems: false,
-  language: 'en',
-} satisfies SettingsObject
-
 export const appRouter = router({
+  testing: authenticatedProcedure
+    .input(SettingsSchema)
+    .mutation(async ({ ctx }) => ctx),
   getSettings: publicProcedure.query(async ({ ctx }) => {
-    if (!ctx.user?.email) return SettingsFallback
+    if (!ctx.user?.id && !ctx.user?.email) return SettingsFallback
 
-    const settings = await prisma.user.findFirst({
-      where: { email: ctx.user?.email },
+    const userData = await prisma.user.findFirst({
+      where: { id: ctx.user?.id },
       select: {
-        settings: true,
+        settings: {
+          select: {
+            displayRarity: true,
+            language: true,
+            showOwnedItems: true,
+          },
+        },
       },
     })
 
-    if (!settings?.settings) return SettingsFallback
+    if (!userData?.settings) return SettingsFallback
 
-    return settings?.settings
+    return userData.settings
   }),
-  saveSettings: authenticatedProcedure
-    .input(SettingsSchema)
-    .mutation(async ({ ctx, input }) => {
+  saveSettings: authenticatedProcedure.input(SettingsSchema).mutation(
+    async ({ ctx, input }) =>
       await prisma.user.update({
-        where: { email: ctx.user.email },
+        where: { id: ctx.user.id },
         data: {
           settings: {
-            update: input,
+            update: {
+              ...input,
+            },
           },
         },
       })
-    }),
+  ),
 })
 
 export type AppRouter = typeof appRouter

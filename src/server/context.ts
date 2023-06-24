@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { nextAuthOptions } from '@/pages/api/auth/[...nextauth]'
-import { type getUser, type User } from '@/server-rsc/getUser'
+import { type getUser } from '@/server-rsc/getUser'
 import type * as trpc from '@trpc/server'
 import type * as trpcNext from '@trpc/server/adapters/next'
-import { getServerSession } from 'next-auth'
+import { getServerSession, type Session } from 'next-auth'
 
 interface CreateContextOptions {
-  user: User | null
+  user: Session | null
   rsc: boolean
 }
 
@@ -34,7 +34,7 @@ export async function createContext(
   const session = await getServerSession(opts.req, opts.res, nextAuthOptions)
   return {
     type: opts.type,
-    user: session?.user,
+    user: { ...session?.user, id: (session?.user?.settings as any)?.userId },
   }
 }
 

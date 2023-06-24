@@ -6,13 +6,13 @@ import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import React, { useEffect, useState } from 'react'
 import MainItemFrame from './MainItemFrame'
 import TotalCost from './TotalCost'
 
 export default function CraftingMain() {
-  const [settings] = useAtom(SettingsAtom)
+  const settings = useAtomValue(SettingsAtom)
   const [inventory] = useAtom(InventoryAtom)
   const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom)
 
@@ -124,7 +124,7 @@ function RecursiveCostFragment({
   rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
   multiplier: number
 }) {
-  const [settings] = useAtom(SettingsAtom)
+  const settings = useAtomValue(SettingsAtom)
 
   if (!parentRarity) return <></>
 

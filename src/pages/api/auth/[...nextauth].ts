@@ -3,15 +3,20 @@ import { type NextAuthOptions } from 'next-auth'
 import NextAuth from 'next-auth/next'
 import GoogleProvider from 'next-auth/providers/google'
 
+const defaultSettings = {
+  displayRarity: ['Legendary', 'Epic', 'Rare'],
+  language: 'en',
+  showOwnedItems: false,
+}
+
 export const nextAuthOptions: NextAuthOptions = {
+  secret: process.env.secret,
   providers: [
     GoogleProvider({
-      clientId:
-        '729883301106-26e339aj5f9nj45g2jkoae1om63uauks.apps.googleusercontent.com',
-      clientSecret: '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',
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  secret: process.env.JWT_SECRET,
   callbacks: {
     async signIn({ user, profile }) {
       try {
@@ -21,24 +26,15 @@ export const nextAuthOptions: NextAuthOptions = {
           },
         })
 
-        if (!user.email || !user.name || !user.image) {
-          console.error('User object missing email, name or image.')
-          return false
-        }
-
         if (!targetUser) {
           targetUser = await prisma.user.create({
             data: {
               id: user.id,
-              email: user.email,
-              name: user.name,
-              image: user.image,
               settings: {
                 create: {
-                  displayRarity: ['Legendary', 'Epic', 'Rare'],
+                  ...defaultSettings,
                   language:
                     (profile as { locale?: 'en' | 'pt' })?.locale ?? 'en',
-                  showOwnedItems: false,
                 },
               },
             },
@@ -49,6 +45,27 @@ export const nextAuthOptions: NextAuthOptions = {
       } catch (error) {
         console.error(error)
         return false
+      }
+    },
+    async session({ session }) {
+      const userData = await prisma.user.findFirst({
+        where: { id: session.user?.id },
+        select: { settings: true },
+      })
+
+      if (!userData?.settings) {
+        return {
+          ...session,
+          user: {
+            ...session.user,
+            settings: defaultSettings,
+          },
+        }
+      }
+
+      return {
+        ...session,
+        user: { ...session.user, settings: userData.settings },
       }
     },
   },

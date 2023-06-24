@@ -1,7 +1,7 @@
 import { SettingsAtom } from '@/atoms/Settings'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useEffect } from 'react'
 import {
   initReactI18next,
@@ -43,7 +43,7 @@ export function useTranslation(
   options?: UseTranslationOptions<undefined> | undefined
 ) {
   const ret = useTranslationOrg(ns, options)
-  const [{ language }] = useAtom(SettingsAtom)
+  const { language } = useAtomValue(SettingsAtom)
 
   const { i18n } = ret
 

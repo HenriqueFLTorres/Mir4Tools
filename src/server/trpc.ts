@@ -1,5 +1,4 @@
 import SuperJSON from '@/utils/SuperJSON'
-import { type User } from '@prisma/client'
 import { initTRPC, TRPCError } from '@trpc/server'
 import { ZodError } from 'zod'
 import { type Context } from './context'
@@ -24,16 +23,17 @@ export const router = t.router
 
 export const publicProcedure = t.procedure
 
-export const authenticatedProcedure = t.procedure.use(async (opts) => {
-  if (!opts.ctx.user?.email) {
+// eslint-disable-next-line @typescript-eslint/promise-function-async
+export const authenticatedProcedure = t.procedure.use((opts) => {
+  if (!opts.ctx.user) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: 'You have to be logged in to do this',
     })
   }
-  return await opts.next({
+  return opts.next({
     ctx: {
-      user: opts.ctx.user as Omit<User, 'image'>,
+      user: opts.ctx.user,
     },
   })
 })

@@ -10,4 +10,7 @@ export default createNextApiHandler({
       ...opts,
     })
   },
+  onError: ({ error }) => {
+    console.error('Error:', error)
+  },
 })

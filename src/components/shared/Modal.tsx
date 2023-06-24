@@ -2,8 +2,8 @@ import Close from '@/icons/Close'
 import { cn } from '@/utils/classNames'
 import * as Dialog from '@radix-ui/react-dialog'
 
-function Wrapper({ children }: { children: React.ReactNode }) {
-  return <Dialog.Root>{children}</Dialog.Root>
+function Wrapper({ children, ...props }: { children: React.ReactNode } & Dialog.DialogProps) {
+  return <Dialog.Root {...props}>{children}</Dialog.Root>
 }
 
 function Trigger({

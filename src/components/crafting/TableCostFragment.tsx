@@ -4,7 +4,7 @@ import ItemFrame from '@/components/crafting/ItemFrame'
 import RCT from '@/components/crafting/RealCostTooltip'
 import Balance from '@/icons/Balance'
 import { getReadableNumber } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import millify from 'millify'
 import Tooltip from '../ToolTip'
 
@@ -19,7 +19,7 @@ export default function TableCostFragment({
   size: 'sm' | 'md' | 'lg'
   cost: number
 }) {
-  const [settings] = useAtom(SettingsAtom)
+  const settings = useAtomValue(SettingsAtom)
 
   const hideCost = cost === 1
 

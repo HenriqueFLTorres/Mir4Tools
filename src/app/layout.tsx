@@ -29,10 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cn(ubuntu.variable, ptSerif.variable)}
-    >
+    <html lang="en" className={cn(ubuntu.variable, ptSerif.variable)}>
       <head />
       <Providers>
         <body>

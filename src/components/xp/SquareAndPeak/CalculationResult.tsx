@@ -6,7 +6,7 @@ import { XPCalculatorAtom, XPExtension } from '@/atoms/XPCalculator'
 import XPPerLevel from '@/data/XPPerLevel'
 import { getPercentage } from '@/utils/index'
 import humanizeDuration from 'humanize-duration'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 
@@ -15,7 +15,7 @@ export default function SquareAndPeakResult() {
   const [{ xpPerMinute, manualCalculation, levels, percentages }] =
     useAtom(XPCalculatorAtom)
   const [{ magicSquare, secretPeak }] = useAtom(XPExtension)
-  const [{ language }] = useAtom(SettingsAtom)
+  const { language } = useAtomValue(SettingsAtom)
 
   const LevelGap =
     levels.initial && levels.final

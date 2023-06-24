@@ -1,4 +1,4 @@
-import { rsc } from '@/server-rsc/index'
+import { getSSRSession } from '@/utils/getSSRSession'
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import { initReactI18next } from 'react-i18next/initReactI18next'
@@ -26,7 +26,9 @@ const initI18next = async (lng?: string, ns?: string) => {
 }
 
 export async function useTranslation() {
-  const { language } = await rsc.getSettings.fetch()
+  const language = await getSSRSession().then(
+    (data) => data?.user?.settings.language ?? 'en'
+  )
 
   const i18nextInstance = await initI18next(language)
   return {
