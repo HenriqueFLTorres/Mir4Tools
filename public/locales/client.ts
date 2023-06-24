@@ -1,7 +1,6 @@
-import { SettingsAtom } from '@/atoms/Settings'
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { useAtomValue } from 'jotai'
+import { useSession } from 'next-auth/react'
 import { useEffect } from 'react'
 import {
   initReactI18next,
@@ -43,9 +42,11 @@ export function useTranslation(
   options?: UseTranslationOptions<undefined> | undefined
 ) {
   const ret = useTranslationOrg(ns, options)
-  const { language } = useAtomValue(SettingsAtom)
+  const { data } = useSession()
 
   const { i18n } = ret
+
+  const language = data?.user?.settings.language ?? 'en'
 
   if (runsOnServerSide && i18n.resolvedLanguage !== language) {
     useEffect(() => {
