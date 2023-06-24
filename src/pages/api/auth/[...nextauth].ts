@@ -9,6 +9,11 @@ const defaultSettings = {
   showOwnedItems: false,
 }
 
+const handleLocale = (locale?: string) => {
+  if (locale?.includes('pt-')) return 'pt'
+  else return 'en'
+}
+
 export const nextAuthOptions: NextAuthOptions = {
   secret: process.env.secret,
   providers: [
@@ -33,8 +38,9 @@ export const nextAuthOptions: NextAuthOptions = {
               settings: {
                 create: {
                   ...defaultSettings,
-                  language:
-                    (profile as { locale?: 'en' | 'pt' })?.locale ?? 'en',
+                  language: handleLocale(
+                    (profile as { locale?: string })?.locale
+                  ),
                 },
               },
             },
