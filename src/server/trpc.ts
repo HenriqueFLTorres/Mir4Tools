@@ -25,7 +25,7 @@ export const publicProcedure = t.procedure
 
 // eslint-disable-next-line @typescript-eslint/promise-function-async
 export const authenticatedProcedure = t.procedure.use((opts) => {
-  if (!opts.ctx.user) {
+  if (!opts.ctx.user?.id) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: 'You have to be logged in to do this',
