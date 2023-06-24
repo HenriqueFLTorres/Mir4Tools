@@ -29,7 +29,7 @@ function Content({
       <CTooltip.Content
         {...props}
         className={cn(
-          'flex items-center shadow rounded bg-primary-600 text-xs px-2 py-1 font-medium text-white',
+          'flex items-center shadow rounded font-main bg-primary-600 text-xs px-2 py-1 font-medium text-white',
           props.className
         )}
       >

@@ -1,15 +1,15 @@
 import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
-import { PT_Serif, Ubuntu } from '@next/font/google'
+import { PT_Serif, Rubik } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Providers from '../components/Providers'
 import { RouteMetadata } from './DefaultMetadata'
 
-const ubuntu = Ubuntu({
+const main = Rubik({
   style: 'normal',
   display: 'auto',
   subsets: ['latin'],
-  variable: '--font-ubuntu',
+  variable: '--font-main',
   weight: ['300', '400', '500', '700'],
 })
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn(ubuntu.variable, ptSerif.variable)}>
+    <html lang="en" className={cn(main.variable, ptSerif.variable)}>
       <head />
       <Providers>
         <body>

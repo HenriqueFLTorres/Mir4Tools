@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ubuntu: ['var(--font-ubuntu)'],
+        main: ['var(--font-main)'],
         ptSerif: ['var(--font-ptSerif)'],
       },
       backgroundImage: {

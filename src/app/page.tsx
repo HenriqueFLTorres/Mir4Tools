@@ -16,7 +16,7 @@ const CraftingNavExtesion = dynamic(
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full bg-primary-900 font-ubuntu">
+    <div className="flex min-h-screen w-full bg-primary-900 font-main">
       <MainBackground />
       <main className="min-w-screen relative flex h-full w-full flex-col">
         {/* @ts-expect-error Server Component */}
