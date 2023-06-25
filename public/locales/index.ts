@@ -29,10 +29,10 @@ const initI18next = async (lng?: string, ns?: string) => {
 
 export async function useTranslation() {
   const req = {
-    cookies: Object.fromEntries(
-      cookies()
-        ?.getAll()
-        ?.map((c) => [c.name, c.value])
+    cookies: Object?.fromEntries(
+      cookies?.()
+        ?.getAll?.()
+        ?.map((c) => [c?.name, c?.value]) ?? {}
     ),
   }
   const res = { getHeader() {}, setCookie() {}, setHeader() {} }
