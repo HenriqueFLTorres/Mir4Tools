@@ -48,6 +48,5 @@ export async function useTranslation() {
     }
   } catch (error) {
     console.error(error)
-    throw new Error(error)
   }
 }
