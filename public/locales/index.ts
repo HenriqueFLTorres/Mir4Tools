@@ -26,13 +26,13 @@ const initI18next = async (lng?: string, ns?: string) => {
 }
 
 export async function useTranslation() {
-  const language = await getSSRSession().then(
-    (data) => data?.user?.settings.language ?? 'en'
-  )
+  // const language = await getSSRSession().then(
+  //   (data) => data?.user?.settings.language ?? 'en'
+  // )
 
-  const i18nextInstance = await initI18next(language)
+  const i18nextInstance = await initI18next()
   return {
-    t: i18nextInstance.getFixedT(language),
+    t: i18nextInstance.getFixedT(),
     i18n: i18nextInstance,
   }
 }

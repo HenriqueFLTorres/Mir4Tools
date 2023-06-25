@@ -42,25 +42,25 @@ export function useTranslation(
   options?: UseTranslationOptions<undefined> | undefined
 ) {
   const ret = useTranslationOrg(ns, options)
-  const { data } = useSession()
+  // const { data } = useSession()
 
   const { i18n } = ret
 
-  const language = data?.user?.settings.language ?? 'en'
+  // const language = data?.user?.settings.language ?? 'en'
 
-  if (runsOnServerSide && i18n.resolvedLanguage !== language) {
-    useEffect(() => {
-      i18n.changeLanguage(language).catch((err) => {
-        console.error(err)
-      })
-    }, [])
-  } else {
-    useEffect(() => {
-      if (i18n.resolvedLanguage === language) return
-      i18n.changeLanguage(language).catch((err) => {
-        console.error(err)
-      })
-    }, [language, i18n])
-  }
+  // if (runsOnServerSide && i18n.resolvedLanguage !== language) {
+  //   useEffect(() => {
+  //     i18n.changeLanguage(language).catch((err) => {
+  //       console.error(err)
+  //     })
+  //   }, [])
+  // } else {
+  //   useEffect(() => {
+  //     if (i18n.resolvedLanguage === language) return
+  //     i18n.changeLanguage(language).catch((err) => {
+  //       console.error(err)
+  //     })
+  //   }, [language, i18n])
+  // }
   return ret
 }
