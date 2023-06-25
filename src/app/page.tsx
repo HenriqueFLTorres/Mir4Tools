@@ -19,7 +19,6 @@ export default function Home() {
     <div className="flex min-h-screen w-full bg-primary-900 font-main">
       <MainBackground />
       <main className="min-w-screen relative flex h-full w-full flex-col">
-        {/* @ts-expect-error Server Component */}
         <Navbar>
           <CraftingNavExtesion />
         </Navbar>

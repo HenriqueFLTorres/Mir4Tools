@@ -23,9 +23,7 @@ export default function Home() {
       <Timer />
 
       <section className="absolute right-4 top-4 z-50 flex flex-col items-end gap-4">
-        {/* @ts-expect-error Server Component */}
         <SquareAndPeak />
-        {/* @ts-expect-error Server Component */}
         <Vigor />
       </section>
 

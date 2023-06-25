@@ -1,12 +1,14 @@
+'use client'
+
 import InfoTooltip from '@/components/xp/SquareAndPeak/InfoTooltip'
 import InnerMagicSquare from '@/components/xp/SquareAndPeak/InnerMagicSquare'
 import InnerSecretPeak from '@/components/xp/SquareAndPeak/InnerSecretPeak'
 import Image from 'next/image'
-import { useTranslation } from '../../../../public/locales/index'
+import { useTranslation } from '../../../../public/locales/client'
 import SquareAndPeakResult from './CalculationResult'
 
-export default async function SquareAndPeak() {
-  const { t } = await useTranslation()
+export default function SquareAndPeak() {
+  const { t } = useTranslation()
 
   return (
     <section className="flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg">
