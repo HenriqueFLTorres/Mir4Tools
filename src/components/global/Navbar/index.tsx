@@ -3,7 +3,6 @@
 import SupportTag from '@/components/global/Navbar/SupportTag'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useTranslation } from '../../../../public/locales/client'
 import ProfileSection from './ProfileSection'
@@ -15,9 +14,6 @@ export default function GlobalNavbar({
   children?: React.ReactNode | React.ReactNode[]
 }) {
   const { t } = useTranslation()
-  const { data } = useSession()
-
-  console.log('session', data)
 
   return (
     <>
