@@ -50,11 +50,21 @@ module.exports = {
           from: { opacity: 1 },
           to: { opacity: 0 },
         },
+        showPopover: {
+          from: { opacity: 0, transform: 'translateY(20px)' },
+          to: { opacity: 1, transform: 'translateY(0px)' },
+        },
+        hidePopover: {
+          from: { opacity: 1, transform: 'translateY(0px)' },
+          to: { opacity: 0, transform: 'translateY(20px)' },
+        },
       },
       animation: {
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentHide: 'contentHide 300ms cubic-bezier(0.16, 1, 0.3, 1)',
+        showPopover: 'showPopover 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        hidePopover: 'hidePopover 300ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
