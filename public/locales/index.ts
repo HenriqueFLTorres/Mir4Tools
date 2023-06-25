@@ -28,16 +28,16 @@ const initI18next = async (lng?: string, ns?: string) => {
 }
 
 export async function useTranslation() {
-  // const req = {
-  //   cookies: Object.fromEntries(
-  //     cookies()
-  //       ?.getAll()
-  //       ?.map((c) => [c.name, c.value])
-  //   ),
-  // }
+  const req = {
+    cookies: Object.fromEntries(
+      cookies()
+        ?.getAll()
+        ?.map((c) => [c.name, c.value])
+    ),
+  }
   const res = { getHeader() {}, setCookie() {}, setHeader() {} }
   // @ts-expect-error - The type used in next-auth for the req object doesn't match, but it still works
-  const data = await getServerSession({ cookies: {} }, res, nextAuthOptions)
+  const data = await getServerSession(req, res, nextAuthOptions)
   const language = data?.user?.settings?.language ?? 'en'
 
   const i18nextInstance = await initI18next(language)
