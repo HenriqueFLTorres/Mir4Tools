@@ -1,9 +1,11 @@
-import { useTranslation } from '../../../../public/locales'
+'use client'
+
+import { useTranslation } from '../../../../public/locales/client'
 import InfoTooltip from '../SquareAndPeak/InfoTooltip'
 import InnerVigor from './InnerVigor'
 
 export default async function Vigor() {
-  const { t } = await useTranslation()
+  const { t } = useTranslation()
 
   return (
     <section className="flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg">

@@ -1,8 +1,10 @@
+'use client'
+
 import SupportTag from '@/components/global/Navbar/SupportTag'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
 import Link from 'next/link'
-import { useTranslation } from '../../../../public/locales'
+import { useTranslation } from '../../../../public/locales/client'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
 
@@ -11,7 +13,7 @@ export default async function GlobalNavbar({
 }: {
   children?: React.ReactNode | React.ReactNode[]
 }) {
-  const { t } = await useTranslation()
+  const { t } = useTranslation()
 
   return (
     <>
