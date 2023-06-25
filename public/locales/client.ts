@@ -1,6 +1,5 @@
 import i18next from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import { useSession } from 'next-auth/react'
 import { useEffect } from 'react'
 import {
   initReactI18next,
@@ -46,21 +45,21 @@ export function useTranslation(
 
   const { i18n } = ret
 
-  // const language = data?.user?.settings.language ?? 'en'
+  const language = 'en'
 
-  // if (runsOnServerSide && i18n.resolvedLanguage !== language) {
-  //   useEffect(() => {
-  //     i18n.changeLanguage(language).catch((err) => {
-  //       console.error(err)
-  //     })
-  //   }, [])
-  // } else {
-  //   useEffect(() => {
-  //     if (i18n.resolvedLanguage === language) return
-  //     i18n.changeLanguage(language).catch((err) => {
-  //       console.error(err)
-  //     })
-  //   }, [language, i18n])
-  // }
+  if (runsOnServerSide && i18n.resolvedLanguage !== language) {
+    useEffect(() => {
+      i18n.changeLanguage(language).catch((err) => {
+        console.error(err)
+      })
+    }, [])
+  } else {
+    useEffect(() => {
+      if (i18n.resolvedLanguage === language) return
+      i18n.changeLanguage(language).catch((err) => {
+        console.error(err)
+      })
+    }, [language, i18n])
+  }
   return ret
 }
