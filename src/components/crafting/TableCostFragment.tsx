@@ -1,12 +1,13 @@
 import { InventoryAtom } from '@/atoms/Inventory'
-import { SettingsAtom } from '@/atoms/Settings'
 import ItemFrame from '@/components/crafting/ItemFrame'
 import RCT from '@/components/crafting/RealCostTooltip'
 import Balance from '@/icons/Balance'
 import { getReadableNumber } from '@/utils/index'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 import millify from 'millify'
+import { useSession } from 'next-auth/react'
 import Tooltip from '../ToolTip'
+import SettingsFallback from '@/utils/SettingsFallback'
 
 export default function TableCostFragment({
   name,
@@ -19,7 +20,8 @@ export default function TableCostFragment({
   size: 'sm' | 'md' | 'lg'
   cost: number
 }) {
-  const settings = useAtomValue(SettingsAtom)
+  const { data: session } = useSession()
+  const settings = session?.user?.settings ?? SettingsFallback
 
   const hideCost = cost === 1
 
@@ -28,7 +30,7 @@ export default function TableCostFragment({
       <ItemFrame className="mb-4" item={name} rarity={rarity} size={size} />
 
       {!hideCost &&
-        (settings.showOwnedItems ? (
+        (settings?.showOwnedItems ? (
           <div className="flex w-full flex-col rounded bg-primary-600 font-medium text-white">
             <ShowInventoryItem
               name={name as ItemWithRarity}

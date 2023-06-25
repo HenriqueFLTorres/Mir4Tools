@@ -22,20 +22,19 @@ type ItemTypes =
 
 type ItemWithRarity = Exclude<
   ItemTypes,
-  'copper' | 'dark_steel' | 'energy' | 'glittering_powder'
+  | 'copper'
+  | 'dark_steel'
+  | 'energy'
+  | 'glittering_powder'
 >
-type NonRarityItems = 'copper' | 'dark_steel' | 'energy' | 'glittering_powder'
+type NonRarityItems = Exclude<ItemTypes, ItemWithRarity>
 
 type InventoryType = {
   [key in ItemWithRarity]: {
-    [key in RarityTypes]: { traddable: number, nonTraddable: number }
+    [key in RarityTypes]: { traddable: number; nonTraddable: number }
   }
 } & {
-  copper: number
-  dark_steel: number
-  energy: number
-  glittering_powder: number
-  dragon_scale: number
+  [key in NonRarityItems]: number
 }
 
 type ParsedInventoryType = {
@@ -43,11 +42,7 @@ type ParsedInventoryType = {
     [key in RarityTypes]: number
   }
 } & {
-  copper: number
-  dark_steel: number
-  energy: number
-  glittering_powder: number
-  dragon_scale: number
+  [key in NonRarityItems]: number
 }
 
 type ItemsForRecipe = ItemTypes | 'dragon_scale'
@@ -93,3 +88,9 @@ interface PercentageState {
 type ItemCategory = 'weapon' | 'armor' | 'necklace' | 'earrings'
 
 type ItemTier = 1 | 2 | 3 | 4
+
+interface SettingsObject {
+  displayRarity: RarityTypes[]
+  showOwnedItems: boolean
+  language: 'en' | 'pt'
+}

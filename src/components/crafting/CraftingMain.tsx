@@ -2,17 +2,19 @@
 
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
-import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
+import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 import MainItemFrame from './MainItemFrame'
 import TotalCost from './TotalCost'
+import SettingsFallback from '@/utils/SettingsFallback'
 
 export default function CraftingMain() {
-  const settings = useAtomValue(SettingsAtom)
+  const { data: session } = useSession()
+  const settings = session?.user?.settings ?? SettingsFallback
   const [inventory] = useAtom(InventoryAtom)
   const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom)
 
@@ -35,7 +37,7 @@ export default function CraftingMain() {
       setAtom: setCraftCost,
       category,
       parentRarity: itemRarity,
-      displayRarity: settings.displayRarity,
+      displayRarity: settings?.displayRarity,
       parentIsBase: true,
       weaponType,
       inventory,
@@ -45,7 +47,7 @@ export default function CraftingMain() {
     itemRarity,
     selectedTier,
     setCraftCost,
-    settings.displayRarity,
+    settings?.displayRarity,
     weaponType,
     inventory,
   ])
@@ -70,11 +72,17 @@ export default function CraftingMain() {
         <table>
           <tbody className="w-full gap-5">
             {Object?.entries(targetItem)?.map(([name, item]) => {
-              const inventoryCount =
-                item.rarity === null
-                  ? inventory[name as NonRarityItems]
-                  : inventory[name as ItemWithRarity][item.rarity]?.traddable +
-                    inventory[name as ItemWithRarity][item.rarity]?.nonTraddable
+              let inventoryCount = 0
+              const itemHasRarity =
+                typeof inventory[name as NonRarityItems] === 'object'
+
+              if (itemHasRarity && !!item.rarity) {
+                inventoryCount =
+                  inventory[name as ItemWithRarity][item.rarity].traddable +
+                  inventory[name as ItemWithRarity][item.rarity].nonTraddable
+              } else {
+                inventoryCount = inventory?.[name as NonRarityItems]
+              }
 
               return (
                 !ComplementaryItems.includes(name) && (
@@ -124,7 +132,8 @@ function RecursiveCostFragment({
   rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
   multiplier: number
 }) {
-  const settings = useAtomValue(SettingsAtom)
+  const { data: session } = useSession()
+  const settings = session?.user?.settings ?? SettingsFallback
 
   if (!parentRarity) return <></>
 
@@ -138,7 +147,7 @@ function RecursiveCostFragment({
         ([name, recipe]) =>
           recipe.rarity &&
           !ComplementaryItems.includes(name) &&
-          settings.displayRarity.includes(recipe.rarity) && (
+          settings?.displayRarity.includes(recipe.rarity) && (
             <React.Fragment key={`${name} ${recipe.cost}`}>
               <TableCostFragment
                 key={name}

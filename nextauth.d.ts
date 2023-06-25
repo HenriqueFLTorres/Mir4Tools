@@ -1,5 +1,4 @@
 // nextauth.d.ts
-import { type SettingsObject } from '@/atoms/Settings'
 import { type DefaultUser } from 'next-auth'
 
 interface IUser extends DefaultUser {

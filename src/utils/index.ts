@@ -81,11 +81,16 @@ export const calculateCraftByItem = ({
   if (targetItem == null) return
 
   Object.entries(targetItem).forEach(([name, item]) => {
-    const ownedAmount =
-      item.rarity === null || name === 'glittering_powder'
-        ? inventory[name as NonRarityItems]
-        : inventory[name as ItemWithRarity][item.rarity]?.traddable +
-          inventory[name as ItemWithRarity][item.rarity]?.nonTraddable
+    let ownedAmount = 0
+    const itemHasRarity = typeof inventory[name as NonRarityItems] === 'object'
+
+    if (itemHasRarity && !!item.rarity) {
+      ownedAmount =
+        inventory[name as ItemWithRarity][item.rarity].traddable +
+        inventory[name as ItemWithRarity][item.rarity].nonTraddable
+    } else {
+      ownedAmount = inventory?.[name as NonRarityItems]
+    }
 
     if (item.rarity && !ComplementaryItems.includes(name)) {
       setAtom((prev) => ({

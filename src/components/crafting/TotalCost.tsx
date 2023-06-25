@@ -1,8 +1,9 @@
 import { InventoryAtom } from '@/atoms/Inventory'
-import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
+import { useSession } from 'next-auth/react'
 import { useTranslation } from '../../../public/locales/client'
+import SettingsFallback from '@/utils/SettingsFallback'
 
 const rarities: RarityTypes[] = [
   'Common',
@@ -21,7 +22,9 @@ export default function TotalCost({
     [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
   }>
 }) {
-  const settings = useAtomValue(SettingsAtom)
+  const { data: session } = useSession()
+  const settings = session?.user?.settings ?? SettingsFallback
+
   const [inventory] = useAtom(InventoryAtom)
   const { t } = useTranslation()
 
@@ -49,7 +52,7 @@ export default function TotalCost({
             ([name, item]) =>
               typeof item !== 'number' &&
               Object.entries(item).map(([rarity, value]) => {
-                const showItemRarity = settings.displayRarity.includes(
+                const showItemRarity = settings?.displayRarity.includes(
                   rarity as RarityTypes
                 )
                 const isNotBaseRecipe = !isBaseRecipe(name, rarity)

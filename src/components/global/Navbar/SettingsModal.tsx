@@ -1,6 +1,5 @@
 'use client'
 
-import { type SettingsObject } from '@/atoms/Settings'
 import Checkbox from '@/components/shared/Checkbox'
 import Modal from '@/components/shared/Modal'
 import Select from '@/components/shared/Select'
@@ -31,7 +30,7 @@ export default function SettingsModal() {
   const [isOpen, setIsOpen] = useState(false)
 
   const { data: session, update: updateSession } = useSession()
-  const settings = session?.user?.settings
+  const settings = session?.user?.settings ?? SettingsFallback
 
   const { t, i18n } = useTranslation()
   const router = useRouter()
@@ -54,7 +53,7 @@ export default function SettingsModal() {
 
   const { handleSubmit, watch, setValue } = useForm<SettingsObject>({
     resolver: zodResolver(schema),
-    defaultValues: settings ?? SettingsFallback,
+    defaultValues: settings,
   })
 
   const displayRarity = watch('displayRarity')
