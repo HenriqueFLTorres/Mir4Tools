@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
 import { PT_Serif, Rubik } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { Toaster } from 'react-hot-toast'
 import Providers from '../components/Providers'
 import { RouteMetadata } from './DefaultMetadata'
 
@@ -35,6 +36,20 @@ export default function RootLayout({
         <body>
           {children}
           <Analytics />
+          <Toaster
+            position="top-right"
+            reverseOrder={false}
+            gutter={8}
+            toastOptions={{
+              style: {
+                border: '1px solid rgba(255, 255, 255, 0.10)',
+                background: 'rgba(126, 115, 173, 0.05)',
+                backdropFilter: 'blur(7.5px)',
+                color: '#ffffff',
+                fontWeight: 600,
+              },
+            }}
+          />
         </body>
       </Providers>
     </html>

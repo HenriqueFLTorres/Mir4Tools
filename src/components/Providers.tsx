@@ -11,7 +11,9 @@ function Providers({ children }: { children: React.ReactNode }) {
     <ClientProvider>
       <I18nextProvider i18n={i18n} defaultNS={'translation'}>
         <Provider>
-          <SessionProvider>{children}</SessionProvider>
+          <SessionProvider>
+            {children}
+          </SessionProvider>
         </Provider>
       </I18nextProvider>
     </ClientProvider>

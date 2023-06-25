@@ -14,6 +14,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 import { useTranslation } from '../../../../public/locales/client'
 import { trpc } from '../../../client/trpcClient'
@@ -40,6 +41,14 @@ export default function SettingsModal() {
       await i18n.changeLanguage(data.language)
       router.refresh()
       setIsOpen(false)
+      toast.success(t('Settings updated successfully!'))
+      toast.dismiss('loading toast')
+    },
+    onMutate: () =>
+      toast.loading(t('Updating settings...'), { id: 'loading toast' }),
+    onError: ({ message }) => {
+      toast.dismiss('loading toast')
+      toast.error(t(message))
     },
   })
 
