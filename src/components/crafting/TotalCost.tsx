@@ -2,6 +2,7 @@ import { InventoryAtom } from '@/atoms/Inventory'
 import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
 import { useAtom, useAtomValue } from 'jotai'
+import { useTranslation } from '../../../public/locales/client'
 
 const rarities: RarityTypes[] = [
   'Common',
@@ -22,6 +23,7 @@ export default function TotalCost({
 }) {
   const settings = useAtomValue(SettingsAtom)
   const [inventory] = useAtom(InventoryAtom)
+  const { t } = useTranslation()
 
   const isBaseRecipe = (name: string, rarity: string) => {
     const baseResources = Object.entries(targetRecipe)
@@ -39,7 +41,7 @@ export default function TotalCost({
 
   return (
     <section className="flex w-full flex-col gap-8">
-      <h2 className="text-3xl font-bold text-primary-200">'Total'</h2>
+      <h2 className="text-3xl font-bold text-primary-200">{t('Total')}</h2>
 
       <div className="flex w-full gap-5">
         <ul className="flex w-full gap-5">

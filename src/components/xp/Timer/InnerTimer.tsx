@@ -3,6 +3,7 @@
 import moment from 'moment'
 import { useRef, useState } from 'react'
 import useSound from 'use-sound'
+import { useTranslation } from '../../../../public/locales/client'
 
 export default function InnerTimer() {
   const [play] = useSound('/audio/timer.mp3', { volume: 0.2 })
@@ -12,6 +13,8 @@ export default function InnerTimer() {
     isActive: false,
   })
   const countRef = useRef<any>(null)
+
+  const { t } = useTranslation()
 
   const handleStart = () => {
     setTimerState((prev) => ({ ...prev, isActive: true, start: moment.now() }))
@@ -71,7 +74,7 @@ export default function InnerTimer() {
           className="w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           disabled={timerState.isActive}
         >
-          Start
+          {t('Start')}
         </button>
 
         <button
@@ -80,7 +83,7 @@ export default function InnerTimer() {
           className="w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           disabled={!timerState.isActive}
         >
-          Reset
+          {t('Reset')}
         </button>
       </div>
     </>

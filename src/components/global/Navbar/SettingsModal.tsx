@@ -16,6 +16,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
+import { useTranslation } from '../../../../public/locales/client'
 import { trpc } from '../../../client/trpcClient'
 
 const schema = z.object({
@@ -32,21 +33,22 @@ export default function SettingsModal() {
   const { data: session, update: updateSession } = useSession()
   const settings = session?.user?.settings
 
+  const { t, i18n } = useTranslation()
   const router = useRouter()
   const { isLoading, mutate: saveSettings } = trpc.saveSettings.useMutation({
     onSuccess: async (_, data) => {
       await updateSession({ settings: data })
-      // await i18n.changeLanguage(data.language)
+      await i18n.changeLanguage(data.language)
       router.refresh()
       setIsOpen(false)
-      toast.success('Settings updated successfully!')
+      toast.success(t('Settings updated successfully!'))
       toast.dismiss('loading toast')
     },
     onMutate: () =>
-      toast.loading('Updating settings...', { id: 'loading toast' }),
+      toast.loading(t('Updating settings...'), { id: 'loading toast' }),
     onError: ({ message }) => {
       toast.dismiss('loading toast')
-      toast.error(message)
+      toast.error(t(message))
     },
   })
 
@@ -77,15 +79,15 @@ export default function SettingsModal() {
   return (
     <Modal.Wrapper onOpenChange={setIsOpen} open={isOpen}>
       <Modal.Trigger
-        aria-label="Manage settings"
+        aria-label={t('Manage settings')}
         className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
       >
         <Settings className="h-5 w-5 fill-white" />
-        Manage Settings
+        {t('Manage Settings')}
       </Modal.Trigger>
       <Modal.Content className="max-w-3xl gap-4 pb-6">
         <header className="flex w-full items-center justify-between">
-          <Modal.Title>Manage Settings</Modal.Title>
+          <Modal.Title>{t('Manage Settings')}</Modal.Title>
           <Modal.Close />
         </header>
 
@@ -100,27 +102,27 @@ export default function SettingsModal() {
                 value="general"
               >
                 <Settings className="h-5 w-5 fill-white" />
-                General Settings
+                {t('General Settings')}
               </Tabs.Trigger>
               <Tabs.Trigger
                 className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
                 value="crafting"
               >
                 <Forge className="h-5 w-5 fill-white" />
-                Crafting Calculator
+                {t('Crafting Calculator')}
               </Tabs.Trigger>
               <Tabs.Trigger
                 className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
                 value="experience"
               >
                 <EXP className="h-5 w-5 fill-white" />
-                Experience Calculator
+                {t('Experience Calculator')}
               </Tabs.Trigger>
             </Tabs.List>
 
             <Tabs.Content className="flex flex-col pb-2 pt-4" value="general">
               <Select
-                label="Language"
+                label={t('Language')}
                 defaultValue="en"
                 value={watch('language')}
                 items={[
@@ -136,13 +138,13 @@ export default function SettingsModal() {
               value="crafting"
             >
               <div className="flex flex-1 flex-col gap-4">
-                <h2>Resources Filter</h2>
+                <h2>{t('Resources Filter')}</h2>
 
                 <ul className="flex flex-col gap-2">
                   {filterOptions.map((option) => (
                     <Checkbox
                       key={option}
-                      label={`${option}`}
+                      label={t(`${option}`)}
                       // checked={settings.displayRarity.includes(option)}
                       checked={watch('displayRarity').includes(option)}
                       onCheckedChange={() => {
@@ -157,10 +159,10 @@ export default function SettingsModal() {
               <hr className="border border-primary-400 md:h-40" />
 
               <div className="flex flex-1 flex-col gap-4">
-                <h2>Advanced View</h2>
+                <h2>{t('Advanced View')}</h2>
 
                 <Checkbox
-                  label="Show Owned Items"
+                  label={t('Show Owned Items')}
                   checked={watch('showOwnedItems')}
                   onCheckedChange={() => {
                     setValue('showOwnedItems', !watch('showOwnedItems'))
@@ -173,25 +175,25 @@ export default function SettingsModal() {
               className="relative flex flex-col gap-4"
               value="experience"
             >
-              <h2>Panel Visibility</h2>
+              <h2>{t('Panel Visibility')}</h2>
 
               <ul className="flex flex-col gap-2">
                 <Checkbox
-                  label="Magic Square and Secret Peak"
+                  label={t('Magic Square and Secret Peak')}
                   checked
                   disabled
                 />
-                <Checkbox label="Vigor" checked disabled />
+                <Checkbox label={t('Vigor')} checked disabled />
               </ul>
             </Tabs.Content>
 
             <button
-              aria-label="Save Settings"
+              aria-label={t('Save Settings')}
               className="ml-auto mt-4 rounded bg-primary-600 px-6 py-2 text-sm font-medium text-white hover:bg-primary-500 motion-safe:transition-colors"
               type="submit"
               disabled={isLoading}
             >
-              Save Settings
+              {t('Save Settings')}
             </button>
           </Tabs.Root>
         </form>
