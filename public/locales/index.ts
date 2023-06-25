@@ -1,4 +1,3 @@
-import { getSSRSession } from '@/utils/getSSRSession'
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import { initReactI18next } from 'react-i18next/initReactI18next'
@@ -32,7 +31,7 @@ export async function useTranslation() {
 
   const i18nextInstance = await initI18next()
   return {
-    t: i18nextInstance.getFixedT(),
+    t: i18nextInstance.getFixedT('en'),
     i18n: i18nextInstance,
   }
 }
