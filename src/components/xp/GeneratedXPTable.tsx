@@ -15,13 +15,11 @@ import { useAtom } from 'jotai'
 import millify from 'millify'
 import moment from 'moment'
 import { useMemo } from 'react'
-import { useTranslation } from '../../../public/locales/client'
 
 export default function GeneratedXPTable() {
   const [{ levels, xpPerMinute = 0, manualCalculation, percentages }] =
     useAtom(XPCalculatorAtom)
   const [invalidInput] = useAtom(XPInvalidInput)
-  const { t, i18n } = useTranslation()
 
   const LevelGap =
     levels.initial && levels.final
@@ -47,7 +45,7 @@ export default function GeneratedXPTable() {
     [XPPerMinute, XPToTargetLevel, currentLvl]
   )
 
-  const columns = useMemo(() => getColumns(t, i18n.language), [])
+  const columns = useMemo(() => getColumns(), [])
 
   const table = useReactTable({
     data,
@@ -143,13 +141,10 @@ const generateTableData = (
   ]
 }
 
-const getColumns = (
-  t: (key: string) => string,
-  language: string
-): Array<ColumnDef<TableXP>> => [
+const getColumns = (): Array<ColumnDef<TableXP>> => [
   {
     accessorKey: 'levelReached',
-    header: () => t('Progression'),
+    header: () => 'Progression',
     cell: ({ getValue, row }) => {
       const percentage = row.getValue('currentPercentage')
 
@@ -169,7 +164,7 @@ const getColumns = (
   },
   {
     accessorKey: 'XPEarned',
-    header: () => <span className="flex min-w-[15rem]">{t('XP Earned')}</span>,
+    header: () => <span className="flex min-w-[15rem]">XP Earned</span>,
     cell: ({ getValue }) => (
       <>
         <b className="font-extrabold">{`${millify(getValue() as number)} -`}</b>{' '}
@@ -180,14 +175,14 @@ const getColumns = (
   },
   {
     accessorKey: 'timeInMinutes',
-    header: () => <span className="flex w-full justify-end">{t('Time')}</span>,
+    header: () => <span className="flex w-full justify-end">Time</span>,
     cell: ({ getValue }) => (
       <span className="flex w-full justify-end whitespace-nowrap">
         {humanizeDuration(
           moment
             .duration(getValue() as moment.DurationInputArg1, 'minutes')
             .asMilliseconds(),
-          { round: true, language }
+          { round: true, language: 'en' }
         )}
       </span>
     ),

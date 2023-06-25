@@ -3,7 +3,6 @@ import { cn } from '@/utils/classNames'
 import * as Popover from '@radix-ui/react-popover'
 import Image from 'next/image'
 import React from 'react'
-import { useTranslation } from '../../../public/locales/client'
 
 export default function MainItemFrame({
   name,
@@ -18,8 +17,6 @@ export default function MainItemFrame({
   itemRarity,
   setItemRarity,
 }: MainItemFrameProps) {
-  const { t } = useTranslation()
-
   return (
     <Popover.Root>
       <Popover.Trigger className="my-auto h-max">
@@ -41,7 +38,7 @@ export default function MainItemFrame({
           className="flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-4 backdrop-blur-lg"
         >
           <header className="flex justify-between gap-8">
-            <h2 className="text-2xl font-bold text-white">{t('Items')}</h2>
+            <h2 className="text-2xl font-bold text-white">{'Items'}</h2>
             <div className="flex gap-2.5">
               <button
                 onClick={() => {
@@ -133,7 +130,7 @@ export default function MainItemFrame({
                   'bg-primary-100/10': weaponType === 'primary',
                 })}
               >
-                {t('Primary')}
+                {'Primary'}
               </MenuButton>
               <MenuButton
                 onClick={() => {
@@ -143,7 +140,7 @@ export default function MainItemFrame({
                   'bg-primary-100/10': weaponType === 'secondary',
                 })}
               >
-                {t('Secondary')}
+                {'Secondary'}
               </MenuButton>
             </div>
           )}

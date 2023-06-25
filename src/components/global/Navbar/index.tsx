@@ -2,7 +2,6 @@ import SupportTag from '@/components/global/Navbar/SupportTag'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
 import Link from 'next/link'
-import { useTranslation } from '../../../../public/locales'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
 
@@ -11,14 +10,12 @@ export default async function GlobalNavbar({
 }: {
   children?: React.ReactNode | React.ReactNode[]
 }) {
-  const { t } = await useTranslation()
-
   return (
     <>
       <header className="relative z-[40] flex w-full items-center justify-between border-b border-white/10 bg-primary-400/5 px-3 py-2 drop-shadow-md backdrop-blur-xl">
         <ProfileSection />
         <nav className="absolute left-1/2 flex w-max shrink-0 -translate-x-1/2 gap-4">
-          {links(t).map(({ href, label, Icon, disabled }) => (
+          {links.map(({ href, label, Icon, disabled }) => (
             <Link
               href={disabled ? {} : href}
               key={label}
@@ -39,15 +36,15 @@ export default async function GlobalNavbar({
   )
 }
 
-const links = (t: (key: string) => string) => [
+const links = [
   {
     href: '/xp',
-    label: t('Experience Calculator'),
+    label: 'Experience Calculator',
     Icon: EXP,
   },
   {
     href: '/',
-    label: t('Crafting Calculator'),
+    label: 'Crafting Calculator',
     Icon: Forge,
     disabled: true,
   },

@@ -3,17 +3,15 @@ import BasicItemFrame from '@/components/Inventory/BasicItemComponent'
 import ItemComponent from '@/components/Inventory/ItemComponent'
 import Close from '@/icons/Close'
 import { useAtom } from 'jotai'
-import { useTranslation } from '../../../public/locales/client'
 
 export default function Inventory() {
   const [inventory] = useAtom(InventoryAtom)
   const [, setShowInventory] = useAtom(showInventoryAtom)
-  const { t } = useTranslation()
 
   return (
     <>
       <header className="flex items-center justify-between">
-        <h2 className="text-3xl text-primary-200">{t('Inventory')}</h2>
+        <h2 className="text-3xl text-primary-200">Inventory</h2>
 
         <button
           onClick={() => {
