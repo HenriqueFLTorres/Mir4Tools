@@ -2,7 +2,7 @@
 import Info from '@/icons/Info'
 import { useTranslation } from '../../../../public/locales/client'
 
-export default async function SupportTag() {
+export default function SupportTag() {
   const { t } = useTranslation()
 
   return (

@@ -4,7 +4,7 @@ import { useTranslation } from '../../../../public/locales/client'
 import InfoTooltip from '../SquareAndPeak/InfoTooltip'
 import InnerVigor from './InnerVigor'
 
-export default async function Vigor() {
+export default function Vigor() {
   const { t } = useTranslation()
 
   return (

@@ -3,17 +3,21 @@
 import SupportTag from '@/components/global/Navbar/SupportTag'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useTranslation } from '../../../../public/locales/client'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
 
-export default async function GlobalNavbar({
+export default function GlobalNavbar({
   children,
 }: {
   children?: React.ReactNode | React.ReactNode[]
 }) {
   const { t } = useTranslation()
+  const { data } = useSession()
+
+  console.log('session', data)
 
   return (
     <>
@@ -35,7 +39,6 @@ export default async function GlobalNavbar({
         {children}
       </header>
 
-      {/* @ts-expect-error Server Component */}
       <SupportTag />
     </>
   )
