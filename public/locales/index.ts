@@ -1,3 +1,4 @@
+import { getSSRSession } from '@/utils/getSSRSession'
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
 import { initReactI18next } from 'react-i18next/initReactI18next'
@@ -25,13 +26,12 @@ const initI18next = async (lng?: string, ns?: string) => {
 }
 
 export async function useTranslation() {
-  // const language = await getSSRSession().then(
-  //   (data) => data?.user?.settings.language ?? 'en'
-  // )
+  const data = await getSSRSession()
+  const language = data?.user?.settings?.language ?? 'en'
 
-  const i18nextInstance = await initI18next('en')
+  const i18nextInstance = await initI18next(language)
   return {
-    t: i18nextInstance.getFixedT('en'),
+    t: i18nextInstance.getFixedT(language),
     i18n: i18nextInstance,
   }
 }
