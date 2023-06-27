@@ -47,7 +47,7 @@ export default function TotalCost({
       <h2 className="text-3xl font-bold text-primary-200">{t('Total')}</h2>
 
       <div className="flex w-full gap-5">
-        <ul className="flex w-full gap-5">
+        <ul id='totalCostWithRarity' className="flex w-full gap-5">
           {Object.entries(craftCost).map(
             ([name, item]) =>
               typeof item !== 'number' &&
@@ -75,7 +75,7 @@ export default function TotalCost({
           )}
         </ul>
 
-        <ul className="flex gap-5">
+        <ul id='totalCostWithoutRarity' className="flex gap-5">
           <CostFragment
             name="dark_steel"
             cost={craftCost.dark_steel - inventory.dark_steel}

@@ -2,7 +2,7 @@
 
 import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import { useAtom } from 'jotai'
-import { useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import Tooltip from './ToolTip'
 
 export default function WalkthroughWrapper() {
@@ -13,6 +13,8 @@ export default function WalkthroughWrapper() {
     top: 0,
     left: 0,
   })
+
+  const tooltipRef = useRef<HTMLButtonElement>(null)
 
   const isFirstStage = stage === 0
   const isLastStage = stage === stages.length - 1
@@ -42,7 +44,7 @@ export default function WalkthroughWrapper() {
       setStylings({
         width: (boundaries?.width ?? 0) + 24,
         height: (boundaries?.height ?? 0) + 24,
-        top: (boundaries?.top ?? 0) - 12,
+        top: (boundaries?.top ?? 0) + window.scrollY - 12,
         left: (boundaries?.left ?? 0) - 12,
       })
     }
@@ -50,6 +52,7 @@ export default function WalkthroughWrapper() {
     window.addEventListener('resize', getActiveElement)
     getActiveElement()
 
+    tooltipRef?.current?.scrollIntoView({ behavior: 'smooth' })
     return () => window.removeEventListener('resize', getActiveElement)
   }, [isActive, stage])
 
@@ -59,9 +62,9 @@ export default function WalkthroughWrapper() {
     <Tooltip.Wrapper open={isActive}>
       <Tooltip.Trigger>
         <button
-          key={JSON.stringify(elementStyles)}
-          className="custom absolute left-64 top-64 rounded-xl shadow-[0px_0px_0px_9999px_#00000060] motion-safe:transition-all motion-safe:duration-300"
+          className="custom absolute left-64 top-64 rounded-xl shadow-[0px_0px_0px_9999px_#00000080] motion-safe:duration-300"
           style={elementStyles}
+          ref={tooltipRef}
         />
       </Tooltip.Trigger>
       <Tooltip.Content
@@ -71,7 +74,9 @@ export default function WalkthroughWrapper() {
         sideOffset={24}
       >
         <h2 className="text-lg font-bold">{selectedStage.title}</h2>
-        <p className="text-xs font-medium">{selectedStage.content}</p>
+        <p className="text-xs font-medium whitespace-pre-line">
+          {selectedStage.content}
+        </p>
 
         <footer className="flex w-full items-center gap-4">
           <button
