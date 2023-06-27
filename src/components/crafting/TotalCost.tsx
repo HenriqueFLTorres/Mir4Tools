@@ -43,7 +43,7 @@ export default function TotalCost({
   }
 
   return (
-    <section className="flex w-full flex-col gap-8">
+    <section id='totalCostPanel' className="flex w-full flex-col gap-8">
       <h2 className="text-3xl font-bold text-primary-200">{t('Total')}</h2>
 
       <div className="flex w-full gap-5">

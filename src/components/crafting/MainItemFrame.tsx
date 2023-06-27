@@ -22,7 +22,10 @@ export default function MainItemFrame({
 
   return (
     <Popover.Root>
-      <Popover.Trigger className="group relative my-auto h-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform">
+      <Popover.Trigger
+        id="mainItemFrame"
+        className="group relative my-auto h-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform"
+      >
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}
@@ -40,7 +43,7 @@ export default function MainItemFrame({
           align="center"
           className={cn(
             'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-4 backdrop-blur-lg',
-            'data-[state=open]:animate-showPopover data-[state=closed]:animate-hidePopover'
+            'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
           <header className="flex justify-between gap-8">

@@ -1,3 +1,4 @@
+import WalkthroughWrapper from '@/components/WalkthroughWrapper'
 import Navbar from '@/components/global/Navbar'
 import dynamic from 'next/dynamic'
 
@@ -24,6 +25,7 @@ export default function Home() {
         </Navbar>
         <CraftingMain />
       </main>
+      <WalkthroughWrapper />
     </div>
   )
 }

@@ -4,13 +4,13 @@ import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
+import SettingsFallback from '@/utils/SettingsFallback'
 import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
 import { useAtom } from 'jotai'
 import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 import MainItemFrame from './MainItemFrame'
 import TotalCost from './TotalCost'
-import SettingsFallback from '@/utils/SettingsFallback'
 
 export default function CraftingMain() {
   const { data: session } = useSession()
@@ -70,7 +70,7 @@ export default function CraftingMain() {
         />
 
         <table>
-          <tbody className="w-full gap-5">
+          <tbody id="recipeSubitems" className="w-full gap-5">
             {Object?.entries(targetItem)?.map(([name, item]) => {
               let inventoryCount = 0
               const itemHasRarity =
