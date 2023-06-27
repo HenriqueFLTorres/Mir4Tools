@@ -3,6 +3,7 @@
 import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import { useAtom } from 'jotai'
 import { useLayoutEffect, useRef, useState } from 'react'
+import { useTranslation } from '../../public/locales/client'
 import Tooltip from './ToolTip'
 
 export default function WalkthroughWrapper() {
@@ -56,6 +57,7 @@ export default function WalkthroughWrapper() {
 
 function WalkthroughContent() {
   const [{ stage, stages }, setWalk] = useAtom(WalkthroughAtom)
+  const { t } = useTranslation()
 
   const isFirstStage = stage === 0
   const isLastStage = stage === stages.length - 1
@@ -89,19 +91,19 @@ function WalkthroughContent() {
 
       <footer className="flex w-full items-center gap-4">
         <button
-          aria-label={isFirstStage ? 'Skip' : 'Previous'}
+          aria-label={isFirstStage ? t('Skip') : t('Previous')}
           className="w-full rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           onClick={handlePrevious}
         >
-          {isFirstStage ? 'Skip' : 'Previous'}
+          {isFirstStage ? t('Skip') : t('Previous')}
         </button>
 
         <button
-          aria-label={isLastStage ? 'Finish' : 'Next'}
+          aria-label={isLastStage ? t('Finish') : t('Next')}
           className="w-full rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           onClick={handleNext}
         >
-          {isLastStage ? 'Finish' : 'Next'}
+          {isLastStage ? t('Finish') : t('Next')}
         </button>
       </footer>
     </Tooltip.Content>
