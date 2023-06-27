@@ -6,7 +6,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import Tooltip from './ToolTip'
 
 export default function WalkthroughWrapper() {
-  const [{ isActive, stage, stages }, setWalk] = useAtom(WalkthroughAtom)
+  const [{ isActive, stage, stages }] = useAtom(WalkthroughAtom)
   const [elementStyles, setStylings] = useState({
     width: 0,
     height: 0,
@@ -15,24 +15,6 @@ export default function WalkthroughWrapper() {
   })
 
   const tooltipRef = useRef<HTMLButtonElement>(null)
-
-  const isFirstStage = stage === 0
-  const isLastStage = stage === stages.length - 1
-  const selectedStage = stages[stage]
-
-  const handlePrevious = () =>
-    setWalk((prev) => ({
-      ...prev,
-      stage: isFirstStage ? 0 : prev.stage - 1,
-      ...(isFirstStage ? { isActive: false } : {}),
-    }))
-
-  const handleNext = () =>
-    setWalk((prev) => ({
-      ...prev,
-      stage: isLastStage ? 0 : prev.stage + 1,
-      ...(isLastStage ? { isActive: false } : {}),
-    }))
 
   useLayoutEffect(() => {
     const getActiveElement = () => {
@@ -67,35 +49,61 @@ export default function WalkthroughWrapper() {
           ref={tooltipRef}
         />
       </Tooltip.Trigger>
-      <Tooltip.Content
-        className="flex max-w-xs flex-col items-start gap-5 border border-primary-500 p-3"
-        collisionPadding={24}
-        alignOffset={24}
-        sideOffset={24}
-      >
-        <h2 className="text-lg font-bold">{selectedStage.title}</h2>
-        <p className="text-xs font-medium whitespace-pre-line">
-          {selectedStage.content}
-        </p>
-
-        <footer className="flex w-full items-center gap-4">
-          <button
-            aria-label={isFirstStage ? 'Skip' : 'Previous'}
-            className="w-full rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
-            onClick={handlePrevious}
-          >
-            {isFirstStage ? 'Skip' : 'Previous'}
-          </button>
-
-          <button
-            aria-label={isLastStage ? 'Finish' : 'Next'}
-            className="w-full rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
-            onClick={handleNext}
-          >
-            {isLastStage ? 'Finish' : 'Next'}
-          </button>
-        </footer>
-      </Tooltip.Content>
+      <WalkthroughContent />
     </Tooltip.Wrapper>
+  )
+}
+
+function WalkthroughContent() {
+  const [{ stage, stages }, setWalk] = useAtom(WalkthroughAtom)
+
+  const isFirstStage = stage === 0
+  const isLastStage = stage === stages.length - 1
+
+  const selectedStage = stages[stage]
+
+  const handlePrevious = () =>
+    setWalk((prev) => ({
+      ...prev,
+      stage: isFirstStage ? 0 : prev.stage - 1,
+      ...(isFirstStage ? { isActive: false } : {}),
+    }))
+
+  const handleNext = () =>
+    setWalk((prev) => ({
+      ...prev,
+      stage: isLastStage ? 0 : prev.stage + 1,
+      ...(isLastStage ? { isActive: false } : {}),
+    }))
+  return (
+    <Tooltip.Content
+      className="flex max-w-xs flex-col items-start gap-5 border border-primary-500 p-3"
+      collisionPadding={24}
+      alignOffset={24}
+      sideOffset={24}
+    >
+      <h2 className="text-lg font-bold">{selectedStage.title}</h2>
+      <p className="whitespace-pre-line text-xs font-medium">
+        {selectedStage.content}
+      </p>
+
+      <footer className="flex w-full items-center gap-4">
+        <button
+          aria-label={isFirstStage ? 'Skip' : 'Previous'}
+          className="w-full rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          onClick={handlePrevious}
+        >
+          {isFirstStage ? 'Skip' : 'Previous'}
+        </button>
+
+        <button
+          aria-label={isLastStage ? 'Finish' : 'Next'}
+          className="w-full rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          onClick={handleNext}
+        >
+          {isLastStage ? 'Finish' : 'Next'}
+        </button>
+      </footer>
+    </Tooltip.Content>
   )
 }
