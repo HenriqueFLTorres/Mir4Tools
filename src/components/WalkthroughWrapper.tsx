@@ -56,7 +56,7 @@ export default function WalkthroughWrapper() {
 }
 
 function WalkthroughContent() {
-  const [{ stage, stages }, setWalk] = useAtom(WalkthroughAtom)
+  const [{ stage, stages, type }, setWalk] = useAtom(WalkthroughAtom)
   const { t } = useTranslation()
 
   const isFirstStage = stage === 0
@@ -64,19 +64,40 @@ function WalkthroughContent() {
 
   const selectedStage = stages[stage]
 
+  const handleFinish = () => {
+    const walkthroughData = JSON.parse(
+      localStorage.getItem('Walkthrough') ?? '{}'
+    )
+
+    if (!type || walkthroughData[type]) return
+    localStorage.setItem(
+      'Walkthrough',
+      JSON.stringify({ ...walkthroughData, [type]: true })
+    )
+  }
+
   const handlePrevious = () =>
-    setWalk((prev) => ({
-      ...prev,
-      stage: isFirstStage ? 0 : prev.stage - 1,
-      ...(isFirstStage ? { isActive: false } : {}),
-    }))
+    setWalk((prev) => {
+      if (isFirstStage) handleFinish()
+
+      return {
+        ...prev,
+        stage: isFirstStage ? 0 : prev.stage - 1,
+        ...(isFirstStage ? { isActive: false } : {}),
+      }
+    })
 
   const handleNext = () =>
-    setWalk((prev) => ({
-      ...prev,
-      stage: isLastStage ? 0 : prev.stage + 1,
-      ...(isLastStage ? { isActive: false } : {}),
-    }))
+    setWalk((prev) => {
+      if (isLastStage) handleFinish()
+
+      return {
+        ...prev,
+        stage: isLastStage ? 0 : prev.stage + 1,
+        ...(isLastStage ? { isActive: false } : {}),
+      }
+    })
+
   return (
     <Tooltip.Content
       className="relative z-[50] flex max-w-xs flex-col items-start gap-5 border border-primary-500 p-3"

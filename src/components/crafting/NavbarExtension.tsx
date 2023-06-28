@@ -7,13 +7,21 @@ import { CraftingWalkthroughStages } from '@/data/WalkthroughStages'
 import Backpack from '@/icons/Backpack'
 import Tutorial from '@/icons/Tutorial'
 import * as Dialog from '@radix-ui/react-dialog'
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
+import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
+import { cn } from '@/utils/classNames'
 
 export default function CraftingNavExtesion() {
   const { t } = useTranslation()
   const [showInventory, setShowInventory] = useAtom(showInventoryAtom)
-  const setWalk = useSetAtom(WalkthroughAtom)
+  const [walk, setWalk] = useAtom(WalkthroughAtom)
+
+  let walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+
+  useEffect(() => {
+    walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+  }, [walk.isActive])
 
   return (
     <div className="flex items-center gap-4">
@@ -40,12 +48,25 @@ export default function CraftingNavExtesion() {
             stage: 0,
             isActive: true,
             stages: CraftingWalkthroughStages(t),
+            type: 'crafting',
           })
         }}
-        className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+        className={cn(
+          'relative w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors',
+          {
+            'before:absolute before:block before:h-8 before:w-8 before:animate-ping before:rounded-full before:bg-white/50 before:content-[""]':
+              !walkthroughData.crafting,
+          }
+        )}
         aria-label="Walkthrough"
       >
-        <Tutorial className="inline-block w-6 fill-white" />
+        <div
+          className={cn({
+            'animate-vibrate': !walkthroughData.crafting,
+          })}
+        >
+          <Tutorial className={'inline-block w-6 fill-white'} />
+        </div>
       </button>
     </div>
   )
