@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen w-full bg-black font-main">
       <MainBackground />
-      <main className="min-w-screen pt-24 relative flex h-full w-full flex-col">
+      <main className="min-w-screen relative flex h-full w-full flex-col">
         <Navbar>
           <CraftingNavExtesion />
         </Navbar>

@@ -53,7 +53,7 @@ export default function CraftingMain() {
   ])
 
   return (
-    <div className="flex w-full flex-col gap-4 p-14">
+    <div className="flex w-full flex-col gap-4 p-14 pt-24">
       <section className="mb-4 flex justify-center gap-16">
         <MainItemFrame
           targetItem={targetItem}
