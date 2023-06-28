@@ -4,6 +4,7 @@ import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import { ExperienceWalkthroughStages } from '@/data/WalkthroughStages'
 import Tutorial from '@/icons/Tutorial'
 import { cn } from '@/utils/classNames'
+import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
@@ -12,10 +13,10 @@ export default function ExperienceNavExtesion() {
   const { t } = useTranslation()
   const [walk, setWalk] = useAtom(WalkthroughAtom)
 
-  let walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+  let walkthroughData = retrieveWalkthroughFromStorage()
 
   useEffect(() => {
-    walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+    walkthroughData = retrieveWalkthroughFromStorage()
   }, [walk.isActive])
 
   return (

@@ -6,21 +6,22 @@ import Inventory from '@/components/crafting/Inventory'
 import { CraftingWalkthroughStages } from '@/data/WalkthroughStages'
 import Backpack from '@/icons/Backpack'
 import Tutorial from '@/icons/Tutorial'
+import { cn } from '@/utils/classNames'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
-import { cn } from '@/utils/classNames'
+import { retrieveWalkthroughFromStorage } from '@/utils/index'
 
 export default function CraftingNavExtesion() {
   const { t } = useTranslation()
   const [showInventory, setShowInventory] = useAtom(showInventoryAtom)
   const [walk, setWalk] = useAtom(WalkthroughAtom)
 
-  let walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+  let walkthroughData = retrieveWalkthroughFromStorage()
 
   useEffect(() => {
-    walkthroughData = JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+    walkthroughData = retrieveWalkthroughFromStorage()
   }, [walk.isActive])
 
   return (

@@ -159,3 +159,10 @@ export const getValidNumber = (
   value = String(value).replace(/\D/g, '')
   return Number.isInteger(Number(value)) ? Number(value) : fallbackValue
 }
+
+export function retrieveWalkthroughFromStorage() {
+  if (typeof window !== 'undefined') {
+    return JSON.parse(localStorage.getItem('Walkthrough') ?? '{}')
+  }
+  return {}
+}
