@@ -38,7 +38,7 @@ export default function LevelCalculations() {
   const XPPerMinute = xpPerMinute || (manualCalculation.xpPerMinute ?? 0)
 
   return (
-    <section className="flex w-full max-w-3xl items-center gap-4">
+    <section id="experienceLevels" className="flex w-full max-w-3xl items-center gap-4">
       <LevelFrame
         label={t('Current Level')}
         placeholder="100"

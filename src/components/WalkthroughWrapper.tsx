@@ -45,7 +45,7 @@ export default function WalkthroughWrapper() {
     <Tooltip.Wrapper open={isActive}>
       <Tooltip.Trigger>
         <button
-          className="custom absolute left-64 top-64 rounded-xl shadow-[0px_0px_0px_9999px_#00000080] motion-safe:duration-300"
+          className="custom absolute left-64 top-64 z-[50] rounded-xl shadow-[0px_0px_0px_9999px_#00000080] motion-safe:duration-300"
           style={elementStyles}
           ref={tooltipRef}
         />
@@ -79,7 +79,7 @@ function WalkthroughContent() {
     }))
   return (
     <Tooltip.Content
-      className="flex max-w-xs flex-col items-start gap-5 border border-primary-500 p-3"
+      className="relative z-[50] flex max-w-xs flex-col items-start gap-5 border border-primary-500 p-3"
       collisionPadding={24}
       alignOffset={24}
       sideOffset={24}

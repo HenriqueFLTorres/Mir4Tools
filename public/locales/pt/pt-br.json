@@ -67,6 +67,17 @@
     "Cost of rarity items": "Custo de itens com raridades",
     "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.": "Este painel esquerdo mostra o custo dos itens com raridade, isso pode ser resultado do custo necessário dos itens básicos para sua receita. \n\n Por exemplo, este painel pode contabilizar os itens necessários para a fabricação de aço raro para uma arma rara.",
     "Cost of generic items": "Custo de itens genéricos",
-    "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "Este painel direito mostra os itens genéricos para criação de receita, esta é a soma do custo de cobre de TODOS os itens, por exemplo. \n\n Observe que isso vai somar o custo dos recursos básicos, secundários, terciários e assim por diante."
+    "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "Este painel direito mostra os itens genéricos para criação de receita, esta é a soma do custo de cobre de TODOS os itens, por exemplo. \n\n Observe que isso vai somar o custo dos recursos básicos, secundários, terciários e assim por diante.",
+
+    "Experience gain measure": "Medida de ganho de experiência",
+    "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.": "Você pode iniciar um cronômetro de cinco minutos e começar a medir seu desempenho, certifique-se de marcar a porcentagem de experiência inicial e inserir a porcentagem final quando os tempos acabarem.",
+    "Percentage difference": "Diferença percentual",
+    "Here you can use the measurement by percentages which you need to use the timer, or you can use the second two inputs if you know your gain per minute.": "Aqui você pode usar a medição por porcentagens no qual você precisa usar o cronômetro, ou você pode usar as duas segundas entradas se souber seu ganho por minuto.",
+    "Input by percentages": "Entrada por porcentagens",
+    "The use of the 5 minutes timer is required. Recommended if is the first time measuring your performance.": "É necessário o uso do timer de 5 minutos. Recomendado se for a primeira vez que está medindo seu desempenho.",
+    "Input by experience rate": "Entrada por taxa de experiência",
+    "Recommended for users who have already measured experience gainings or if you already know the xp amount earned per minute.": "Recomendado para usuários que já mediram ganhos de experiência ou se já sabem a quantidade de xp ganhos por minuto.",
+    "Level and performance section": "Seção de nível e desempenho",
+    "Insert your current and desired level, when the necessary fields are correctly filled, you'll be able to see:\n\nRemaining XP to the desired level. (accounts for your current percentage)\nThe amount of time needed to reach your desired level.\nYour XP gains every 5 minutes.": "Insira seu nível atual e desejado, quando os campos necessários forem preenchidos corretamente, você verá:\n\nXP restando para o nível desejado. (representa sua porcentagem atual)\nA quantidade de tempo necessária para atingir o nível desejado.\nSeu ganho de XP a cada 5 minutos."
   }
 }

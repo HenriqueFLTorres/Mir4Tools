@@ -49,3 +49,55 @@ export const CraftingWalkthroughStages = (t: (key: string) => string) => [
     ),
   },
 ]
+
+export const ExperienceWalkthroughStages = (t: (key: string) => string) => [
+  {
+    id: '#experienceTimer',
+    title: t('Experience gain measure'),
+    content: t(
+      'You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.'
+    ),
+  },
+  {
+    id: '#percentageDifference',
+    title: t('Percentage difference'),
+    content: t(
+      'Here you can use the measurment by percentages which you need to use the timer, or you can use the second two inputs if you know your gain per minute.'
+    ),
+  },
+  {
+    id: '#experienceTimerInput',
+    title: t('Input by percentages'),
+    content: t(
+      'The use of the 5 minutes timer is required. Recommended if is the first time measuring your performance.'
+    ),
+  },
+  {
+    id: '#experienceXPRateInput',
+    title: t('Input by experience rate'),
+    content: t(
+      'Recommended for users who have already measured experience gainings or if you already know the xp amount earned per minute.'
+    ),
+  },
+  {
+    id: '#experienceLevels',
+    title: t('Level and performance section'),
+    content: t(
+      "Insert your current and desired level, when the necessary fields are correctly filled, you'll be able to see:\n\nRemaining XP to the desired level. (accounts for your current percentage)\nThe amount of time needed to reach your desired level.\nYour XP gains every 5 minutes."
+    ),
+  },
+  {
+    id: '#experienceSquareAndPeak',
+    title: t('Magic Square and Secret Peak'),
+    content: t(
+      'Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.'
+    ),
+  },
+  {
+    id: '#experienceVigor',
+    title: t('Vigor'),
+    content: t(
+      'Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.'
+    ),
+  },
+]

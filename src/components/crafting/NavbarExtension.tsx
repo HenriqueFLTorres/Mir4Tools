@@ -43,7 +43,7 @@ export default function CraftingNavExtesion() {
           })
         }}
         className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
-        aria-label="Inventory"
+        aria-label="Walkthrough"
       >
         <Tutorial className="inline-block w-6 fill-white" />
       </button>

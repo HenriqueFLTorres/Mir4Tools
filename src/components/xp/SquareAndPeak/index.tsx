@@ -11,7 +11,7 @@ export default function SquareAndPeak() {
   const { t } = useTranslation()
 
   return (
-    <section className="flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg">
+    <section id="experienceSquareAndPeak" className="flex w-80 flex-col gap-4 rounded-lg border border-white/10 bg-primary-400/5 p-4 backdrop-blur-lg">
       <div className="flex items-center gap-2.5">
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary-500 bg-primary-600">
           <Image

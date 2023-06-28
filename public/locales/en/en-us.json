@@ -67,6 +67,17 @@
     "Cost of rarity items": "Cost of rarity items",
     "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.": "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.",
     "Cost of generic items": "Cost of generic items",
-    "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on."
+    "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.",
+
+    "Experience gain measure": "Experience gain measure",
+    "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.": "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.",
+    "Percentage difference": "Percentage difference",
+    "Here you can use the measurement by percentages which you need to use the timer, or you can use the second two inputs if you know your gain per minute.": "Here you can use the measurement by percentages which you need to use the timer, or you can use the second two inputs if you know your gain per minute.",
+    "Input by percentages": "Input by percentages",
+    "The use of the 5 minutes timer is required. Recommended if is the first time measuring your performance.": "The use of the 5 minutes timer is required. Recommended if is the first time measuring your performance.",
+    "Input by experience rate": "Input by experience rate",
+    "Recommended for users who have already measured experience gainings or if you already know the xp amount earned per minute.": "Recommended for users who have already measured experience gainings or if you already know the xp amount earned per minute.",
+    "Level and performance section": "Level and performance section",
+    "Insert your current and desired level, when the necessary fields are correctly filled, you'll be able to see:\n\nRemaining XP to the desired level. (accounts for your current percentage)\nThe amount of time needed to reach your desired level.\nYour XP gains every 5 minutes.": "Insert your current and desired level, when the necessary fields are correctly filled, you'll be able to see:\n\nRemaining XP to the desired level. (accounts for your current percentage)\nThe amount of time needed to reach your desired level.\nYour XP gains every 5 minutes."
   }
 }

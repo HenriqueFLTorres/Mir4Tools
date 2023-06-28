@@ -1,3 +1,4 @@
+import WalkthroughWrapper from '@/components/WalkthroughWrapper'
 import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
 import { PT_Serif, Rubik } from '@next/font/google'
@@ -36,6 +37,7 @@ export default function RootLayout({
         <body>
           {children}
           <Analytics />
+          <WalkthroughWrapper />
           <Toaster
             position="top-right"
             reverseOrder={false}

@@ -67,8 +67,8 @@ export default function PercentageDifference() {
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className={'mt-8 flex'}>
+    <div id="percentageDifference" className="flex flex-col !w-max gap-3">
+      <div id="experienceTimerInput" className={'mt-8 flex'}>
         <Input
           placeholder="Start"
           label={t('Before Timer')}
@@ -113,7 +113,7 @@ export default function PercentageDifference() {
         <span className="h-[2px] w-full rounded-full bg-primary-100" />
       </div>
 
-      <div className={'mb-2 flex'}>
+      <div id="experienceXPRateInput" className={'mb-2 flex'}>
         <Input
           suffix="XP"
           label={t('XP Per Minute')}
