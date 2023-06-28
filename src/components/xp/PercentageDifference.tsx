@@ -112,7 +112,7 @@ export default function PercentageDifference() {
 
       <div className="flex items-center gap-3 px-8">
         <span className="h-[2px] w-full rounded-full bg-primary-100" />
-        <p className="text-2xl font-bold text-primary-100">OR</p>
+        <p className="text-2xl font-bold text-primary-100">{t('OR')}</p>
         <span className="h-[2px] w-full rounded-full bg-primary-100" />
       </div>
 

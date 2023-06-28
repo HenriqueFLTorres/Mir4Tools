@@ -36,7 +36,7 @@ export default function SupportUs() {
 
         <div className="flex w-full items-center gap-3 px-4">
           <div className="h-[2px] w-full rounded-full bg-white" />
-          <p className="text-lg font-bold text-white">OR</p>
+          <p className="text-lg font-bold text-white">{t('OR')}</p>
           <div className="h-[2px] w-full rounded-full bg-white" />
         </div>
 
