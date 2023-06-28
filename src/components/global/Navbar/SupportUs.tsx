@@ -11,7 +11,7 @@ export default function SupportUs() {
 
   return (
     <Modal.Wrapper>
-      <Modal.Trigger className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors">
+      <Modal.Trigger className="flex shrink-0 justify-stretch items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors">
         <Heart className="h-6 w-6 fill-white" />
         {t('Support Us')}!
       </Modal.Trigger>

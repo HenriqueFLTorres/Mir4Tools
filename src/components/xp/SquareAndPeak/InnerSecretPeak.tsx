@@ -11,10 +11,10 @@ export default function InnerSecretPeak() {
   const [{ secretPeak }, setExtension] = useAtom(XPExtension)
 
   return (
-    <div className="flex">
+    <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
       <Input
         label={t('Tickets')}
-        className="w-16 text-xs text-white [&>div]:rounded-r-none [&>div]:py-1"
+        className="sm:w-16 text-xs text-white [&>div]:sm:rounded-r-none [&>div]:py-1"
         onChange={(value) => {
           setExtension((prev) => ({
             ...prev,
@@ -28,7 +28,7 @@ export default function InnerSecretPeak() {
       />
       <Input
         label={t('XP per run')}
-        className="w-full text-xs text-white [&>div]:rounded-l-none [&>div]:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1"
+        className="w-full text-xs text-white [&>div]:sm:rounded-l-none [&>div]:sm:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1"
         onChange={(value) => {
           setExtension((prev) => ({
             ...prev,

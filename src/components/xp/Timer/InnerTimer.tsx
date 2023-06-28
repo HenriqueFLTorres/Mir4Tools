@@ -63,7 +63,7 @@ export default function InnerTimer() {
           : 'Experience Calculator'}
       </title>
 
-      <h1 className="text-6xl font-bold text-white">
+      <h1 className="text-5xl sm:text-6xl font-bold text-white">
         {minutes} : {seconds}
       </h1>
 

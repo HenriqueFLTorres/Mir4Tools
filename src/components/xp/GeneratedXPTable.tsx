@@ -61,7 +61,7 @@ export default function GeneratedXPTable() {
   if (!XPPerMinute || invalidInput) return <></>
 
   return (
-    <section className="relative mt-16 flex flex-col rounded-xl bg-primary-600 p-1">
+    <section className="relative mt-12 md:mt-16 flex flex-col rounded-md md:rounded-xl bg-primary-600 p-1">
       <table className="relative w-full">
         <thead className="border-b-2 border-primary-500/50">
           {table.getHeaderGroups().map((headerGroup) => (
@@ -69,7 +69,7 @@ export default function GeneratedXPTable() {
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="px-6 py-2 text-xl font-bold text-white"
+                  className="px-3 md:px-6 py-1.5 md:py-3 text-xs md:text-xl font-bold text-white"
                 >
                   {flexRender(
                     header.column.columnDef.header,
@@ -89,7 +89,7 @@ export default function GeneratedXPTable() {
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="px-6 py-3 text-sm font-light text-white first:rounded-l-md last:rounded-r-md"
+                  className="px-3 md:px-6 py-1.5 md:py-3 text-xs md:text-sm font-light text-white first:rounded-l-md last:rounded-r-md"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
@@ -169,7 +169,7 @@ const getColumns = (
   },
   {
     accessorKey: 'XPEarned',
-    header: () => <span className="flex min-w-[15rem]">{t('XP Earned')}</span>,
+    header: () => <span className="flex md:min-w-[15rem]">{t('XP Earned')}</span>,
     cell: ({ getValue }) => (
       <>
         <b className="font-extrabold">{`${millify(getValue() as number)} -`}</b>{' '}
@@ -182,7 +182,7 @@ const getColumns = (
     accessorKey: 'timeInMinutes',
     header: () => <span className="flex w-full justify-end">{t('Time')}</span>,
     cell: ({ getValue }) => (
-      <span className="flex w-full justify-end whitespace-nowrap">
+      <span className="flex w-full justify-end text-end">
         {humanizeDuration(
           moment
             .duration(getValue() as moment.DurationInputArg1, 'minutes')

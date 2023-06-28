@@ -26,9 +26,9 @@ export default function InnerVigor() {
   }, [])
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col sm:flex-row items-center gap-2">
       <Input
-        className={'max-w-[5rem] shrink-0 [&>div]:py-1'}
+        className={'sm:max-w-[5rem] shrink-0 [&>div]:py-1'}
         suffix="h"
         placeholder="duration"
         onChange={(value) => {
@@ -43,7 +43,7 @@ export default function InnerVigor() {
         value={String(vigor)}
       />
 
-      <div className="flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-1 text-base text-white">
+      <div className="flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-1 text-sm md:text-base text-white">
         {isLoading ? (
           <>
             <span className="my-1 flex h-4 w-full max-w-[3rem] animate-pulse rounded-full bg-primary-500 text-transparent">

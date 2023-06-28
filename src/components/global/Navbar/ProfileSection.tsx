@@ -19,7 +19,7 @@ export default function ProfileSection() {
     <ProfileMenu>
       <button
         aria-label="Main navigation menu"
-        className="flex items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors"
+        className="mr-auto flex shrink-0 items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors lg:mr-0"
       >
         {image ? (
           <Image
@@ -55,7 +55,7 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
       <Popover.Trigger asChild>{children}</Popover.Trigger>
       <Popover.Content
         align="start"
-        className="rounded border border-white/10 bg-primary-400/5 p-2 backdrop-blur-lg data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow"
+        className="rounded relative z-[60] border border-white/10 bg-primary-400/5 p-2 backdrop-blur-lg data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow"
         sideOffset={24}
       >
         {name ? (

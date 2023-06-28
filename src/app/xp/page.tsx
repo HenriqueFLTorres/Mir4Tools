@@ -22,7 +22,7 @@ export default function Home() {
     <>
       <Timer />
 
-      <section className="absolute right-4 top-4 z-50 flex flex-col items-end gap-4">
+      <section className="absolute right-4 top-24 flex flex-col items-end gap-4">
         <SquareAndPeak />
         <Vigor />
       </section>

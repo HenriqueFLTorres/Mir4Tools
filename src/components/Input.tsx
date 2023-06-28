@@ -25,13 +25,13 @@ export default function Input({
       {label}
       <div
         className={cn(
-          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-3 py-2 font-bold text-white motion-safe:transition-colors',
+          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-1.5 py-1 sm:px-3 sm:py-2 font-bold text-white motion-safe:transition-colors',
           { '!border-red-400 bg-red-400/10': error }
         )}
       >
         <input
           className={cn(
-            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm sm:text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
             {
               'text-red-200': error
             }
@@ -43,7 +43,7 @@ export default function Input({
           value={value}
         />
         {suffix && (
-          <div className="shrink-0 text-base font-bold text-white">
+          <div className="shrink-0 text-sm sm:text-base font-bold text-white">
             {suffix}
           </div>
         )}

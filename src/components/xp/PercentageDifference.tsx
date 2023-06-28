@@ -67,8 +67,11 @@ export default function PercentageDifference() {
   }
 
   return (
-    <div id="percentageDifference" className="flex flex-col !w-max gap-3">
-      <div id="experienceTimerInput" className={'mt-8 flex'}>
+    <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
+      <div
+        id="experienceTimerInput"
+        className={'mt-8 flex flex-col sm:flex-row'}
+      >
         <Input
           placeholder="Start"
           label={t('Before Timer')}
@@ -85,7 +88,7 @@ export default function PercentageDifference() {
           suffix="%"
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className="max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500"
+          className="max-w-[10rem] [&>div]:rounded-b-none [&>div]:border-b-2 [&>div]:border-primary-500 [&>div]:sm:rounded-r-none [&>div]:sm:rounded-bl-md [&>div]:sm:border-b-0 [&>div]:sm:border-r-2"
         />
         <Input
           suffix="%"
@@ -103,7 +106,7 @@ export default function PercentageDifference() {
           value={percentages.final ?? ''}
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className="max-w-[10rem] [&>div]:rounded-l-none"
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
         />
       </div>
 
@@ -113,7 +116,10 @@ export default function PercentageDifference() {
         <span className="h-[2px] w-full rounded-full bg-primary-100" />
       </div>
 
-      <div id="experienceXPRateInput" className={'mb-2 flex'}>
+      <div
+        id="experienceXPRateInput"
+        className={'mb-2 flex flex-col sm:flex-row'}
+      >
         <Input
           suffix="XP"
           label={t('XP Per Minute')}
@@ -125,7 +131,7 @@ export default function PercentageDifference() {
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
           onBlur={resetPercentages}
-          className="max-w-[10rem] [&>div]:rounded-r-none [&>div]:border-r-2 [&>div]:border-r-primary-500"
+          className="max-w-[10rem] [&>div]:rounded-b-none [&>div]:border-b-2 [&>div]:border-primary-500 [&>div]:sm:rounded-r-none [&>div]:sm:rounded-bl-md [&>div]:sm:border-b-0 [&>div]:sm:border-r-2"
         />
         <Input
           suffix="%"
@@ -142,7 +148,7 @@ export default function PercentageDifference() {
           }}
           value={levels.initialPercentage ?? ''}
           onBlur={resetPercentages}
-          className="max-w-[10rem] [&>div]:rounded-l-none"
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
         />
       </div>
     </div>
