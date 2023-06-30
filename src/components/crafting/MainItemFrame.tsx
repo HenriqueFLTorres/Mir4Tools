@@ -24,7 +24,7 @@ export default function MainItemFrame({
     <Popover.Root>
       <Popover.Trigger
         id="mainItemFrame"
-        className="group relative my-auto h-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform"
+        className="group relative mx-auto md:mx-0 h-max w-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform md:my-auto md:w-auto"
       >
         <ItemFrame
           item={name as ItemTypes}
@@ -39,50 +39,34 @@ export default function MainItemFrame({
         <Popover.Content
           sideOffset={-40}
           alignOffset={-20}
-          side="right"
+          side="bottom"
           align="center"
           className={cn(
-            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-4 backdrop-blur-lg',
+            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-2 backdrop-blur-lg md:p-4',
             'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
           <header className="flex justify-between gap-8">
-            <h2 className="text-2xl font-bold text-white">{t('Items')}</h2>
+            <h2 className="text-lg font-bold text-white md:text-2xl">
+              {t('Items')}
+            </h2>
             <div className="flex gap-2.5">
-              <button
-                onClick={() => {
-                  setItemRarity('Legendary')
-                }}
-                className={cn(
-                  'h-8 w-8 rounded-md bg-legendary-frame opacity-30 motion-safe:transition-opacity',
-                  { 'opacity-100': itemRarity === 'Legendary' }
-                )}
-                aria-label="Legendary"
-              />
-              <button
-                onClick={() => {
-                  setItemRarity('Epic')
-                }}
-                className={cn(
-                  'h-8 w-8 rounded-md bg-epic-frame opacity-30 motion-safe:transition-opacity',
-                  {
-                    'opacity-100': itemRarity === 'Epic',
-                  }
-                )}
-                aria-label="Epic"
-              />
-              <button
-                onClick={() => {
-                  setItemRarity('Rare')
-                }}
-                className={cn(
-                  'h-8 w-8 rounded-md bg-rare-frame opacity-30 motion-safe:transition-opacity',
-                  {
-                    'opacity-100': itemRarity === 'Rare',
-                  }
-                )}
-                aria-label="Rare"
-              />
+              {rarities.map((r) => (
+                <button
+                  key={r}
+                  onClick={() => {
+                    setItemRarity(r)
+                  }}
+                  className={cn(
+                    'h-8 w-8 rounded-md bg-legendary-frame opacity-30 motion-safe:transition-opacity',
+                    { 'bg-legendary-frame': r === 'Legendary' },
+                    { 'bg-epic-frame': r === 'Epic' },
+                    { 'bg-rare-frame': r === 'Rare' },
+                    { 'opacity-100': itemRarity === r }
+                  )}
+                  aria-label={r}
+                />
+              ))}
             </div>
           </header>
 
@@ -105,7 +89,7 @@ export default function MainItemFrame({
                     src={i}
                     width={40}
                     height={40}
-                    className="object-contain"
+                    className="h-8 w-8 object-contain md:h-10 md:w-10"
                   />
                 ))}
               </MenuButton>
@@ -191,7 +175,7 @@ function MenuButton({
     <button
       {...props}
       className={cn(
-        'flex grow items-center justify-center gap-2 rounded-md p-4 motion-safe:transition-colors',
+        'flex grow items-center justify-center gap-2 rounded-md p-2 motion-safe:transition-colors md:p-4',
         className
       )}
       disabled={disabled}
@@ -200,6 +184,8 @@ function MenuButton({
     </button>
   )
 }
+
+const rarities = ['Legendary', 'Epic', 'Rare'] as const
 
 interface MainItemFrameProps {
   name: string

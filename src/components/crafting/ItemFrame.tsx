@@ -14,11 +14,11 @@ export default function ItemFrame({
   return (
     <div
       className={cn(
-        'flex items-center justify-center rounded-lg border-2',
+        'relative flex items-center justify-center rounded-lg border-2',
         variantStyles[rarity],
-        { 'h-14 w-14': size === 'sm' },
-        { 'h-20 w-20': size === 'md' },
-        { 'h-28 w-28': size === 'lg' },
+        { 'h-10 w-10 sm:h-14 sm:w-14': size === 'sm' },
+        { 'h-14 w-14 sm:h-20 sm:w-20': size === 'md' },
+        { 'h-20 w-20 sm:h-28 sm:w-28': size === 'lg' },
         className
       )}
       {...props}
@@ -28,14 +28,15 @@ export default function ItemFrame({
         alt=""
         width={sizeToPX[size]}
         height={sizeToPX[size]}
-        style={{
-          width: sizeToPX[size],
-          height: sizeToPX[size],
-        }}
-        className="object-contain"
+        className={cn(
+          'object-contain',
+          { 'h-6 w-6 sm:h-9 sm:w-9': size === 'sm' },
+          { 'h-9 w-9 sm:h-14 sm:w-14': size === 'md' },
+          { 'h-9 w-9 sm:h-14 sm:w-14': size === 'lg' }
+        )}
       />
       {tier && (
-        <p className="absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-2xl font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000]">
+        <p className="absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-lg font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000] sm:text-2xl">
           {tier === 4 ? 'IV' : 'I'.repeat(tier)}
         </p>
       )}
@@ -51,8 +52,7 @@ const sizeToPX = {
 
 const variantStyles: { [key in RarityTypes | 'Default']: string } = {
   Default: 'border-[#272043] bg-default-frame',
-  Legendary:
-    'border-[#DCC529] bg-legendary-frame',
+  Legendary: 'border-[#DCC529] bg-legendary-frame',
   Epic: 'border-[#761B29] bg-epic-frame',
   Rare: 'border-[#2F60A8] bg-rare-frame',
   Uncommon: 'border-[#38896B] bg-uncommon-frame',

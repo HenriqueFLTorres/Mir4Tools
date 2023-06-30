@@ -23,7 +23,7 @@ export default function CostFragment({
         <Tooltip.Trigger>
           <span
             className={
-              'flex w-full items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
+              'flex w-full items-center text-xs sm:text-base justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
             }
           >
             {millify(cost)}

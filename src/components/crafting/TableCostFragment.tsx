@@ -26,7 +26,7 @@ export default function TableCostFragment({
   const hideCost = cost === 1
 
   return (
-    <td className="px-12 pt-4" align="center">
+    <td className="px-2 md:px-12 md:pt-4" align="center">
       <ItemFrame className="mb-4" item={name} rarity={rarity} size={size} />
 
       {!hideCost &&
@@ -49,7 +49,7 @@ function RealCost({ cost }: { cost: number }) {
   return (
     <Tooltip.Wrapper delayDuration={0}>
       <Tooltip.Trigger>
-        <span className="flex w-full flex-col rounded bg-primary-600 px-2 py-1 font-medium text-white">
+        <span className="flex text-xs sm:text-base w-full flex-col rounded bg-primary-600 px-2 py-1 font-medium text-white">
           {millify(cost)}
         </span>
       </Tooltip.Trigger>
@@ -77,14 +77,14 @@ function ShowInventoryItem({
   return (
     <div className="flex border-b-2 border-b-primary-400">
       <RCT cost={traddableItem}>
-        <span className={'flex w-full items-center gap-1.5 px-2'}>
-          <Balance className="h-5 w-5 fill-white" /> {millify(traddableItem)}
+        <span className={'flex w-full items-center text-xs sm:text-base gap-1.5 px-2'}>
+          <Balance className="w-3 h-3 sm:h-5 sm:w-5 fill-white" /> {millify(traddableItem)}
         </span>
       </RCT>
       <RCT cost={NonTraddableItem}>
         <span
           className={
-            'flex w-full justify-center border-l-2 border-l-primary-400 px-2'
+            'flex w-full justify-center text-xs sm:text-base border-l-2 border-l-primary-400 px-2'
           }
         >
           {millify(NonTraddableItem)}

@@ -44,9 +44,9 @@ export default function TotalCost({
 
   return (
     <section id='totalCostPanel' className="flex w-full flex-col gap-8">
-      <h2 className="text-3xl font-bold text-primary-200">{t('Total')}</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-primary-200">{t('Total')}</h2>
 
-      <div className="flex w-full gap-5">
+      <div className="flex flex-col md:flex-row w-full gap-5">
         <ul id='totalCostWithRarity' className="flex w-full gap-5">
           {Object.entries(craftCost).map(
             ([name, item]) =>

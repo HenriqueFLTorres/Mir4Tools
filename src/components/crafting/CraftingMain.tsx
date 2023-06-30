@@ -53,8 +53,8 @@ export default function CraftingMain() {
   ])
 
   return (
-    <div className="flex w-full flex-col gap-4 p-14 pt-24">
-      <section className="mb-4 flex justify-center gap-16">
+    <div className="flex overflow-x-auto w-full flex-col gap-4 px-5 pb-14 pt-44 md:p-14 md:pt-24">
+      <section className="mb-4 flex flex-col md:flex-row justify-center gap-6 md:gap-16">
         <MainItemFrame
           targetItem={targetItem}
           name={category}
@@ -70,7 +70,7 @@ export default function CraftingMain() {
         />
 
         <table>
-          <tbody id="recipeSubitems" className="w-full gap-5">
+          <tbody id="recipeSubitems" className="flex justify-center md:table-row-group w-full md:gap-5">
             {Object?.entries(targetItem)?.map(([name, item]) => {
               let inventoryCount = 0
               const itemHasRarity =
@@ -86,7 +86,7 @@ export default function CraftingMain() {
 
               return (
                 !ComplementaryItems.includes(name) && (
-                  <tr className="items-center gap-20" key={name}>
+                  <tr className="flex flex-col md:table-row items-center gap-6 md:gap-20" key={name}>
                     <TableCostFragment
                       key={name}
                       cost={
