@@ -53,7 +53,7 @@ export default function CraftingMain() {
   ])
 
   return (
-    <div className="flex overflow-x-auto w-full flex-col gap-4 px-5 pb-14 pt-44 md:p-14 md:pt-24">
+    <div className="flex overflow-x-auto max-w-[120rem] mx-auto w-full flex-col gap-4 px-5 pb-14 pt-44 md:p-14 md:pt-24">
       <section className="mb-4 flex flex-col md:flex-row justify-center gap-6 md:gap-16">
         <MainItemFrame
           targetItem={targetItem}
