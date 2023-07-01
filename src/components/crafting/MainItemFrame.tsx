@@ -24,25 +24,22 @@ export default function MainItemFrame({
     <Popover.Root>
       <Popover.Trigger
         id="mainItemFrame"
-        className="group relative mx-auto md:mx-0 h-max w-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform md:my-auto md:w-auto"
+        className="group relative mx-auto md:mx-0 h-max w-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform md:w-auto"
       >
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}
           tier={selectedTier}
           size="lg"
-          className="my-auto shrink-0"
+          className="shrink-0"
         />
       </Popover.Trigger>
-      <Popover.Anchor />
       <Popover.Portal>
         <Popover.Content
-          sideOffset={-40}
-          alignOffset={-20}
           side="bottom"
           align="center"
           className={cn(
-            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-2 backdrop-blur-lg md:p-4',
+            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-2 md:translate-y-20 backdrop-blur-lg md:p-4',
             'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
@@ -106,7 +103,6 @@ export default function MainItemFrame({
                 onClick={() => {
                   setTier(tier)
                 }}
-                disabled={tier !== 1}
               >
                 {tier === 4 ? 'IV' : 'I'.repeat(tier)}
               </MenuButton>

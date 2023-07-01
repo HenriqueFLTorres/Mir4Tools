@@ -166,3 +166,11 @@ export function retrieveWalkthroughFromStorage() {
   }
   return {}
 }
+
+// Get the quantity of items of tier one to craft the selected  tier
+export const itemTierToQuantity = {
+  1: 1,
+  2: 2,
+  3: 4,
+  4: 8,
+} as const

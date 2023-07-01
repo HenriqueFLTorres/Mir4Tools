@@ -5,10 +5,16 @@ import { InventoryAtom } from '@/atoms/Inventory'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import SettingsFallback from '@/utils/SettingsFallback'
-import { ComplementaryItems, calculateCraftByItem } from '@/utils/index'
+import { cn } from '@/utils/classNames'
+import {
+  ComplementaryItems,
+  calculateCraftByItem,
+  itemTierToQuantity,
+} from '@/utils/index'
 import { useAtom } from 'jotai'
 import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
+import ItemFrame from './ItemFrame'
 import MainItemFrame from './MainItemFrame'
 import TotalCost from './TotalCost'
 
@@ -41,6 +47,7 @@ export default function CraftingMain() {
       parentIsBase: true,
       weaponType,
       inventory,
+      multiply: itemTierToQuantity[selectedTier],
     })
   }, [
     category,
@@ -53,24 +60,49 @@ export default function CraftingMain() {
   ])
 
   return (
-    <div className="flex overflow-x-auto max-w-[120rem] mx-auto w-full flex-col gap-4 px-5 pb-14 pt-44 md:p-14 md:pt-24">
-      <section className="mb-4 flex flex-col md:flex-row justify-center gap-6 md:gap-16">
-        <MainItemFrame
-          targetItem={targetItem}
-          name={category}
-          rarity={itemRarity}
-          category={category}
-          setCategory={setCategory}
-          selectedTier={selectedTier}
-          setTier={setTier}
-          weaponType={weaponType}
-          setWeaponType={setWeaponType}
-          itemRarity={itemRarity}
-          setItemRarity={setItemRarity}
-        />
+    <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
+      <section className="mb-4 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16">
+        <div className="flex items-center gap-6">
+          <MainItemFrame
+            targetItem={targetItem}
+            name={category}
+            rarity={itemRarity}
+            category={category}
+            setCategory={setCategory}
+            selectedTier={selectedTier}
+            setTier={setTier}
+            weaponType={weaponType}
+            setWeaponType={setWeaponType}
+            itemRarity={itemRarity}
+            setItemRarity={setItemRarity}
+          />
+
+          {selectedTier > 1 && (
+            <>
+              <div
+                className={cn(
+                  'relative h-1 w-12 rounded-full bg-white',
+                  'after:absolute after:-right-2 after:top-1/2 after:-translate-y-1/2 after:rotate-90 after:border-x-8 after:border-b-[16px] after:border-white after:border-x-transparent after:content-[""]'
+                )}
+              />
+
+              <ItemFrame
+                item={category as ItemTypes}
+                rarity={itemRarity}
+                tier={1}
+                quantity={itemTierToQuantity[selectedTier]}
+                size="lg"
+                className="my-auto shrink-0"
+              />
+            </>
+          )}
+        </div>
 
         <table>
-          <tbody id="recipeSubitems" className="flex justify-center md:table-row-group w-full md:gap-5">
+          <tbody
+            id="recipeSubitems"
+            className="flex w-full justify-center md:table-row-group md:gap-5"
+          >
             {Object?.entries(targetItem)?.map(([name, item]) => {
               let inventoryCount = 0
               const itemHasRarity =
@@ -86,12 +118,16 @@ export default function CraftingMain() {
 
               return (
                 !ComplementaryItems.includes(name) && (
-                  <tr className="flex flex-col md:table-row items-center gap-6 md:gap-20" key={name}>
+                  <tr
+                    className="flex flex-col items-center gap-6 md:table-row md:gap-20"
+                    key={name}
+                  >
                     <TableCostFragment
                       key={name}
                       cost={
-                        item.cost -
-                        (Number.isNaN(inventoryCount) ? 0 : inventoryCount)
+                        (item.cost -
+                          (Number.isNaN(inventoryCount) ? 0 : inventoryCount)) *
+                        itemTierToQuantity[selectedTier]
                       }
                       name={name as ItemTypes}
                       rarity={item?.rarity ? item?.rarity : 'Default'}
@@ -107,7 +143,9 @@ export default function CraftingMain() {
                             'Uncommon' | 'Common'
                           >
                         }
-                        multiplier={item.cost}
+                        multiplier={
+                          item.cost * itemTierToQuantity[selectedTier]
+                        }
                       />
                     )}
                   </tr>

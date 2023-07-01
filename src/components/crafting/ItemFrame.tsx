@@ -9,6 +9,7 @@ export default function ItemFrame({
   size = 'md',
   className,
   tier,
+  quantity = 1,
   ...props
 }: ItemFrameProps) {
   return (
@@ -36,8 +37,13 @@ export default function ItemFrame({
         )}
       />
       {tier && (
-        <p className="absolute bottom-1.5 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-lg font-bold leading-none text-transparent drop-shadow-[0_0_1px_#000] sm:text-2xl">
+        <p className="absolute bottom-2 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-base font-bold !leading-none text-transparent drop-shadow-[0_0_1px_#000] sm:text-2xl">
           {tier === 4 ? 'IV' : 'I'.repeat(tier)}
+        </p>
+      )}
+      {quantity > 1 && (
+        <p className="absolute bottom-2 right-2 text-end text-sm sm:text-base font-normal leading-none text-neutral-200 drop-shadow-[0_0_2px_#000]">
+          {quantity}
         </p>
       )}
     </div>
@@ -64,4 +70,5 @@ type ItemFrameProps = {
   rarity: RarityTypes | 'Default'
   size?: 'sm' | 'md' | 'lg'
   tier?: ItemTier
+  quantity?: number
 } & HTMLAttributes<HTMLSpanElement>
