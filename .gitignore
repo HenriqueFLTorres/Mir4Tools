@@ -37,4 +37,8 @@ next-env.d.ts
 # unlighthouse
 .unlighthouse
 
+# python env
+venv/*
+api/__pycache__/*
+
 .vscode
