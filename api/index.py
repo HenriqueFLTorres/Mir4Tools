@@ -5,31 +5,31 @@ from flask_cors import CORS, cross_origin
 import utils
 import base64
 
-items = [
-    "anima_stone",
-    "blue_devil_stone",
-    # "copper",
-    # "dark_steel",
-    # "dragon_leather",
-    # "energy",
-    "evil_minded_orb",
-    "exorcism_bauble",
-    "glittering_powder",
-    "illuminating_fragment",
-    "moon_shadow_stone",
-    "platinum",
-    "quintessence",
-    "steel",
-    # "dragon_eye",
-    # "dragon_scale",
-    # "dragon_claw",
-    # "dragon_horn",
-]
+# items = [
+#     "anima_stone",
+#     "blue_devil_stone",
+#     # "copper",
+#     # "dark_steel",
+#     # "dragon_leather",
+#     # "energy",
+#     "evil_minded_orb",
+#     "exorcism_bauble",
+#     "glittering_powder",
+#     "illuminating_fragment",
+#     "moon_shadow_stone",
+#     "platinum",
+#     "quintessence",
+#     "steel",
+#     # "dragon_eye",
+#     # "dragon_scale",
+#     # "dragon_claw",
+#     # "dragon_horn",
+# ]
 
-PlayerInventory = {}
-GLOBAL_SCALE = 1.4
-threshold = 0.85
-frameOffset = int(np.round(30 * GLOBAL_SCALE))
+# PlayerInventory = {}
+# GLOBAL_SCALE = 1.4
+# threshold = 0.85
+# frameOffset = int(np.round(30 * GLOBAL_SCALE))
 
 app = Flask(__name__)
 CORS(app)
@@ -47,7 +47,7 @@ def hello_world():
             'status': 422
         })
         
-    originalImage = None  
+    # originalImage = None  
 
     # try:
     #     im_bytes = base64.b64decode(imageBase64)
