@@ -2,6 +2,9 @@
   "functions": {
     "api/**/*.py": {
       "excludeFiles": "public/**"
+    },
+    "src/pages/**": {
+      "excludeFiles": "public/**"
     }
   }
 }
