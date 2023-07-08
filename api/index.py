@@ -2,12 +2,8 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import cv2
 import numpy as np
-import imutils
-import pytesseract
 import utils
 import base64
-
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract"
 
 items = [
     "anima_stone",
@@ -67,15 +63,15 @@ def hello_world():
     inventoryImage = originalImage.copy()
     trade = cv2.imread(r"C:\Users\rical\Documents\VCS\Mir4Tools\public\items\trade.png", cv2.IMREAD_UNCHANGED)
 
-    for item in items:
-        itemTemplate = cv2.imread(rf"C:\Users\rical\Desktop\Testing\items\{item}.png", cv2.IMREAD_UNCHANGED)
-        itemTemplate = itemTemplate[30:62, 30:62]
-        itemTemplate = imutils.resize(
-            itemTemplate, width=int(itemTemplate.shape[1] * GLOBAL_SCALE)
-        )
-        tradeIcon = imutils.resize(trade, width=int(trade.shape[1] * 0.90526))
+    # for item in items:
+    #     itemTemplate = cv2.imread(rf"C:\Users\rical\Desktop\Testing\items\{item}.png", cv2.IMREAD_UNCHANGED)
+    #     itemTemplate = itemTemplate[30:62, 30:62]
+    #     itemTemplate = imutils.resize(
+    #         itemTemplate, width=int(itemTemplate.shape[1] * GLOBAL_SCALE)
+    #     )
+    #     tradeIcon = imutils.resize(trade, width=int(trade.shape[1] * 0.90526))
 
-        utils.searchItem(itemTemplate, item, originalImage, tradeIcon, inventoryImage, PlayerInventory)
+    #     utils.searchItem(itemTemplate, item, originalImage, tradeIcon, inventoryImage, PlayerInventory)
     
     imageToJSON = inventoryImage.copy()
     _, im_arr = cv2.imencode('.png', imageToJSON)  # im_arr: image in Numpy one-dim array format.
