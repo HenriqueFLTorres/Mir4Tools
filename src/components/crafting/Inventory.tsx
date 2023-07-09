@@ -3,16 +3,12 @@ import BasicItemFrame from '@/components/Inventory/BasicItemComponent'
 import ItemComponent from '@/components/Inventory/ItemComponent'
 import Close from '@/icons/Close'
 import { useAtom } from 'jotai'
-import Image from 'next/image'
-import { useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function Inventory() {
   const [inventory] = useAtom(InventoryAtom)
   const [, setShowInventory] = useAtom(showInventoryAtom)
   const { t } = useTranslation()
-  const [image, setImage] = useState<undefined | string>(undefined)
-  const [result, setResult] = useState<undefined | string>(undefined)
 
   return (
     <>
@@ -29,66 +25,6 @@ export default function Inventory() {
           <Close className="fill-white" />
         </button>
       </header>
-
-      <label>
-        Upload
-        <input
-          type="file"
-          onChange={async (e) => {
-            const file = e.currentTarget.files?.[0]
-            if (!file) return
-            const data = await convertToBase64(file)
-
-            setImage(data as string)
-          }}
-        />
-      </label>
-
-      <button
-        onClick={async () => {
-          console.log('click')
-          try {
-            const headers = new Headers()
-            headers.append('Content-Type', 'application/json')
-
-            const response = await fetch(
-              'http://localhost:8000/api/inventoryFromImage',
-              {
-                method: 'POST',
-                headers,
-                body: JSON.stringify({
-                  image: image?.replace('data:image/png;base64,', ''),
-                }),
-                redirect: 'follow',
-              }
-            )
-            const data = await response.json()
-
-            setResult(data.image)
-          } catch (error) {
-            console.error(error)
-          }
-        }}
-      >
-        send
-      </button>
-
-      {image && (
-        <Image
-          src={`data:image/jpeg;base64,${image}`}
-          alt=""
-          width={693}
-          height={417}
-        />
-      )}
-      {result && (
-        <Image
-          src={`data:image/jpeg;base64,${result}`}
-          alt=""
-          width={693}
-          height={417}
-        />
-      )}
 
       <section className="mt-8 flex flex-col gap-8 p-4">
         {Object.entries(inventory).map(([name, rarities]) => (
