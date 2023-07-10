@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "flask-dev": "pip install -r requirements.txt && python -m flask --app api/index run -p 8000 --reload",
-    "next-dev": "next dev",
-    "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -36,7 +34,6 @@
     "@vercel/analytics": "^1.0.1",
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
-    "concurrently": "^8.0.1",
     "decimal.js": "^10.4.3",
     "humanize-duration": "^3.28.0",
     "i18next": "^23.1.0",
