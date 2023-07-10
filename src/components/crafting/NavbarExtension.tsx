@@ -38,7 +38,7 @@ export default function CraftingNavExtesion() {
           <Backpack className="inline-block h-7 fill-white" />
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-14 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow">
+          <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-4 sm:p-14 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow">
             <Inventory />
           </Dialog.Content>
         </Dialog.Portal>

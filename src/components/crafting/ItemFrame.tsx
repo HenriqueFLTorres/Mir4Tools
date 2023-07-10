@@ -1,4 +1,5 @@
 import { cn } from '@/utils/classNames'
+import { rarityVariantStyles } from '@/utils/index'
 import Image from 'next/image'
 import { type HTMLAttributes } from 'react'
 
@@ -16,7 +17,7 @@ export default function ItemFrame({
     <div
       className={cn(
         'relative flex items-center justify-center rounded-lg border-2',
-        variantStyles[rarity],
+        rarityVariantStyles[rarity],
         { 'h-10 w-10 sm:h-14 sm:w-14': size === 'sm' },
         { 'h-14 w-14 sm:h-20 sm:w-20': size === 'md' },
         { 'h-20 w-20 sm:h-28 sm:w-28': size === 'lg' },
@@ -54,15 +55,6 @@ const sizeToPX = {
   sm: 36,
   md: 56,
   lg: 56,
-}
-
-const variantStyles: { [key in RarityTypes | 'Default']: string } = {
-  Default: 'border-[#272043] bg-default-frame',
-  Legendary: 'border-[#DCC529] bg-legendary-frame',
-  Epic: 'border-[#761B29] bg-epic-frame',
-  Rare: 'border-[#2F60A8] bg-rare-frame',
-  Uncommon: 'border-[#38896B] bg-uncommon-frame',
-  Common: 'border-[#6D737A] bg-common-frame',
 }
 
 type ItemFrameProps = {

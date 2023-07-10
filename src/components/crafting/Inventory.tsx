@@ -11,7 +11,7 @@ export default function Inventory() {
   const { t } = useTranslation()
 
   return (
-    <>
+    <div className="flex w-full max-w-[100rem] flex-col gap-8 self-center">
       <header className="flex items-center justify-between">
         <h2 className="text-3xl text-primary-200">{t('Inventory')}</h2>
 
@@ -26,33 +26,26 @@ export default function Inventory() {
         </button>
       </header>
 
-      <section className="mt-8 flex flex-col gap-8 p-4">
-        {Object.entries(inventory).map(([name, rarities]) => (
-          <ul key={name} className="flex gap-2">
-            {Object.keys(rarities).map((rarity) => (
-              <ItemComponent
-                key={rarity}
-                item={name as ItemWithRarity}
-                rarity={rarity as RarityTypes}
-              />
-            ))}
-          </ul>
-        ))}
+      <section className="grid grid-cols-[repeat(auto-fit,_minmax(180px,1fr))] gap-8">
+        {Object.entries(inventory).map(
+          ([name, rarities]) =>
+            typeof rarities !== 'number' && (
+              <ItemComponent key={name} item={name as ItemWithRarity} />
+            )
+        )}
       </section>
 
-      <section className="my-4 flex flex-col gap-8 p-4">
-        <ul className="flex gap-2">
+      <section className="grid mt-8 grid-cols-[repeat(auto-fill,_minmax(136px,1fr))] gap-8">
           {Object.entries(inventory)
             .filter(([, value]) => typeof value === 'number')
             ?.map(([name]) => (
               <BasicItemFrame
                 key={name}
-                item={name as ItemWithRarity}
+                item={name as NonRarityItems}
                 rarity={'Default'}
               />
             ))}
-        </ul>
       </section>
-    </>
+    </div>
   )
 }

@@ -174,3 +174,21 @@ export const itemTierToQuantity = {
   3: 4,
   4: 8,
 } as const
+
+export const ItemRarities: RarityTypes[] = [
+  'Legendary',
+  'Epic',
+  'Rare',
+  'Uncommon',
+  'Common',
+]
+
+export const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } =
+  {
+    Default: 'border-[#272043] bg-default-frame',
+    Legendary: 'border-[#DCC529] bg-legendary-frame',
+    Epic: 'border-[#761B29] bg-epic-frame',
+    Rare: 'border-[#2F60A8] bg-rare-frame',
+    Uncommon: 'border-[#38896B] bg-uncommon-frame',
+    Common: 'border-[#6D737A] bg-common-frame',
+  }
