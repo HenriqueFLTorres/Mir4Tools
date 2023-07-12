@@ -192,3 +192,45 @@ export const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } =
     Uncommon: 'border-[#38896B] bg-uncommon-frame',
     Common: 'border-[#6D737A] bg-common-frame',
   }
+
+export const AllowedInventoryItemTypes = [
+  'anima_stone',
+  'blue_devil_stone',
+  'copper',
+  'dark_steel',
+  'dragon_leather',
+  'energy',
+  'evil_minded_orb',
+  'exorcism_bauble',
+  'glittering_powder',
+  'illuminating_fragment',
+  'moon_shadow_stone',
+  'platinum',
+  'quintessence',
+  'steel',
+  'dragon_eye',
+  'dragon_scale',
+  'dragon_claw',
+  'dragon_horn',
+]
+
+export function deepMerge(targetObject: any, sourceObject: any) {
+  const copyTargetObject = structuredClone(targetObject)
+  const copySourceObject = structuredClone(sourceObject)
+  
+  Object.keys(copySourceObject).forEach((key) => {
+    if (
+      typeof copySourceObject[key] === 'object' &&
+      !Array.isArray(copySourceObject[key])
+    ) {
+      copyTargetObject[key] = deepMerge(
+        copyTargetObject[key],
+        copySourceObject[key]
+      )
+    } else {
+      copyTargetObject[key] = copySourceObject[key]
+    }
+  })
+
+  return copyTargetObject
+}

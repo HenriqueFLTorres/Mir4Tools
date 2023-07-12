@@ -15,7 +15,7 @@ export default function SupportUs() {
         <Heart className="h-6 w-6 fill-white" />
         {t('Support Us')}!
       </Modal.Trigger>
-      <Modal.Content className="items-center gap-6 pb-6">
+      <Modal.Content className="items-center gap-6 backdrop-blur-xl pb-6">
         <header className="flex w-full items-center justify-between">
           <Modal.Title>{t('Support Us')}</Modal.Title>
           <Modal.Close />
