@@ -183,16 +183,6 @@ export const ItemRarities: RarityTypes[] = [
   'Common',
 ]
 
-export const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } =
-  {
-    Default: 'border-[#272043] bg-default-frame',
-    Legendary: 'border-[#DCC529] bg-legendary-frame',
-    Epic: 'border-[#761B29] bg-epic-frame',
-    Rare: 'border-[#2F60A8] bg-rare-frame',
-    Uncommon: 'border-[#38896B] bg-uncommon-frame',
-    Common: 'border-[#6D737A] bg-common-frame',
-  }
-
 export const AllowedInventoryItemTypes = [
   'anima_stone',
   'blue_devil_stone',
@@ -217,7 +207,7 @@ export const AllowedInventoryItemTypes = [
 export function deepMerge(targetObject: any, sourceObject: any) {
   const copyTargetObject = structuredClone(targetObject)
   const copySourceObject = structuredClone(sourceObject)
-  
+
   Object.keys(copySourceObject).forEach((key) => {
     if (
       typeof copySourceObject[key] === 'object' &&

@@ -1,7 +1,7 @@
 import { InventoryAtom } from '@/atoms/Inventory'
 import Balance from '@/icons/Balance'
 import { cn } from '@/utils/classNames'
-import { ItemRarities, rarityVariantStyles } from '@/utils/index'
+import { ItemRarities } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
 import { useState, type HTMLAttributes } from 'react'
@@ -36,7 +36,7 @@ export default function ItemComponent({
   }
 
   return (
-    <ul className="flex gap-2 justify-center md:justify-start">
+    <ul className="flex justify-center gap-2 md:justify-start">
       <label
         className="flex w-[8.5rem] cursor-pointer flex-col items-center gap-3"
         {...props}
@@ -112,3 +112,12 @@ export default function ItemComponent({
 type ItemComponentProps = {
   item: ItemWithRarity
 } & HTMLAttributes<HTMLLabelElement>
+
+const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } = {
+  Default: 'border-[#272043] bg-default-frame',
+  Legendary: 'border-[#DCC529] bg-legendary-frame',
+  Epic: 'border-[#761B29] bg-epic-frame',
+  Rare: 'border-[#2F60A8] bg-rare-frame',
+  Uncommon: 'border-[#38896B] bg-uncommon-frame',
+  Common: 'border-[#6D737A] bg-common-frame',
+}

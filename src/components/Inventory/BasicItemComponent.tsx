@@ -1,6 +1,5 @@
 import { InventoryAtom } from '@/atoms/Inventory'
 import { cn } from '@/utils/classNames'
-import { rarityVariantStyles } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
 import { type HTMLAttributes } from 'react'
@@ -34,8 +33,7 @@ export default function BasicItemComponent({
       >
         <div
           className={cn(
-            'relative flex h-[8.5rem] w-[8.5rem] items-center justify-center rounded-lg border-2',
-            rarityVariantStyles.Default
+            'relative flex h-[8.5rem] w-[8.5rem] items-center justify-center rounded-lg border-2 border-[#272043] bg-default-frame'
           )}
         >
           <Image
