@@ -12,9 +12,6 @@ export const SettingsSchema = z.object({
 })
 
 export const appRouter = router({
-  testing: authenticatedProcedure
-    .input(SettingsSchema)
-    .mutation(async ({ ctx }) => ctx),
   getSettings: publicProcedure.query(async ({ ctx }) => {
     if (!ctx.user?.id && !ctx.user?.email) return SettingsFallback
 

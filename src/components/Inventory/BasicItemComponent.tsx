@@ -1,8 +1,8 @@
 import { InventoryAtom } from '@/atoms/Inventory'
 import { cn } from '@/utils/classNames'
 import { useAtom } from 'jotai'
-import { useState, type HTMLAttributes } from 'react'
-import ItemFrame from '../crafting/ItemFrame'
+import Image from 'next/image'
+import { type HTMLAttributes } from 'react'
 
 export default function BasicItemComponent({
   item,
@@ -11,20 +11,12 @@ export default function BasicItemComponent({
   ...props
 }: ItemComponentProps) {
   const [inventory, setInventory] = useAtom(InventoryAtom)
-  const [isEditing, setIsEditing] = useState(false)
-
-  const onFocus = () => {
-    setIsEditing(true)
-  }
-  const onBlur = () => {
-    setIsEditing(false)
-  }
 
   const modifyInventory = ({
     item,
     value,
   }: {
-    item: ItemWithRarity
+    item: NonRarityItems
     value: number
   }) => {
     setInventory((prev) => ({
@@ -34,35 +26,42 @@ export default function BasicItemComponent({
   }
 
   return (
-    <label
-      className="flex w-32 cursor-pointer flex-col items-center gap-3"
-      {...props}
-    >
-      <ItemFrame item={item} rarity={rarity} />
-      <div
-        className={cn(
-          'flex w-full flex-col px-6 motion-safe:transition-[padding]',
-          { 'px-0': isEditing }
-        )}
+    <ul>
+      <label
+        className="flex w-[8.5rem] cursor-pointer flex-col items-center gap-3"
+        {...props}
       >
-        <input
-          onFocus={onFocus}
-          onBlur={onBlur}
-          type="number"
-          value={inventory[item as NonRarityItems]}
-          onChange={(e) => {
-            modifyInventory({ item, value: Number(e.target.value) })
-          }}
-          className={
-            'flex w-full appearance-none items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
-          }
-        />
-      </div>
-    </label>
+        <div
+          className={cn(
+            'relative flex h-[8.5rem] w-[8.5rem] items-center justify-center rounded-lg border-2 border-[#272043] bg-default-frame'
+          )}
+        >
+          <Image
+            src={`/items/${item}.webp`}
+            alt=""
+            width={102}
+            height={102}
+            className={'h-[6.375rem] w-[6.375rem] object-contain'}
+          />
+        </div>
+        <div className={'flex w-full flex-col'}>
+          <input
+            type="number"
+            value={inventory[item]}
+            onChange={(e) => {
+              modifyInventory({ item, value: e.currentTarget.valueAsNumber })
+            }}
+            className={
+              'flex w-full appearance-none items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
+            }
+          />
+        </div>
+      </label>
+    </ul>
   )
 }
 
 type ItemComponentProps = {
-  item: ItemWithRarity
+  item: NonRarityItems
   rarity: RarityTypes | 'Default'
 } & HTMLAttributes<HTMLLabelElement>

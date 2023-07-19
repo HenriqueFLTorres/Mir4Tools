@@ -2,18 +2,26 @@ import { InventoryAtom, showInventoryAtom } from '@/atoms/Inventory'
 import BasicItemFrame from '@/components/Inventory/BasicItemComponent'
 import ItemComponent from '@/components/Inventory/ItemComponent'
 import Close from '@/icons/Close'
-import { useAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
+import { useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
+import ImageMatchingModal from './ImageMatchingModal'
 
 export default function Inventory() {
-  const [inventory] = useAtom(InventoryAtom)
-  const [, setShowInventory] = useAtom(showInventoryAtom)
+  const inventory = useAtomValue(InventoryAtom)
+  const setShowInventory = useSetAtom(showInventoryAtom)
+  const [showImageMatching, setShowImageMatching] = useState(false)
   const { t } = useTranslation()
 
   return (
-    <>
-      <header className="flex items-center justify-between">
+    <div className="flex w-full max-w-[100rem] flex-col gap-8 self-center font-main">
+      <header className="flex items-center justify-between gap-4">
         <h2 className="text-3xl text-primary-200">{t('Inventory')}</h2>
+
+        <ImageMatchingModal
+          show={showImageMatching}
+          setShow={setShowImageMatching}
+        />
 
         <button
           onClick={() => {
@@ -26,33 +34,26 @@ export default function Inventory() {
         </button>
       </header>
 
-      <section className="mt-8 flex flex-col gap-8 p-4">
-        {Object.entries(inventory).map(([name, rarities]) => (
-          <ul key={name} className="flex gap-2">
-            {Object.keys(rarities).map((rarity) => (
-              <ItemComponent
-                key={rarity}
-                item={name as ItemWithRarity}
-                rarity={rarity as RarityTypes}
-              />
-            ))}
-          </ul>
-        ))}
+      <section className="grid grid-cols-[repeat(auto-fit,_minmax(180px,1fr))] gap-8">
+        {Object.entries(inventory).map(
+          ([name, rarities]) =>
+            typeof rarities !== 'number' && (
+              <ItemComponent key={name} item={name as ItemWithRarity} />
+            )
+        )}
       </section>
 
-      <section className="my-4 flex flex-col gap-8 p-4">
-        <ul className="flex gap-2">
-          {Object.entries(inventory)
-            .filter(([, value]) => typeof value === 'number')
-            ?.map(([name]) => (
-              <BasicItemFrame
-                key={name}
-                item={name as ItemWithRarity}
-                rarity={'Default'}
-              />
-            ))}
-        </ul>
+      <section className="mt-8 grid grid-cols-[repeat(auto-fill,_minmax(136px,1fr))] gap-8">
+        {Object.entries(inventory)
+          .filter(([, value]) => typeof value === 'number')
+          ?.map(([name]) => (
+            <BasicItemFrame
+              key={name}
+              item={name as NonRarityItems}
+              rarity={'Default'}
+            />
+          ))}
       </section>
-    </>
+    </div>
   )
 }

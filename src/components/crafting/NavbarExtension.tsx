@@ -7,11 +7,11 @@ import { CraftingWalkthroughStages } from '@/data/WalkthroughStages'
 import Backpack from '@/icons/Backpack'
 import Tutorial from '@/icons/Tutorial'
 import { cn } from '@/utils/classNames'
+import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
-import { retrieveWalkthroughFromStorage } from '@/utils/index'
 
 export default function CraftingNavExtesion() {
   const { t } = useTranslation()
@@ -38,11 +38,12 @@ export default function CraftingNavExtesion() {
           <Backpack className="inline-block h-7 fill-white" />
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-14 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow">
+          <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-4 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow sm:p-14">
             <Inventory />
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
+
       <button
         onClick={() => {
           setWalk({

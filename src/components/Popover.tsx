@@ -1,7 +1,10 @@
 import * as CPopover from '@radix-ui/react-popover'
 
-function Wrapper({ children }: { children: React.ReactNode }) {
-  return <CPopover.Root>{children}</CPopover.Root>
+function Wrapper({
+  children,
+  ...props
+}: { children: React.ReactNode } & CPopover.PopoverProps) {
+  return <CPopover.Root {...props}>{children}</CPopover.Root>
 }
 
 function Trigger({
