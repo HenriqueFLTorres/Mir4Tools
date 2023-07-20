@@ -25,13 +25,13 @@ export default function Input({
       {label}
       <div
         className={cn(
-          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-1.5 py-1 sm:px-3 sm:py-2 font-bold text-white motion-safe:transition-colors',
-          { '!border-red-400 bg-red-400/10': error }
+          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-1.5 py-1 sm:px-3 sm:py-2 font-bold text-white motion-safe:transition-colors motion-safe:duration-300',
+          { '!border-red-400 bg-red-400/30': error }
         )}
       >
         <input
           className={cn(
-            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm sm:text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm sm:text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors motion-safe:duration-300',
             {
               'text-red-200': error
             }

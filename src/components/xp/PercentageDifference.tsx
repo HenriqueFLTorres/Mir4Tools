@@ -111,7 +111,7 @@ export default function PercentageDifference() {
           value={percentages.final ?? ''}
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-tr-md"
         />
       </div>
 
@@ -164,7 +164,7 @@ export default function PercentageDifference() {
             } else setIsInvalid(false)
           }}
           error={!!invalidInput}
-          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-tr-md"
         />
       </div>
     </div>
