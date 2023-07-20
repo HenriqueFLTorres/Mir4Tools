@@ -50,9 +50,12 @@ export default function PercentageDifference() {
       ...prev,
       levels: { ...prev.levels, initialPercentage: undefined },
     }))
+
     if (
-      percentages.initial &&
-      percentages.final &&
+      percentages.initial === undefined ||
+      Number(percentages.initial) > 100 ||
+      percentages.final === undefined ||
+      Number(percentages.final) > 100 ||
       Number(percentages.initial) >= Number(percentages.final)
     ) {
       setIsInvalid(true)
@@ -65,6 +68,8 @@ export default function PercentageDifference() {
       percentages: { initial: undefined, final: undefined },
     }))
   }
+
+  console.log(invalidInput)
 
   return (
     <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
@@ -131,6 +136,7 @@ export default function PercentageDifference() {
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
           onBlur={resetPercentages}
+          error={!!invalidInput}
           className="max-w-[10rem] [&>div]:rounded-b-none [&>div]:border-b-2 [&>div]:border-primary-500 [&>div]:sm:rounded-r-none [&>div]:sm:rounded-bl-md [&>div]:sm:border-b-0 [&>div]:sm:border-r-2"
         />
         <Input
@@ -147,7 +153,17 @@ export default function PercentageDifference() {
             }))
           }}
           value={levels.initialPercentage ?? ''}
-          onBlur={resetPercentages}
+          onBlur={() => {
+            resetPercentages()
+
+            if (
+              levels.initialPercentage === undefined ||
+              Number(levels.initialPercentage) > 100
+            ) {
+              setIsInvalid(true)
+            } else setIsInvalid(false)
+          }}
+          error={!!invalidInput}
           className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
         />
       </div>
