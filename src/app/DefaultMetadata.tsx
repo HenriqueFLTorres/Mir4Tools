@@ -55,6 +55,14 @@ export const RouteMetadata = {
     image: '/seo/experience-calculator.webp',
     imageAlt: 'Experience calculator banner',
   }),
+  Conquests: getSeo({
+    title: 'Conquests',
+    href: '/conquests',
+    description:
+      'A tool used to show upgrade costs, time, and effects of conquest towers.',
+    image: '/seo/conquests.webp',
+    imageAlt: 'Conquests banner',
+  }),
 }
 
 export function getSeo({

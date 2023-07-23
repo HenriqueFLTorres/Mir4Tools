@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
+import Conquest from '@/icons/Conquest'
 
 export default function GlobalNavbar({
   children,
@@ -90,6 +91,11 @@ const links = (t: (key: string) => string) => [
     href: '/xp',
     label: t('Experience Calculator'),
     Icon: EXP,
+  },
+  {
+    href: '/conquests',
+    label: t('Conquests'),
+    Icon: Conquest,
   },
   {
     href: '/',
