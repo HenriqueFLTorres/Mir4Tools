@@ -11,54 +11,66 @@ export default function ConquestConditions() {
   const currentTower = ConquestTowersData[tower].Steps[stage]
 
   return currentTower.Condition ? (
-    <div className="custom-scroll relative mt-6 items-start px-8 flex w-max max-w-7xl gap-4 overflow-auto py-6">
+    <div className="custom-scroll relative mt-6 flex flex-wrap justify-center sm:flex-nowrap items-start gap-4 overflow-auto px-2 py-3 flex-row lg:w-max lg:max-w-7xl lg:px-8 lg:py-6">
       {'Building' in currentTower.Condition &&
         Object.entries(currentTower.Condition?.Building).map(
           ([buildingName, level]) => (
-            <div
+            <ConditionCard
               key={buildingName}
-              className="flex shrink-0 flex-col items-center gap-3"
-            >
-              <Image
-                src={`/conquests/previews/${buildingName
-                  .toLocaleLowerCase()
-                  .replace(/\s/g, '_')}.png`}
-                alt={buildingName}
-                width={216}
-                height={112}
-                className="select-none rounded-md object-contain"
-              />
-
-              <p className="max-w-[10rem] text-center text-sm font-medium text-white">
-                <b className="font-semibold">{buildingName}</b> <br />
-                Lv. {level as number}
-              </p>
-            </div>
+              image={`/conquests/previews/${buildingName
+                .toLocaleLowerCase()
+                .replace(/\s/g, '_')}.png`}
+              name={buildingName}
+              level={level}
+            />
           )
         )}
       {'Achievement' in currentTower.Condition &&
         Object.values(currentTower.Condition?.Achievement).map(
           (achievment, index) => (
-            <div
+            <ConditionCard
               key={index}
-              className="flex shrink-0 flex-col items-center gap-3"
-            >
-              <Image
-                src={'/conquests/previews/condition.png'}
-                alt={''}
-                width={216}
-                height={112}
-                className="select-none rounded-md object-contain"
-              />
-
-              <p className="max-w-[10rem] text-center text-sm font-semibold text-white">
-                {achievment as string}
-              </p>
-            </div>
+              image={'/conquests/previews/condition.png'}
+              name={achievment as string}
+            />
           )
         )}
     </div>
   ) : (
     <></>
+  )
+}
+
+function ConditionCard({
+  image,
+  name,
+  level,
+}: {
+  image: string
+  name: string
+  level?: number
+}) {
+  return (
+    <div className="flex shrink-0 flex-col items-center gap-3">
+      <Image
+        src={image}
+        alt={name}
+        width={216}
+        height={112}
+        className="select-none w-[9.5rem] h-[4.8rem] sm:w-[13.5rem] sm:h-[7rem] sm:rounded-md object-contain"
+      />
+
+      <p className="max-w-[8rem] sm:max-w-[10rem] text-center text-xs sm:text-sm font-medium text-white">
+        <b className="font-semibold">{name}</b>
+        {level ? (
+          <>
+            <br />
+            Lv. {level}
+          </>
+        ) : (
+          <></>
+        )}
+      </p>
+    </div>
   )
 }

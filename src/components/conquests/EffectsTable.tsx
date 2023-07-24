@@ -74,7 +74,7 @@ export default function ConquestEffectsTable() {
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="px-3 py-1.5 text-end text-sm font-medium text-white first:rounded-l-md first:text-start last:rounded-r-md md:px-6 md:py-3 md:text-sm"
+                  className="px-1.5 py-1 text-end text-xs font-medium text-white first:rounded-l-md first:text-start last:rounded-r-md sm:px-3 sm:py-1.5 sm:text-sm md:px-6 md:py-3 md:text-sm"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

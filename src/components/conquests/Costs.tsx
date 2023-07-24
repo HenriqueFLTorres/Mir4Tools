@@ -12,7 +12,7 @@ export default function ConquestCosts() {
   const currentTower = ConquestTowersData[tower].Steps[stage]
 
   return (
-    <footer className="mt-10 flex items-center gap-4">
+    <footer className="mt-10 flex flex-wrap justify-center flex-row items-center gap-4">
       {Object.entries(currentTower.Cost).map(([key, value]) => (
         <div
           key={key}

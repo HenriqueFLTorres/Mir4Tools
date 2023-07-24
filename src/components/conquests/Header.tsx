@@ -15,17 +15,17 @@ export default function ConquestHeader() {
   const hasPreviousStage = stage > 0
 
   return (
-    <header className="flex w-full justify-between">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-4xl font-semibold">{tower}</h1>
-        <p className="text-xl font-normal">
+    <header className="flex flex-col lg:flex-row w-full lg:justify-between">
+      <div className="flex flex-col gap-1 lg:gap-2">
+        <h1 className="text-2xl lg:text-4xl font-semibold">{tower}</h1>
+        <p className="text-base lg:text-xl font-normal">
           {`Stage ${stage} > `}
           <span className="text-[#62CA63]">Stage {stage + 1}</span>
         </p>
       </div>
 
-      <div className="flex flex-col gap-2 text-end">
-        <h2 className="text-end text-2xl font-bold">
+      <div className="flex flex-col gap-1 lg:gap-2 lg:text-end">
+        <h2 className="text-base font-normal lg:text-2xl lg:font-bold">
           {humanizeDuration(
             moment
               .duration(currentTower.UpgradeTime, 'seconds')
@@ -36,8 +36,8 @@ export default function ConquestHeader() {
             }
           )}
         </h2>
-        <p className="text-end text-sm font-medium">
-          <b className="text-end font-bold">{'Power Score - '}</b>
+        <p className="text-sm font-medium">
+          <b className="lg:text-end font-bold">{'Power Score - '}</b>
           {`${
             hasPreviousStage
               ? ConquestTowersData[tower].Steps[stage - 1].Power

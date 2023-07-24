@@ -27,10 +27,10 @@ const ConquestStageHandler = dynamic(
 
 export default function Conquests() {
   return (
-    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center pt-24 selection:bg-primary-800">
+    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center pt-[4.3125rem] 2xl:pt-24 selection:bg-primary-800">
       <ConquestSelection />
 
-      <section className="flex w-full flex-col items-center px-8 py-4 text-white">
+      <section className="flex w-full flex-col items-center px-4 lg:px-8 py-4 text-white">
         <ConquestStageHandler />
 
         <ConquestHeader />

@@ -18,7 +18,7 @@ export default function ConquestStageHandler() {
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 rounded-full bg-primary-600 px-4 py-2">
+    <div className="flex items-center mb-4 lg:mb-2 justify-between gap-4 rounded-full bg-primary-600 px-4 py-2">
       <button
         className="rounded-full p-1 transition-[colors,opacity] hover:bg-primary-500 disabled:opacity-0"
         onClick={() =>
