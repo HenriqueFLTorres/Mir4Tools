@@ -22,10 +22,7 @@ type ItemTypes =
 
 type ItemWithRarity = Exclude<
   ItemTypes,
-  | 'copper'
-  | 'dark_steel'
-  | 'energy'
-  | 'glittering_powder'
+  'copper' | 'dark_steel' | 'energy' | 'glittering_powder'
 >
 type NonRarityItems = Exclude<ItemTypes, ItemWithRarity>
 
@@ -94,3 +91,15 @@ interface SettingsObject {
   showOwnedItems: boolean
   language: 'en' | 'pt'
 }
+
+type ConquestTowers =
+  | 'Tower of Conquest'
+  | 'Forge'
+  | 'Mine'
+  | 'Millennial Tree'
+  | 'Training Sanctum'
+  | 'Tower of Quintessence'
+  | 'Tower of Victory'
+  | 'Holy Shrine'
+  | 'Portal'
+  | 'Sanctuary of Hydra'
