@@ -11,14 +11,16 @@ export default function ConquestStageHandler() {
 
   const handleStageChange = (value: number) => {
     value = value - 1
+
     if (value < 0) value = 0
     if (value > maxStage) value = maxStage
-    console.log(value)
+    if (Number.isNaN(value)) return
+
     setConquests((prev) => ({ ...prev, stage: value }))
   }
 
   return (
-    <div className="flex items-center mb-4 lg:mb-2 justify-between gap-4 rounded-full bg-primary-600 px-4 py-2">
+    <div className="mb-4 flex items-center justify-between gap-4 rounded-full bg-primary-600 px-4 py-2 lg:mb-2">
       <button
         className="rounded-full p-1 transition-[colors,opacity] hover:bg-primary-500 disabled:opacity-0"
         onClick={() =>
