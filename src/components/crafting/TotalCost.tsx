@@ -1,9 +1,9 @@
 import { InventoryAtom } from '@/atoms/Inventory'
 import CostFragment from '@/components/crafting/CostFragment'
+import SettingsFallback from '@/utils/SettingsFallback'
 import { useAtom } from 'jotai'
 import { useSession } from 'next-auth/react'
 import { useTranslation } from '../../../public/locales/client'
-import SettingsFallback from '@/utils/SettingsFallback'
 
 const rarities: RarityTypes[] = [
   'Common',
@@ -43,11 +43,13 @@ export default function TotalCost({
   }
 
   return (
-    <section id='totalCostPanel' className="flex w-full flex-col gap-8">
-      <h2 className="text-2xl md:text-3xl font-bold text-primary-200">{t('Total')}</h2>
+    <section id="totalCostPanel" className="flex w-full flex-col gap-8">
+      <h2 className="text-2xl font-bold text-primary-200 md:text-3xl">
+        {t('Total')}
+      </h2>
 
-      <div className="flex flex-col md:flex-row w-full gap-5">
-        <ul id='totalCostWithRarity' className="flex w-full gap-5">
+      <div className="flex w-full flex-col gap-5 md:flex-row">
+        <ul id="totalCostWithRarity" className="flex w-full gap-5">
           {Object.entries(craftCost).map(
             ([name, item]) =>
               typeof item !== 'number' &&
@@ -75,10 +77,10 @@ export default function TotalCost({
           )}
         </ul>
 
-        <ul id='totalCostWithoutRarity' className="flex gap-5">
+        <ul id="totalCostWithoutRarity" className="flex gap-5">
           <CostFragment
-            name="dark_steel"
-            cost={craftCost.dark_steel - inventory.dark_steel}
+            name="darksteel"
+            cost={craftCost.darksteel - inventory.darksteel}
             rarity="Default"
           />
 

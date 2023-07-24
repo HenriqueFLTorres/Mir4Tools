@@ -29,7 +29,7 @@ export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
 }
 
 export const ComplementaryItems = [
-  'dark_steel',
+  'darksteel',
   'copper',
   'energy',
   'glittering_powder',
@@ -187,7 +187,7 @@ export const AllowedInventoryItemTypes = [
   'anima_stone',
   'blue_devil_stone',
   'copper',
-  'dark_steel',
+  'darksteel',
   'dragon_leather',
   'energy',
   'evil_minded_orb',

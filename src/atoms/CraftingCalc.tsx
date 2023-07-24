@@ -66,7 +66,7 @@ export const defaultCostObject: CraftingCalcObject = {
   },
   glittering_powder: 0,
   copper: 0,
-  dark_steel: 0,
+  darksteel: 0,
   energy: 0,
   dragon_eye: {
     Legendary: 0,

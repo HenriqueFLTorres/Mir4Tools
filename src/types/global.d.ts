@@ -4,7 +4,7 @@ type ItemTypes =
   | 'anima_stone'
   | 'blue_devil_stone'
   | 'copper'
-  | 'dark_steel'
+  | 'darksteel'
   | 'dragon_leather'
   | 'energy'
   | 'evil_minded_orb'
@@ -22,7 +22,7 @@ type ItemTypes =
 
 type ItemWithRarity = Exclude<
   ItemTypes,
-  'copper' | 'dark_steel' | 'energy' | 'glittering_powder'
+  'copper' | 'darksteel' | 'energy' | 'glittering_powder'
 >
 type NonRarityItems = Exclude<ItemTypes, ItemWithRarity>
 
