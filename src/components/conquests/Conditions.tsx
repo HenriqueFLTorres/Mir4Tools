@@ -11,7 +11,7 @@ export default function ConquestConditions() {
   const currentTower = ConquestTowersData[tower].Steps[stage]
 
   return currentTower.Condition ? (
-    <div className="custom-scroll relative mt-14 justify-center flex w-full max-w-5xl gap-4 overflow-auto px-8 py-4">
+    <div className="custom-scroll relative mt-6 items-start px-8 flex w-max max-w-7xl gap-4 overflow-auto py-6">
       {'Building' in currentTower.Condition &&
         Object.entries(currentTower.Condition?.Building).map(
           ([buildingName, level]) => (
