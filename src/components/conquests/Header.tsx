@@ -19,7 +19,7 @@ export default function ConquestHeader() {
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-semibold">{tower}</h1>
         <p className="text-xl font-normal">
-          {`Stage ${hasPreviousStage ? stage - 1 : 0} > `}
+          {`Stage ${stage} > `}
           <span className="text-[#62CA63]">Stage {stage + 1}</span>
         </p>
       </div>
