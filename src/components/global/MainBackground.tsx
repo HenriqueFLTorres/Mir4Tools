@@ -7,7 +7,7 @@ export default function MainBackground() {
   const [isLoading, setLoading] = useState(true)
 
   return (
-    <div className="pointer-events-none fixed h-screen w-screen select-none">
+    <div className="pointer-events-none bg-primary-900 fixed h-screen w-screen select-none">
       <Image
         src={'/images/main-background.webp'}
         alt=""

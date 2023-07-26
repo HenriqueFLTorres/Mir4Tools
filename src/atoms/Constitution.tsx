@@ -1,4 +1,4 @@
-import { atom } from 'jotai'
+import { atom } from 'jotai';
 
 const defaultLevels = {
   'PHYS DEF': {
@@ -30,6 +30,8 @@ const defaultLevels = {
     to: 5,
   },
 }
+
+export const statusAtom = atom<statusEffects | null>(null)
 
 export const statusLevelsAtom = atom<{
   [key in statusEffects]: { from: number; to: number }

@@ -6,7 +6,7 @@ export const metadata = RouteMetadata.Conquests
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen w-full h-full flex-col font-main">
+    <div className="flex h-full min-h-screen w-full flex-col font-main">
       <ConquestsBackground />
       <GlobalNavbar />
       {children}

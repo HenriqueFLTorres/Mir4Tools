@@ -1,6 +1,10 @@
 'use client'
 
-import { statusLevelsAtom, type statusEffects } from '@/atoms/Constitution'
+import {
+  statusAtom,
+  statusLevelsAtom,
+  type statusEffects,
+} from '@/atoms/Constitution'
 import Input from '@/components/Input'
 import Accuracy from '@/icons/Accuracy'
 import ConstitutionBackground from '@/icons/ConstitutionBackground'
@@ -13,10 +17,10 @@ import SpellDef from '@/icons/SpellDef'
 import { cn } from '@/utils/classNames'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function ConstitutionStatusSelector() {
-  const [status, setStatus] = useState<statusEffects | null>(null)
+  const [status, setStatus] = useAtom(statusAtom)
   const [levels, setLevels] = useAtom(statusLevelsAtom)
 
   function handleInput(
@@ -28,13 +32,20 @@ export default function ConstitutionStatusSelector() {
       return
     }
 
-    setLevels((prev) => ({
-      ...prev,
-      [label]: {
-        ...prev[label],
-        [type]: getValidNumber(value),
-      },
-    }))
+    setLevels((prev) => {
+      value = getValidNumber(value)
+
+      if (type === 'from' && value > prev[label].to) value = prev[label].to
+      if (type === 'to' && value < prev[label].from) value = prev[label].from
+
+      return {
+        ...prev,
+        [label]: {
+          ...prev[label],
+          [type]: getValidNumber(value),
+        },
+      }
+    })
   }
 
   return (
@@ -59,7 +70,7 @@ export default function ConstitutionStatusSelector() {
               leaveFrom={cn('opacity-100', inputStyling)}
               leaveTo="translate-x-0 opacity-0"
               as="div"
-              className={cn('absolute flex flex-col', inputStyling, {
+              className={cn('absolute z-10 flex flex-col', inputStyling, {
                 'translate-x-2.5': label === 'PHYS ATK',
               })}
             >
@@ -108,7 +119,7 @@ export default function ConstitutionStatusSelector() {
 
             <button
               className={cn(
-                'absolute h-[7.4rem] w-[7.4rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] hover:scale-[1.2] hover:bg-primary-400/30',
+                'absolute z-[11] h-[7.4rem] w-[7.4rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] hover:scale-[1.2] hover:bg-primary-400/30',
                 'data-[active=true]:scale-[1.35] data-[active=true]:bg-primary-450'
               )}
               data-active={isActive}

@@ -69,8 +69,6 @@ export default function PercentageDifference() {
     }))
   }
 
-  console.log(invalidInput)
-
   return (
     <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
       <div
