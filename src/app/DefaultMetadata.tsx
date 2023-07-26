@@ -63,6 +63,14 @@ export const RouteMetadata = {
     image: '/seo/conquests.webp',
     imageAlt: 'Conquests banner',
   }),
+  Constitution: getSeo({
+    title: 'Constitution',
+    href: '/constitution',
+    description:
+      'A page used to calculate and show the effects of constitution levels.',
+    image: '/seo/conquests.webp',
+    imageAlt: 'Constitution banner',
+  }),
 }
 
 export function getSeo({

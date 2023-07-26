@@ -34,6 +34,7 @@ module.exports = {
           100: '#DDD4FF',
           200: '#B8B0DB',
           400: '#7E73AD',
+          450: '#635189',
           500: '#4B406A',
           600: '#2C2542',
           700: '#272043',
@@ -74,6 +75,14 @@ module.exports = {
           '55%': { transform: 'rotate(0deg)' },
           '95%': { transform: 'rotate(0deg)' },
         },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(720deg)' },
+        },
+        rotateInvert: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-720deg)' },
+        },
       },
       animation: {
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
@@ -82,6 +91,8 @@ module.exports = {
         showPopover: 'showPopover 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         hidePopover: 'hidePopover 300ms cubic-bezier(0.16, 1, 0.3, 1)',
         vibrate: 'vibrate 4s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        rotate: 'rotate 4s ease-in-out forwards',
+        rotateInvert: 'rotateInvert 4s ease-in-out forwards',
       },
     },
   },
