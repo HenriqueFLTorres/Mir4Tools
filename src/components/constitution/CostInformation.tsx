@@ -2,7 +2,7 @@
 
 import { statusLevelsAtom, type statusEffects } from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
-import { getReadableNumber } from '@/utils/index'
+import { ItemRarities, getReadableNumber } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import millify from 'millify'
 import Tooltip from '../ToolTip'
@@ -28,33 +28,24 @@ export default function ConstitutionCostInformation() {
         <h1 className="text-3xl font-bold text-white">Cost</h1>
         <Checkbox label="Show promotion" />
       </header>
-      {Object.entries(mergedResults).map(([itemName, amount]) => {
-        const rarity = extractRarity(itemName)
-
-        if (rarity !== 'Common') {
-          itemName = itemName.substring(itemName.indexOf(' ') + 1)
-        }
-
-        return (
-          <div key={itemName} className="flex flex-col items-center gap-2">
-            <ItemFrame
-              key={itemName}
-              item={itemName.toLowerCase().replace(/\s/g, '_') as ItemTypes}
-              rarity={rarity}
-            />
-            <Tooltip.Wrapper>
-              <Tooltip.Trigger
-                asChild={false}
-                aria-label="See detailed amount"
-                className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-              >
-                {millify(amount)}
-              </Tooltip.Trigger>
-              <Tooltip.Content>{getReadableNumber(amount)}</Tooltip.Content>
-            </Tooltip.Wrapper>
-          </div>
-        )
-      })}
+      {mergedResults.map(({ name, rarity, amount }, index) => (
+        <div key={index} className="flex flex-col items-center gap-2">
+          <ItemFrame
+            item={name.toLowerCase().replace(/\s/g, '_') as ItemTypes}
+            rarity={rarity}
+          />
+          <Tooltip.Wrapper>
+            <Tooltip.Trigger
+              asChild={false}
+              aria-label="See detailed amount"
+              className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
+            >
+              {millify(amount)}
+            </Tooltip.Trigger>
+            <Tooltip.Content>{getReadableNumber(amount)}</Tooltip.Content>
+          </Tooltip.Wrapper>
+        </div>
+      ))}
     </div>
   )
 }
@@ -92,13 +83,27 @@ const mergeLevels = (data: MergeObject[]) => {
   // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
   statusKeys.forEach((key) => delete result[key])
 
-  return result
+  const preparedForDisplay = Object.entries(result).map(([item, amount]) => {
+    const rarity = extractRarity(item)
+    let name = item
+
+    if (rarity !== 'Common') {
+      name = name.substring(name.indexOf(' ') + 1)
+    }
+
+    return {
+      name,
+      rarity,
+      amount,
+    }
+  })
+  return preparedForDisplay.sort((obj1, obj2) => {
+    return ItemRarities.indexOf(obj1.rarity) - ItemRarities.indexOf(obj2.rarity)
+  })
 }
 
 const extractRarity = (name: string): RarityTypes => {
   const rarity = name.match(/^([\S]+)/gm)
-
-  console.log(name)
 
   if (rarity === null) return 'Common'
 
@@ -108,7 +113,7 @@ const extractRarity = (name: string): RarityTypes => {
     case '[E]':
       return 'Epic'
     case '[R]':
-      return 'Epic'
+      return 'Rare'
     case '[UC]':
       return 'Uncommon'
     default:
