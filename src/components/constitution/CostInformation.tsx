@@ -2,12 +2,21 @@
 
 import { statusLevelsAtom, type statusEffects } from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
-import { ItemRarities, getReadableNumber } from '@/utils/index'
+import { getReadableNumber } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import millify from 'millify'
 import Tooltip from '../ToolTip'
 import ItemFrame from '../crafting/ItemFrame'
 import Checkbox from '../shared/Checkbox'
+
+export const ItemRarities = [
+  'Legendary',
+  'Epic',
+  'Rare',
+  'Uncommon',
+  'Common',
+  'Default',
+] as const
 
 export default function ConstitutionCostInformation() {
   const levels = useAtomValue(statusLevelsAtom)
@@ -23,29 +32,31 @@ export default function ConstitutionCostInformation() {
   const mergedResults = mergeLevels(result.flat() as unknown as MergeObject[])
 
   return (
-    <div className="flex flex-row flex-wrap gap-4">
-      <header className="flex w-full items-center justify-between">
+    <div className="flex w-full flex-col gap-4">
+      <header className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-white">Cost</h1>
         <Checkbox label="Show promotion" />
       </header>
-      {mergedResults.map(({ name, rarity, amount }, index) => (
-        <div key={index} className="flex flex-col items-center gap-2">
-          <ItemFrame
-            item={name.toLowerCase().replace(/\s/g, '_') as ItemTypes}
-            rarity={rarity}
-          />
-          <Tooltip.Wrapper>
-            <Tooltip.Trigger
-              asChild={false}
-              aria-label="See detailed amount"
-              className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-            >
-              {millify(amount)}
-            </Tooltip.Trigger>
-            <Tooltip.Content>{getReadableNumber(amount)}</Tooltip.Content>
-          </Tooltip.Wrapper>
-        </div>
-      ))}
+      <ul className="flex w-full flex-wrap gap-4">
+        {mergedResults.map(({ name, rarity, amount }, index) => (
+          <li key={index} className="flex flex-col items-center gap-2">
+            <ItemFrame
+              item={name.toLowerCase().replace(/\s/g, '_') as ItemTypes}
+              rarity={rarity}
+            />
+            <Tooltip.Wrapper>
+              <Tooltip.Trigger
+                asChild={false}
+                aria-label="See detailed amount"
+                className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
+              >
+                {millify(amount)}
+              </Tooltip.Trigger>
+              <Tooltip.Content>{getReadableNumber(amount)}</Tooltip.Content>
+            </Tooltip.Wrapper>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
@@ -97,12 +108,15 @@ const mergeLevels = (data: MergeObject[]) => {
       amount,
     }
   })
-  return preparedForDisplay.sort((obj1, obj2) => {
-    return ItemRarities.indexOf(obj1.rarity) - ItemRarities.indexOf(obj2.rarity)
-  })
+  return preparedForDisplay.sort(
+    (obj1, obj2) =>
+      ItemRarities.indexOf(obj1.rarity) - ItemRarities.indexOf(obj2.rarity)
+  )
 }
 
-const extractRarity = (name: string): RarityTypes => {
+const extractRarity = (name: string): RarityTypes | 'Default' => {
+  if (name === 'Copper') return 'Default'
+
   const rarity = name.match(/^([\S]+)/gm)
 
   if (rarity === null) return 'Common'
