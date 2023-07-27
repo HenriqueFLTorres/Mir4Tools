@@ -49,7 +49,7 @@ export default function ConstitutionStatusSelector() {
   }
 
   return (
-    <div className="relative mt-8">
+    <div className="relative mt-8 mb-28">
       {buttons.map(({ label, styling, inputStyling, tagStyling, Icon }) => {
         const isActive = label === status
 

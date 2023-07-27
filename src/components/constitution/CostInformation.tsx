@@ -77,7 +77,7 @@ export default function ConstitutionCostInformation() {
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <header className="flex items-center justify-between">
+      <header className="flex items-center w-full justify-between">
         <h1 className="text-3xl font-bold text-white">Cost</h1>
         <Checkbox
           label="Show promotion"
