@@ -1,4 +1,4 @@
-import { atom } from 'jotai';
+import { atom } from 'jotai'
 
 const defaultLevels = {
   'PHYS DEF': {
@@ -36,6 +36,10 @@ export const statusAtom = atom<statusEffects | null>(null)
 export const statusLevelsAtom = atom<{
   [key in statusEffects]: { from: number; to: number }
 }>(defaultLevels)
+
+export const constitutionUpgradeAtom = atom<{ masteryIteration: number[] }>({
+  masteryIteration: [],
+})
 
 export type statusEffects =
   | 'PHYS DEF'

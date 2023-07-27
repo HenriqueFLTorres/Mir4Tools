@@ -1,14 +1,28 @@
 'use client'
 
-import { statusLevelsAtom, type statusEffects } from '@/atoms/Constitution'
+import {
+  constitutionUpgradeAtom,
+  statusLevelsAtom,
+  type statusEffects,
+} from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
+import ConstitutionMasteryData from '@/data/ConstitutionMasteryData'
 import { useAtomValue } from 'jotai'
 
 export default function ConstitutionStatsTable() {
   const levels = useAtomValue(statusLevelsAtom)
+  const constUpgrade = useAtomValue(constitutionUpgradeAtom)
+
+  const minLevel = Math.min(
+    ...Object.values(levels).map((values) => values.from)
+  )
+  const myTierIndex = Math.ceil(minLevel / 5) - 1
+
+  const initialTier = myTierIndex + 1
+  const finalTier = (constUpgrade.masteryIteration.at(-1) ?? 0) + 1
 
   return (
-    <div className="relative flex shrink-0 h-max w-[26rem] max-w-xl flex-col rounded-md bg-primary-600 p-1 md:rounded-xl">
+    <div className="relative flex h-max w-[28rem] max-w-xl shrink-0 flex-col rounded-md bg-primary-600 p-1 md:rounded-xl">
       <table className="relative">
         <thead>
           <tr className="border-b-2 border-primary-500/50">
@@ -16,7 +30,11 @@ export default function ConstitutionStatsTable() {
               colSpan={4}
               className="py-1 text-center text-lg font-medium text-white"
             >
-              Tier 2 Constitution
+              Tier{' '}
+              {finalTier > initialTier
+                ? `${initialTier} > ${finalTier}`
+                : initialTier}{' '}
+              Constitution
             </th>
           </tr>
         </thead>
@@ -25,15 +43,15 @@ export default function ConstitutionStatsTable() {
             <td>PHYS DEF</td>
             <td>
               {getValuesFromAtom(
-                getStatus('PHYS DEF', levels['PHYS DEF'].from),
-                getStatus('PHYS DEF', levels['PHYS DEF'].to)
+                getStatus('PHYS DEF', levels['PHYS DEF'].from, myTierIndex),
+                getStatus('PHYS DEF', levels['PHYS DEF'].to, myTierIndex)
               )}
             </td>
             <td>Spell DEF</td>
             <td>
               {getValuesFromAtom(
-                getStatus('Spell DEF', levels['Spell DEF'].from),
-                getStatus('Spell DEF', levels['Spell DEF'].to)
+                getStatus('Spell DEF', levels['Spell DEF'].from, myTierIndex),
+                getStatus('Spell DEF', levels['Spell DEF'].to, myTierIndex)
               )}
             </td>
           </tr>
@@ -41,15 +59,15 @@ export default function ConstitutionStatsTable() {
             <td>HP</td>
             <td>
               {getValuesFromAtom(
-                getStatus('HP', levels.HP.from),
-                getStatus('HP', levels.HP.to)
+                getStatus('HP', levels.HP.from, myTierIndex),
+                getStatus('HP', levels.HP.to, myTierIndex)
               )}
             </td>
             <td>MP</td>
             <td>
               {getValuesFromAtom(
-                getStatus('MP', levels.MP.from),
-                getStatus('MP', levels.MP.to)
+                getStatus('MP', levels.MP.from, myTierIndex),
+                getStatus('MP', levels.MP.to, myTierIndex)
               )}
             </td>
           </tr>
@@ -57,15 +75,15 @@ export default function ConstitutionStatsTable() {
             <td>EVA</td>
             <td>
               {getValuesFromAtom(
-                getStatus('EVA', levels.EVA.from),
-                getStatus('EVA', levels.EVA.to)
+                getStatus('EVA', levels.EVA.from, myTierIndex),
+                getStatus('EVA', levels.EVA.to, myTierIndex)
               )}
             </td>
             <td>Accuracy</td>
             <td>
               {getValuesFromAtom(
-                getStatus('Accuracy', levels.Accuracy.from),
-                getStatus('Accuracy', levels.Accuracy.to)
+                getStatus('Accuracy', levels.Accuracy.from, myTierIndex),
+                getStatus('Accuracy', levels.Accuracy.to, myTierIndex)
               )}
             </td>
           </tr>
@@ -73,8 +91,8 @@ export default function ConstitutionStatsTable() {
             <td colSpan={2}>PHYS ATK & Spell ATK</td>
             <td colSpan={2}>
               {getValuesFromAtom(
-                getStatus('PHYS ATK', levels['PHYS ATK'].from),
-                getStatus('PHYS ATK', levels['PHYS ATK'].to)
+                getStatus('PHYS ATK', levels['PHYS ATK'].from, myTierIndex),
+                getStatus('PHYS ATK', levels['PHYS ATK'].to, myTierIndex)
               )}
             </td>
           </tr>
@@ -94,6 +112,9 @@ function getValuesFromAtom(initialStatus: number, endStatus: number) {
   )
 }
 
-function getStatus(status: statusEffects, index: number) {
-  return (ConstitutionData[status].at(index - 1) as any)[status]
+function getStatus(status: statusEffects, index: number, tierIndex: number) {
+  return (
+    ((ConstitutionData[status].at(index - 1) as any)[status] as number) +
+    ConstitutionMasteryData[tierIndex].Effects[status]
+  )
 }
