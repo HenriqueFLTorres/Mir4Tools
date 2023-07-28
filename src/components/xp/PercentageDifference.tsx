@@ -14,13 +14,18 @@ import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
-  const [{ levels, percentages, manualCalculation }, setXPCalc] =
+  const [{ levels, xpPerMinute, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
   const { t } = useTranslation()
 
   useEffect(() => {
-    if (levels.initial !== undefined) {
+    if (
+      levels.initial !== undefined &&
+      levels.initialPercentage !== undefined &&
+      percentages.initial !== undefined &&
+      percentages.final !== undefined
+    ) {
       setXPCalc((prev) => ({
         ...prev,
         xpPerMinute: levels.initial
