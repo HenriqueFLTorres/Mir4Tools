@@ -11,6 +11,7 @@ import { useTranslation } from '../../../../public/locales/client'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
 import Conquest from '@/icons/Conquest'
+import Constitution from '@/icons/Constitution'
 
 export default function GlobalNavbar({
   children,
@@ -23,10 +24,10 @@ export default function GlobalNavbar({
   return (
     <>
       <header className="absolute z-[40] flex w-full flex-col border-b border-white/10 bg-primary-400/5 px-3 py-2 drop-shadow-md backdrop-blur-xl">
-        <div className="relative flex w-full gap-4 items-center justify-end lg:justify-between">
+        <div className="relative flex w-full gap-4 items-center justify-end xl:justify-between">
           <ProfileSection />
 
-          <nav className="absolute left-1/2 hidden w-max shrink-0 -translate-x-1/2 gap-4 lg:flex">
+          <nav className="absolute left-1/2 hidden w-max shrink-0 -translate-x-1/2 gap-4 xl:flex">
             {links(t).map(({ href, label, Icon }) => (
               <Link
                 href={href}
@@ -45,7 +46,7 @@ export default function GlobalNavbar({
           <button
             aria-label="Navigation menu"
             onClick={() => setShowMobile((prev) => !prev)}
-            className="flex lg:hidden items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 motion-safe:transition-colors"
+            className="flex xl:hidden items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 motion-safe:transition-colors"
           >
             <Hamburguer className="h-5 w-5 shrink-0 fill-white" />
           </button>
@@ -65,7 +66,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
   return (
     <nav
       className={cn(
-        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden motion-safe:transition-[max-height,_margin] motion-safe:duration-300 motion-safe:will-change-[max-height,_margin] lg:hidden',
+        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden motion-safe:transition-[max-height,_margin] motion-safe:duration-300 motion-safe:will-change-[max-height,_margin] xl:hidden',
         {
           'mt-5 max-h-[20rem]': showMobile,
         }
@@ -96,6 +97,11 @@ const links = (t: (key: string) => string) => [
     href: '/conquests',
     label: t('Conquests'),
     Icon: Conquest,
+  },
+  {
+    href: '/constitution',
+    label: t('Constitution'),
+    Icon: Constitution,
   },
   {
     href: '/',

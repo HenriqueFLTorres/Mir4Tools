@@ -68,7 +68,7 @@ export const RouteMetadata = {
     href: '/constitution',
     description:
       'A page used to calculate and show the effects of constitution levels.',
-    image: '/seo/conquests.webp',
+    image: '/seo/constitution.webp',
     imageAlt: 'Constitution banner',
   }),
 }
