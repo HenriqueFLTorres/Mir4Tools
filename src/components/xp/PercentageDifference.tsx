@@ -78,12 +78,12 @@ export default function PercentageDifference() {
         <Input
           placeholder="Start"
           label={t('Before Timer')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                initial: formatForExperience(value),
+                initial: formatForExperience(e.currentTarget.valueAsNumber),
               },
             }))
           }}
@@ -97,12 +97,12 @@ export default function PercentageDifference() {
           suffix="%"
           placeholder="End"
           label={t('After Timer')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                final: formatForExperience(value),
+                final: formatForExperience(e.currentTarget.valueAsNumber),
               },
             }))
           }}
@@ -126,10 +126,10 @@ export default function PercentageDifference() {
         <Input
           suffix="XP"
           label={t('XP Per Minute')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
-              manualCalculation: { xpPerMinute: getValidNumber(value, 0) },
+              manualCalculation: { xpPerMinute: getValidNumber(e.currentTarget.valueAsNumber, 0) },
             }))
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
@@ -141,12 +141,12 @@ export default function PercentageDifference() {
           suffix="%"
           placeholder="0.0000"
           label={t('Current Percentage')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               levels: {
                 ...prev.levels,
-                initialPercentage: formatForExperience(value),
+                initialPercentage: formatForExperience(e.currentTarget.valueAsNumber),
               },
             }))
           }}

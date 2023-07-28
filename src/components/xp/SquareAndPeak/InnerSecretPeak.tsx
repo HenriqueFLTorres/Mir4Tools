@@ -15,12 +15,12 @@ export default function InnerSecretPeak() {
       <Input
         label={t('Tickets')}
         className="sm:w-16 text-xs text-white [&>div]:sm:rounded-r-none [&>div]:py-1"
-        onChange={(value) => {
+        onChange={(e) => {
           setExtension((prev) => ({
             ...prev,
             secretPeak: {
               ...prev.secretPeak,
-              tickets: getValidNumber(value, prev.secretPeak.tickets),
+              tickets: getValidNumber(e.currentTarget.valueAsNumber, prev.secretPeak.tickets),
             },
           }))
         }}
@@ -29,12 +29,12 @@ export default function InnerSecretPeak() {
       <Input
         label={t('XP per run')}
         className="w-full text-xs text-white [&>div]:sm:rounded-l-none [&>div]:sm:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1"
-        onChange={(value) => {
+        onChange={(e) => {
           setExtension((prev) => ({
             ...prev,
             secretPeak: {
               ...prev.secretPeak,
-              xpPerRun: getValidNumber(value, prev.secretPeak.xpPerRun),
+              xpPerRun: getValidNumber(e.currentTarget.valueAsNumber, prev.secretPeak.xpPerRun),
             },
           }))
         }}
