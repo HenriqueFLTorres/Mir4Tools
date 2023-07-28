@@ -22,82 +22,81 @@ export default function ConstitutionStatsTable() {
   const finalTier = (constUpgrade.masteryIteration.at(-1) ?? 0) + 1
 
   return (
-    <div className="relative flex h-max w-[28rem] max-w-xl shrink-0 flex-col rounded-md bg-primary-600 p-1 md:rounded-xl">
-      <table className="relative">
-        <thead>
-          <tr className="border-b-2 border-primary-500/50">
-            <th
-              colSpan={4}
-              className="py-1 text-center text-lg font-medium text-white"
-            >
-              Tier{' '}
-              {finalTier > initialTier
-                ? `${initialTier} > ${finalTier}`
-                : initialTier}{' '}
-              Constitution
-            </th>
-          </tr>
-        </thead>
-        <tbody className="w-full text-sm font-normal text-white [&>tr:nth-child(even)>*]:bg-primary-500/20 [&>tr>td:nth-child(even)]:text-end [&>tr>td:nth-child(odd)]:font-bold [&>tr>td]:px-2 [&>tr>td]:py-1.5 [&>tr>td]:sm:px-4 [&>tr>td]:sm:py-2">
-          <tr>
-            <td>PHYS DEF</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('PHYS DEF', levels['PHYS DEF'].from, myTierIndex),
-                getStatus('PHYS DEF', levels['PHYS DEF'].to, myTierIndex)
-              )}
-            </td>
-            <td>Spell DEF</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('Spell DEF', levels['Spell DEF'].from, myTierIndex),
-                getStatus('Spell DEF', levels['Spell DEF'].to, myTierIndex)
-              )}
-            </td>
-          </tr>
-          <tr>
-            <td>HP</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('HP', levels.HP.from, myTierIndex),
-                getStatus('HP', levels.HP.to, myTierIndex)
-              )}
-            </td>
-            <td>MP</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('MP', levels.MP.from, myTierIndex),
-                getStatus('MP', levels.MP.to, myTierIndex)
-              )}
-            </td>
-          </tr>
-          <tr>
-            <td>EVA</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('EVA', levels.EVA.from, myTierIndex),
-                getStatus('EVA', levels.EVA.to, myTierIndex)
-              )}
-            </td>
-            <td>Accuracy</td>
-            <td>
-              {getValuesFromAtom(
-                getStatus('Accuracy', levels.Accuracy.from, myTierIndex),
-                getStatus('Accuracy', levels.Accuracy.to, myTierIndex)
-              )}
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={2}>PHYS ATK & Spell ATK</td>
-            <td colSpan={2}>
-              {getValuesFromAtom(
-                getStatus('PHYS ATK', levels['PHYS ATK'].from, myTierIndex),
-                getStatus('PHYS ATK', levels['PHYS ATK'].to, myTierIndex)
-              )}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="relative flex h-max max-w-xl shrink-0 flex-col rounded-md bg-primary-600 p-1 md:rounded-xl">
+      <header>
+        <h1 className="py-1 text-center text-lg font-medium text-white">
+          Tier{' '}
+          {finalTier > initialTier
+            ? `${initialTier} > ${finalTier}`
+            : initialTier}{' '}
+          Constitution
+        </h1>
+      </header>
+      <ul className="flex w-full grid-cols-4 flex-col text-sm font-normal text-white md:grid [&>li:nth-child(odd)]:bg-primary-500/20 [&>li:nth-child(odd)]:md:bg-transparent [&>li>p:first-child]:font-bold [&>li>p:last-child]:text-end [&>li>p]:px-2 [&>li>p]:py-1.5 [&>li>p]:sm:px-4 [&>li>p]:sm:py-2 [&>li]:flex [&>li]:items-center [&>li]:justify-between [&>li]:gap-2">
+        <li className="col-span-2 md:!bg-primary-500/20">
+          <p>PHYS DEF</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('PHYS DEF', levels['PHYS DEF'].from, myTierIndex),
+              getStatus('PHYS DEF', levels['PHYS DEF'].to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-2 md:!bg-primary-500/20">
+          <p>Spell DEF</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('Spell DEF', levels['Spell DEF'].from, myTierIndex),
+              getStatus('Spell DEF', levels['Spell DEF'].to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-2">
+          <p>HP</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('HP', levels.HP.from, myTierIndex),
+              getStatus('HP', levels.HP.to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-2">
+          <p>MP</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('MP', levels.MP.from, myTierIndex),
+              getStatus('MP', levels.MP.to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-2 md:!bg-primary-500/20">
+          <p>EVA</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('EVA', levels.EVA.from, myTierIndex),
+              getStatus('EVA', levels.EVA.to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-2 md:!bg-primary-500/20">
+          <p>Accuracy</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('Accuracy', levels.Accuracy.from, myTierIndex),
+              getStatus('Accuracy', levels.Accuracy.to, myTierIndex)
+            )}
+          </p>
+        </li>
+        <li className="col-span-4 rounded-b-lg">
+          <p>PHYS ATK & Spell ATK</p>
+          <p>
+            {getValuesFromAtom(
+              getStatus('PHYS ATK', levels['PHYS ATK'].from, myTierIndex),
+              getStatus('PHYS ATK', levels['PHYS ATK'].to, myTierIndex)
+            )}
+          </p>
+        </li>
+      </ul>
     </div>
   )
 }

@@ -7,7 +7,6 @@ import {
 } from '@/atoms/Constitution'
 import Input from '@/components/Input'
 import Accuracy from '@/icons/Accuracy'
-import ConstitutionBackground from '@/icons/ConstitutionBackground'
 import Eva from '@/icons/Eva'
 import HP from '@/icons/HP'
 import MP from '@/icons/MP'
@@ -49,7 +48,7 @@ export default function ConstitutionStatusSelector() {
   }
 
   return (
-    <div className="relative mt-8 mb-28">
+    <>
       {buttons.map(({ label, styling, inputStyling, tagStyling, Icon }) => {
         const isActive = label === status
 
@@ -58,7 +57,8 @@ export default function ConstitutionStatusSelector() {
             key={label}
             className={cn(
               'absolute flex flex-col items-center justify-center',
-              styling
+              styling,
+              { 'z-40': isActive }
             )}
           >
             <Transition
@@ -70,9 +70,11 @@ export default function ConstitutionStatusSelector() {
               leaveFrom={cn('opacity-100', inputStyling)}
               leaveTo="translate-x-0 opacity-0"
               as="div"
-              className={cn('absolute z-10 flex flex-col', inputStyling, {
-                'translate-x-2.5': label === 'PHYS ATK',
-              })}
+              className={cn(
+                'absolute z-10 flex flex-col',
+                'translate-y-24 lg:translate-y-0',
+                inputStyling
+              )}
             >
               <Input
                 className="w-24 rounded-b-none border-b border-primary-400 [&>div]:rounded-b-none"
@@ -106,7 +108,8 @@ export default function ConstitutionStatusSelector() {
               leaveTo="opacity-0"
               as="span"
               className={cn(
-                'absolute flex flex-col whitespace-nowrap rounded-full bg-primary-450 px-4 py-2 text-base font-medium text-white shadow-md',
+                'absolute flex flex-col whitespace-nowrap rounded-full bg-primary-450 px-2 py-1 text-xs font-medium text-white shadow-md lg:px-4 lg:py-2 lg:text-base',
+                'translate-y-[3.25rem] lg:translate-y-0',
                 tagStyling
               )}
             >
@@ -119,7 +122,7 @@ export default function ConstitutionStatusSelector() {
 
             <button
               className={cn(
-                'absolute z-[11] h-[7.4rem] w-[7.4rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] hover:scale-[1.2] hover:bg-primary-400/30',
+                'group absolute z-[11] h-[4.2rem] w-[4.2rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] duration-300 hover:scale-[1.2] hover:bg-primary-400/30 lg:h-[7.4rem] lg:w-[7.4rem]',
                 'data-[active=true]:scale-[1.35] data-[active=true]:bg-primary-450'
               )}
               data-active={isActive}
@@ -127,13 +130,12 @@ export default function ConstitutionStatusSelector() {
                 setStatus((prev) => (prev === label ? null : label))
               }
             >
-              <Icon className="h-16 w-16 fill-[#D9D5EA]" />
+              <Icon className="h-8 w-8 fill-[#D9D5EA] transition-[filter] duration-300 group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(140,140,140)] lg:h-16 lg:w-16" />
             </button>
           </label>
         )
       })}
-      <ConstitutionBackground className="[&>#cbDots]:origin-center [&>#cbDots]:animate-rotate [&>#cbLabyrinth]:origin-center [&>#cbLabyrinth]:animate-rotate [&>#cbMiddle]:origin-center [&>#cbMiddle]:animate-rotateInvert" />
-    </div>
+    </>
   )
 }
 
@@ -152,51 +154,113 @@ const buttons: Array<{
 }> = [
   {
     label: 'PHYS DEF',
-    styling: 'left-[6.55rem] top-[6.6rem]',
-    inputStyling: '-translate-x-40',
-    tagStyling: '-translate-x-40',
+    styling:
+      'translate-x-[-6.2rem] translate-y-[-6.2rem] lg:translate-x-[-10.8rem] lg:translate-y-[-10.8rem]',
+    inputStyling: 'lg:-translate-x-40',
+    tagStyling: 'lg:-translate-x-40',
     Icon: PhysDef,
   },
   {
     label: 'HP',
-    styling: 'top-[17.34rem] left-[2.05rem]',
-    inputStyling: '-translate-x-40',
-    tagStyling: '-translate-x-40',
+    styling: 'translate-x-[-8.8rem] lg:translate-x-[-15.25rem]',
+    inputStyling: 'lg:-translate-x-40',
+    tagStyling: 'lg:-translate-x-40',
     Icon: HP,
   },
   {
     label: 'EVA',
-    styling: 'left-[6.495rem] top-[28.227rem]',
-    inputStyling: '-translate-x-40',
-    tagStyling: '-translate-x-40',
+    styling:
+      'translate-x-[-6.2rem] translate-y-[6.2rem] lg:translate-x-[-10.8rem] lg:translate-y-[10.8rem]',
+    inputStyling: 'lg:-translate-x-40',
+    tagStyling: 'lg:-translate-x-40',
     Icon: Eva,
   },
   {
     label: 'PHYS ATK',
-    styling: 'left-[17.34rem] top-[32.6rem]',
-    inputStyling: 'translate-y-40',
-    tagStyling: 'translate-y-28',
+    styling: 'translate-y-[8.8rem] lg:translate-y-[15.2rem]',
+    inputStyling: 'lg:translate-y-36',
+    tagStyling: 'lg:translate-y-28',
     Icon: PhysAtk,
   },
   {
     label: 'Accuracy',
-    styling: 'left-[28.15rem] top-[28.1rem]',
-    inputStyling: 'translate-x-40',
-    tagStyling: 'translate-x-40',
+    styling:
+      'translate-x-[6.2rem] translate-y-[6.2rem] lg:translate-x-[10.8rem] lg:translate-y-[10.8rem]',
+    inputStyling: 'lg:translate-x-40',
+    tagStyling: 'lg:translate-x-40',
     Icon: Accuracy,
   },
   {
     label: 'MP',
-    styling: 'top-[17.34rem] left-[32.62rem]',
-    inputStyling: 'translate-x-40',
-    tagStyling: 'translate-x-40',
+    styling: 'translate-x-[8.8rem] lg:translate-x-[15.25rem]',
+    inputStyling: 'lg:translate-x-40',
+    tagStyling: 'lg:translate-x-40',
     Icon: MP,
   },
   {
     label: 'Spell DEF',
-    styling: 'left-[28.15rem] top-[6.6rem]',
-    inputStyling: 'translate-x-40',
-    tagStyling: 'translate-x-40',
+    styling:
+      'translate-x-[6.2rem] translate-y-[-6.2rem] lg:translate-x-[10.8rem] lg:translate-y-[-10.8rem]',
+    inputStyling: 'lg:translate-x-40',
+    tagStyling: 'lg:translate-x-40',
     Icon: SpellDef,
   },
 ]
+
+// const buttons: Array<{
+//   label: statusEffects
+//   styling: string
+//   inputStyling: string
+//   tagStyling: string
+//   Icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
+// }> = [
+//   {
+//     label: 'PHYS DEF',
+//     styling: 'left-[6.55rem] top-[6.6rem]',
+//     inputStyling: '-translate-x-40',
+//     tagStyling: '-translate-x-40',
+//     Icon: PhysDef,
+//   },
+//   {
+//     label: 'HP',
+//     styling: 'top-[17.34rem] left-[2.05rem]',
+//     inputStyling: '-translate-x-40',
+//     tagStyling: '-translate-x-40',
+//     Icon: HP,
+//   },
+//   {
+//     label: 'EVA',
+//     styling: 'left-[6.495rem] top-[28.227rem]',
+//     inputStyling: '-translate-x-40',
+//     tagStyling: '-translate-x-40',
+//     Icon: Eva,
+//   },
+//   {
+//     label: 'PHYS ATK',
+//     styling: 'left-[17.34rem] top-[32.6rem]',
+//     inputStyling: 'translate-y-40',
+//     tagStyling: 'translate-y-28',
+//     Icon: PhysAtk,
+//   },
+//   {
+//     label: 'Accuracy',
+//     styling: 'left-[28.15rem] top-[28.1rem]',
+//     inputStyling: 'translate-x-40',
+//     tagStyling: 'translate-x-40',
+//     Icon: Accuracy,
+//   },
+//   {
+//     label: 'MP',
+//     styling: 'top-[17.34rem] left-[32.62rem]',
+//     inputStyling: 'translate-x-40',
+//     tagStyling: 'translate-x-40',
+//     Icon: MP,
+//   },
+//   {
+//     label: 'Spell DEF',
+//     styling: 'left-[28.15rem] top-[6.6rem]',
+//     inputStyling: 'translate-x-40',
+//     tagStyling: 'translate-x-40',
+//     Icon: SpellDef,
+//   },
+// ]
