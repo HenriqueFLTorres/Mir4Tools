@@ -83,7 +83,7 @@ export default function PercentageDifference() {
               ...prev,
               percentages: {
                 ...prev.percentages,
-                initial: formatForExperience(e.currentTarget.valueAsNumber),
+                initial: formatForExperience(e.currentTarget.value),
               },
             }))
           }}
@@ -102,7 +102,7 @@ export default function PercentageDifference() {
               ...prev,
               percentages: {
                 ...prev.percentages,
-                final: formatForExperience(e.currentTarget.valueAsNumber),
+                final: formatForExperience(e.currentTarget.value),
               },
             }))
           }}
@@ -129,7 +129,9 @@ export default function PercentageDifference() {
           onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
-              manualCalculation: { xpPerMinute: getValidNumber(e.currentTarget.valueAsNumber, 0) },
+              manualCalculation: {
+                xpPerMinute: getValidNumber(e.currentTarget.value, 0),
+              },
             }))
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
@@ -146,7 +148,7 @@ export default function PercentageDifference() {
               ...prev,
               levels: {
                 ...prev.levels,
-                initialPercentage: formatForExperience(e.currentTarget.valueAsNumber),
+                initialPercentage: formatForExperience(e.currentTarget.value),
               },
             }))
           }}

@@ -127,8 +127,7 @@ export const calculateCraftByItem = ({
   })
 }
 
-export const formatForExperience = (value: string | number) => {
-  value = String(value)
+export const formatForExperience = (value: string) => {
   value = value.replace(/\D/g, '')
   value = value.replace(/^(\d{6})(.+)/g, '$1')
   return value.replace(/^(\d{1,2})(\d{4})/, '$1.$2')

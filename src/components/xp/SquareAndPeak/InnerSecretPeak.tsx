@@ -20,7 +20,7 @@ export default function InnerSecretPeak() {
             ...prev,
             secretPeak: {
               ...prev.secretPeak,
-              tickets: getValidNumber(e.currentTarget.valueAsNumber, prev.secretPeak.tickets),
+              tickets: getValidNumber(e.currentTarget.value, prev.secretPeak.tickets),
             },
           }))
         }}
@@ -34,7 +34,7 @@ export default function InnerSecretPeak() {
             ...prev,
             secretPeak: {
               ...prev.secretPeak,
-              xpPerRun: getValidNumber(e.currentTarget.valueAsNumber, prev.secretPeak.xpPerRun),
+              xpPerRun: getValidNumber(e.currentTarget.value, prev.secretPeak.xpPerRun),
             },
           }))
         }}

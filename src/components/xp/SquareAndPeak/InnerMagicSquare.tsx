@@ -20,7 +20,7 @@ export default function InnerMagicSquare() {
             ...prev,
             magicSquare: {
               ...prev.magicSquare,
-              tickets: getValidNumber(e.currentTarget.valueAsNumber, prev.magicSquare.tickets),
+              tickets: getValidNumber(e.currentTarget.value, prev.magicSquare.tickets),
             },
           }))
         }}
@@ -34,7 +34,7 @@ export default function InnerMagicSquare() {
             ...prev,
             magicSquare: {
               ...prev.magicSquare,
-              xpPerRun: getValidNumber(e.currentTarget.valueAsNumber, prev.magicSquare.xpPerRun),
+              xpPerRun: getValidNumber(e.currentTarget.value, prev.magicSquare.xpPerRun),
             },
           }))
         }}
