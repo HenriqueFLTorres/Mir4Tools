@@ -4,7 +4,7 @@ type ItemTypes =
   | 'anima_stone'
   | 'blue_devil_stone'
   | 'copper'
-  | 'dark_steel'
+  | 'darksteel'
   | 'dragon_leather'
   | 'energy'
   | 'evil_minded_orb'
@@ -19,13 +19,21 @@ type ItemTypes =
   | 'dragon_scale'
   | 'dragon_claw'
   | 'dragon_horn'
+  | 'moonlight_magic_stone'
+  | 'century_fruit'
+  | 'eternal_snow_panax'
+  | 'flower_oil'
+  | 'herb_leaf'
+  | 'herb_root'
+  | 'purified_water'
+  | 'reishi'
+  | 'snow_panax'
+  | 'unihorn_slice'
+  | 'virtue_pill'
 
 type ItemWithRarity = Exclude<
   ItemTypes,
-  | 'copper'
-  | 'dark_steel'
-  | 'energy'
-  | 'glittering_powder'
+  'copper' | 'darksteel' | 'energy' | 'glittering_powder'
 >
 type NonRarityItems = Exclude<ItemTypes, ItemWithRarity>
 
@@ -94,3 +102,15 @@ interface SettingsObject {
   showOwnedItems: boolean
   language: 'en' | 'pt'
 }
+
+type ConquestTowers =
+  | 'Tower of Conquest'
+  | 'Forge'
+  | 'Mine'
+  | 'Millennial Tree'
+  | 'Training Sanctum'
+  | 'Tower of Quintessence'
+  | 'Tower of Victory'
+  | 'Holy Shrine'
+  | 'Portal'
+  | 'Sanctuary of Hydra'

@@ -7,7 +7,7 @@ export const metadata = RouteMetadata.ExperienceCalculator
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-black font-main">
+    <div className="flex min-h-screen w-full flex-col font-main">
       <MainBackground />
       <GlobalNavbar>
         <ExperienceNavExtesion />

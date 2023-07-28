@@ -1,20 +1,20 @@
 import { cn } from '@/utils/classNames'
+import { type DetailedHTMLProps, type InputHTMLAttributes } from 'react'
 
 export default function Input({
   label,
   className,
   suffix,
-  onChange,
-  value,
   error,
   ...props
 }: {
   label?: string
   suffix?: React.ReactNode
-  onChange: (value: string) => void
-  value?: string
   error?: React.ReactNode
-} & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'>) {
+} & DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>) {
   return (
     <label
       className={cn(
@@ -25,25 +25,21 @@ export default function Input({
       {label}
       <div
         className={cn(
-          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-1.5 py-1 sm:px-3 sm:py-2 font-bold text-white motion-safe:transition-colors',
-          { '!border-red-400 bg-red-400/10': error }
+          'flex w-full items-center justify-center gap-1.5 rounded-md bg-primary-600 px-1.5 py-1 font-bold text-white motion-safe:transition-colors motion-safe:duration-300 sm:px-3 sm:py-2',
+          { '!border-red-400 bg-red-400/30': error }
         )}
       >
         <input
           className={cn(
-            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm sm:text-base font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors',
+            'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors motion-safe:duration-300 sm:text-base',
             {
-              'text-red-200': error
+              'text-red-200': error,
             }
           )}
           {...props}
-          onChange={(e) => {
-            onChange(e.target.value)
-          }}
-          value={value}
         />
         {suffix && (
-          <div className="shrink-0 text-sm sm:text-base font-bold text-white">
+          <div className="shrink-0 text-sm font-bold text-white sm:text-base">
             {suffix}
           </div>
         )}

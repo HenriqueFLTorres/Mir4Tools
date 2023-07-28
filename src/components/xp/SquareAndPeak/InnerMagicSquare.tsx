@@ -15,12 +15,12 @@ export default function InnerMagicSquare() {
       <Input
         label={t('Tickets')}
         className="sm:w-16 text-xs text-white [&>div]:sm:rounded-r-none [&>div]:py-1"
-        onChange={(value) => {
+        onChange={(e) => {
           setExtension((prev) => ({
             ...prev,
             magicSquare: {
               ...prev.magicSquare,
-              tickets: getValidNumber(value, prev.magicSquare.tickets),
+              tickets: getValidNumber(e.currentTarget.value, prev.magicSquare.tickets),
             },
           }))
         }}
@@ -29,12 +29,12 @@ export default function InnerMagicSquare() {
       <Input
         label={t('XP per run')}
         className="w-full text-xs text-white [&>div]:sm:rounded-l-none [&>div]:sm:border-l-2 [&>div]:border-l-primary-500 [&>div]:py-1"
-        onChange={(value) => {
+        onChange={(e) => {
           setExtension((prev) => ({
             ...prev,
             magicSquare: {
               ...prev.magicSquare,
-              xpPerRun: getValidNumber(value, prev.magicSquare.xpPerRun),
+              xpPerRun: getValidNumber(e.currentTarget.value, prev.magicSquare.xpPerRun),
             },
           }))
         }}

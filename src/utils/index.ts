@@ -29,7 +29,7 @@ export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
 }
 
 export const ComplementaryItems = [
-  'dark_steel',
+  'darksteel',
   'copper',
   'energy',
   'glittering_powder',
@@ -187,7 +187,7 @@ export const AllowedInventoryItemTypes = [
   'anima_stone',
   'blue_devil_stone',
   'copper',
-  'dark_steel',
+  'darksteel',
   'dragon_leather',
   'energy',
   'evil_minded_orb',
@@ -202,6 +202,17 @@ export const AllowedInventoryItemTypes = [
   'dragon_scale',
   'dragon_claw',
   'dragon_horn',
+  'moonlight_magic_stone',
+  'century_fruit',
+  'eternal_snow_panax',
+  'flower_oil',
+  'herb_leaf',
+  'herb_root',
+  'purified_water',
+  'reishi',
+  'snow_panax',
+  'unihorn_slice',
+  'virtue_pill',
 ]
 
 export function deepMerge(targetObject: any, sourceObject: any) {

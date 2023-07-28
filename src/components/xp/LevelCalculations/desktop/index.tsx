@@ -21,29 +21,38 @@ export default function DesktopLevelCalculations() {
   const invalidInput = useAtomValue(XPInvalidInput)
   const { t, i18n } = useTranslation()
 
-  const LevelGap =
-    levels.initial && levels.final
-      ? XPPerLevel[(Number(levels.final) - 1) as Level]
-      : ''
+  let XPToDesiredLevel = 0
 
-  const XPToTargetLevel = LevelGap
+  if (!!levels.initial && !!levels.final) {
+    const levelDistance =
+      !!levels.initial && !!levels.final ? levels.final - levels.initial : 0
+
+    for (let i = 0; i < levelDistance; i++) {
+      XPToDesiredLevel += XPPerLevel[(Number(levels.final) - i - 1) as Level]
+    }
+  }
+
+  const XPToNextLevel = XPToDesiredLevel
     ? getPercentage(
-        LevelGap,
-        100 - Number(levels.initialPercentage ?? percentages.final)
+        XPPerLevel[Number(levels.initial) as Level],
+        percentages.final ?? levels.initialPercentage
       )
     : undefined
+
+  const TotalXPNeeded =
+    XPToDesiredLevel && XPToNextLevel
+      ? XPToDesiredLevel - XPToNextLevel
+      : undefined
 
   const successfulInput = !!levels.initial && !!levels.final
 
   const XPPerMinute = xpPerMinute || (manualCalculation.xpPerMinute ?? 0)
 
   return (
-    <div className="hidden md:grid h-full w-full grid-rows-[1fr_4px_1fr] flex-col items-center gap-4 pt-11">
+    <div className="hidden h-full w-full grid-rows-[1fr_4px_1fr] flex-col items-center gap-4 pt-11 md:grid">
       <p className="mt-auto px-4 text-center text-xl font-medium text-white">
-        {XPToTargetLevel && !invalidInput
-          ? `${getReadableNumber(XPToTargetLevel)} (${millify(
-              XPToTargetLevel
-            )})`
+        {TotalXPNeeded && !invalidInput
+          ? `${getReadableNumber(TotalXPNeeded)} (${millify(TotalXPNeeded)})`
           : ''}
       </p>
 
@@ -57,10 +66,10 @@ export default function DesktopLevelCalculations() {
       <div className="flex flex-col items-center gap-2 px-4">
         <p className="text-center text-base font-light text-white">
           <b className="font-bold">
-            {XPToTargetLevel && !invalidInput
+            {TotalXPNeeded && !invalidInput
               ? humanizeDuration(
                   moment
-                    .duration(XPToTargetLevel / XPPerMinute, 'minutes')
+                    .duration(TotalXPNeeded / XPPerMinute, 'minutes')
                     .asMilliseconds(),
                   { round: true, language: i18n.language }
                 )

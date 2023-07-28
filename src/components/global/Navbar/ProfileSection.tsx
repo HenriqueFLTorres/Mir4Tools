@@ -19,7 +19,7 @@ export default function ProfileSection() {
     <ProfileMenu>
       <button
         aria-label="Main navigation menu"
-        className="mr-auto flex shrink-0 items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors lg:mr-0"
+        className="mr-auto flex shrink-0 items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors xl:mr-0"
       >
         {image ? (
           <Image

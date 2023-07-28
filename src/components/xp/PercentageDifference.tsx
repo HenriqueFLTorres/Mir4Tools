@@ -14,13 +14,18 @@ import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
-  const [{ levels, percentages, manualCalculation }, setXPCalc] =
+  const [{ levels, xpPerMinute, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
   const { t } = useTranslation()
 
   useEffect(() => {
-    if (levels.initial !== undefined) {
+    if (
+      levels.initial !== undefined &&
+      levels.initialPercentage !== undefined &&
+      percentages.initial !== undefined &&
+      percentages.final !== undefined
+    ) {
       setXPCalc((prev) => ({
         ...prev,
         xpPerMinute: levels.initial
@@ -50,9 +55,12 @@ export default function PercentageDifference() {
       ...prev,
       levels: { ...prev.levels, initialPercentage: undefined },
     }))
+
     if (
-      percentages.initial &&
-      percentages.final &&
+      percentages.initial === undefined ||
+      Number(percentages.initial) > 100 ||
+      percentages.final === undefined ||
+      Number(percentages.final) > 100 ||
       Number(percentages.initial) >= Number(percentages.final)
     ) {
       setIsInvalid(true)
@@ -75,12 +83,12 @@ export default function PercentageDifference() {
         <Input
           placeholder="Start"
           label={t('Before Timer')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                initial: formatForExperience(value),
+                initial: formatForExperience(e.currentTarget.value),
               },
             }))
           }}
@@ -94,19 +102,19 @@ export default function PercentageDifference() {
           suffix="%"
           placeholder="End"
           label={t('After Timer')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               percentages: {
                 ...prev.percentages,
-                final: formatForExperience(value),
+                final: formatForExperience(e.currentTarget.value),
               },
             }))
           }}
           value={percentages.final ?? ''}
           onBlur={handleInvalid}
           error={!!invalidInput}
-          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-tr-md"
         />
       </div>
 
@@ -123,32 +131,45 @@ export default function PercentageDifference() {
         <Input
           suffix="XP"
           label={t('XP Per Minute')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
-              manualCalculation: { xpPerMinute: getValidNumber(value, 0) },
+              manualCalculation: {
+                xpPerMinute: getValidNumber(e.currentTarget.value, 0),
+              },
             }))
           }}
           value={getReadableNumber(manualCalculation.xpPerMinute ?? 0)}
           onBlur={resetPercentages}
+          error={!!invalidInput}
           className="max-w-[10rem] [&>div]:rounded-b-none [&>div]:border-b-2 [&>div]:border-primary-500 [&>div]:sm:rounded-r-none [&>div]:sm:rounded-bl-md [&>div]:sm:border-b-0 [&>div]:sm:border-r-2"
         />
         <Input
           suffix="%"
           placeholder="0.0000"
           label={t('Current Percentage')}
-          onChange={(value) => {
+          onChange={(e) => {
             setXPCalc((prev) => ({
               ...prev,
               levels: {
                 ...prev.levels,
-                initialPercentage: formatForExperience(value),
+                initialPercentage: formatForExperience(e.currentTarget.value),
               },
             }))
           }}
           value={levels.initialPercentage ?? ''}
-          onBlur={resetPercentages}
-          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-t-md"
+          onBlur={() => {
+            resetPercentages()
+
+            if (
+              levels.initialPercentage === undefined ||
+              Number(levels.initialPercentage) > 100
+            ) {
+              setIsInvalid(true)
+            } else setIsInvalid(false)
+          }}
+          error={!!invalidInput}
+          className="max-w-[10rem] flex-col-reverse sm:flex-col [&>div]:rounded-t-none [&>div]:sm:rounded-l-none [&>div]:sm:rounded-tr-md"
         />
       </div>
     </div>

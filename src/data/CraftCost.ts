@@ -13,7 +13,7 @@ const CraftCost: CraftCostType = {
         cost: 100000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 25000,
         rarity: null,
       },
@@ -31,7 +31,7 @@ const CraftCost: CraftCostType = {
         cost: 20000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 5000,
         rarity: null,
       },
@@ -49,7 +49,7 @@ const CraftCost: CraftCostType = {
         cost: 2000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 1000,
         rarity: null,
       },
@@ -69,7 +69,7 @@ const CraftCost: CraftCostType = {
         cost: 100000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 25000,
         rarity: null,
       },
@@ -87,7 +87,7 @@ const CraftCost: CraftCostType = {
         cost: 20000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 5000,
         rarity: null,
       },
@@ -105,7 +105,7 @@ const CraftCost: CraftCostType = {
         cost: 2000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 1000,
         rarity: null,
       },
@@ -125,7 +125,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 100000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 25000,
       },
@@ -143,7 +143,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 20000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 5000,
       },
@@ -161,7 +161,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 2000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 1000,
       },
@@ -181,7 +181,7 @@ const CraftCost: CraftCostType = {
         cost: 100000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 25000,
         rarity: null,
       },
@@ -199,7 +199,7 @@ const CraftCost: CraftCostType = {
         cost: 20000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 5000,
         rarity: null,
       },
@@ -217,7 +217,7 @@ const CraftCost: CraftCostType = {
         cost: 2000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 1000,
         rarity: null,
       },
@@ -237,7 +237,7 @@ const CraftCost: CraftCostType = {
         cost: 100000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 25000,
         rarity: null,
       },
@@ -255,7 +255,7 @@ const CraftCost: CraftCostType = {
         cost: 20000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 5000,
         rarity: null,
       },
@@ -273,7 +273,7 @@ const CraftCost: CraftCostType = {
         cost: 2000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 1000,
         rarity: null,
       },
@@ -293,7 +293,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 100000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 25000,
       },
@@ -311,7 +311,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 20000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 5000,
       },
@@ -329,7 +329,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 2000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 1000,
       },
@@ -349,7 +349,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 100000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 25000,
       },
@@ -367,7 +367,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 20000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 5000,
       },
@@ -385,7 +385,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 2000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 1000,
       },
@@ -405,7 +405,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 100000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 25000,
       },
@@ -423,7 +423,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 20000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 5000,
       },
@@ -441,7 +441,7 @@ const CraftCost: CraftCostType = {
         rarity: null,
         cost: 2000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 1000,
       },
@@ -474,7 +474,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 10000000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 1000000,
       },
@@ -500,7 +500,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 800000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 100000,
       },
@@ -526,7 +526,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 50000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 10000,
       },
@@ -554,7 +554,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 10000000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 10000000,
       },
@@ -580,7 +580,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 800000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 800000,
       },
@@ -606,7 +606,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         rarity: null,
         cost: 50000,
       },
-      dark_steel: {
+      darksteel: {
         rarity: null,
         cost: 50000,
       },
@@ -634,7 +634,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 5000000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 500000,
         rarity: null,
       },
@@ -660,7 +660,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 400000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 50000,
         rarity: null,
       },
@@ -686,7 +686,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 25000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 5000,
         rarity: null,
       },
@@ -714,7 +714,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 10000000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 1000000,
         rarity: null,
       },
@@ -740,7 +740,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 800000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 100000,
         rarity: null,
       },
@@ -766,7 +766,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 50000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 10000,
         rarity: null,
       },
@@ -794,7 +794,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 10000000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 10000000,
         rarity: null,
       },
@@ -820,7 +820,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 800000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 800000,
         rarity: null,
       },
@@ -846,7 +846,7 @@ export const ItemCraftCost: ItemCraftCostType = {
         cost: 50000,
         rarity: null,
       },
-      dark_steel: {
+      darksteel: {
         cost: 50000,
         rarity: null,
       },

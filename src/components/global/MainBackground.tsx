@@ -7,15 +7,16 @@ export default function MainBackground() {
   const [isLoading, setLoading] = useState(true)
 
   return (
-    <div className="pointer-events-none fixed h-screen w-screen select-none">
+    <div className="pointer-events-none bg-primary-900 fixed h-screen w-screen select-none">
       <Image
         src={'/images/main-background.webp'}
         alt=""
         fill
         className={cn(
-          'pointer-events-none fixed left-0 top-0 overflow-hidden fill-pink-400 object-cover opacity-20 motion-safe:transition-[filter] motion-safe:duration-700 motion-safe:ease-in-out',
+          'pointer-events-none fixed left-0 top-0 overflow-hidden object-cover opacity-20 motion-safe:transition-[filter] motion-safe:duration-700 motion-safe:ease-in-out',
           { 'blur-2xl': isLoading }
         )}
+        sizes='100vh'
         placeholder="blur"
         blurDataURL="main-background-blur.png"
         onLoadingComplete={() => {

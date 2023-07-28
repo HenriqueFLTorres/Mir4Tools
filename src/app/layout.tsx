@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" className={cn(main.variable, ptSerif.variable)}>
       <head />
       <Providers>
-        <body>
+        <body className='overflow-auto'>
           {children}
           <Analytics />
           <WalkthroughWrapper />
