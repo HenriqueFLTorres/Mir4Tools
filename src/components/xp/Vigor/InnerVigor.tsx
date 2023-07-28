@@ -31,16 +31,17 @@ export default function InnerVigor() {
         className={'sm:max-w-[5rem] shrink-0 [&>div]:py-1'}
         suffix="h"
         placeholder="duration"
-        onChange={(value) => {
+        type='number'
+        onChange={(e) => {
           setExtension((prev) => ({
             ...prev,
             vigor:
-              Number.isInteger(Number(value)) && Number(value) < 1000
-                ? Number(value)
+              Number.isInteger(Number(e.currentTarget.valueAsNumber)) && Number(e.currentTarget.valueAsNumber) < 1000
+                ? Number(e.currentTarget.valueAsNumber)
                 : prev.vigor,
           }))
         }}
-        value={String(vigor)}
+        value={vigor}
       />
 
       <div className="flex w-full items-baseline justify-end gap-3 truncate rounded-md bg-primary-600 px-3 py-1 text-sm md:text-base text-white">
