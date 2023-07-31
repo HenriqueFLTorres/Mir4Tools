@@ -10,18 +10,18 @@ import { cn } from '@/utils/classNames'
 import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useAtom } from 'jotai'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function CraftingNavExtesion() {
   const { t } = useTranslation()
   const [showInventory, setShowInventory] = useAtom(showInventoryAtom)
   const [walk, setWalk] = useAtom(WalkthroughAtom)
-
-  let walkthroughData = retrieveWalkthroughFromStorage()
+  const [walkData, setWalkData] = useState({ crafting: true, xp: true })
 
   useEffect(() => {
-    walkthroughData = retrieveWalkthroughFromStorage()
+    const data = retrieveWalkthroughFromStorage()
+    setWalkData(data)
   }, [walk.isActive])
 
   return (
@@ -57,14 +57,14 @@ export default function CraftingNavExtesion() {
           'relative w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors',
           {
             'before:absolute before:block before:h-8 before:w-8 before:animate-ping before:rounded-full before:bg-white/50 before:content-[""]':
-              !walkthroughData.crafting,
+              !walkData.crafting,
           }
         )}
         aria-label="Walkthrough"
       >
         <div
           className={cn({
-            'animate-vibrate': !walkthroughData.crafting,
+            'animate-vibrate': !walkData.crafting,
           })}
         >
           <Tutorial className={'inline-block w-6 fill-white'} />
