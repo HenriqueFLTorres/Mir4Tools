@@ -62,6 +62,27 @@
     "Primary": "Primario",
     "Secondary": "Secundario",
     "Total": "Total",
+        
+    "__constitution__": "",
+
+    "Increment current level": "Incrementar el nivel actual",
+    "Decrement current level": "Disminuir el nivel actual",
+    "Increment desired level": "Incrementar el nivel deseado",
+    "Decrement desired level": "Disminuir el nivel deseado",
+    "PHYS DEF": "Defensa Física",
+    "HP": "PS",
+    "EVA": "Evasión",
+    "PHYS ATK": "Ataque Físico",
+    "Accuracy": "Precisión",
+    "MP": "PM",
+    "Spell DEF": "Defensa Mágica",
+    "Spell ATK": "Ataque Mágico",
+    "Decrement constitution tier": "Decremento del nivel de constitución",
+    "Increment constitution tier": "Incrementar nivel de constitución",
+    "Attention, you have a status upgrade that requires a higher constitution tier and consequentially an upgrade in all other stats. The cost for them is not being accounted for.": "Atención, tiene una actualización de estado que requiere un nivel de constitución más alto y, en consecuencia, una actualización en todas las demás estadísticas. El costo para ellos no está siendo contabilizado.",
+    "Tier Constitution": "Constitución de grado {{tier}}",
+    "Show promotion cost": "Mostrar costo de promoción",
+    "Cost": "Costo",
     
     "__walkthrough__": "",
     

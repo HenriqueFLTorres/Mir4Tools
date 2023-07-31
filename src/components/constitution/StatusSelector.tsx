@@ -17,10 +17,12 @@ import { cn } from '@/utils/classNames'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
 import React from 'react'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function ConstitutionStatusSelector() {
   const [status, setStatus] = useAtom(statusAtom)
   const [levels, setLevels] = useAtom(statusLevelsAtom)
+  const { t } = useTranslation()
 
   function handleInput(
     value: number,
@@ -107,13 +109,13 @@ export default function ConstitutionStatusSelector() {
             >
               <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
                 <button
-                  aria-label="Increment current level"
+                  aria-label={t('Increment current level')}
                   onClick={() => buttonHandleStatus(label, 'from', 'increment')}
                 >
                   +
                 </button>
                 <button
-                  aria-label="Decrement current level"
+                  aria-label={t('Decrement current level')}
                   onClick={() => buttonHandleStatus(label, 'from', 'decrement')}
                 >
                   -
@@ -146,13 +148,13 @@ export default function ConstitutionStatusSelector() {
 
               <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
                 <button
-                  aria-label="Increment desired level"
+                  aria-label={t('Increment desired level')}
                   onClick={() => buttonHandleStatus(label, 'to', 'increment')}
                 >
                   +
                 </button>
                 <button
-                  aria-label="Decrement desired level"
+                  aria-label={t('Decrement desired level')}
                   onClick={() => buttonHandleStatus(label, 'to', 'decrement')}
                 >
                   -
@@ -188,6 +190,7 @@ export default function ConstitutionStatusSelector() {
                 'data-[active=true]:scale-[1.35] data-[active=true]:bg-primary-450'
               )}
               data-active={isActive}
+              aria-label={t(label)}
               onClick={() =>
                 setStatus((prev) => (prev === label ? null : label))
               }

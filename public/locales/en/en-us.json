@@ -19,16 +19,16 @@
     "You have to be logged in to do this": "You have to be logged in to do this",
     "Settings updated successfully!": "Settings updated successfully!",
     "For support": "For support",
-    
+
     "__pages__": "",
-    
+
     "Experience Calculator": "Experience Calculator",
     "Crafting Calculator": "Crafting Calculator",
     "Support Us": "Support Us",
     "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.",
-    
+
     "__experience_calculator__": "",
-    
+
     "Start": "Start",
     "Reset": "Reset",
     "OR": "OR",
@@ -54,17 +54,38 @@
 
     "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.",
     "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.",
-    
+
     "__crafting_calculator__": "",
-    
+
     "Inventory": "Inventory",
     "Items": "Items",
     "Primary": "Primary",
     "Secondary": "Secondary",
     "Total": "Total",
-    
+
+    "__constitution__": "",
+
+    "Increment current level": "Increment current level",
+    "Decrement current level": "Decrement current level",
+    "Increment desired level": "Increment desired level",
+    "Decrement desired level": "Decrement desired level",
+    "PHYS DEF": "PHYS DEF",
+    "HP": "HP",
+    "EVA": "EVA",
+    "PHYS ATK": "PHYS ATK",
+    "Accuracy": "Accuracy",
+    "MP": "MP",
+    "Spell DEF": "Spell DEF",
+    "Spell ATK": "Spell ATK",
+    "Decrement constitution tier": "Decrement constitution tier",
+    "Increment constitution tier": "Increment constitution tier",
+    "Attention, you have a status upgrade that requires a higher constitution tier and consequentially an upgrade in all other stats. The cost for them is not being accounted for.": "Attention, you have a status upgrade that requires a higher constitution tier and consequentially an upgrade in all other stats. The cost for them is not being accounted for.",
+    "Tier Constitution": "Tier {{tier}} Constitution",
+    "Show promotion cost": "Show promotion cost",
+    "Cost": "Cost",
+
     "__walkthrough__": "",
-    
+
     "Previous": "Previous",
     "Next": "Next",
     "Skip": "Skip",

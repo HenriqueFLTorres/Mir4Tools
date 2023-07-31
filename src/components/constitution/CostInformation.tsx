@@ -7,6 +7,7 @@ import { getReadableNumber } from '@/utils/index'
 import { useAtomValue, useSetAtom } from 'jotai'
 import millify from 'millify'
 import { useEffect, useState } from 'react'
+import { useTranslation } from '../../../public/locales/client'
 import Tooltip from '../ToolTip'
 import ItemFrame from '../crafting/ItemFrame'
 import Checkbox from '../shared/Checkbox'
@@ -25,6 +26,7 @@ export default function ConstitutionCostInformation() {
   const setConstUpgrade = useSetAtom(constitutionUpgradeAtom)
   const [showPromotion, setShowPromotion] = useState(false)
   const [cost, setCost] = useState<ItemForDisplay[]>([])
+  const { t } = useTranslation()
 
   useEffect(() => {
     const result = statusKeys.map((key) => {
@@ -77,10 +79,10 @@ export default function ConstitutionCostInformation() {
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <header className="flex items-center w-full justify-between">
-        <h1 className="text-3xl font-bold text-white">Cost</h1>
+      <header className="flex w-full items-center justify-between">
+        <h1 className="text-3xl font-bold text-white">{t('Cost')}</h1>
         <Checkbox
-          label="Show promotion"
+          label={t('Show promotion cost')}
           onClick={() => setShowPromotion((prev) => !prev)}
           checked={showPromotion}
         />

@@ -62,6 +62,27 @@
     "Secondary": "Secundária",
     "Total": "Total",
     
+    "__constitution__": "",
+
+    "Increment current level": "Incrementar o nível atual",
+    "Decrement current level": "Diminuir o nível atual",
+    "Increment desired level": "Incrementar o nível desejado",
+    "Decrement desired level": "Diminuir o nível desejado",
+    "PHYS DEF": "DEFESA FÍSICA",
+    "HP": "HP",
+    "EVA": "EVASÃO",
+    "PHYS ATK": "ATAQUE FÍSICO",
+    "Accuracy": "Precisão",
+    "MP": "MP",
+    "Spell DEF": "DEFESA contra feitiços",
+    "Spell ATK": "ATAQUE de feitiço",
+    "Decrement constitution tier": "Diminuir nível de constituição",
+    "Increment constitution tier": "Incrementar nível de constituição",
+    "Attention, you have a status upgrade that requires a higher constitution tier and consequentially an upgrade in all other stats. The cost for them is not being accounted for.": "Atenção, você tem uma atualização de status que requer um nível de constituição mais alto e, consequentemente, uma atualização em todas as outras estatísticas. O custo para eles não está sendo contabilizado.",
+    "Tier Constitution": "Constituição - Estrela {{tier}}",
+    "Show promotion cost": "Mostrar custo da promoção",
+    "Cost": "Custo",
+    
     "__walkthrough__": "",
     
     "Next": "Próximo",
