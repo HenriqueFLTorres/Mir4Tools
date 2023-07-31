@@ -1,13 +1,13 @@
 'use client'
 
 import { type Level } from '@/app/xp/page'
+import { SettingsAtom } from '@/atoms/Settings'
 import { XPCalculatorAtom, XPExtension } from '@/atoms/XPCalculator'
 import XPPerLevel from '@/data/XPPerLevel'
 import { getPercentage } from '@/utils/index'
 import humanizeDuration from 'humanize-duration'
 import { useAtomValue } from 'jotai'
 import moment from 'moment'
-import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
 export default function SquareAndPeakResult() {
@@ -15,8 +15,9 @@ export default function SquareAndPeakResult() {
   const { xpPerMinute, manualCalculation, levels, percentages } =
     useAtomValue(XPCalculatorAtom)
   const { magicSquare, secretPeak } = useAtomValue(XPExtension)
-  const { data: session } = useSession()
-  const language = session?.user?.settings?.language ?? 'en'
+  const settings = useAtomValue(SettingsAtom)
+
+  const language = settings?.language ?? 'en'
 
   const LevelGap =
     levels.initial && levels.final

@@ -12,7 +12,7 @@ export default function ChangeLanguage() {
   const { i18n } = useTranslation()
   const [settings, setSettings] = useAtom(SettingsAtom)
 
-  const changeLanguage = async (val: 'en' | 'pt' | 'en' | 'fil') => {
+  const changeLanguage = async (val: 'en' | 'pt' | 'en') => {
     try {
       await i18n.changeLanguage(val)
       setSettings((prev) => ({ ...prev, language: val }))
@@ -67,5 +67,4 @@ const languages = [
   { label: 'English', value: 'en' },
   { label: 'Português', value: 'pt' },
   { label: 'Spanish', value: 'es' },
-  { label: 'Filipino', value: 'fil' },
 ]

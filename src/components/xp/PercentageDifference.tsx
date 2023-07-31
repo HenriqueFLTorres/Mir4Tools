@@ -79,7 +79,7 @@ export default function PercentageDifference() {
     <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
       <div
         id="experienceTimerInput"
-        className={'mt-8 flex flex-col sm:flex-row'}
+        className={'mt-8 flex items-end flex-col sm:flex-row'}
       >
         <Input
           placeholder="Start"

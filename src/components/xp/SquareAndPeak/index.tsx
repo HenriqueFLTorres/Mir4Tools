@@ -62,7 +62,7 @@ function InnerContent() {
             height={32}
           />
         </div>
-        <h2 className="text-2xl font-bold text-white">{t('Magic Square')}</h2>
+        <h2 className="text-xl font-bold text-white">{t('Magic Square')}</h2>
         <InfoTooltip
           content={t(
             'Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.'
@@ -82,7 +82,7 @@ function InnerContent() {
             height={32}
           />
         </div>
-        <h2 className="text-2xl font-bold text-white">{t('Secret Peak')}</h2>
+        <h2 className="text-xl font-bold text-white">{t('Secret Peak')}</h2>
       </div>
 
       <InnerSecretPeak />

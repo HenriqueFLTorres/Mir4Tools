@@ -18,7 +18,7 @@ export default function Input({
   return (
     <label
       className={cn(
-        'flex w-full flex-col items-center gap-1 text-sm font-medium text-primary-100',
+        'flex w-full flex-col text-center items-center gap-1 text-sm font-medium text-primary-100',
         className
       )}
     >

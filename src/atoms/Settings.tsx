@@ -1,7 +1,7 @@
 import { atomWithStorage } from 'jotai/utils'
 
 interface SettingsAtomType {
-  language: 'pt' | 'en' | 'es' | 'fil'
+  language: 'pt' | 'en' | 'es'
   showConstitutionPromotion: boolean
 }
 
