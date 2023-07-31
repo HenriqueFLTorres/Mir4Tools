@@ -1,5 +1,7 @@
 {
   "translation": {
+    "__general__": "",
+
     "Legendary": "Legendary",
     "Epic": "Epic",
     "Rare": "Rare",
@@ -8,27 +10,33 @@
     "Manage Settings": "Manage Settings",
     "Log in with Google": "Log in with Google",
     "Log out": "Log out",
-    "Experience Calculator": "Experience Calculator",
-    "Crafting Calculator": "Crafting Calculator",
-    "Support Us": "Support Us",
-    "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.",
     "Language": "Language",
     "Resources Filter": "Resources Filter",
     "Advanced View": "Advanced View",
     "Show Owned Items": "Show Owned Items",
     "Panel Visibility": "Panel Visibility",
-    "Magic Square and Secret Peak": "Magic Square and Secret Peak",
     "Save Settings": "Save Settings",
     "You have to be logged in to do this": "You have to be logged in to do this",
     "Settings updated successfully!": "Settings updated successfully!",
+    "For support": "For support",
+    
+    "__pages__": "",
+    
+    "Experience Calculator": "Experience Calculator",
+    "Crafting Calculator": "Crafting Calculator",
+    "Support Us": "Support Us",
+    "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.",
+    
+    "__experience_calculator__": "",
+    
     "Start": "Start",
     "Reset": "Reset",
     "OR": "OR",
-    "For support": "For support",
     "Before Timer": "Before Timer",
     "After Timer": "After Timer",
     "XP Per Minute": "XP Per Minute",
     "Current Percentage": "Current Percentage",
+    "Magic Square and Secret Peak": "Magic Square and Secret Peak",
     "Magic Square": "Magic Square",
     "Secret Peak": "Secret Peak",
     "Vigor": "Vigor",
@@ -39,21 +47,30 @@
     "Progression": "Progression",
     "XP Earned": "XP Earned",
     "Time": "Time",
-    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.",
-    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.",
     "minutes": "minutes",
     "You are earning": "You are earning",
     "XP every": "XP every",
     "to level up": "to level up",
+
+    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.",
+    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.",
+    
+    "__crafting_calculator__": "",
+    
     "Inventory": "Inventory",
     "Items": "Items",
     "Primary": "Primary",
     "Secondary": "Secondary",
     "Total": "Total",
+    
+    "__walkthrough__": "",
+    
     "Previous": "Previous",
     "Next": "Next",
     "Skip": "Skip",
     "Finish": "Finish",
+
+    "__walkthrough_crafting__": "",
 
     "Here you can add your owned items, either tradable or non-tradable and they will be counted for the total result of the recipe you are trying to calculate.": "Here you can add your owned items, either tradable or non-tradable and they will be counted for the total result of the recipe you are trying to calculate.",
     "Select your item recipe": "Select your item recipe",
@@ -68,6 +85,8 @@
     "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.": "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.",
     "Cost of generic items": "Cost of generic items",
     "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.",
+
+    "__walkthrough_experience__": "",
 
     "Experience gain measure": "Experience gain measure",
     "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.": "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.",

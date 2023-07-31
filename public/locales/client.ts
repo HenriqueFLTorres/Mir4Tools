@@ -9,11 +9,13 @@ import {
 } from 'react-i18next'
 import ENUS from './en/en-us.json'
 import PTBR from './pt/pt-br.json'
+import ES from './es/es.json'
 import { languages } from './settings'
 
 const resources = {
   pt: PTBR,
   en: ENUS,
+  es: ES,
 }
 
 const runsOnServerSide = typeof window === 'undefined'

@@ -1,5 +1,7 @@
 {
   "translation": {
+    "__general__": "",
+
     "Legendary": "Lendário",
     "Epic": "Épico",
     "Rare": "Raro",
@@ -8,27 +10,32 @@
     "Manage Settings": "Gerenciar Configurações",
     "Log in with Google": "Entrar com Google",
     "Log out": "Sair",
-    "Experience Calculator": "Calculador de Experiência",
-    "Crafting Calculator": "Calculador de Crafting",
-    "Support Us": "Apoie-nos",
-    "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "Somos uma pequena equipe de jogadores dedicados ao desenvolvimento de ferramentas de alta qualidade para mir4. Mesmo nos custando dinheiro para manutenção, desenvolvimento e retenção de domínio, nós o disponibilizamos gratuitamente. Se você gosta do nosso trabalho e pode nos ajudar a continuar prosperando, qualquer quantia é bem vinda.",
     "Language": "Linguagem",
     "Resources Filter": "Filtro de Recursos",
     "Advanced View": "Visão Avançada",
     "Show Owned Items": "Mostrar Items Possuídos",
     "Panel Visibility": "Visibilidade do painel",
-    "Magic Square and Secret Peak": "Praça mágica e Pico Secreto",
     "Save Settings": "Salvar Configurações",
     "You have to be logged in to do this": "Você precisa estar logado para fazer isso",
     "Settings updated successfully!": "Configurações atualizadas com sucesso!",
+    "For support": "Para suporte",
+    
+    "__pages__": "",
+
+    "Experience Calculator": "Calculador de Experiência",
+    "Crafting Calculator": "Calculador de Crafting",
+    "Support Us": "Apoie-nos",
+    "We are a small team of players dedicated to developing high-quality tools for mir4. Even costing us money for maintenance, development, and domain retention, we make it available for free. If you like our work and can support to keep us in thriving, any amount is welcome.": "Somos uma pequena equipe de jogadores dedicados ao desenvolvimento de ferramentas de alta qualidade para mir4. Mesmo nos custando dinheiro para manutenção, desenvolvimento e retenção de domínio, nós o disponibilizamos gratuitamente. Se você gosta do nosso trabalho e pode nos ajudar a continuar prosperando, qualquer quantia é bem vinda.",
+
+    "__experience_calculator__": "",
     "Start": "Iniciar",
     "Reset": "Resetar",
     "OR": "OU",
-    "For support": "Para suporte",
     "Before Timer": "Antes do cronômetro",
     "After Timer": "Depois do cronômetro",
     "XP Per Minute": "XP Por Minuto",
     "Current Percentage": "Porcentagem Atual",
+    "Magic Square and Secret Peak": "Praça mágica e Pico Secreto",
     "Magic Square": "Praça Mágica",
     "Secret Peak": "Pico Secreto",
     "Vigor": "Vigor",
@@ -39,21 +46,30 @@
     "Progression": "Progressão",
     "XP Earned": "XP Ganho",
     "Time": "Tempo",
-    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Insira seus tickets e seu XP ganho por ronda para calcular o tempo necessário para subir de nível junto de rondas de pico/praça.",
-    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Insira seu vigor restante em horas para calcular seu XP e a porcentagem ganha durante um vigor ativo.",
     "minutes": "minutos",
     "You are earning": "Você está ganhando",
     "XP every": "XP a cada",
     "to level up": "para upar",
+
+    "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Insira seus tickets e seu XP ganho por ronda para calcular o tempo necessário para subir de nível junto de rondas de pico/praça.",
+    "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Insira seu vigor restante em horas para calcular seu XP e a porcentagem ganha durante um vigor ativo.",
+    
+    "__crafting_calculator__": "",
+
     "Inventory": "Inventário",
     "Items": "Items",
     "Primary": "Primária",
     "Secondary": "Secundária",
     "Total": "Total",
-    "Previous": "Anterior",
+    
+    "__walkthrough__": "",
+    
     "Next": "Próximo",
     "Skip": "Pular",
+    "Previous": "Anterior",
     "Finish": "Concluir",
+
+    "__walkthrough_crafting__": "",
 
     "Here you can add your owned items, either tradable or non-tradable and they will be counted for the total result of the recipe you are trying to calculate.": "Aqui você pode adicionar seus itens de propriedade, negociáveis ou não negociáveis e eles serão contados para o resultado total da receita que você está tentando calcular.",
     "Select your item recipe": "Selecione qual item deseja calular",
@@ -68,6 +84,8 @@
     "This left panel shows the cost of items with rarity, this can be a result of the necessary cost of base items for your recipe. \n\n For example, this panel can account for the necessary items for crafting rare steel for a rare weapon.": "Este painel esquerdo mostra o custo dos itens com raridade, isso pode ser resultado do custo necessário dos itens básicos para sua receita. \n\n Por exemplo, este painel pode contabilizar os itens necessários para a fabricação de aço raro para uma arma rara.",
     "Cost of generic items": "Custo de itens genéricos",
     "This right panel shows the generic items for recipe crafting, this is the sum of ALL item's cost of copper for example. \n\n Note that this is going, to sum up the cost of base resources, secondary, tertiary, and so on.": "Este painel direito mostra os itens genéricos para criação de receita, esta é a soma do custo de cobre de TODOS os itens, por exemplo. \n\n Observe que isso vai somar o custo dos recursos básicos, secundários, terciários e assim por diante.",
+
+    "__walkthrough_experience__": "",
 
     "Experience gain measure": "Medida de ganho de experiência",
     "You can start a five minutes timer and start measuring your performance, make sure to mark the start experience percentage and insert the final percentage when the times end up.": "Você pode iniciar um cronômetro de cinco minutos e começar a medir seu desempenho, certifique-se de marcar a porcentagem de experiência inicial e inserir a porcentagem final quando os tempos acabarem.",
