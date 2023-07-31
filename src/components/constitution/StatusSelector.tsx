@@ -47,6 +47,34 @@ export default function ConstitutionStatusSelector() {
     })
   }
 
+  function buttonHandleStatus(
+    label: statusEffects,
+    type: 'from' | 'to',
+    action: 'increment' | 'decrement'
+  ) {
+    setLevels((prev) => {
+      let newValue = prev[label][type]
+
+      if (action === 'increment') newValue += 1
+      if (action === 'decrement') newValue -= 1
+
+      if (type === 'from' && newValue > prev[label].to) {
+        newValue = prev[label].to
+      }
+      if (type === 'to' && newValue < prev[label].from) {
+        newValue = prev[label].from
+      }
+
+      return {
+        ...prev,
+        [label]: {
+          ...prev[label],
+          [type]: getValidNumber(newValue),
+        },
+      }
+    })
+  }
+
   return (
     <>
       {buttons.map(({ label, styling, inputStyling, tagStyling, Icon }) => {
@@ -55,6 +83,7 @@ export default function ConstitutionStatusSelector() {
         return (
           <label
             key={label}
+            htmlFor={`from${label}`}
             className={cn(
               'absolute flex flex-col items-center justify-center',
               styling,
@@ -71,31 +100,64 @@ export default function ConstitutionStatusSelector() {
               leaveTo="translate-x-0 opacity-0"
               as="div"
               className={cn(
-                'absolute z-10 flex flex-col',
+                'absolute z-10 flex items-center gap-2',
                 'translate-y-24 lg:translate-y-0',
                 inputStyling
               )}
             >
-              <Input
-                className="w-24 rounded-b-none border-b border-primary-400 [&>div]:rounded-b-none"
-                value={levels[label].from}
-                type="number"
-                onChange={(e) =>
-                  handleInput(e.currentTarget.valueAsNumber, 'from', label)
-                }
-                suffix="Lv."
-                placeholder="45"
-              />
-              <Input
-                className="w-24 rounded-t-none [&>div]:rounded-t-none"
-                value={levels[label].to}
-                type="number"
-                onChange={(e) =>
-                  handleInput(e.currentTarget.valueAsNumber, 'to', label)
-                }
-                suffix="Lv."
-                placeholder="50"
-              />
+              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
+                <button
+                  aria-label="Increment current level"
+                  onClick={() => buttonHandleStatus(label, 'from', 'increment')}
+                >
+                  +
+                </button>
+                <button
+                  aria-label="Decrement current level"
+                  onClick={() => buttonHandleStatus(label, 'from', 'decrement')}
+                >
+                  -
+                </button>
+              </div>
+
+              <div className="flex flex-col">
+                <Input
+                  id={`from${label}`}
+                  className="w-24 rounded-b-none border-b border-primary-400 [&>div]:rounded-b-none"
+                  value={levels[label].from}
+                  type="number"
+                  onChange={(e) =>
+                    handleInput(e.currentTarget.valueAsNumber, 'from', label)
+                  }
+                  suffix="Lv."
+                  placeholder="45"
+                />
+                <Input
+                  className="w-24 rounded-t-none [&>div]:rounded-t-none"
+                  value={levels[label].to}
+                  type="number"
+                  onChange={(e) =>
+                    handleInput(e.currentTarget.valueAsNumber, 'to', label)
+                  }
+                  suffix="Lv."
+                  placeholder="50"
+                />
+              </div>
+
+              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
+                <button
+                  aria-label="Increment desired level"
+                  onClick={() => buttonHandleStatus(label, 'to', 'increment')}
+                >
+                  +
+                </button>
+                <button
+                  aria-label="Decrement desired level"
+                  onClick={() => buttonHandleStatus(label, 'to', 'decrement')}
+                >
+                  -
+                </button>
+              </div>
             </Transition>
 
             <Transition
@@ -156,14 +218,14 @@ const buttons: Array<{
     label: 'PHYS DEF',
     styling:
       'translate-x-[-6.2rem] translate-y-[-6.2rem] lg:translate-x-[-10.8rem] lg:translate-y-[-10.8rem]',
-    inputStyling: 'lg:-translate-x-40',
+    inputStyling: 'lg:-translate-x-44',
     tagStyling: 'lg:-translate-x-40',
     Icon: PhysDef,
   },
   {
     label: 'HP',
     styling: 'translate-x-[-8.8rem] lg:translate-x-[-15.25rem]',
-    inputStyling: 'lg:-translate-x-40',
+    inputStyling: 'lg:-translate-x-44',
     tagStyling: 'lg:-translate-x-40',
     Icon: HP,
   },
@@ -171,7 +233,7 @@ const buttons: Array<{
     label: 'EVA',
     styling:
       'translate-x-[-6.2rem] translate-y-[6.2rem] lg:translate-x-[-10.8rem] lg:translate-y-[10.8rem]',
-    inputStyling: 'lg:-translate-x-40',
+    inputStyling: 'lg:-translate-x-44',
     tagStyling: 'lg:-translate-x-40',
     Icon: Eva,
   },
@@ -186,14 +248,14 @@ const buttons: Array<{
     label: 'Accuracy',
     styling:
       'translate-x-[6.2rem] translate-y-[6.2rem] lg:translate-x-[10.8rem] lg:translate-y-[10.8rem]',
-    inputStyling: 'lg:translate-x-40',
+    inputStyling: 'lg:translate-x-44',
     tagStyling: 'lg:translate-x-40',
     Icon: Accuracy,
   },
   {
     label: 'MP',
     styling: 'translate-x-[8.8rem] lg:translate-x-[15.25rem]',
-    inputStyling: 'lg:translate-x-40',
+    inputStyling: 'lg:translate-x-44',
     tagStyling: 'lg:translate-x-40',
     Icon: MP,
   },
@@ -201,7 +263,7 @@ const buttons: Array<{
     label: 'Spell DEF',
     styling:
       'translate-x-[6.2rem] translate-y-[-6.2rem] lg:translate-x-[10.8rem] lg:translate-y-[-10.8rem]',
-    inputStyling: 'lg:translate-x-40',
+    inputStyling: 'lg:translate-x-44',
     tagStyling: 'lg:translate-x-40',
     Icon: SpellDef,
   },
