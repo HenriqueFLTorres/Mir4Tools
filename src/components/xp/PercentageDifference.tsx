@@ -14,7 +14,7 @@ import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
-  const [{ levels, xpPerMinute, percentages, manualCalculation }, setXPCalc] =
+  const [{ levels, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
   const { t } = useTranslation()

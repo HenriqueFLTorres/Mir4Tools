@@ -1,25 +1,31 @@
 'use client'
 
+import { SettingsAtom } from '@/atoms/Settings'
 import Translation from '@/icons/Translation'
 import * as Select from '@radix-ui/react-select'
+import { useAtom } from 'jotai'
 import Image from 'next/image'
 import { toast } from 'react-hot-toast'
 import { useTranslation } from '../../../../public/locales/client'
 
 export default function ChangeLanguage() {
   const { i18n } = useTranslation()
+  const [settings, setSettings] = useAtom(SettingsAtom)
 
-  const changeLanguage = async (val: 'en' | 'pt') => {
-    i18n
-      .changeLanguage(val)
-      .then(() => toast.success('Language updated'))
-      .catch(() => toast.error('Something went wrong'))
+  const changeLanguage = async (val: 'en' | 'pt' | 'en' | 'fil') => {
+    try {
+      await i18n.changeLanguage(val)
+      setSettings((prev) => ({ ...prev, language: val }))
+      toast.success('Language updated')
+    } catch (error) {
+      toast.error('Something went wrong')
+    }
   }
 
   return (
     <Select.Root
       defaultValue="en"
-      value={i18n.language}
+      value={settings.language}
       onValueChange={changeLanguage}
     >
       <Select.Trigger className="flex h-[3.25rem] w-[3.25rem] shrink-0 rounded-full border-2 border-transparent bg-black/20 p-2 outline-none transition-colors hover:border-white/10">
