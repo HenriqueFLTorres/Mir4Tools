@@ -49,7 +49,7 @@ export default function RootLayout({
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                 
-                  gtag('config', ${process.env.GA_TRACKING_ID});
+                  gtag('config', "${process.env.GA_TRACKING_ID}");
                 `}
               </Script>
             </>

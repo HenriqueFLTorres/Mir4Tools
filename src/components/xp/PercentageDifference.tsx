@@ -22,7 +22,8 @@ export default function PercentageDifference() {
   useEffect(() => {
     if (
       levels.initial !== undefined &&
-      levels.initialPercentage !== undefined &&
+      (levels.initialPercentage !== undefined ||
+        percentages.final !== undefined) &&
       percentages.initial !== undefined &&
       percentages.final !== undefined
     ) {
