@@ -3,9 +3,11 @@
 import { ConquestsAtom } from '@/atoms/Conquests'
 import Chevron from '@/icons/Chevron'
 import { useAtom } from 'jotai'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function ConquestStageHandler() {
   const [{ tower, stage }, setConquests] = useAtom(ConquestsAtom)
+  const { t } = useTranslation()
 
   const maxStage = tower === 'Sanctuary of Hydra' ? 12 : 24
 
@@ -34,7 +36,7 @@ export default function ConquestStageHandler() {
         <Chevron />
       </button>
       <span className="flex items-center gap-2">
-        Stage{' '}
+        {t('Stage')}{' '}
         <input
           className={
             'flex w-8 appearance-none rounded-md bg-primary-500/50 px-1 text-center text-sm font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 sm:text-base'

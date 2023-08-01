@@ -4,9 +4,11 @@ import { ConquestsAtom } from '@/atoms/Conquests'
 import { cn } from '@/utils/classNames'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function ConquestSelection() {
   const [{ tower, stage }, setConquests] = useAtom(ConquestsAtom)
+  const { t } = useTranslation()
 
   const handleTowerChange = (selectedTower: ConquestTowers) =>
     setConquests((prev) => ({
@@ -17,13 +19,13 @@ export default function ConquestSelection() {
     }))
 
   return (
-    <div className="custom-scroll relative flex w-full max-w-[50rem] lg:max-w-[90rem]  mx-auto shrink-0 self-start overflow-x-auto">
+    <div className="custom-scroll relative mx-auto flex w-full max-w-[50rem]  shrink-0 self-start overflow-x-auto lg:max-w-[90rem]">
       <Image
         src="/conquests/main.png"
         alt=""
         width={2813}
         height={809}
-        className="w-[50rem] min-w-[50rem] shrink-0 object-contain lg:w-[90rem] lg:min-w-[90rem] md:rounded-lg"
+        className="w-[50rem] min-w-[50rem] shrink-0 object-contain md:rounded-lg lg:w-[90rem] lg:min-w-[90rem]"
       />
       {towersButtonPosition.map(({ label, styling, buttonStyling }) => (
         <label
@@ -35,11 +37,12 @@ export default function ConquestSelection() {
           data-active={label === tower}
         >
           <button
+            aria-label={t(label)}
             className={cn('rounded-full', buttonStyling)}
             onClick={() => handleTowerChange(label)}
           />
           <span className="max-w-[5rem] text-center text-sm font-extrabold text-neutral-100 drop-shadow-[0_1px_4px_rgb(0,0,0,0.6)] transition-[transform,_color,_filter] will-change-[transform,color,filter] group-hover:-translate-y-2 group-data-[active=true]:text-white group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(200,200,200)] lg:max-w-[8rem] lg:text-xl">
-            {label}
+            {t(label)}
           </span>
         </label>
       ))}

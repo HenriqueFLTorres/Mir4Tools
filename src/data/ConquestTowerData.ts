@@ -1687,7 +1687,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98001005: 'Reach Lv. 40',
-            98001104: 'emon Bull Temple All Floors common mission 38x',
+            98001104: 'Demon Bull Temple All Floors common mission 38x',
             98001205: 'Ginkgo Valley common mission 15x',
           },
           Building: {
@@ -2195,7 +2195,7 @@ const ConquestTowersData = {
         Cost: { Copper: 10000 },
         Condition: {
           Achievement: {
-            98008102: 'Unseal 10x',
+            98008102: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 2,
@@ -2235,7 +2235,7 @@ const ConquestTowersData = {
         Cost: { Copper: 20000, Darksteel: 6000, Energy: 4000 },
         Condition: {
           Achievement: {
-            98008104: 'Unseal 10x',
+            98008104: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 4,
@@ -2275,7 +2275,7 @@ const ConquestTowersData = {
         Cost: { Copper: 40000, Darksteel: 12000, Energy: 8000 },
         Condition: {
           Achievement: {
-            98008106: 'Unseal 10x',
+            98008106: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 6,
@@ -2319,7 +2319,7 @@ const ConquestTowersData = {
         Cost: { Copper: 80000, Darksteel: 24000, Energy: 16000 },
         Condition: {
           Achievement: {
-            98008108: 'Unseal 20x',
+            98008108: 'Unseal 20 times',
           },
           Building: {
             'Tower of Conquest': 8,
@@ -2363,7 +2363,7 @@ const ConquestTowersData = {
         Cost: { Copper: 150000, Darksteel: 45000, Energy: 30000 },
         Condition: {
           Achievement: {
-            98008110: 'Unseal 40x',
+            98008110: 'Unseal 40 times',
           },
           Building: {
             'Tower of Conquest': 10,
@@ -2408,7 +2408,7 @@ const ConquestTowersData = {
         Cost: { Copper: 300000, Darksteel: 90000, Energy: 60000 },
         Condition: {
           Achievement: {
-            98008112: 'Unseal 60x',
+            98008112: 'Unseal 60 times',
             98001013: 'Reach Lv. 85',
           },
           Building: {
@@ -2964,7 +2964,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98003216: 'Redmoon Valley 3F Common Mission 7x',
-            98003016: 'Mine ore 11,000 times',
+            98003016: 'Mine ore 11000 times',
           },
           Building: {
             'Tower of Conquest': 16,
@@ -2980,7 +2980,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98003217: 'Redmoon Valley 4F Common Mission 6x',
-            98003117: 'Mine Darksteel 19,600x times',
+            98003117: 'Mine Darksteel 19600 times',
           },
           Building: {
             'Tower of Conquest': 17,
