@@ -66,5 +66,5 @@ export default function ChangeLanguage() {
 const languages = [
   { label: 'English', value: 'en' },
   { label: 'Português', value: 'pt' },
-  { label: 'Spanish', value: 'es' },
+  { label: 'Español', value: 'es' },
 ]

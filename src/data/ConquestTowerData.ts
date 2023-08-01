@@ -4,6 +4,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 32,
       Achievement: {
+        0o0: 'Reach Lv. 32',
         98008102: 'Gather herbs 100 times',
       },
     },
@@ -16,6 +17,7 @@ const ConquestTowersData = {
         Condition: {
           Level: 32,
           Achievement: {
+            0o0: 'Reach Lv. 32',
             98008102: 'Gather herbs 100 times',
           },
         },
@@ -589,6 +591,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 32,
       Achievement: {
+        0o0: 'Reach Lv. 32',
         98007201: 'Bicheon Labyrinth 1F common mission 15x',
       },
     },
@@ -600,6 +603,7 @@ const ConquestTowersData = {
         Cost: { Copper: 4500 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 32',
             98007201: 'Bicheon Labyrinth 1F common mission 15x',
           },
         },
@@ -1086,6 +1090,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 34,
       Achievement: {
+        0o0: 'Reach Lv. 34',
         98004101: 'Clear Raid 2 times',
       },
     },
@@ -1097,6 +1102,7 @@ const ConquestTowersData = {
         Cost: { Copper: 1000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
         },
@@ -2732,6 +2738,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 30,
       Achievement: {
+        0o0: 'Reach Lv. 30',
         102010280: 'Guided by Destiny - 18. Mine Darksteel in the area',
       },
     },
@@ -2743,6 +2750,7 @@ const ConquestTowersData = {
         Cost: { Copper: 2500 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 30',
             98003101: 'Mine Darksteel 20 times',
           },
         },
@@ -3123,6 +3131,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 30,
       Achievement: {
+        0o0: 'Reach Lv. 30',
         102010280: '[Elite] Nefariox Necropolis 1F common mission 13x',
       },
     },
@@ -3134,6 +3143,7 @@ const ConquestTowersData = {
         Cost: { Copper: 6000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 30',
             98002001: '[Elite] Nefariox Necropolis 2F common mission 13x',
           },
         },
@@ -3534,6 +3544,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 60,
       Achievement: {
+        0o0: 'Reach Lv. 60',
         102010280: 'Complete A Noble Cause',
       },
       Building: {
@@ -3549,6 +3560,7 @@ const ConquestTowersData = {
         Condition: {
           Level: 60,
           Achievement: {
+            0o0: 'Reach Lv. 60',
             102010280: 'Complete A Noble Cause',
           },
           Building: {
@@ -3777,6 +3789,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 34,
       Achievement: {
+        0o0: 'Reach Lv. 34',
         98006201: 'Promote Muscle Strength Manual to Tier 2',
       },
     },
@@ -3788,6 +3801,7 @@ const ConquestTowersData = {
         Cost: { Copper: 4000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
         },
@@ -4305,6 +4319,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 36,
       Achievement: {
+        0o0: 'Reach Lv. 36',
         98009000: 'Join clan',
       },
     },
@@ -4314,7 +4329,12 @@ const ConquestTowersData = {
         Power: 125,
         UpgradeTime: 3,
         Cost: { Copper: 3500 },
-        Condition: undefined,
+        Condition: {
+          Achievement: {
+            0o0: 'Reach Lv. 36',
+            98009000: 'Join clan',
+          },
+        },
         Effects: {
           'Character HP': 300,
           'Energy Gain Boost': '0',
