@@ -3,7 +3,7 @@ import { type Metadata } from 'next'
 export const DefaultMetadata: Metadata = {
   applicationName: 'Mir4 Tools',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Mir4'],
+  keywords: ['mir4', 'mir4 tools', 'mir4 calculator', 'mir4 exp calculator'],
   themeColor: '#473E65',
   openGraph: {
     url: 'https://www.mir4tools.com/',
@@ -20,6 +20,12 @@ export const DefaultMetadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
+    shortcut: '/icon/icon-128x128.png',
+    apple: '/icon/icon-512x512.png',
+    other: {
+      rel: 'apple-touch-icon',
+      url: '/icon/apple-touch-icon.png',
+    },
   },
   other: {
     'msapplication-TileColor': '#473E65',
@@ -106,5 +112,6 @@ export function getSeo({
     alternates: {
       canonical: '',
     },
+    manifest: '/manifest.json',
   }
 }
