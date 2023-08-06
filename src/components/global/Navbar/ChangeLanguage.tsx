@@ -28,7 +28,10 @@ export default function ChangeLanguage() {
       value={settings.language}
       onValueChange={changeLanguage}
     >
-      <Select.Trigger className="flex h-[3.25rem] w-[3.25rem] shrink-0 rounded-full border-2 border-transparent bg-black/20 p-2 outline-none transition-colors hover:border-white/10">
+      <Select.Trigger
+        aria-label="Select Language"
+        className="flex h-[3.25rem] w-[3.25rem] shrink-0 rounded-full border-2 border-transparent bg-black/20 p-2 outline-none transition-colors hover:border-white/10"
+      >
         <Translation className="h-6 w-6 text-white" />
       </Select.Trigger>
 

@@ -32,7 +32,7 @@ export default function Select({
           <CSelect.Viewport>
             {items.map(({ label, value }) => (
               <CSelect.Item
-                className="cursor-pointer rounded p-2 text-sm text-white hover:bg-white/10 motion-safe:transition-colors"
+                className="cursor-pointer rounded p-2 text-sm text-white transition-colors hover:bg-white/10"
                 value={value}
                 key={value}
               >

@@ -46,7 +46,7 @@ function CloseButton({ className, ...props }: Dialog.DialogCloseProps) {
   return (
     <Dialog.Close
       className={cn(
-        'grid place-items-center rounded p-2 hover:bg-black/40 motion-safe:transition-colors',
+        'grid place-items-center rounded p-2 transition-colors hover:bg-black/40',
         className
       )}
       {...props}

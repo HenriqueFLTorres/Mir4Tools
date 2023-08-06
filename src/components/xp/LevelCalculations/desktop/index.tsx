@@ -58,7 +58,7 @@ export default function DesktopLevelCalculations() {
 
       <span
         className={cn(
-          'flex h-1 w-full rounded-full bg-primary-500 motion-safe:transition-colors',
+          'flex h-1 w-full rounded-full bg-primary-500 transition-colors',
           { 'bg-white': successfulInput }
         )}
       />

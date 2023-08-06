@@ -91,7 +91,7 @@ export default function ItemComponent({
           <button
             key={rarity}
             data-active={selectedRarity === rarity}
-            className="flex w-full items-center justify-start gap-1.5 rounded px-2 py-1 text-xs font-semibold text-white hover:bg-primary-400/20 data-[active=true]:bg-primary-400/40 motion-safe:transition-colors"
+            className="flex w-full items-center justify-start gap-1.5 rounded px-2 py-1 text-xs font-semibold text-white transition-colors hover:bg-primary-400/20 data-[active=true]:bg-primary-400/40"
             onClick={() => setRarity(rarity)}
           >
             <div

@@ -7,13 +7,13 @@ export default function ConquestsBackground() {
   const [isLoading, setLoading] = useState(true)
 
   return (
-    <div className="pointer-events-none fixed bg-black h-screen w-screen select-none">
+    <div className="pointer-events-none fixed h-screen w-screen select-none bg-black">
       <Image
         src={'/conquests/main.png'}
         alt=""
         fill
         className={cn(
-          'pointer-events-none fixed left-0 top-0 overflow-hidden object-cover opacity-20 blur-md motion-safe:transition-[filter] motion-safe:duration-700 motion-safe:ease-in-out',
+          'pointer-events-none fixed left-0 top-0 overflow-hidden object-cover opacity-20 blur-md transition-[filter] duration-700 ease-in-out',
           { 'blur-2xl': isLoading }
         )}
         placeholder="blur"

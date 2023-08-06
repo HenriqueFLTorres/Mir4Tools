@@ -10,7 +10,7 @@ export default function XPPageSkeleton() {
       <TimerSkeleton />
 
       <section className="absolute right-4 top-24 flex flex-col items-end gap-4">
-        <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500 motion-safe:transition-colors">
+        <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 transition-colors hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500">
           <Image
             src="/items/peak_ticket.webp"
             alt="Secret Peak Ticket"
@@ -26,7 +26,7 @@ export default function XPPageSkeleton() {
             className="absolute -translate-x-1 -rotate-12"
           />
         </div>
-        <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500 motion-safe:transition-colors">
+        <div className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 transition-colors hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500">
           <EXP className="h-6 w-6 fill-white" />
         </div>
       </section>

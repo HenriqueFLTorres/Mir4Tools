@@ -26,7 +26,7 @@ export default function GlobalNavbar({
     <>
       <header className="absolute z-[40] flex w-full flex-col border-b border-white/10 bg-primary-400/5 px-3 py-2 drop-shadow-md backdrop-blur-xl">
         <div className="relative flex w-full items-center justify-end gap-4 2xl:justify-between">
-          <div className="flex gap-4 mr-auto 2xl:mr-0">
+          <div className="mr-auto flex gap-4 2xl:mr-0">
             <ProfileSection />
 
             <ChangeLanguage />
@@ -37,7 +37,7 @@ export default function GlobalNavbar({
               <Link
                 href={href}
                 key={label}
-                className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors"
+                className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10"
               >
                 <Icon className="h-6 w-6 fill-white" />
                 {label}
@@ -51,7 +51,7 @@ export default function GlobalNavbar({
           <button
             aria-label="Navigation menu"
             onClick={() => setShowMobile((prev) => !prev)}
-            className="flex items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 motion-safe:transition-colors 2xl:hidden"
+            className="flex items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 transition-colors 2xl:hidden"
           >
             <Hamburguer className="h-5 w-5 shrink-0 fill-white" />
           </button>
@@ -71,7 +71,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
   return (
     <nav
       className={cn(
-        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden motion-safe:transition-[max-height,_margin] motion-safe:duration-300 motion-safe:will-change-[max-height,_margin] 2xl:hidden',
+        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden transition-[max-height,_margin] duration-300 will-change-[max-height,_margin] 2xl:hidden',
         {
           'mt-5 max-h-[20rem]': showMobile,
         }
@@ -81,7 +81,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
         <Link
           href={href}
           key={label}
-          className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors"
+          className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10"
         >
           <Icon className="h-6 w-6 fill-white" />
           {label}

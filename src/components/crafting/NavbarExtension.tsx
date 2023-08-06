@@ -32,7 +32,7 @@ export default function CraftingNavExtesion() {
           onClick={() => {
             setShowInventory((prev) => !prev)
           }}
-          className="w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          className="w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10"
           aria-label="Inventory"
         >
           <Backpack className="inline-block h-7 fill-white" />
@@ -54,7 +54,7 @@ export default function CraftingNavExtesion() {
           })
         }}
         className={cn(
-          'relative w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors',
+          'relative w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10',
           {
             'before:absolute before:block before:h-8 before:w-8 before:animate-ping before:rounded-full before:bg-white/50 before:content-[""]':
               !walkData.crafting,

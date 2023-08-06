@@ -37,8 +37,12 @@ export default function MobileLevelCalculations() {
   const XPPerMinute = xpPerMinute || (manualCalculation.xpPerMinute ?? 0)
 
   return (
-    <div className={cn('mb-16 relative items-center w-full flex h-6 flex-col md:hidden')}>
-      <p className="-translate-y-4 px-2 min-h-[1.5rem] text-center text-base font-medium text-white">
+    <div
+      className={cn(
+        'relative mb-16 flex h-6 w-full flex-col items-center md:hidden'
+      )}
+    >
+      <p className="min-h-[1.5rem] -translate-y-4 px-2 text-center text-base font-medium text-white">
         {XPToTargetLevel && !invalidInput
           ? getReadableNumber(XPToTargetLevel)
           : ''}
@@ -46,7 +50,7 @@ export default function MobileLevelCalculations() {
 
       <div
         className={cn(
-          'flex absolute h-6 w-[calc(100%-6rem)] flex-col rounded-b-lg border-4 border-t-0 border-primary-500 motion-safe:transition-colors',
+          'absolute flex h-6 w-[calc(100%-6rem)] flex-col rounded-b-lg border-4 border-t-0 border-primary-500 transition-colors',
           { 'border-white': successfulInput }
         )}
       ></div>

@@ -45,7 +45,7 @@ export default function WalkthroughWrapper() {
     <Tooltip.Wrapper open={isActive}>
       <Tooltip.Trigger>
         <button
-          className="custom absolute left-64 top-64 z-[50] rounded-xl shadow-[0px_0px_0px_9999px_#00000080] motion-safe:duration-300"
+          className="custom absolute left-64 top-64 z-[50] rounded-xl shadow-[0px_0px_0px_9999px_#00000080] duration-300"
           style={elementStyles}
           ref={tooltipRef}
         />

@@ -31,7 +31,7 @@ export default function ExperienceNavExtesion() {
           })
         }}
         className={cn(
-          'relative w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors',
+          'relative w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10',
           {
             'before:absolute before:block before:h-8 before:w-8 before:animate-ping before:rounded-full before:bg-white/50 before:content-[""]':
               !walkData.xp,

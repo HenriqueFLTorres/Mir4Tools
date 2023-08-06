@@ -38,7 +38,7 @@ export default function LevelCalculationsSkeleton() {
 
         <div
           className={
-            'absolute flex h-6 w-[calc(100%-6rem)] flex-col rounded-b-lg border-4 border-t-0 border-primary-500 motion-safe:transition-colors'
+            'absolute flex h-6 w-[calc(100%-6rem)] flex-col rounded-b-lg border-4 border-t-0 border-primary-500 transition-colors'
           }
         />
 

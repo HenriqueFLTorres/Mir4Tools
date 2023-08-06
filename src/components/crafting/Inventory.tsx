@@ -63,7 +63,7 @@ export default function Inventory() {
           onClick={() => {
             setShowInventory((prev) => !prev)
           }}
-          className="h-12 w-12 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          className="h-12 w-12 rounded-md p-3 transition-colors hover:bg-gray-100/10"
           aria-label="Close modal"
         >
           <Close className="fill-white" />

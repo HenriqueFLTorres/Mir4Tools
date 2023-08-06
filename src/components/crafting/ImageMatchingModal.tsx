@@ -82,7 +82,7 @@ export default function ImageMatchingModal({
   return (
     <Modal.Wrapper open={show} onOpenChange={setShow}>
       <Modal.Trigger
-        className="ml-auto h-12 w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+        className="ml-auto h-12 w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10"
         aria-label="Inventory image matcher"
       >
         <Robot className="fill-white" />
@@ -122,7 +122,7 @@ export default function ImageMatchingModal({
           value={input}
           onChange={(e) => setInput(e.currentTarget.value)}
           className={cn(
-            'custom-scroll resize-none rounded-lg border-2 border-primary-400 bg-primary-500/50 p-4 font-medium focus:border-white focus:outline-none motion-safe:transition-colors',
+            'custom-scroll resize-none rounded-lg border-2 border-primary-400 bg-primary-500/50 p-4 font-medium transition-colors focus:border-white focus:outline-none',
             {
               'border-red-400 bg-red-400/10 focus:border-red-400':
                 error.hasError,

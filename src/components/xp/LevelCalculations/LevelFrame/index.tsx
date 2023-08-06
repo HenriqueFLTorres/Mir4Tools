@@ -42,7 +42,7 @@ export default function LevelFrame({
         />
         <input
           className={cn(
-            'relative z-10 w-28 bg-transparent text-center text-3xl font-bold text-white outline-none drop-shadow-sm selection:bg-primary-800 placeholder:text-white/70 motion-safe:transition-colors md:text-4xl',
+            'relative z-10 w-28 bg-transparent text-center text-3xl font-bold text-white outline-none drop-shadow-sm transition-colors selection:bg-primary-800 placeholder:text-white/70 md:text-4xl',
             { 'pt-4': !!percentage }
           )}
           {...props}
