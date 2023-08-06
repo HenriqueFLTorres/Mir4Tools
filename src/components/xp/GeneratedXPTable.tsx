@@ -11,16 +11,20 @@ import {
   type ColumnDef,
 } from '@tanstack/react-table'
 import humanizeDuration from 'humanize-duration'
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import millify from 'millify'
 import moment from 'moment'
 import { useMemo } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function GeneratedXPTable() {
-  const [{ levels, xpPerMinute = 0, manualCalculation, percentages }] =
-    useAtom(XPCalculatorAtom)
-  const [invalidInput] = useAtom(XPInvalidInput)
+  const {
+    levels,
+    xpPerMinute = 0,
+    manualCalculation,
+    percentages,
+  } = useAtomValue(XPCalculatorAtom)
+  const invalidInput = useAtomValue(XPInvalidInput)
   const { t, i18n } = useTranslation()
 
   const LevelGap =
@@ -61,7 +65,7 @@ export default function GeneratedXPTable() {
   if (!XPPerMinute || invalidInput) return <></>
 
   return (
-    <section className="relative mt-12 md:mt-16 flex flex-col rounded-md md:rounded-xl bg-primary-600 p-1">
+    <section className="relative mt-12 flex flex-col rounded-md bg-primary-600 p-1 md:mt-16 md:rounded-xl">
       <table className="relative w-full">
         <thead className="border-b-2 border-primary-500/50">
           {table.getHeaderGroups().map((headerGroup) => (
@@ -69,7 +73,7 @@ export default function GeneratedXPTable() {
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="px-3 md:px-6 py-1.5 md:py-3 text-xs md:text-xl font-bold text-white"
+                  className="px-3 py-1.5 text-xs font-bold text-white md:px-6 md:py-3 md:text-xl"
                 >
                   {flexRender(
                     header.column.columnDef.header,
@@ -89,7 +93,7 @@ export default function GeneratedXPTable() {
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className="px-3 md:px-6 py-1.5 md:py-3 text-xs md:text-sm font-light text-white first:rounded-l-md last:rounded-r-md"
+                  className="px-3 py-1.5 text-xs font-light text-white first:rounded-l-md last:rounded-r-md md:px-6 md:py-3 md:text-sm"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
@@ -169,7 +173,9 @@ const getColumns = (
   },
   {
     accessorKey: 'XPEarned',
-    header: () => <span className="flex md:min-w-[15rem]">{t('XP Earned')}</span>,
+    header: () => (
+      <span className="flex md:min-w-[15rem]">{t('XP Earned')}</span>
+    ),
     cell: ({ getValue }) => (
       <>
         <b className="font-extrabold">{`${millify(getValue() as number)} -`}</b>{' '}

@@ -71,7 +71,7 @@ export default function InnerTimer() {
         <button
           aria-label="Start timer"
           onClick={handleStart}
-          className="w-20 rounded-[4px] bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          className="rounded-[4px] px-4 bg-[#368D6E] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           disabled={timerState.isActive}
         >
           {t('Start')}
@@ -80,7 +80,7 @@ export default function InnerTimer() {
         <button
           aria-label="Reset timer"
           onClick={handleReset}
-          className="w-20 rounded-[4px] bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
+          className="rounded-[4px] px-4 bg-[#473E65] py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50"
           disabled={!timerState.isActive}
         >
           {t('Reset')}

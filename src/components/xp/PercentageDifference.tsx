@@ -14,7 +14,7 @@ import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
-  const [{ levels, xpPerMinute, percentages, manualCalculation }, setXPCalc] =
+  const [{ levels, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
   const { t } = useTranslation()
@@ -22,7 +22,8 @@ export default function PercentageDifference() {
   useEffect(() => {
     if (
       levels.initial !== undefined &&
-      levels.initialPercentage !== undefined &&
+      (levels.initialPercentage !== undefined ||
+        percentages.final !== undefined) &&
       percentages.initial !== undefined &&
       percentages.final !== undefined
     ) {
@@ -78,7 +79,7 @@ export default function PercentageDifference() {
     <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
       <div
         id="experienceTimerInput"
-        className={'mt-8 flex flex-col sm:flex-row'}
+        className={'mt-8 flex items-end flex-col sm:flex-row'}
       >
         <Input
           placeholder="Start"

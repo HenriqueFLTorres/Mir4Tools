@@ -5,13 +5,7 @@ import GoogleProvider from 'next-auth/providers/google'
 
 const defaultSettings = {
   displayRarity: ['Legendary', 'Epic', 'Rare'],
-  language: 'en',
   showOwnedItems: false,
-}
-
-const handleLocale = (locale?: string) => {
-  if (locale?.includes('pt-')) return 'pt'
-  else return 'en'
 }
 
 export const nextAuthOptions: NextAuthOptions = {
@@ -38,9 +32,6 @@ export const nextAuthOptions: NextAuthOptions = {
               settings: {
                 create: {
                   ...defaultSettings,
-                  language: handleLocale(
-                    (profile as { locale?: string })?.locale
-                  ),
                 },
               },
             },

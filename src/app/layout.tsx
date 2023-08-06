@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
 import { PT_Serif, Rubik } from '@next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import Script from 'next/script'
 import { Toaster } from 'react-hot-toast'
 import Providers from '../components/Providers'
 import { RouteMetadata } from './DefaultMetadata'
@@ -34,9 +35,25 @@ export default function RootLayout({
     <html lang="en" className={cn(main.variable, ptSerif.variable)}>
       <head />
       <Providers>
-        <body className='overflow-auto'>
+        <body className="overflow-auto">
           {children}
           <Analytics />
+          {process.env.GA_TRACKING_ID && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+              />
+              <Script id="google-analytics">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                
+                  gtag('config', "${process.env.GA_TRACKING_ID}");
+                `}
+              </Script>
+            </>
+          )}
           <WalkthroughWrapper />
           <Toaster
             position="top-right"

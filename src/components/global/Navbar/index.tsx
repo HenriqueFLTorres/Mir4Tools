@@ -1,6 +1,8 @@
 'use client'
 
 import SupportTag from '@/components/global/Navbar/SupportTag'
+import Conquest from '@/icons/Conquest'
+import Constitution from '@/icons/Constitution'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
 import Hamburguer from '@/icons/Hamburguer'
@@ -8,10 +10,9 @@ import { cn } from '@/utils/classNames'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
+import ChangeLanguage from './ChangeLanguage'
 import ProfileSection from './ProfileSection'
 import SupportUs from './SupportUs'
-import Conquest from '@/icons/Conquest'
-import Constitution from '@/icons/Constitution'
 
 export default function GlobalNavbar({
   children,
@@ -24,15 +25,19 @@ export default function GlobalNavbar({
   return (
     <>
       <header className="absolute z-[40] flex w-full flex-col border-b border-white/10 bg-primary-400/5 px-3 py-2 drop-shadow-md backdrop-blur-xl">
-        <div className="relative flex w-full gap-4 items-center justify-end xl:justify-between">
-          <ProfileSection />
+        <div className="relative flex w-full items-center justify-end gap-4 2xl:justify-between">
+          <div className="mr-auto flex gap-4 2xl:mr-0">
+            <ProfileSection />
 
-          <nav className="absolute left-1/2 hidden w-max shrink-0 -translate-x-1/2 gap-4 xl:flex">
+            <ChangeLanguage />
+          </div>
+
+          <nav className="absolute left-1/2 hidden w-max shrink-0 -translate-x-1/2 gap-4 2xl:flex">
             {links(t).map(({ href, label, Icon }) => (
               <Link
                 href={href}
                 key={label}
-                className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors"
+                className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10"
               >
                 <Icon className="h-6 w-6 fill-white" />
                 {label}
@@ -46,7 +51,7 @@ export default function GlobalNavbar({
           <button
             aria-label="Navigation menu"
             onClick={() => setShowMobile((prev) => !prev)}
-            className="flex xl:hidden items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 motion-safe:transition-colors"
+            className="flex items-center justify-items-end gap-3 rounded-md bg-black/20 p-3 transition-colors 2xl:hidden"
           >
             <Hamburguer className="h-5 w-5 shrink-0 fill-white" />
           </button>
@@ -66,7 +71,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
   return (
     <nav
       className={cn(
-        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden motion-safe:transition-[max-height,_margin] motion-safe:duration-300 motion-safe:will-change-[max-height,_margin] xl:hidden',
+        'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden transition-[max-height,_margin] duration-300 will-change-[max-height,_margin] 2xl:hidden',
         {
           'mt-5 max-h-[20rem]': showMobile,
         }
@@ -76,7 +81,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
         <Link
           href={href}
           key={label}
-          className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors"
+          className="flex shrink-0 items-center gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10"
         >
           <Icon className="h-6 w-6 fill-white" />
           {label}

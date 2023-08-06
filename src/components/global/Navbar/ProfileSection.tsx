@@ -19,7 +19,7 @@ export default function ProfileSection() {
     <ProfileMenu>
       <button
         aria-label="Main navigation menu"
-        className="mr-auto flex shrink-0 items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 hover:border-white/10 motion-safe:transition-colors xl:mr-0"
+        className="flex shrink-0 items-center gap-3 rounded-full border-2 border-transparent bg-black/20 p-1.5 pr-3 transition-colors hover:border-white/10"
       >
         {image ? (
           <Image
@@ -33,7 +33,7 @@ export default function ProfileSection() {
           <div
             className={cn(
               'object-fit h-9 w-9 shrink-0 rounded-full bg-black/30',
-              { 'motion-safe:animate-pulse': isLoading }
+              { 'animate-pulse': isLoading }
             )}
           />
         )}
@@ -55,7 +55,7 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
       <Popover.Trigger asChild>{children}</Popover.Trigger>
       <Popover.Content
         align="start"
-        className="rounded relative z-[60] border border-white/10 bg-primary-400/5 p-2 backdrop-blur-lg data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow"
+        className="relative z-[60] rounded border border-white/10 bg-primary-400/5 p-2 backdrop-blur-lg data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow"
         sideOffset={24}
       >
         {name ? (
@@ -76,7 +76,7 @@ function ProfileMenu({ children }: { children: React.ReactNode }) {
             if (status === 'unauthenticated') await signIn('google')
             else await signOut()
           }}
-          className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
+          className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white transition-colors hover:bg-black/20"
         >
           <Exit className="h-5 w-5 fill-white" />
           {status === 'unauthenticated'

@@ -12,7 +12,7 @@ export default function Checkbox({
     <Label.Root className="group flex items-center gap-3 text-sm font-medium text-white">
       <CCheckbox.Root
         className={cn(
-          'grid h-5 w-5 disabled:opacity-50 place-items-center rounded border border-primary-400 bg-primary-500 group-hover:enabled:border-primary-200 motion-safe:transition-colors',
+          'grid h-5 w-5 place-items-center rounded border border-primary-400 bg-primary-500 transition-colors disabled:opacity-50 group-hover:enabled:border-primary-200',
           className
         )}
         {...props}

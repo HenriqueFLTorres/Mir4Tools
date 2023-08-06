@@ -24,7 +24,7 @@ export default function MainItemFrame({
     <Popover.Root>
       <Popover.Trigger
         id="mainItemFrame"
-        className="group relative mx-auto md:mx-0 h-max w-max hover:scale-110 motion-safe:transition-transform motion-safe:will-change-transform md:w-auto"
+        className="group relative mx-auto h-max w-max hover:scale-110 transition-transform will-change-transform md:mx-0 md:w-auto"
       >
         <ItemFrame
           item={name as ItemTypes}
@@ -38,8 +38,9 @@ export default function MainItemFrame({
         <Popover.Content
           side="bottom"
           align="center"
+          sideOffset={16}
           className={cn(
-            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-2 md:translate-y-20 backdrop-blur-lg md:p-4',
+            'flex flex-col gap-4 rounded-lg border border-white/10 bg-primary-600/60 p-2 backdrop-blur-lg md:p-4',
             'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
@@ -55,7 +56,7 @@ export default function MainItemFrame({
                     setItemRarity(r)
                   }}
                   className={cn(
-                    'h-8 w-8 rounded-md bg-legendary-frame opacity-30 motion-safe:transition-opacity',
+                    'h-8 w-8 rounded-md bg-legendary-frame opacity-30 transition-opacity',
                     { 'bg-legendary-frame': r === 'Legendary' },
                     { 'bg-epic-frame': r === 'Epic' },
                     { 'bg-rare-frame': r === 'Rare' },
@@ -171,7 +172,7 @@ function MenuButton({
     <button
       {...props}
       className={cn(
-        'flex grow items-center justify-center gap-2 rounded-md p-2 motion-safe:transition-colors md:p-4',
+        'flex grow items-center justify-center gap-2 rounded-md p-2 transition-colors md:p-4',
         className
       )}
       disabled={disabled}

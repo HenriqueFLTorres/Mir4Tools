@@ -2,16 +2,52 @@ import { InventoryAtom, showInventoryAtom } from '@/atoms/Inventory'
 import BasicItemFrame from '@/components/Inventory/BasicItemComponent'
 import ItemComponent from '@/components/Inventory/ItemComponent'
 import Close from '@/icons/Close'
-import { useAtomValue, useSetAtom } from 'jotai'
-import { useState } from 'react'
+import {
+  AllowedInventoryItemTypes,
+  ComplementaryItems,
+  ItemRarities,
+} from '@/utils/index'
+import { useAtom, useSetAtom } from 'jotai'
+import { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast'
 import { useTranslation } from '../../../public/locales/client'
 import ImageMatchingModal from './ImageMatchingModal'
 
 export default function Inventory() {
-  const inventory = useAtomValue(InventoryAtom)
+  const [inventory, setInventory] = useAtom(InventoryAtom)
   const setShowInventory = useSetAtom(showInventoryAtom)
   const [showImageMatching, setShowImageMatching] = useState(false)
   const { t } = useTranslation()
+
+  useEffect(() => {
+    const inventoryIsUpdated = AllowedInventoryItemTypes.every((item) =>
+      Object.keys(inventory).includes(item)
+    )
+
+    if (!inventoryIsUpdated) {
+      toast.loading('Updating inventory...', { id: 'updateInventory' })
+      setInventory((prev) => ({
+        ...Object.assign(
+          {},
+          ...AllowedInventoryItemTypes.map((item) => ({
+            [item]: ComplementaryItems.includes(item)
+              ? 0
+              : Object.assign(
+                  {},
+                  ...ItemRarities.map((r) => ({
+                    [r]: {
+                      nonTraddable: 0,
+                      traddable: 0,
+                    },
+                  }))
+                ),
+          }))
+        ),
+        ...prev,
+      }))
+      toast.dismiss('updateInventory')
+    }
+  }, [])
 
   return (
     <div className="flex w-full max-w-[100rem] flex-col gap-8 self-center font-main">
@@ -27,7 +63,7 @@ export default function Inventory() {
           onClick={() => {
             setShowInventory((prev) => !prev)
           }}
-          className="h-12 w-12 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors"
+          className="h-12 w-12 rounded-md p-3 transition-colors hover:bg-gray-100/10"
           aria-label="Close modal"
         >
           <Close className="fill-white" />

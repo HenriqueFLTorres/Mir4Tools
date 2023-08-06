@@ -4,6 +4,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 32,
       Achievement: {
+        0o0: 'Reach Lv. 32',
         98008102: 'Gather herbs 100 times',
       },
     },
@@ -16,6 +17,7 @@ const ConquestTowersData = {
         Condition: {
           Level: 32,
           Achievement: {
+            0o0: 'Reach Lv. 32',
             98008102: 'Gather herbs 100 times',
           },
         },
@@ -589,6 +591,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 32,
       Achievement: {
+        0o0: 'Reach Lv. 32',
         98007201: 'Bicheon Labyrinth 1F common mission 15x',
       },
     },
@@ -600,6 +603,7 @@ const ConquestTowersData = {
         Cost: { Copper: 4500 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 32',
             98007201: 'Bicheon Labyrinth 1F common mission 15x',
           },
         },
@@ -1086,6 +1090,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 34,
       Achievement: {
+        0o0: 'Reach Lv. 34',
         98004101: 'Clear Raid 2 times',
       },
     },
@@ -1097,6 +1102,7 @@ const ConquestTowersData = {
         Cost: { Copper: 1000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
         },
@@ -1687,7 +1693,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98001005: 'Reach Lv. 40',
-            98001104: 'emon Bull Temple All Floors common mission 38x',
+            98001104: 'Demon Bull Temple All Floors common mission 38x',
             98001205: 'Ginkgo Valley common mission 15x',
           },
           Building: {
@@ -2195,7 +2201,7 @@ const ConquestTowersData = {
         Cost: { Copper: 10000 },
         Condition: {
           Achievement: {
-            98008102: 'Unseal 10x',
+            98008102: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 2,
@@ -2235,7 +2241,7 @@ const ConquestTowersData = {
         Cost: { Copper: 20000, Darksteel: 6000, Energy: 4000 },
         Condition: {
           Achievement: {
-            98008104: 'Unseal 10x',
+            98008104: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 4,
@@ -2275,7 +2281,7 @@ const ConquestTowersData = {
         Cost: { Copper: 40000, Darksteel: 12000, Energy: 8000 },
         Condition: {
           Achievement: {
-            98008106: 'Unseal 10x',
+            98008106: 'Unseal 10 times',
           },
           Building: {
             'Tower of Conquest': 6,
@@ -2319,7 +2325,7 @@ const ConquestTowersData = {
         Cost: { Copper: 80000, Darksteel: 24000, Energy: 16000 },
         Condition: {
           Achievement: {
-            98008108: 'Unseal 20x',
+            98008108: 'Unseal 20 times',
           },
           Building: {
             'Tower of Conquest': 8,
@@ -2363,7 +2369,7 @@ const ConquestTowersData = {
         Cost: { Copper: 150000, Darksteel: 45000, Energy: 30000 },
         Condition: {
           Achievement: {
-            98008110: 'Unseal 40x',
+            98008110: 'Unseal 40 times',
           },
           Building: {
             'Tower of Conquest': 10,
@@ -2408,7 +2414,7 @@ const ConquestTowersData = {
         Cost: { Copper: 300000, Darksteel: 90000, Energy: 60000 },
         Condition: {
           Achievement: {
-            98008112: 'Unseal 60x',
+            98008112: 'Unseal 60 times',
             98001013: 'Reach Lv. 85',
           },
           Building: {
@@ -2732,6 +2738,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 30,
       Achievement: {
+        0o0: 'Reach Lv. 30',
         102010280: 'Guided by Destiny - 18. Mine Darksteel in the area',
       },
     },
@@ -2743,6 +2750,7 @@ const ConquestTowersData = {
         Cost: { Copper: 2500 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 30',
             98003101: 'Mine Darksteel 20 times',
           },
         },
@@ -2964,7 +2972,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98003216: 'Redmoon Valley 3F Common Mission 7x',
-            98003016: 'Mine ore 11,000 times',
+            98003016: 'Mine ore 11000 times',
           },
           Building: {
             'Tower of Conquest': 16,
@@ -2980,7 +2988,7 @@ const ConquestTowersData = {
         Condition: {
           Achievement: {
             98003217: 'Redmoon Valley 4F Common Mission 6x',
-            98003117: 'Mine Darksteel 19,600x times',
+            98003117: 'Mine Darksteel 19600 times',
           },
           Building: {
             'Tower of Conquest': 17,
@@ -3123,6 +3131,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 30,
       Achievement: {
+        0o0: 'Reach Lv. 30',
         102010280: '[Elite] Nefariox Necropolis 1F common mission 13x',
       },
     },
@@ -3134,6 +3143,7 @@ const ConquestTowersData = {
         Cost: { Copper: 6000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 30',
             98002001: '[Elite] Nefariox Necropolis 2F common mission 13x',
           },
         },
@@ -3534,6 +3544,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 60,
       Achievement: {
+        0o0: 'Reach Lv. 60',
         102010280: 'Complete A Noble Cause',
       },
       Building: {
@@ -3549,6 +3560,7 @@ const ConquestTowersData = {
         Condition: {
           Level: 60,
           Achievement: {
+            0o0: 'Reach Lv. 60',
             102010280: 'Complete A Noble Cause',
           },
           Building: {
@@ -3777,6 +3789,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 34,
       Achievement: {
+        0o0: 'Reach Lv. 34',
         98006201: 'Promote Muscle Strength Manual to Tier 2',
       },
     },
@@ -3788,6 +3801,7 @@ const ConquestTowersData = {
         Cost: { Copper: 4000 },
         Condition: {
           Achievement: {
+            0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
         },
@@ -4305,6 +4319,7 @@ const ConquestTowersData = {
     Unlock: {
       Level: 36,
       Achievement: {
+        0o0: 'Reach Lv. 36',
         98009000: 'Join clan',
       },
     },
@@ -4314,7 +4329,12 @@ const ConquestTowersData = {
         Power: 125,
         UpgradeTime: 3,
         Cost: { Copper: 3500 },
-        Condition: undefined,
+        Condition: {
+          Achievement: {
+            0o0: 'Reach Lv. 36',
+            98009000: 'Join clan',
+          },
+        },
         Effects: {
           'Character HP': 300,
           'Energy Gain Boost': '0',

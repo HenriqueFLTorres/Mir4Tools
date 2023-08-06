@@ -6,17 +6,17 @@ import Tutorial from '@/icons/Tutorial'
 import { cn } from '@/utils/classNames'
 import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import { useAtom } from 'jotai'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function ExperienceNavExtesion() {
   const { t } = useTranslation()
   const [walk, setWalk] = useAtom(WalkthroughAtom)
-
-  let walkthroughData = retrieveWalkthroughFromStorage()
+  const [walkData, setWalkData] = useState({ crafting: true, xp: true })
 
   useEffect(() => {
-    walkthroughData = retrieveWalkthroughFromStorage()
+    const data = retrieveWalkthroughFromStorage()
+    setWalkData(data)
   }, [walk.isActive])
 
   return (
@@ -31,17 +31,17 @@ export default function ExperienceNavExtesion() {
           })
         }}
         className={cn(
-          'relative w-14 rounded-md p-3 hover:bg-gray-100/10 motion-safe:transition-colors',
+          'relative w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10',
           {
             'before:absolute before:block before:h-8 before:w-8 before:animate-ping before:rounded-full before:bg-white/50 before:content-[""]':
-              !walkthroughData.xp,
+              !walkData.xp,
           }
         )}
         aria-label="Walkthrough"
       >
         <div
           className={cn({
-            'animate-vibrate': !walkthroughData.xp,
+            'animate-vibrate': !walkData.xp,
           })}
         >
           <Tutorial className={'inline-block w-6 fill-white'} />

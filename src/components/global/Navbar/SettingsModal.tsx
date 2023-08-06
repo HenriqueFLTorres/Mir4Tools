@@ -79,12 +79,12 @@ export default function SettingsModal() {
     <Modal.Wrapper onOpenChange={setIsOpen} open={isOpen}>
       <Modal.Trigger
         aria-label={t('Manage settings')}
-        className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white hover:bg-black/20 motion-safe:transition-colors"
+        className="flex w-full items-center justify-start gap-4 rounded-md px-3 py-2 font-medium text-white transition-colors hover:bg-black/20"
       >
         <Settings className="h-5 w-5 fill-white" />
         {t('Manage Settings')}
       </Modal.Trigger>
-      <Modal.Content className="max-w-3xl gap-4 pb-6">
+      <Modal.Content className="max-w-3xl gap-4 pb-6 backdrop-blur-lg ">
         <header className="flex w-full items-center justify-between">
           <Modal.Title>{t('Manage Settings')}</Modal.Title>
           <Modal.Close />
@@ -97,21 +97,21 @@ export default function SettingsModal() {
               aria-label="Manage your settings"
             >
               <Tabs.Trigger
-                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
+                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white transition-colors data-[state=active]:bg-white/10"
                 value="general"
               >
                 <Settings className="h-5 w-5 fill-white" />
                 {t('General Settings')}
               </Tabs.Trigger>
               <Tabs.Trigger
-                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
+                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white transition-colors data-[state=active]:bg-white/10"
                 value="crafting"
               >
                 <Forge className="h-5 w-5 fill-white" />
                 {t('Crafting Calculator')}
               </Tabs.Trigger>
               <Tabs.Trigger
-                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white data-[state=active]:bg-white/10 motion-safe:transition-colors"
+                className="flex shrink-0 gap-4 rounded p-3 text-sm font-medium text-white transition-colors data-[state=active]:bg-white/10"
                 value="experience"
               >
                 <EXP className="h-5 w-5 fill-white" />
@@ -188,7 +188,7 @@ export default function SettingsModal() {
 
             <button
               aria-label={t('Save Settings')}
-              className="ml-auto mt-4 rounded bg-primary-600 px-6 py-2 text-sm font-medium text-white hover:bg-primary-500 motion-safe:transition-colors"
+              className="ml-auto mt-4 rounded bg-primary-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-500"
               type="submit"
               disabled={isLoading}
             >

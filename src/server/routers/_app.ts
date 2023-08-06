@@ -21,7 +21,6 @@ export const appRouter = router({
         settings: {
           select: {
             displayRarity: true,
-            language: true,
             showOwnedItems: true,
           },
         },

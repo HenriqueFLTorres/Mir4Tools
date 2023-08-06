@@ -15,7 +15,7 @@ export default function SquareAndPeak() {
         asChild={false}
         aria-label="Open tickets menu"
         id="experienceSquareAndPeak"
-        className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500 motion-safe:transition-colors"
+        className="relative grid h-12 w-12 place-items-center rounded-full border-2 border-primary-500 bg-primary-600 transition-colors hover:border-primary-400 hover:bg-primary-500 data-[state=open]:border-primary-400 data-[state=open]:bg-primary-500"
       >
         <Image
           src="/items/peak_ticket.webp"
@@ -62,7 +62,7 @@ function InnerContent() {
             height={32}
           />
         </div>
-        <h2 className="text-2xl font-bold text-white">{t('Magic Square')}</h2>
+        <h2 className="text-xl font-bold text-white">{t('Magic Square')}</h2>
         <InfoTooltip
           content={t(
             'Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.'
@@ -82,7 +82,7 @@ function InnerContent() {
             height={32}
           />
         </div>
-        <h2 className="text-2xl font-bold text-white">{t('Secret Peak')}</h2>
+        <h2 className="text-xl font-bold text-white">{t('Secret Peak')}</h2>
       </div>
 
       <InnerSecretPeak />

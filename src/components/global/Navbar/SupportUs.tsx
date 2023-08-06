@@ -11,11 +11,11 @@ export default function SupportUs() {
 
   return (
     <Modal.Wrapper>
-      <Modal.Trigger className="flex shrink-0 justify-stretch items-center gap-4 rounded p-3 text-base font-medium text-white hover:bg-white/10 motion-safe:transition-colors">
+      <Modal.Trigger className="flex shrink-0 items-center justify-stretch gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10">
         <Heart className="h-6 w-6 fill-white" />
         {t('Support Us')}!
       </Modal.Trigger>
-      <Modal.Content className="items-center gap-6 backdrop-blur-xl pb-6">
+      <Modal.Content className="items-center gap-6 pb-6 backdrop-blur-xl">
         <header className="flex w-full items-center justify-between">
           <Modal.Title>{t('Support Us')}</Modal.Title>
           <Modal.Close />
@@ -28,7 +28,7 @@ export default function SupportUs() {
 
         <Link
           href="https://www.paypal.com/donate/?hosted_button_id=RGMFCLYG4BKMY"
-          className="flex w-full items-center justify-center rounded-md bg-black/10 px-4 py-3 font-medium text-white hover:bg-black/30 motion-safe:transition-colors"
+          className="flex w-full items-center justify-center rounded-md bg-black/10 px-4 py-3 font-medium text-white transition-colors hover:bg-black/30"
           target="_blank"
         >
           Paypal
