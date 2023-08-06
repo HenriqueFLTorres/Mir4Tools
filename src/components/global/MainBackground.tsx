@@ -13,7 +13,7 @@ export default function MainBackground() {
         alt=""
         fill
         className={cn(
-          'pointer-events-none fixed left-0 top-0 overflow-hidden object-cover opacity-20 transition-[filter] duration-700 ease-in-out',
+          'pointer-events-none fixed left-0 top-0 overflow-hidden object-cover opacity-20 blur-none transition-[filter] duration-700 ease-in-out',
           { 'blur-2xl': isLoading }
         )}
         sizes="100vh"

@@ -4,9 +4,11 @@ import { ConquestsAtom } from '@/atoms/Conquests'
 import { cn } from '@/utils/classNames'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
+import { useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function ConquestSelection() {
+  const [isLoading, setLoading] = useState(true)
   const [{ tower, stage }, setConquests] = useAtom(ConquestsAtom)
   const { t } = useTranslation()
 
@@ -25,7 +27,15 @@ export default function ConquestSelection() {
         alt=""
         width={2813}
         height={809}
-        className="w-[50rem] min-w-[50rem] shrink-0 object-contain md:rounded-lg lg:w-[90rem] lg:min-w-[90rem]"
+        className={cn(
+          'w-[50rem] min-w-[50rem] shrink-0 object-contain blur-none transition-[filter] md:rounded-lg lg:w-[90rem] lg:min-w-[90rem]',
+          { 'blur-2xl': isLoading }
+        )}
+        placeholder="blur"
+        blurDataURL="main-blur.png"
+        onLoadingComplete={() => {
+          setLoading(false)
+        }}
       />
       {towersButtonPosition.map(({ label, styling, buttonStyling }) => (
         <label
