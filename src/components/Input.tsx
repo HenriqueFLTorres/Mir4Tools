@@ -6,11 +6,13 @@ export default function Input({
   className,
   suffix,
   error,
+  isLoading = false,
   ...props
 }: {
   label?: string
   suffix?: React.ReactNode
   error?: React.ReactNode
+  isLoading?: boolean
 } & DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -18,7 +20,7 @@ export default function Input({
   return (
     <label
       className={cn(
-        'flex w-full flex-col text-center items-center gap-1 text-sm font-medium text-primary-100',
+        'flex w-full flex-col items-center gap-1 text-center text-sm font-medium text-primary-100',
         className
       )}
     >
@@ -34,6 +36,10 @@ export default function Input({
             'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm font-normal outline-none selection:bg-primary-800 placeholder:text-neutral-200/70 motion-safe:transition-colors motion-safe:duration-300 sm:text-base',
             {
               'text-red-200': error,
+            },
+            {
+              'mx-auto w-1/2 animate-pulse rounded-full bg-primary-500/50 text-transparent placeholder:text-transparent':
+                isLoading,
             }
           )}
           {...props}

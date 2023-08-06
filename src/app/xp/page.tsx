@@ -1,23 +1,24 @@
+'use client'
+
+import GeneratedXPTable from '@/components/xp/GeneratedXPTable'
+import LevelCalculations from '@/components/xp/LevelCalculations'
+import PercentageDifference from '@/components/xp/PercentageDifference'
 import SquareAndPeak from '@/components/xp/SquareAndPeak'
 import Timer from '@/components/xp/Timer'
 import Vigor from '@/components/xp/Vigor'
+import XPPageSkeleton from '@/components/xp/skeleton'
 import type XPPerLevel from '@/data/XPPerLevel'
-import dynamic from 'next/dynamic'
-
-const GeneratedXPTable = dynamic(
-  async () => await import('@/components/xp/GeneratedXPTable'),
-  { ssr: false }
-)
-const LevelCalculations = dynamic(
-  async () => await import('@/components/xp/LevelCalculations'),
-  { ssr: false }
-)
-const PercentageDifference = dynamic(
-  async () => await import('@/components/xp/PercentageDifference'),
-  { ssr: false }
-)
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
+  if (isLoading) return <XPPageSkeleton />
+
   return (
     <>
       <Timer />

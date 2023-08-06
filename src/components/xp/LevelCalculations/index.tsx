@@ -18,7 +18,7 @@ export default function LevelCalculations() {
   return (
     <section
       id="experienceLevels"
-      className="relative flex flex-col w-full max-w-3xl items-center justify-between gap-4"
+      className="relative flex w-full max-w-3xl flex-col items-center justify-between gap-4"
     >
       <div className="flex w-full items-end justify-between gap-4 md:items-center">
         <LevelFrame
