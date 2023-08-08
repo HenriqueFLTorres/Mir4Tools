@@ -12,10 +12,20 @@ features. Built for making high-quality tools available for free for all players
 
 ### [Crafting Calculator](https://www.mir4tools.com/)
 <br/>
-Here you can calculate the craft of all your items. If you want to see the cost subtracting your current items, you can use the Inventory feature and set up like your inventory in game. (that information is being saved in local storage)
+Here you can calculate the craft of all your items. If you want to see the cost subtracting your current items, you can use the Inventory feature and set up your inventory. (that information is being saved in local storage)
 <br/><br/>
 
 <div align="center">
   <image width="49%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/6d39c7d9-ef4e-4cba-ad23-72a2b737867c" alt="Crafting Calculator screenshot" />
   <image width="49%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/bd669a29-a939-4a74-be83-473b4a4990be" alt="Inventory Open screenshot" />
+</div>
+
+### [Experience Calculator](https://www.mir4tools.com/)
+<br/>
+Here you can measure and predict your experience gains through time, it accepts an input based on the website's stopwatch of 5 minutes or your gains of EXP per minute. There is also the Magic Square/Secret Peak and Vigor feature for additional predictions or calculations.
+<br/><br/>
+
+<div align="center">
+  <image width="77%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/f36f4fe7-54be-4cff-9f5e-45a0b0474223" alt="Experience Calculator screenshot" />
+  <image width="20%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/380e26d1-8183-44b2-aa23-a364224261f5" alt="Experience Calculator mobile screenshot" />
 </div>
