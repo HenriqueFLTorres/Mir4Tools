@@ -29,3 +29,14 @@ Here you can measure and predict your experience gains through time, it accepts 
   <image width="77%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/f36f4fe7-54be-4cff-9f5e-45a0b0474223" alt="Experience Calculator screenshot" />
   <image width="20%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/380e26d1-8183-44b2-aa23-a364224261f5" alt="Experience Calculator mobile screenshot" />
 </div>
+
+### [Experience Calculator](https://www.mir4tools.com/)
+<br/>
+On this page, you can select any conquest building by clicking on the image and see the cost to upgrade it in the game, as well as their conditions, time taken, and effects gained.
+<br/><br/>
+
+<div align="center">
+  <image width="77%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/faf011e2-a51f-4224-8643-ca1c2fb18b0c" alt="Conquests page screenshot" />
+  <image width="20%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/77abbd1a-c3c3-4a3a-8b27-eee70e8cc237" alt="Conquests page mobile screenshot" />
+</div>
+
