@@ -8,7 +8,32 @@
 Mir4 Tools is a cutting-edge software designed for mir4 players, offering revolutionary strategies and time-saving
 features. Built for making high-quality tools available for free for all players around the world.
 
-## Pages
+## Features 💎
+
+### Page Settings
+
+Some pages have some features that the user may prefer to use or not, they can be customized by clicking on their profile and then manage settings. The user can customize the website to fit their style or fulfill their needs.
+
+<image width="50%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/d8ecd4ae-5776-41c7-afdf-a2dce1d21491" alt="Walkthrough system screenshot" />
+
+### 100% Multilingual Support
+To attend to all player's needs, the internationalized website feature was kept in mind since the start of the creation, to attend to all users across the globe the translation is retrieved directly through the game files and carefully revised by the team, we currently fully support Portuguese, English and, Spanish.
+
+<image width="30%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/e8d955da-7fe5-449c-9bf7-7f4369a01973" alt="Walkthrough system screenshot" />
+
+### Walkthrough System
+Pages has a walkthrough system to present the page for new users, by clicking on the glasses icon the user can start a walkthrough to learn more about the page.
+
+<image width="40%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/b0c04e9a-227c-4811-b4ea-78ca40f25503" alt="Walkthrough system screenshot" />
+
+### Inventory Feature
+Used to subtract items from total cost in pages like Crafting Calculator and Constitution, also support an input given by the [Mir4 Tools Discord bot](https://github.com/HenriqueFLTorres/Mir4Tools-Bot)
+
+<image width="50%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/bd669a29-a939-4a74-be83-473b4a4990be" alt="Inventory Open screenshot" />
+
+
+
+## Pages 📃
 
 ### Crafting Calculator - [mir4tools.com](www.mir4tools.com)
 <br/>
