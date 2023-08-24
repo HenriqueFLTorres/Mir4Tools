@@ -114,3 +114,9 @@ type ConquestTowers =
   | 'Holy Shrine'
   | 'Portal'
   | 'Sanctuary of Hydra'
+
+interface ItemForDisplay {
+  name: string
+  rarity: RarityTypes | 'Default'
+  amount: number
+}
