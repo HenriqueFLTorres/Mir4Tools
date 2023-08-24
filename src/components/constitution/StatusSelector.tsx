@@ -161,34 +161,38 @@ export default function ConstitutionStatusSelector() {
                   sideOffset={16}
                   side="bottom"
                 >
-                  {getStatusRecipeCost(levels, label).map(
-                    ({ name, amount, rarity }, index) => (
-                      <li
-                        key={index}
-                        className="flex flex-col items-center gap-2"
-                      >
-                        <ItemFrame
-                          item={
-                            name.toLowerCase().replace(/\s/g, '_') as ItemTypes
-                          }
-                          rarity={rarity}
-                          size="sm"
-                        />
-                        <Tooltip.Wrapper>
-                          <Tooltip.Trigger
-                            asChild={false}
-                            aria-label="See detailed amount"
-                            className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-                          >
-                            {millify(amount)}
-                          </Tooltip.Trigger>
-                          <Tooltip.Content className="z-20">
-                            {getReadableNumber(amount)}
-                          </Tooltip.Content>
-                        </Tooltip.Wrapper>
-                      </li>
-                    )
-                  )}
+                  {isActive &&
+                    hasLevelDifference &&
+                    getStatusRecipeCost(levels, label).map(
+                      ({ name, amount, rarity }, index) => (
+                        <li
+                          key={index}
+                          className="flex flex-col items-center gap-2"
+                        >
+                          <ItemFrame
+                            item={
+                              name
+                                .toLowerCase()
+                                .replace(/\s/g, '_') as ItemTypes
+                            }
+                            rarity={rarity}
+                            size="sm"
+                          />
+                          <Tooltip.Wrapper>
+                            <Tooltip.Trigger
+                              asChild={false}
+                              aria-label="See detailed amount"
+                              className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
+                            >
+                              {millify(amount)}
+                            </Tooltip.Trigger>
+                            <Tooltip.Content className="z-20">
+                              {getReadableNumber(amount)}
+                            </Tooltip.Content>
+                          </Tooltip.Wrapper>
+                        </li>
+                      )
+                    )}
                 </Popover.Content>
               </Popover.Wrapper>
             </label>
