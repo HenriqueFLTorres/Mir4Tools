@@ -107,21 +107,6 @@ export default function ConstitutionStatusSelector() {
                 inputStyling
               )}
             >
-              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
-                <button
-                  aria-label={t('Increment current level')}
-                  onClick={() => buttonHandleStatus(label, 'from', 'increment')}
-                >
-                  +
-                </button>
-                <button
-                  aria-label={t('Decrement current level')}
-                  onClick={() => buttonHandleStatus(label, 'from', 'decrement')}
-                >
-                  -
-                </button>
-              </div>
-
               <div className="flex flex-col">
                 <Input
                   id={`from${label}`}
@@ -144,21 +129,6 @@ export default function ConstitutionStatusSelector() {
                   suffix="Lv."
                   placeholder="50"
                 />
-              </div>
-
-              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
-                <button
-                  aria-label={t('Increment desired level')}
-                  onClick={() => buttonHandleStatus(label, 'to', 'increment')}
-                >
-                  +
-                </button>
-                <button
-                  aria-label={t('Decrement desired level')}
-                  onClick={() => buttonHandleStatus(label, 'to', 'decrement')}
-                >
-                  -
-                </button>
               </div>
             </Transition>
 
