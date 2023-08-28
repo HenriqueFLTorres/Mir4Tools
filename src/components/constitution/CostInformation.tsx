@@ -3,7 +3,11 @@
 import { constitutionUpgradeAtom, statusLevelsAtom } from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
 import ConstitutionMasteryData from '@/data/ConstitutionMasteryData'
-import { getReadableNumber, prepareItemForDisplay, sumObjects } from '@/utils/index'
+import {
+  getReadableNumber,
+  prepareItemForDisplay,
+  sumObjects,
+} from '@/utils/index'
 import { useAtomValue, useSetAtom } from 'jotai'
 import millify from 'millify'
 import { useEffect, useState } from 'react'
@@ -53,10 +57,10 @@ export default function ConstitutionCostInformation() {
     const maxLevel = Math.max(...toLevels)
 
     const masteryIteration = Array(
-      Math.ceil(maxLevel / 5) - Math.ceil(minLevel / 5)
+      Math.round(maxLevel / 5) - Math.round(minLevel / 5)
     )
       .fill(0)
-      .map((_, i) => i + Math.ceil(minLevel / 5))
+      .map((_, i) => i + Math.round(minLevel / 5))
 
     setConstUpgrade({ masteryIteration })
 
@@ -71,7 +75,9 @@ export default function ConstitutionCostInformation() {
       const copperIndex = mergedResults.findIndex(
         (item) => item.name === 'Copper'
       )
-      mergedResults[copperIndex].amount += CopperCost
+      if (copperIndex && mergedResults?.[copperIndex]?.amount) {
+        mergedResults[copperIndex].amount += CopperCost
+      }
     }
 
     setCost([...mergedResults, ...masteryCost])

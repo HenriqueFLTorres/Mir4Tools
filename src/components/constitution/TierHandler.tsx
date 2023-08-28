@@ -11,11 +11,11 @@ export default function TierHandler() {
     const minLevel = Math.min(
       ...Object.values(levels).map((values) => values.from)
     )
-    const tier = Math.ceil(minLevel / 5) + 1
+    const tier = Math.round(minLevel / 5)
 
     const newValues = Object.values(levels).map(({ from, to }) => ({
-      from: getValidNumber(5 * (type === 'increment' ? tier : tier - 2)),
-      to: getValidNumber(5 * (type === 'increment' ? tier + 1 : tier - 1)),
+      from: getValidNumber(5 * (type === 'increment' ? tier + 1 : tier - 1)),
+      to: getValidNumber(5 * (type === 'increment' ? tier + 2 : tier)),
     }))
 
     const merged = Object.keys(levels).reduce(
@@ -31,7 +31,7 @@ export default function TierHandler() {
   const minLevel = Math.min(
     ...Object.values(levels).map((values) => values.from)
   )
-  const currentTier = Math.ceil(minLevel / 5)
+  const currentTier = Math.round(minLevel / 5) + 1
 
   return (
     <div className="absolute flex items-center text-base font-bold text-white">
