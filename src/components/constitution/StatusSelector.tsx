@@ -16,9 +16,8 @@ import PhysDef from '@/icons/PhysDef'
 import SpellDef from '@/icons/SpellDef'
 import { cn } from '@/utils/classNames'
 import {
-  getReadableNumber,
   prepareItemForDisplay,
-  sumObjects,
+  sumObjects
 } from '@/utils/index'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
@@ -26,7 +25,6 @@ import millify from 'millify'
 import React from 'react'
 import { useTranslation } from '../../../public/locales/client'
 import Popover from '../Popover'
-import Tooltip from '../ToolTip'
 import ItemFrame from '../crafting/ItemFrame'
 
 export default function ConstitutionStatusSelector() {
@@ -159,6 +157,8 @@ export default function ConstitutionStatusSelector() {
                 }
                 sideOffset={16}
                 side={getPopperSideByLabel(label)}
+                // eslint-disable-next-line jsx-a11y/no-autofocus
+                autoFocus={false}
               >
                 {isActive &&
                   hasLevelDifference &&
@@ -175,18 +175,10 @@ export default function ConstitutionStatusSelector() {
                           rarity={rarity}
                           size="sm"
                         />
-                        <Tooltip.Wrapper>
-                          <Tooltip.Trigger
-                            asChild={false}
-                            aria-label="See detailed amount"
-                            className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-                          >
+                        <span className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white">
+
                             {millify(amount)}
-                          </Tooltip.Trigger>
-                          <Tooltip.Content className="z-20">
-                            {getReadableNumber(amount)}
-                          </Tooltip.Content>
-                        </Tooltip.Wrapper>
+                        </span>
                       </li>
                     )
                   )}
