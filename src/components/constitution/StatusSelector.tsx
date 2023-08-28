@@ -155,10 +155,10 @@ export default function ConstitutionStatusSelector() {
               </Popover.Trigger>
               <Popover.Content
                 className={
-                  'z-[100] flex items-center justify-center gap-2 overflow-auto rounded-md border-2 border-primary-450 bg-primary-600 p-2'
+                  'z-[100] flex scale-75 items-center justify-center gap-2 overflow-auto rounded-md border-2 border-primary-450 bg-primary-600 p-2 md:scale-100'
                 }
                 sideOffset={16}
-                side="bottom"
+                side={getPopperSideByLabel(label)}
               >
                 {isActive &&
                   hasLevelDifference &&
@@ -286,3 +286,16 @@ const buttons: Array<{
     Icon: SpellDef,
   },
 ]
+
+const getPopperSideByLabel = (label: statusEffects) => {
+  switch (label) {
+    case 'PHYS DEF':
+    case 'HP':
+    case 'EVA':
+      return 'right'
+    case 'PHYS ATK':
+      return 'top'
+    default:
+      return 'left'
+  }
+}
