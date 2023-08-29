@@ -24,7 +24,7 @@ export default function MainItemFrame({
     <Popover.Root>
       <Popover.Trigger
         id="mainItemFrame"
-        className="group relative mx-auto h-max w-max hover:scale-110 transition-transform will-change-transform md:mx-0 md:w-auto"
+        className="group relative mx-auto h-max w-max transition-transform will-change-transform hover:scale-110 md:mx-0 md:w-auto"
       >
         <ItemFrame
           item={name as ItemTypes}
@@ -69,7 +69,7 @@ export default function MainItemFrame({
           </header>
 
           <div className="flex gap-2.5">
-            {Items.map(({ value, image }) => (
+            {Items(itemRarity, weaponType).map(({ value, image }) => (
               <MenuButton
                 key={value}
                 className={cn({
@@ -80,16 +80,13 @@ export default function MainItemFrame({
                 }}
                 aria-label={value}
               >
-                {image.map((i, idx) => (
-                  <Image
-                    key={idx}
-                    alt="value"
-                    src={i}
-                    width={40}
-                    height={40}
-                    className="h-8 w-8 object-contain md:h-10 md:w-10"
-                  />
-                ))}
+                <Image
+                  alt="value"
+                  src={image}
+                  width={80}
+                  height={80}
+                  className="h-12 w-12 object-contain md:h-20 md:w-20"
+                />
               </MenuButton>
             ))}
           </div>
@@ -140,24 +137,25 @@ export default function MainItemFrame({
   )
 }
 
-const Items = [
-  {
-    value: 'weapon',
-    image: ['/items/weapon.webp'],
-  },
-  {
-    value: 'armor',
-    image: ['/items/armor.webp'],
-  },
-  {
-    value: 'necklace',
-    image: ['/items/necklace.webp', '/items/bracelet.webp'],
-  },
-  {
-    value: 'earrings',
-    image: ['/items/earrings.webp', '/items/ring.webp'],
-  },
-] as const
+const Items = (rarity: RarityTypes, weaponType: 'primary' | 'secondary') =>
+  [
+    {
+      value: 'weapon',
+      image: `/items/weapon_${rarity}_${weaponType}.webp`,
+    },
+    {
+      value: 'armor',
+      image: `/items/armor_${rarity}.webp`,
+    },
+    {
+      value: 'necklace',
+      image: `/items/accessory_${rarity}_1.webp`,
+    },
+    {
+      value: 'earrings',
+      image: `/items/accessory_${rarity}_2.webp`,
+    },
+  ] as const
 
 function MenuButton({
   children,
