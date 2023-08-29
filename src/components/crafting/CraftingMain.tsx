@@ -64,7 +64,6 @@ export default function CraftingMain() {
       <section className="mb-4 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16">
         <div className="flex items-center gap-6">
           <MainItemFrame
-            targetItem={targetItem}
             name={category}
             rarity={itemRarity}
             category={category}
@@ -73,7 +72,6 @@ export default function CraftingMain() {
             setTier={setTier}
             weaponType={weaponType}
             setWeaponType={setWeaponType}
-            itemRarity={itemRarity}
             setItemRarity={setItemRarity}
           />
 
