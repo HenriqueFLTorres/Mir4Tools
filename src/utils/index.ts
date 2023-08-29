@@ -290,3 +290,27 @@ const extractItemRarity = (name: string): RarityTypes | 'Default' => {
       return 'Common'
   }
 }
+
+export const getItemImagePath = (
+  props: (
+    | {
+        item: 'weapon'
+        weaponType: 'primary' | 'secondary'
+      }
+    | { item: 'earrings' | 'necklace' | 'armor' }
+  ) & {
+    rarity: RarityTypes
+  }
+) => {
+  const { item, rarity } = props
+  switch (item) {
+    case 'weapon':
+      return `/items/weapon_${rarity}_${props.weaponType}.webp`
+    case 'armor':
+      return `/items/armor_${rarity}.webp`
+    case 'necklace':
+      return `/items/accessory_${rarity}_1.webp`
+    case 'earrings':
+      return `/items/accessory_${rarity}_2.webp`
+  }
+}

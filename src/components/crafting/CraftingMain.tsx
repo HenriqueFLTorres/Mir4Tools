@@ -9,6 +9,7 @@ import { cn } from '@/utils/classNames'
 import {
   ComplementaryItems,
   calculateCraftByItem,
+  getItemImagePath,
   itemTierToQuantity,
 } from '@/utils/index'
 import { useAtom } from 'jotai'
@@ -91,6 +92,11 @@ export default function CraftingMain() {
                 quantity={itemTierToQuantity[selectedTier]}
                 size="lg"
                 className="my-auto shrink-0"
+                customPath={getItemImagePath({
+                  item: category,
+                  rarity: itemRarity,
+                  weaponType,
+                })}
               />
             </>
           )}

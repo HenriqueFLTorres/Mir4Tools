@@ -3,6 +3,7 @@ import { cn } from '@/utils/classNames'
 import * as Popover from '@radix-ui/react-popover'
 import Image from 'next/image'
 import { useTranslation } from '../../../public/locales/client'
+import { getItemImagePath } from '@/utils/index'
 
 export default function MainItemFrame({
   name,
@@ -135,30 +136,6 @@ export default function MainItemFrame({
       </Popover.Portal>
     </Popover.Root>
   )
-}
-
-const getItemImagePath = (
-  props: (
-    | {
-        item: 'weapon'
-        weaponType: 'primary' | 'secondary'
-      }
-    | { item: 'earrings' | 'necklace' | 'armor' }
-  ) & {
-    rarity: RarityTypes
-  }
-) => {
-  const { item, rarity } = props
-  switch (item) {
-    case 'weapon':
-      return `/items/weapon_${rarity}_${props.weaponType}.webp`
-    case 'armor':
-      return `/items/armor_${rarity}.webp`
-    case 'necklace':
-      return `/items/accessory_${rarity}_1.webp`
-    case 'earrings':
-      return `/items/accessory_${rarity}_2.webp`
-  }
 }
 
 function MenuButton({
