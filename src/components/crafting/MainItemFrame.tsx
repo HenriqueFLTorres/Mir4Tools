@@ -1,9 +1,9 @@
 import ItemFrame from '@/components/crafting/ItemFrame'
 import { cn } from '@/utils/classNames'
+import { getItemImagePath } from '@/utils/index'
 import * as Popover from '@radix-ui/react-popover'
 import Image from 'next/image'
 import { useTranslation } from '../../../public/locales/client'
-import { getItemImagePath } from '@/utils/index'
 
 export default function MainItemFrame({
   name,
@@ -43,29 +43,29 @@ export default function MainItemFrame({
             'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
-          <header className="flex justify-between gap-8">
-            <h2 className="text-lg font-bold text-white md:text-2xl">
-              {t('Items')}
-            </h2>
-            <div className="flex gap-2.5">
-              {rarities.map((r) => (
-                <button
-                  key={r}
-                  onClick={() => {
-                    setItemRarity(r)
-                  }}
-                  className={cn(
-                    'h-8 w-8 rounded-md bg-legendary-frame opacity-30 transition-opacity',
-                    { 'bg-legendary-frame': r === 'Legendary' },
-                    { 'bg-epic-frame': r === 'Epic' },
-                    { 'bg-rare-frame': r === 'Rare' },
-                    { 'opacity-100': rarity === r }
-                  )}
-                  aria-label={r}
-                />
-              ))}
-            </div>
-          </header>
+          <div className="flex w-full gap-2.5">
+            {rarities.map((r) => (
+              <button
+                key={r}
+                onClick={() => {
+                  setItemRarity(r)
+                }}
+                className={cn(
+                  'h-8 w-8 flex-grow rounded-md py-4 opacity-30 shadow-md outline-none transition-[opacity,_transform] hover:scale-105 hover:opacity-60',
+                  {
+                    'bg-legendary-frame': r === 'Legendary',
+                  },
+                  { 'bg-epic-frame': r === 'Epic' },
+                  { 'bg-rare-frame': r === 'Rare' },
+                  {
+                    'opacity-100 hover:scale-90 hover:opacity-100':
+                      rarity === r,
+                  }
+                )}
+                aria-label={r}
+              ></button>
+            ))}
+          </div>
 
           <div className="flex gap-2.5">
             {Items.map((item) => {
