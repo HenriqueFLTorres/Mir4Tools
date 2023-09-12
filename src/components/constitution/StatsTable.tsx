@@ -18,20 +18,22 @@ export default function ConstitutionStatsTable() {
   const minLevel = Math.min(
     ...Object.values(levels).map((values) => values.from)
   )
-  const myTierIndex = Math.ceil(minLevel / 5) - 1
+  const myTierIndex = Math.min(Math.round(minLevel / 5), 20)
 
+  const isTierMaxed = minLevel === 105
   const initialTier = myTierIndex + 1
-  const finalTier = (constUpgrade.masteryIteration.at(-1) ?? 0) + 1
+  const finalTier = (constUpgrade.masteryIteration.at(-1) ?? -1) + 2
 
   return (
     <div className="relative flex h-max max-w-xl shrink-0 flex-col rounded-md bg-primary-600 p-1 md:rounded-xl">
       <header>
         <h1 className="py-1 text-center text-lg font-medium text-white">
           {t('Tier Constitution', {
-            tier:
-              finalTier > initialTier
-                ? `${initialTier} > ${finalTier}`
-                : initialTier,
+            tier: isTierMaxed
+              ? 22
+              : finalTier > initialTier
+              ? `${initialTier} > ${finalTier}`
+              : initialTier,
           })}
         </h1>
       </header>

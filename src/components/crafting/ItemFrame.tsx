@@ -19,6 +19,7 @@ export default function ItemFrame({
   className,
   tier,
   quantity = 1,
+  customPath,
   ...props
 }: ItemFrameProps) {
   return (
@@ -34,7 +35,7 @@ export default function ItemFrame({
       {...props}
     >
       <Image
-        src={`/items/${item}.webp`}
+        src={customPath ?? `/items/${item}.webp`}
         alt=""
         width={sizeToPX[size]}
         height={sizeToPX[size]}
@@ -46,7 +47,7 @@ export default function ItemFrame({
         )}
       />
       {tier && (
-        <p className="absolute bottom-2 left-2 w-max bg-transparent bg-gradient-to-b from-[#DEE7EF] to-[#959A9D] bg-clip-text text-start font-ptSerif text-base font-bold !leading-none text-transparent drop-shadow-[0_0_1px_#000] sm:text-2xl">
+        <p className="absolute bottom-2 left-2 w-max bg-transparent bg-gradient-to-b from-[#eaecee] to-[#c1c5c7] bg-clip-text text-start font-ptSerif text-base font-bold !leading-none text-transparent drop-shadow-[0_0_1px_#000] sm:text-2xl">
           {tier === 4 ? 'IV' : 'I'.repeat(tier)}
         </p>
       )}
@@ -71,4 +72,5 @@ type ItemFrameProps = {
   size?: 'sm' | 'md' | 'lg'
   tier?: ItemTier
   quantity?: number
+  customPath?: string
 } & HTMLAttributes<HTMLSpanElement>

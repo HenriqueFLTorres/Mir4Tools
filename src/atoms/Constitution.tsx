@@ -1,4 +1,5 @@
 import { atom } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
 
 const defaultLevels = {
   'PHYS DEF': {
@@ -33,9 +34,9 @@ const defaultLevels = {
 
 export const statusAtom = atom<statusEffects | null>(null)
 
-export const statusLevelsAtom = atom<{
+export const statusLevelsAtom = atomWithStorage<{
   [key in statusEffects]: { from: number; to: number }
-}>(defaultLevels)
+}>('Mir4Tools_Constitution', defaultLevels)
 
 export const constitutionUpgradeAtom = atom<{ masteryIteration: number[] }>({
   masteryIteration: [],

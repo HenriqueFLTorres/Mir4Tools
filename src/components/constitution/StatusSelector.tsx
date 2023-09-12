@@ -6,6 +6,7 @@ import {
   type statusEffects,
 } from '@/atoms/Constitution'
 import Input from '@/components/Input'
+import ConstitutionData from '@/data/ConstituionData'
 import Accuracy from '@/icons/Accuracy'
 import Eva from '@/icons/Eva'
 import HP from '@/icons/HP'
@@ -14,10 +15,17 @@ import PhysAtk from '@/icons/PhysAtk'
 import PhysDef from '@/icons/PhysDef'
 import SpellDef from '@/icons/SpellDef'
 import { cn } from '@/utils/classNames'
+import {
+  prepareItemForDisplay,
+  sumObjects
+} from '@/utils/index'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
+import millify from 'millify'
 import React from 'react'
 import { useTranslation } from '../../../public/locales/client'
+import Popover from '../Popover'
+import ItemFrame from '../crafting/ItemFrame'
 
 export default function ConstitutionStatusSelector() {
   const [status, setStatus] = useAtom(statusAtom)
@@ -49,38 +57,11 @@ export default function ConstitutionStatusSelector() {
     })
   }
 
-  function buttonHandleStatus(
-    label: statusEffects,
-    type: 'from' | 'to',
-    action: 'increment' | 'decrement'
-  ) {
-    setLevels((prev) => {
-      let newValue = prev[label][type]
-
-      if (action === 'increment') newValue += 1
-      if (action === 'decrement') newValue -= 1
-
-      if (type === 'from' && newValue > prev[label].to) {
-        newValue = prev[label].to
-      }
-      if (type === 'to' && newValue < prev[label].from) {
-        newValue = prev[label].from
-      }
-
-      return {
-        ...prev,
-        [label]: {
-          ...prev[label],
-          [type]: getValidNumber(newValue),
-        },
-      }
-    })
-  }
-
   return (
     <>
       {buttons.map(({ label, styling, inputStyling, tagStyling, Icon }) => {
         const isActive = label === status
+        const hasLevelDifference = levels[label].to > levels[label].from
 
         return (
           <label
@@ -107,21 +88,6 @@ export default function ConstitutionStatusSelector() {
                 inputStyling
               )}
             >
-              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
-                <button
-                  aria-label={t('Increment current level')}
-                  onClick={() => buttonHandleStatus(label, 'from', 'increment')}
-                >
-                  +
-                </button>
-                <button
-                  aria-label={t('Decrement current level')}
-                  onClick={() => buttonHandleStatus(label, 'from', 'decrement')}
-                >
-                  -
-                </button>
-              </div>
-
               <div className="flex flex-col">
                 <Input
                   id={`from${label}`}
@@ -144,21 +110,6 @@ export default function ConstitutionStatusSelector() {
                   suffix="Lv."
                   placeholder="50"
                 />
-              </div>
-
-              <div className="flex flex-col font-bold text-white [&>button:first-child]:rounded-t-full [&>button:hover]:bg-primary-500 [&>button:last-child]:rounded-b-full [&>button]:bg-primary-700 [&>button]:px-2 [&>button]:py-1 [&>button]:transition-colors">
-                <button
-                  aria-label={t('Increment desired level')}
-                  onClick={() => buttonHandleStatus(label, 'to', 'increment')}
-                >
-                  +
-                </button>
-                <button
-                  aria-label={t('Decrement desired level')}
-                  onClick={() => buttonHandleStatus(label, 'to', 'decrement')}
-                >
-                  -
-                </button>
               </div>
             </Transition>
 
@@ -184,19 +135,55 @@ export default function ConstitutionStatusSelector() {
               }`}
             </Transition>
 
-            <button
-              className={cn(
-                'group absolute z-[11] h-[4.2rem] w-[4.2rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] duration-300 hover:scale-[1.2] hover:bg-primary-400/30 lg:h-[7.4rem] lg:w-[7.4rem]',
-                'data-[active=true]:scale-[1.35] data-[active=true]:bg-primary-450'
-              )}
-              data-active={isActive}
-              aria-label={t(label)}
-              onClick={() =>
-                setStatus((prev) => (prev === label ? null : label))
-              }
-            >
-              <Icon className="h-8 w-8 fill-[#D9D5EA] transition-[filter] duration-300 group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(140,140,140)] lg:h-16 lg:w-16" />
-            </button>
+            <Popover.Wrapper open={isActive && hasLevelDifference}>
+              <Popover.Trigger asChild>
+                <button
+                  className={cn(
+                    'group z-[11] h-[4.2rem] w-[4.2rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] duration-300 hover:scale-[1.2] hover:bg-primary-400/30 lg:h-[7.4rem] lg:w-[7.4rem]',
+                    'data-[active=true]:scale-[1.35] data-[active=true]:bg-primary-450'
+                  )}
+                  data-active={isActive}
+                  aria-label={t(label)}
+                  onClick={() =>
+                    setStatus((prev) => (prev === label ? null : label))
+                  }
+                >
+                  <Icon className="h-8 w-8 fill-[#D9D5EA] transition-[filter] duration-300 group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(140,140,140)] lg:h-16 lg:w-16" />
+                </button>
+              </Popover.Trigger>
+              <Popover.Content
+                className={
+                  'z-[100] flex scale-75 items-center justify-center gap-2 overflow-auto rounded-md border-2 border-primary-450 bg-primary-600 p-2 md:scale-100'
+                }
+                sideOffset={16}
+                side={getPopperSideByLabel(label)}
+                // eslint-disable-next-line jsx-a11y/no-autofocus
+                autoFocus={false}
+              >
+                {isActive &&
+                  hasLevelDifference &&
+                  getStatusRecipeCost(levels, label).map(
+                    ({ name, amount, rarity }, index) => (
+                      <li
+                        key={index}
+                        className="flex flex-col items-center gap-2"
+                      >
+                        <ItemFrame
+                          item={
+                            name.toLowerCase().replace(/\s/g, '_') as ItemTypes
+                          }
+                          rarity={rarity}
+                          size="sm"
+                        />
+                        <span className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white">
+
+                            {millify(amount)}
+                        </span>
+                      </li>
+                    )
+                  )}
+              </Popover.Content>
+            </Popover.Wrapper>
           </label>
         )
       })}
@@ -208,6 +195,26 @@ function getValidNumber(value: number) {
   if (value < 1) return 1
   if (value > 105) return 105
   return value
+}
+
+function getStatusRecipeCost(
+  levels: {
+    [key in statusEffects]: { from: number; to: number }
+  },
+  label: statusEffects
+) {
+  const result = Array(levels[label].to - levels[label].from)
+    .fill(0)
+    .map((_, i) => i + levels[label].from)
+    .map((i) => ConstitutionData[label][i])
+
+  const results = sumObjects(result.flat())
+
+  if ('Level' in results) delete results.Level
+  // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+  delete results[label]
+
+  return prepareItemForDisplay(results)
 }
 
 const buttons: Array<{
@@ -271,3 +278,16 @@ const buttons: Array<{
     Icon: SpellDef,
   },
 ]
+
+const getPopperSideByLabel = (label: statusEffects) => {
+  switch (label) {
+    case 'PHYS DEF':
+    case 'HP':
+    case 'EVA':
+      return 'right'
+    case 'PHYS ATK':
+      return 'top'
+    default:
+      return 'left'
+  }
+}

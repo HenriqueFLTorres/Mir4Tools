@@ -9,6 +9,7 @@ import {
 import { useAtom } from 'jotai'
 import { useState, type SetStateAction } from 'react'
 import { useTranslation } from '../../../public/locales/client'
+import FileInput from '../shared/FileInput'
 import Modal from '../shared/Modal'
 
 export default function ImageMatchingModal({
@@ -115,6 +116,18 @@ export default function ImageMatchingModal({
         >
           Mir4Tools Discord link
         </a>
+
+        <FileInput
+          label="Choose a JSON file"
+          accept="application/JSON"
+          onJSONChange={(json) => setInput(json)}
+        />
+
+        <p className="relative flex w-full items-center justify-center border-b border-primary-400 py-2 font-medium">
+          <span className="absolute bg-primary-600 px-4">
+            Or paste your JSON here
+          </span>
+        </p>
 
         <textarea
           spellCheck={false}

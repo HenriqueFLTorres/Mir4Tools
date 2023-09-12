@@ -1,21 +1,19 @@
 import ItemFrame from '@/components/crafting/ItemFrame'
 import { cn } from '@/utils/classNames'
+import { getItemImagePath } from '@/utils/index'
 import * as Popover from '@radix-ui/react-popover'
 import Image from 'next/image'
-import React from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function MainItemFrame({
   name,
   rarity,
-  targetItem,
   category,
   setCategory,
   selectedTier,
   setTier,
   weaponType,
   setWeaponType,
-  itemRarity,
   setItemRarity,
 }: MainItemFrameProps) {
   const { t } = useTranslation()
@@ -24,12 +22,13 @@ export default function MainItemFrame({
     <Popover.Root>
       <Popover.Trigger
         id="mainItemFrame"
-        className="group relative mx-auto h-max w-max hover:scale-110 transition-transform will-change-transform md:mx-0 md:w-auto"
+        className="group relative mx-auto h-max w-max transition-transform will-change-transform hover:scale-110 md:mx-0 md:w-auto"
       >
         <ItemFrame
           item={name as ItemTypes}
           rarity={rarity}
           tier={selectedTier}
+          customPath={getItemImagePath({ item: name, rarity, weaponType })}
           size="lg"
           className="shrink-0"
         />
@@ -44,54 +43,53 @@ export default function MainItemFrame({
             'data-[state=closed]:animate-hidePopover data-[state=open]:animate-showPopover'
           )}
         >
-          <header className="flex justify-between gap-8">
-            <h2 className="text-lg font-bold text-white md:text-2xl">
-              {t('Items')}
-            </h2>
-            <div className="flex gap-2.5">
-              {rarities.map((r) => (
-                <button
-                  key={r}
-                  onClick={() => {
-                    setItemRarity(r)
-                  }}
-                  className={cn(
-                    'h-8 w-8 rounded-md bg-legendary-frame opacity-30 transition-opacity',
-                    { 'bg-legendary-frame': r === 'Legendary' },
-                    { 'bg-epic-frame': r === 'Epic' },
-                    { 'bg-rare-frame': r === 'Rare' },
-                    { 'opacity-100': itemRarity === r }
-                  )}
-                  aria-label={r}
-                />
-              ))}
-            </div>
-          </header>
+          <div className="flex w-full gap-2.5">
+            {rarities.map((r) => (
+              <button
+                key={r}
+                onClick={() => {
+                  setItemRarity(r)
+                }}
+                className={cn(
+                  'h-8 w-8 flex-grow rounded-md py-4 opacity-30 shadow-md outline-none transition-[opacity,_transform] hover:scale-105 hover:opacity-60',
+                  {
+                    'bg-legendary-frame': r === 'Legendary',
+                  },
+                  { 'bg-epic-frame': r === 'Epic' },
+                  { 'bg-rare-frame': r === 'Rare' },
+                  {
+                    'opacity-100 hover:scale-90 hover:opacity-100':
+                      rarity === r,
+                  }
+                )}
+                aria-label={r}
+              ></button>
+            ))}
+          </div>
 
           <div className="flex gap-2.5">
-            {Items.map(({ value, image }) => (
-              <MenuButton
-                key={value}
-                className={cn({
-                  'bg-primary-100/10': category === value,
-                })}
-                onClick={() => {
-                  setCategory(value)
-                }}
-                aria-label={value}
-              >
-                {image.map((i, idx) => (
+            {Items.map((item) => {
+              const path = getItemImagePath({ item, rarity, weaponType })
+
+              return (
+                <MenuButton
+                  key={item}
+                  className={cn({
+                    'bg-primary-100/10': category === item,
+                  })}
+                  onClick={() => setCategory(item)}
+                  aria-label={item}
+                >
                   <Image
-                    key={idx}
-                    alt="value"
-                    src={i}
-                    width={40}
-                    height={40}
-                    className="h-8 w-8 object-contain md:h-10 md:w-10"
+                    src={path}
+                    alt={''}
+                    width={80}
+                    height={80}
+                    className="h-12 w-12 object-contain md:h-20 md:w-20"
                   />
-                ))}
-              </MenuButton>
-            ))}
+                </MenuButton>
+              )
+            })}
           </div>
 
           <div className="flex gap-2.5">
@@ -140,25 +138,6 @@ export default function MainItemFrame({
   )
 }
 
-const Items = [
-  {
-    value: 'weapon',
-    image: ['/items/weapon.webp'],
-  },
-  {
-    value: 'armor',
-    image: ['/items/armor.webp'],
-  },
-  {
-    value: 'necklace',
-    image: ['/items/necklace.webp', '/items/bracelet.webp'],
-  },
-  {
-    value: 'earrings',
-    image: ['/items/earrings.webp', '/items/ring.webp'],
-  },
-] as const
-
 function MenuButton({
   children,
   className,
@@ -182,21 +161,19 @@ function MenuButton({
   )
 }
 
+const Items = ['weapon', 'armor', 'necklace', 'earrings'] as const
+
 const rarities = ['Legendary', 'Epic', 'Rare'] as const
 
 interface MainItemFrameProps {
-  name: string
+  name: ItemCategory
   rarity: RarityTypes
-  targetItem: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
-  }>
   category: ItemCategory
   setCategory: React.Dispatch<React.SetStateAction<ItemCategory>>
   selectedTier: ItemTier
   setTier: React.Dispatch<React.SetStateAction<ItemTier>>
   weaponType: 'primary' | 'secondary'
   setWeaponType: React.Dispatch<React.SetStateAction<'primary' | 'secondary'>>
-  itemRarity: RarityTypes
   setItemRarity: React.Dispatch<
     React.SetStateAction<Exclude<RarityTypes, 'Common' | 'Uncommon'>>
   >

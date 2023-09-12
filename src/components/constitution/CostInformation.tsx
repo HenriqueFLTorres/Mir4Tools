@@ -3,7 +3,11 @@
 import { constitutionUpgradeAtom, statusLevelsAtom } from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
 import ConstitutionMasteryData from '@/data/ConstitutionMasteryData'
-import { getReadableNumber } from '@/utils/index'
+import {
+  getReadableNumber,
+  prepareItemForDisplay,
+  sumObjects,
+} from '@/utils/index'
 import { useAtomValue, useSetAtom } from 'jotai'
 import millify from 'millify'
 import { useEffect, useState } from 'react'
@@ -43,7 +47,7 @@ export default function ConstitutionCostInformation() {
     // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
     statusKeys.forEach((key) => delete results[key])
 
-    const mergedResults = prepareForDisplay(results)
+    const mergedResults = prepareItemForDisplay(results)
     let masteryCost: ItemForDisplay[] = []
 
     const fromLevels = Object.values(levels).map((values) => values.from)
@@ -53,10 +57,10 @@ export default function ConstitutionCostInformation() {
     const maxLevel = Math.max(...toLevels)
 
     const masteryIteration = Array(
-      Math.ceil(maxLevel / 5) - Math.ceil(minLevel / 5)
+      Math.round(maxLevel / 5) - Math.round(minLevel / 5)
     )
       .fill(0)
-      .map((_, i) => i + Math.ceil(minLevel / 5))
+      .map((_, i) => i + Math.round(minLevel / 5))
 
     setConstUpgrade({ masteryIteration })
 
@@ -67,11 +71,13 @@ export default function ConstitutionCostInformation() {
       const CopperCost = masteryIteration
         .map((i) => ConstitutionMasteryData[i].Copper as number)
         .reduce((acc, cur) => acc + cur, 0)
-      masteryCost = prepareForDisplay(masteryData)
+      masteryCost = prepareItemForDisplay(masteryData)
       const copperIndex = mergedResults.findIndex(
         (item) => item.name === 'Copper'
       )
-      mergedResults[copperIndex].amount += CopperCost
+      if (copperIndex && mergedResults?.[copperIndex]?.amount) {
+        mergedResults[copperIndex].amount += CopperCost
+      }
     }
 
     setCost([...mergedResults, ...masteryCost])
@@ -121,46 +127,6 @@ const statusKeys = [
   'PHYS ATK',
 ] as const
 
-interface ItemForDisplay {
-  name: string
-  rarity: RarityTypes | 'Default'
-  amount: number
-}
-
-const prepareForDisplay = (
-  data: Array<{ [key in ItemTypes]: number }>
-): ItemForDisplay[] => {
-  return Object.entries(data).map(([item, amount]) => {
-    const rarity = extractRarity(item)
-    let name = item
-
-    if (rarity !== 'Common') {
-      name = name.substring(name.indexOf(' ') + 1)
-    }
-
-    return {
-      name,
-      rarity,
-      amount,
-    }
-  }) as any
-}
-
-const sumObjects = <T extends { [key in string]: number }>(data: T[]): any => {
-  const result: any = {}
-
-  data.forEach((object) => {
-    for (const [key, value] of Object.entries(object)) {
-      if (key in result) {
-        result[key] = (result[key] as number) + value
-      } else {
-        result[key] = value
-      }
-    }
-  })
-  return result
-}
-
 const orderByRarity = <T extends { rarity: RarityTypes | 'Default' }>(
   data: T[]
 ): T[] => {
@@ -168,25 +134,4 @@ const orderByRarity = <T extends { rarity: RarityTypes | 'Default' }>(
     (obj1, obj2) =>
       ItemRarities.indexOf(obj1.rarity) - ItemRarities.indexOf(obj2.rarity)
   )
-}
-
-const extractRarity = (name: string): RarityTypes | 'Default' => {
-  if (name === 'Copper') return 'Default'
-
-  const rarity = name.match(/^([\S]+)/gm)
-
-  if (rarity === null) return 'Common'
-
-  switch (rarity[0]) {
-    case '[L]':
-      return 'Legendary'
-    case '[E]':
-      return 'Epic'
-    case '[R]':
-      return 'Rare'
-    case '[UC]':
-      return 'Uncommon'
-    default:
-      return 'Common'
-  }
 }

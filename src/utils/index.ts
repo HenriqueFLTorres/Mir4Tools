@@ -235,3 +235,82 @@ export function deepMerge(targetObject: any, sourceObject: any) {
 
   return copyTargetObject
 }
+
+export const sumObjects = <T extends { [key in string]: number }>(data: T[]): any => {
+  const result: any = {}
+
+  data.forEach((object) => {
+    for (const [key, value] of Object.entries(object)) {
+      if (key in result) {
+        result[key] = (result[key] as number) + value
+      } else {
+        result[key] = value
+      }
+    }
+  })
+  return result
+}
+
+export const prepareItemForDisplay = (
+  data: Array<{ [key in ItemTypes]: number }>
+): ItemForDisplay[] => {
+  return Object.entries(data).map(([item, amount]) => {
+    const rarity = extractItemRarity(item)
+    let name = item
+
+    if (rarity !== 'Common') {
+      name = name.substring(name.indexOf(' ') + 1)
+    }
+
+    return {
+      name,
+      rarity,
+      amount,
+    }
+  }) as any
+}
+
+const extractItemRarity = (name: string): RarityTypes | 'Default' => {
+  if (name === 'Copper') return 'Default'
+
+  const rarity = name.match(/^([\S]+)/gm)
+
+  if (rarity === null) return 'Common'
+
+  switch (rarity[0]) {
+    case '[L]':
+      return 'Legendary'
+    case '[E]':
+      return 'Epic'
+    case '[R]':
+      return 'Rare'
+    case '[UC]':
+      return 'Uncommon'
+    default:
+      return 'Common'
+  }
+}
+
+export const getItemImagePath = (
+  props: (
+    | {
+        item: 'weapon'
+        weaponType: 'primary' | 'secondary'
+      }
+    | { item: 'earrings' | 'necklace' | 'armor' }
+  ) & {
+    rarity: RarityTypes
+  }
+) => {
+  const { item, rarity } = props
+  switch (item) {
+    case 'weapon':
+      return `/items/weapon_${rarity}_${props.weaponType}.webp`
+    case 'armor':
+      return `/items/armor_${rarity}.webp`
+    case 'necklace':
+      return `/items/accessory_${rarity}_1.webp`
+    case 'earrings':
+      return `/items/accessory_${rarity}_2.webp`
+  }
+}
