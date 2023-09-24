@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  constitutionUpgradeAtom,
-  statusLevelsAtom,
-  type statusEffects,
-} from '@/atoms/Constitution'
+import { constitutionUpgradeAtom, statusLevelsAtom } from '@/atoms/Constitution'
 import ConstitutionData from '@/data/ConstituionData'
 import ConstitutionMasteryData from '@/data/ConstitutionMasteryData'
 import { useAtomValue } from 'jotai'
@@ -121,6 +117,6 @@ function getValuesFromAtom(initialStatus: number, endStatus: number) {
 function getStatus(status: statusEffects, index: number, tierIndex: number) {
   return (
     ((ConstitutionData[status].at(index - 1) as any)[status] as number) +
-    ConstitutionMasteryData[tierIndex].Effects[status]
+    ConstitutionMasteryData?.[tierIndex]?.Effects?.[status]
   )
 }

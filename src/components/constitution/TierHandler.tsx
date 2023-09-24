@@ -1,7 +1,7 @@
 'use client'
-import { statusLevelsAtom, type statusEffects } from '@/atoms/Constitution'
 import { useAtom } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
+import { statusLevelsAtom } from '@/atoms/Constitution'
 
 export default function TierHandler() {
   const [levels, setLevels] = useAtom(statusLevelsAtom)

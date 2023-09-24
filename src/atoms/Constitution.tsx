@@ -34,19 +34,8 @@ const defaultLevels = {
 
 export const statusAtom = atom<statusEffects | null>(null)
 
-export const statusLevelsAtom = atomWithStorage<{
-  [key in statusEffects]: { from: number; to: number }
-}>('Mir4Tools_Constitution', defaultLevels)
+export const statusLevelsAtom = atomWithStorage<statusLevels>('Mir4Tools_Constitution', defaultLevels)
 
 export const constitutionUpgradeAtom = atom<{ masteryIteration: number[] }>({
   masteryIteration: [],
 })
-
-export type statusEffects =
-  | 'PHYS DEF'
-  | 'HP'
-  | 'EVA'
-  | 'PHYS ATK'
-  | 'Accuracy'
-  | 'MP'
-  | 'Spell DEF'
