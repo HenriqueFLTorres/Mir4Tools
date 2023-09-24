@@ -1,4 +1,3 @@
-import { type statusEffects } from '@/atoms/Constitution'
 import { cn } from '@/utils/classNames'
 import React from 'react'
 

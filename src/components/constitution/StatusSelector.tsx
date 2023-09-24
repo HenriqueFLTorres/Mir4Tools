@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  statusAtom,
-  statusLevelsAtom,
-  type statusEffects,
-} from '@/atoms/Constitution'
+import { statusAtom, statusLevelsAtom } from '@/atoms/Constitution'
 import Input from '@/components/Input'
 import ConstitutionData from '@/data/ConstituionData'
 import Accuracy from '@/icons/Accuracy'
@@ -15,47 +11,19 @@ import PhysAtk from '@/icons/PhysAtk'
 import PhysDef from '@/icons/PhysDef'
 import SpellDef from '@/icons/SpellDef'
 import { cn } from '@/utils/classNames'
-import {
-  prepareItemForDisplay,
-  sumObjects
-} from '@/utils/index'
+import { prepareItemForDisplay, sumObjects } from '@/utils/index'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
 import millify from 'millify'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
-import Popover from '../Popover'
+import Tooltip from '../ToolTip'
 import ItemFrame from '../crafting/ItemFrame'
 
 export default function ConstitutionStatusSelector() {
   const [status, setStatus] = useAtom(statusAtom)
   const [levels, setLevels] = useAtom(statusLevelsAtom)
   const { t } = useTranslation()
-
-  function handleInput(
-    value: number,
-    type: 'from' | 'to',
-    label: statusEffects
-  ) {
-    if (Number.isNaN(Number(value))) {
-      return
-    }
-
-    setLevels((prev) => {
-      value = getValidNumber(value)
-
-      if (type === 'from' && value > prev[label].to) value = prev[label].to
-      if (type === 'to' && value < prev[label].from) value = prev[label].from
-
-      return {
-        ...prev,
-        [label]: {
-          ...prev[label],
-          [type]: getValidNumber(value),
-        },
-      }
-    })
-  }
 
   return (
     <>
@@ -88,29 +56,11 @@ export default function ConstitutionStatusSelector() {
                 inputStyling
               )}
             >
-              <div className="flex flex-col">
-                <Input
-                  id={`from${label}`}
-                  className="w-24 rounded-b-none border-b border-primary-400 [&>div]:rounded-b-none"
-                  value={levels[label].from}
-                  type="number"
-                  onChange={(e) =>
-                    handleInput(e.currentTarget.valueAsNumber, 'from', label)
-                  }
-                  suffix="Lv."
-                  placeholder="45"
-                />
-                <Input
-                  className="w-24 rounded-t-none [&>div]:rounded-t-none"
-                  value={levels[label].to}
-                  type="number"
-                  onChange={(e) =>
-                    handleInput(e.currentTarget.valueAsNumber, 'to', label)
-                  }
-                  suffix="Lv."
-                  placeholder="50"
-                />
-              </div>
+              <StatusInput
+                label={label}
+                levels={levels}
+                setLevels={setLevels}
+              />
             </Transition>
 
             <Transition
@@ -135,8 +85,8 @@ export default function ConstitutionStatusSelector() {
               }`}
             </Transition>
 
-            <Popover.Wrapper open={isActive && hasLevelDifference}>
-              <Popover.Trigger asChild>
+            <Tooltip.Wrapper open={isActive && hasLevelDifference}>
+              <Tooltip.Trigger asChild>
                 <button
                   className={cn(
                     'group z-[11] h-[4.2rem] w-[4.2rem] rounded-full bg-primary-400/10 transition-[transform,_background-color] duration-300 hover:scale-[1.2] hover:bg-primary-400/30 lg:h-[7.4rem] lg:w-[7.4rem]',
@@ -150,15 +100,13 @@ export default function ConstitutionStatusSelector() {
                 >
                   <Icon className="h-8 w-8 fill-[#D9D5EA] transition-[filter] duration-300 group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(140,140,140)] lg:h-16 lg:w-16" />
                 </button>
-              </Popover.Trigger>
-              <Popover.Content
+              </Tooltip.Trigger>
+              <Tooltip.Content
                 className={
-                  'z-[100] flex scale-75 items-center justify-center gap-2 overflow-auto rounded-md border-2 border-primary-450 bg-primary-600 p-2 md:scale-100'
+                  'pointer-events-none z-[100] flex scale-75 items-center justify-center gap-2 overflow-auto rounded-md border-2 border-primary-450 bg-primary-600 p-2 md:scale-100'
                 }
                 sideOffset={16}
                 side={getPopperSideByLabel(label)}
-                // eslint-disable-next-line jsx-a11y/no-autofocus
-                autoFocus={false}
               >
                 {isActive &&
                   hasLevelDifference &&
@@ -176,14 +124,13 @@ export default function ConstitutionStatusSelector() {
                           size="sm"
                         />
                         <span className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white">
-
-                            {millify(amount)}
+                          {millify(amount)}
                         </span>
                       </li>
                     )
                   )}
-              </Popover.Content>
-            </Popover.Wrapper>
+              </Tooltip.Content>
+            </Tooltip.Wrapper>
           </label>
         )
       })}
@@ -191,18 +138,79 @@ export default function ConstitutionStatusSelector() {
   )
 }
 
-function getValidNumber(value: number) {
-  if (value < 1) return 1
-  if (value > 105) return 105
-  return value
+function StatusInput({
+  label,
+  levels,
+  setLevels,
+}: {
+  label: statusEffects
+  levels: statusLevels
+  setLevels: React.Dispatch<React.SetStateAction<statusLevels>>
+}) {
+  const [currentLevel, setCurrentLevel] = useState<{
+    from: number | string
+    to: number | string
+  }>(levels[label])
+
+  useEffect(() => {
+    if (
+      Number.isInteger(Number(currentLevel.from)) &&
+      Number.isInteger(Number(currentLevel.to)) &&
+      Number(currentLevel.from) > 0 &&
+      Number(currentLevel.to) > 0
+    ) {
+      setLevels((prev) => {
+        let fromValue = Number.isNaN(currentLevel.from)
+          ? prev[label].from
+          : currentLevel.from
+        const toValue = Number.isNaN(currentLevel.to)
+          ? prev[label].to
+          : currentLevel.to
+
+        if (fromValue > toValue) fromValue = toValue
+
+        return {
+          ...prev,
+          [label]: {
+            from: Number(fromValue),
+            to: Number(toValue),
+          },
+        }
+      })
+    }
+  }, [currentLevel.from, currentLevel.to])
+
+  function handleInput(value: string, type: 'from' | 'to') {
+    value = value.replace(/\D/gm, '')
+    if (Number(value) > 105) value = '105'
+
+    setCurrentLevel((prev) => ({ ...prev, [type]: value }))
+  }
+
+  return (
+    <div className="flex flex-col">
+      <Input
+        id={`from${label}`}
+        className="w-24 rounded-b-none border-b border-primary-400 [&>div]:rounded-b-none"
+        value={currentLevel.from ?? ''}
+        onChange={(e) => handleInput(e.target.value, 'from')}
+        suffix="Lv."
+        placeholder="45"
+        autoComplete='off'
+      />
+      <Input
+        className="w-24 rounded-t-none [&>div]:rounded-t-none"
+        value={currentLevel.to ?? ''}
+        onChange={(e) => handleInput(e.target.value, 'to')}
+        suffix="Lv."
+        placeholder="50"
+        autoComplete='off'
+      />
+    </div>
+  )
 }
 
-function getStatusRecipeCost(
-  levels: {
-    [key in statusEffects]: { from: number; to: number }
-  },
-  label: statusEffects
-) {
+function getStatusRecipeCost(levels: statusLevels, label: statusEffects) {
   const result = Array(levels[label].to - levels[label].from)
     .fill(0)
     .map((_, i) => i + levels[label].from)

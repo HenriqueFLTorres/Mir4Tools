@@ -120,3 +120,16 @@ interface ItemForDisplay {
   rarity: RarityTypes | 'Default'
   amount: number
 }
+
+type statusLevels = {
+  [key in statusEffects]: { from: number; to: number }
+}
+
+type statusEffects =
+  | 'PHYS DEF'
+  | 'HP'
+  | 'EVA'
+  | 'PHYS ATK'
+  | 'Accuracy'
+  | 'MP'
+  | 'Spell DEF'
