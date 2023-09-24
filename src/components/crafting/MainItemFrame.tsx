@@ -28,7 +28,7 @@ export default function MainItemFrame({
           item={name as ItemTypes}
           rarity={rarity}
           tier={selectedTier}
-          customPath={getItemImagePath({ item: name, rarity, weaponType })}
+          customPath={getItemImagePath({ item: name, rarity: rarity.toLowerCase() as RarityTypes, weaponType })}
           size="lg"
           className="shrink-0"
         />
@@ -81,7 +81,7 @@ export default function MainItemFrame({
                   aria-label={item}
                 >
                   <Image
-                    src={path}
+                    src={path.toLowerCase()}
                     alt={''}
                     width={80}
                     height={80}
