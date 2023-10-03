@@ -1,15 +1,19 @@
 'use client'
+import { MapsAtom } from '@/atoms/Maps'
 import { cn } from '@/utils/classNames'
+import { useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useState } from 'react'
 
 export default function MapsBackground() {
   const [isLoading, setLoading] = useState(true)
+  const mapsStack = useAtomValue(MapsAtom)
+  const currentMapPath = mapsStack.at(1)?.toLowerCase().replace(/\s/g, '_')
 
   return (
     <div className="pointer-events-none fixed h-screen w-screen select-none bg-primary-900/50">
       <Image
-        src={'/maps/world_map.webp'}
+        src={`/maps/${currentMapPath ?? 'global_map'}.webp`}
         alt=""
         fill
         className={cn(
