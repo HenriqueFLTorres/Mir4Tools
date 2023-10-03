@@ -5,7 +5,7 @@ import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import Inventory from '@/components/crafting/Inventory'
 import { CraftingWalkthroughStages } from '@/data/WalkthroughStages'
 import Backpack from '@/icons/Backpack'
-import Tutorial from '@/icons/Tutorial'
+import QuestionMark from '@/icons/Questionmark'
 import { cn } from '@/utils/classNames'
 import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import * as Dialog from '@radix-ui/react-dialog'
@@ -35,7 +35,7 @@ export default function CraftingNavExtesion() {
           className="w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10"
           aria-label="Inventory"
         >
-          <Backpack className="inline-block h-7 fill-white" />
+          <Backpack className="inline-block h-7 w-7 fill-white" />
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Content className="custom-scroll fixed left-0 top-0 z-50 flex h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-primary-800/80 p-4 backdrop-blur data-[state=closed]:animate-contentHide data-[state=open]:animate-contentShow sm:p-14">
@@ -67,7 +67,7 @@ export default function CraftingNavExtesion() {
             'animate-vibrate': !walkData.crafting,
           })}
         >
-          <Tutorial className={'inline-block w-6 fill-white'} />
+          <QuestionMark className={'inline-block w-6 fill-white'} />
         </div>
       </button>
     </div>

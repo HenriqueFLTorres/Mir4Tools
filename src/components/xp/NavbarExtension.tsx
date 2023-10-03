@@ -2,7 +2,7 @@
 
 import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import { ExperienceWalkthroughStages } from '@/data/WalkthroughStages'
-import Tutorial from '@/icons/Tutorial'
+import Tutorial from '@/icons/Questionmark'
 import { cn } from '@/utils/classNames'
 import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import { useAtom } from 'jotai'
