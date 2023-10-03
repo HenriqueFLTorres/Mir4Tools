@@ -6,6 +6,7 @@ import Constitution from '@/icons/Constitution'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
 import Hamburguer from '@/icons/Hamburguer'
+import Monument from '@/icons/Monument'
 import { cn } from '@/utils/classNames'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -112,5 +113,10 @@ const links = (t: (key: string) => string) => [
     href: '/',
     label: t('Crafting Calculator'),
     Icon: Forge,
+  },
+  {
+    href: '/maps',
+    label: t('Maps'),
+    Icon: Monument,
   },
 ]

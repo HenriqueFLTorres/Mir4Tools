@@ -84,7 +84,7 @@ export default function SettingsModal() {
         <Settings className="h-5 w-5 fill-white" />
         {t('Manage Settings')}
       </Modal.Trigger>
-      <Modal.Content className="max-w-3xl gap-4 pb-6 backdrop-blur-lg ">
+      <Modal.Content className="max-w-3xl gap-4 pb-6 backdrop-blur-lg">
         <header className="flex w-full items-center justify-between">
           <Modal.Title>{t('Manage Settings')}</Modal.Title>
           <Modal.Close />
