@@ -4,6 +4,7 @@ import {
   rarityVisibilityAtom,
   type rarityVibilityObject,
 } from '@/atoms/Maps'
+import Popover from '@/components/Popover'
 import { rarityVariantStyles } from '@/components/crafting/ItemFrame'
 import ChestNode from '@/icons/ChestNode'
 import EnergyNode from '@/icons/EnergyNode'
@@ -14,13 +15,22 @@ import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
-import React, { type HTMLAttributes } from 'react'
+import React, { useState, type HTMLAttributes } from 'react'
 
 export const navigationMaps = ['Global Map', 'Snake Pit Area']
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
   const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
+  const [currentMapPoints, setCurrentMapPoints] = useState<{
+    [key in string]: {
+      pos: [number, number]
+      rarity: RarityTypes
+      type: nodeTypes
+    }
+  }>({})
+
+  console.log(currentMapPoints)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -34,13 +44,23 @@ export default function Maps() {
     setMapsStack(results)
   }
 
+  const handleNodeDeletion = (key: string) => {
+    setCurrentMapPoints((prev) => {
+      const newObj = structuredClone(prev)
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+      delete newObj[key]
+
+      return newObj
+    })
+  }
+
   const isNavigationMap = navigationMaps.includes(mapsStack.at(-1) ?? '')
 
   return (
     <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
       <div
         className={cn(
-          'relative flex w-auto max-w-5xl flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
+          'relative flex w-auto max-w-5xl min-h-[45rem] flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
           { 'w-full': isNavigationMap }
         )}
       >
@@ -62,14 +82,95 @@ export default function Maps() {
             sizes="100%"
           />
         ) : (
-          <Image
-            src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
-            alt=""
-            width={600}
-            height={600}
-            className={'object-contain'}
-            sizes="100%"
-          />
+          <div
+            className="relative flex items-center justify-center"
+            onClick={(e) => {
+              if (e.currentTarget !== e.target) return
+
+              const x = e.nativeEvent.layerX / e.currentTarget.clientWidth
+              const y = e.nativeEvent.layerY / e.currentTarget.clientHeight
+
+              const posX = (x * 100).toFixed(2)
+              const posY = (y * 100).toFixed(2)
+              const id = Math.random().toString(16).slice(2)
+              console.log(posX, posY)
+              console.dir(e)
+
+              setCurrentMapPoints((prev) => ({
+                ...prev,
+                [id]: { pos: [posX, posY], rarity: 'Rare', type: 'energy' },
+              }))
+            }}
+          >
+            <Image
+              src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+              alt=""
+              width={600}
+              height={600}
+              className={'pointer-events-none object-contain'}
+              sizes="100%"
+            />
+            {Object.entries(currentMapPoints).map(
+              ([key, { pos, type, rarity }]) => {
+                const NodeIcon = nodeTypeToIcon[type]
+
+                return (
+                  <Popover.Wrapper key={key}>
+                    <Popover.Trigger
+                      className={cn(
+                        'absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-[transform,colors] hover:scale-150',
+                        rarityVariantStyles[rarity]
+                      )}
+                      style={{ left: `${pos[0]}%`, top: `${pos[1]}%` }}
+                    >
+                      <NodeIcon className="h-3 w-3" />
+                    </Popover.Trigger>
+                    <Popover.Content className="flex flex-col gap-2 rounded-md border border-primary-500 bg-primary-600 p-2">
+                      <div className="flex flex-row gap-2">
+                        {mapNodeTypes.map((node) => {
+                          const TypeIcon = nodeTypeToIcon[node]
+
+                          return (
+                            <Button
+                              key={node}
+                              onClick={() =>
+                                setCurrentMapPoints((prev) => ({
+                                  ...prev,
+                                  [key]: { ...prev[key], type: node },
+                                }))
+                              }
+                              className="h-12 w-12 p-1"
+                            >
+                              <TypeIcon />
+                            </Button>
+                          )
+                        })}
+                      </div>
+
+                      <div className="flex justify-between gap-2 [&>button]:h-9 [&>button]:w-9">
+                        <RarityToggle
+                          action={(rarity) =>
+                            setCurrentMapPoints((prev) => ({
+                              ...prev,
+                              [key]: { ...prev[key], rarity },
+                            }))
+                          }
+                        />
+                      </div>
+
+                      <button
+                        aria-label="Delete Node"
+                        onClick={() => handleNodeDeletion(key)}
+                        className="flex rounded bg-csred-400 p-2 text-sm font-extrabold text-white opacity-80 transition-opacity hover:opacity-100"
+                      >
+                        Delete Node
+                      </button>
+                    </Popover.Content>
+                  </Popover.Wrapper>
+                )
+              }
+            )}
+          </div>
         )}
 
         {MapPoints[mapsStack.at(-1)]?.map(({ label, pos }, index) => (
@@ -104,6 +205,7 @@ export default function Maps() {
               const hasSomeRarity = Object.values(
                 rarityVisibility[nodeType]
               ).some((val) => val)
+              const NodeIcon = nodeTypeToIcon[nodeType]
 
               return (
                 <li key={nodeType} className="flex flex-row items-center gap-4">
@@ -132,11 +234,11 @@ export default function Maps() {
                       }))
                     }
                   >
-                    {nodeTypeToIcon[nodeType]}
+                    <NodeIcon />
                   </Button>
                   <RarityToggle
-                    visibility={rarityVisibility[nodeType]}
-                    toggleVisibility={(rarity) =>
+                    isActive={rarityVisibility[nodeType]}
+                    action={(rarity) =>
                       setRarityVisibility((prev) => ({
                         ...prev,
                         [nodeType]: {
@@ -192,11 +294,17 @@ const Button = ({
 }
 
 const RarityToggle = ({
-  visibility,
-  toggleVisibility,
+  isActive = {
+    Legendary: true,
+    Epic: true,
+    Rare: true,
+    Uncommon: true,
+    Common: true,
+  },
+  action,
 }: {
-  visibility: rarityVibilityObject
-  toggleVisibility: (rarity: RarityTypes) => void
+  isActive?: rarityVibilityObject
+  action: (rarity: RarityTypes) => void
 }) => {
   return (
     <>
@@ -206,9 +314,9 @@ const RarityToggle = ({
           className={cn(
             'h-8 w-8 rounded border opacity-40 transition-opacity',
             rarityVariantStyles[rarity],
-            { 'opacity-100': visibility[rarity] }
+            { 'opacity-100': isActive[rarity] }
           )}
-          onClick={() => toggleVisibility(rarity)}
+          onClick={() => action(rarity)}
         />
       ))}
     </>
@@ -219,7 +327,10 @@ function MapButton({
   children,
   className,
   ...props
-}: { children: React.ReactNode } & React.HTMLAttributes<HTMLButtonElement>) {
+}: {
+  children: React.ReactNode
+  className?: string
+} & React.HTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       className={cn(
@@ -242,11 +353,13 @@ const rarities: RarityTypes[] = [
 ]
 const mapNodeTypes = ['energy', 'mining', 'chest', 'gather'] as const
 type nodeTypes = (typeof mapNodeTypes)[number]
-const nodeTypeToIcon: { [key in nodeTypes]: JSX.Element } = {
-  chest: <ChestNode />,
-  energy: <EnergyNode />,
-  gather: <GatherNode />,
-  mining: <MiningNode />,
+const nodeTypeToIcon: {
+  [key in nodeTypes]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
+} = {
+  chest: ChestNode,
+  energy: EnergyNode,
+  gather: GatherNode,
+  mining: MiningNode,
 }
 
 const GlobalMapPoints: Array<{ label: string; pos: [number, number] }> = [
