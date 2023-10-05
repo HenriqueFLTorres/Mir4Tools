@@ -32,7 +32,7 @@ export default function Maps() {
           sizes="100%"
         />
 
-        <header className="mb-auto ml-4 mr-auto mt-4 flex flex-row items-center gap-4 text-xl font-bold text-white">
+        <header className="absolute top-4 left-4 flex flex-row items-center gap-4 text-xl font-bold text-white">
           {mapsStack.map((map, index) => (
             <React.Fragment key={index}>
               <MapButton onClick={() => handleMapChange(map)}>{map}</MapButton>
@@ -106,6 +106,46 @@ const GlobalMapPoints: Array<{ label: string; pos: [number, number] }> = [
   },
 ]
 
+const SnakePitMapPoints: Array<{ label: string; pos: [number, number] }> = [
+  {
+    label: 'Death George',
+    pos: [14, 41],
+  },
+  {
+    label: 'Snake Valley',
+    pos: [25.5, 49],
+  },
+  {
+    label: 'Snake Pit Labyrinth',
+    pos: [27, 71],
+  },
+  {
+    label: 'Abandoned Mine',
+    pos: [38, 34],
+  },
+  {
+    label: 'Abandoned Mine Labyrinth',
+    pos: [59, 36],
+  },
+  {
+    label: 'Snake Pit',
+    pos: [51.5, 57],
+  },
+  {
+    label: 'Sinner\'s Shrine',
+    pos: [80.5, 35],
+  },
+  {
+    label: 'Secret Mine',
+    pos: [85, 52],
+  },
+  {
+    label: 'Viberbeast Plain',
+    pos: [70.5, 74],
+  },
+]
+
 const MapPoints = {
   'Global Map': GlobalMapPoints,
+  'Snake Pit Area': SnakePitMapPoints,
 }

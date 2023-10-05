@@ -9,7 +9,7 @@ import { useState } from 'react'
 export default function MapsBackground() {
   const [isLoading, setLoading] = useState(true)
   const mapsStack = useAtomValue(MapsAtom)
-  const currentMapPath = toCamelCase(mapsStack.at(1))
+  const currentMapPath = toCamelCase(mapsStack.at(-1))
 
   return (
     <div className="pointer-events-none fixed h-screen w-screen select-none bg-primary-900/50">
