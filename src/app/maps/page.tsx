@@ -1,13 +1,26 @@
 'use client'
-import { MapsAtom } from '@/atoms/Maps'
+import {
+  MapsAtom,
+  rarityVisibilityAtom,
+  type rarityVibilityObject,
+} from '@/atoms/Maps'
+import { rarityVariantStyles } from '@/components/crafting/ItemFrame'
+import ChestNode from '@/icons/ChestNode'
+import EnergyNode from '@/icons/EnergyNode'
+import GatherNode from '@/icons/GatherNode'
+import MiningNode from '@/icons/MiningNode'
+import Reset from '@/icons/Reset'
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
-import React from 'react'
+import React, { type HTMLAttributes } from 'react'
+
+export const navigationMaps = ['Global Map', 'Snake Pit Area']
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
+  const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -21,18 +34,17 @@ export default function Maps() {
     setMapsStack(results)
   }
 
-  return (
-    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center gap-8 px-6 pt-32 selection:bg-primary-800">
-      <div className="relative flex min-h-[40rem] w-full max-w-5xl items-center justify-center gap-4 rounded-md border-2 border-white/10 backdrop-blur-md">
-        <Image
-          src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
-          alt=""
-          fill
-          className={'absolute -z-10 rounded-md object-cover'}
-          sizes="100%"
-        />
+  const isNavigationMap = navigationMaps.includes(mapsStack.at(-1) ?? '')
 
-        <header className="absolute top-4 left-4 flex flex-row items-center gap-4 text-xl font-bold text-white">
+  return (
+    <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
+      <div
+        className={cn(
+          'relative flex w-auto max-w-5xl flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
+          { 'w-full': isNavigationMap }
+        )}
+      >
+        <header className="relative mb-auto mr-auto flex flex-row items-center gap-4 text-xl font-bold text-white">
           {mapsStack.map((map, index) => (
             <React.Fragment key={index}>
               <MapButton onClick={() => handleMapChange(map)}>{map}</MapButton>
@@ -40,6 +52,25 @@ export default function Maps() {
             </React.Fragment>
           ))}
         </header>
+
+        {isNavigationMap ? (
+          <Image
+            src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+            alt=""
+            fill
+            className={'absolute -z-10 rounded-md object-cover'}
+            sizes="100%"
+          />
+        ) : (
+          <Image
+            src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+            alt=""
+            width={600}
+            height={600}
+            className={'object-contain'}
+            sizes="100%"
+          />
+        )}
 
         {MapPoints[mapsStack.at(-1)]?.map(({ label, pos }, index) => (
           <label
@@ -57,7 +88,130 @@ export default function Maps() {
           </label>
         ))}
       </div>
+
+      {isNavigationMap ? (
+        <></>
+      ) : (
+        <div className="flex h-full max-w-md flex-col gap-4 rounded-md border border-primary-500 bg-primary-600 p-4 pb-6 text-sm font-light text-white">
+          <Button className="ml-auto">
+            <Reset />
+          </Button>
+
+          <h2 className="text-xl">Visibility Settings</h2>
+
+          <ul className="flex flex-col gap-4">
+            {mapNodeTypes.map((nodeType) => {
+              const hasSomeRarity = Object.values(
+                rarityVisibility[nodeType]
+              ).some((val) => val)
+
+              return (
+                <li key={nodeType} className="flex flex-row items-center gap-4">
+                  <Button
+                    className={cn('mr-2 bg-white/5', {
+                      'bg-white/10': hasSomeRarity,
+                    })}
+                    onClick={() =>
+                      setRarityVisibility((prev) => ({
+                        ...prev,
+                        [nodeType]: hasSomeRarity
+                          ? {
+                              Legendary: false,
+                              Epic: false,
+                              Rare: false,
+                              Uncommon: false,
+                              Common: false,
+                            }
+                          : {
+                              Legendary: true,
+                              Epic: true,
+                              Rare: true,
+                              Uncommon: true,
+                              Common: true,
+                            },
+                      }))
+                    }
+                  >
+                    {nodeTypeToIcon[nodeType]}
+                  </Button>
+                  <RarityToggle
+                    visibility={rarityVisibility[nodeType]}
+                    toggleVisibility={(rarity) =>
+                      setRarityVisibility((prev) => ({
+                        ...prev,
+                        [nodeType]: {
+                          ...prev[nodeType],
+                          [rarity]: !prev[nodeType][rarity],
+                        },
+                      }))
+                    }
+                  />
+                </li>
+              )
+            })}
+          </ul>
+
+          <footer className="mt-auto flex flex-col gap-4">
+            <button
+              className={
+                'flex w-full cursor-pointer items-center justify-center rounded border-2 border-primary-400 bg-primary-500/50 p-3 font-medium leading-none transition-colors hover:bg-primary-500 focus:border-white focus:outline-none'
+              }
+            >
+              Import map
+            </button>
+
+            <button className="flex rounded bg-[#368D6E] p-3 text-xs font-extrabold text-white">
+              Export map as JSON
+            </button>
+          </footer>
+        </div>
+      )}
     </div>
+  )
+}
+
+const Button = ({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode
+  className?: string
+} & HTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button
+      className={cn(
+        'flex h-12 w-12 items-center justify-center rounded bg-white/10 p-2 transition-colors hover:bg-white/20',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
+
+const RarityToggle = ({
+  visibility,
+  toggleVisibility,
+}: {
+  visibility: rarityVibilityObject
+  toggleVisibility: (rarity: RarityTypes) => void
+}) => {
+  return (
+    <>
+      {rarities.map((rarity) => (
+        <button
+          key={rarity}
+          className={cn(
+            'h-8 w-8 rounded border opacity-40 transition-opacity',
+            rarityVariantStyles[rarity],
+            { 'opacity-100': visibility[rarity] }
+          )}
+          onClick={() => toggleVisibility(rarity)}
+        />
+      ))}
+    </>
   )
 }
 
@@ -77,6 +231,22 @@ function MapButton({
       {children}
     </button>
   )
+}
+
+const rarities: RarityTypes[] = [
+  'Legendary',
+  'Epic',
+  'Rare',
+  'Uncommon',
+  'Common',
+]
+const mapNodeTypes = ['energy', 'mining', 'chest', 'gather'] as const
+type nodeTypes = (typeof mapNodeTypes)[number]
+const nodeTypeToIcon: { [key in nodeTypes]: JSX.Element } = {
+  chest: <ChestNode />,
+  energy: <EnergyNode />,
+  gather: <GatherNode />,
+  mining: <MiningNode />,
 }
 
 const GlobalMapPoints: Array<{ label: string; pos: [number, number] }> = [
@@ -132,7 +302,7 @@ const SnakePitMapPoints: Array<{ label: string; pos: [number, number] }> = [
     pos: [51.5, 57],
   },
   {
-    label: 'Sinner\'s Shrine',
+    label: "Sinner's Shrine",
     pos: [80.5, 35],
   },
   {
