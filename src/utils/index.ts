@@ -236,7 +236,9 @@ export function deepMerge(targetObject: any, sourceObject: any) {
   return copyTargetObject
 }
 
-export const sumObjects = <T extends { [key in string]: number }>(data: T[]): any => {
+export const sumObjects = <T extends { [key in string]: number }>(
+  data: T[]
+): any => {
   const result: any = {}
 
   data.forEach((object) => {
@@ -314,3 +316,6 @@ export const getItemImagePath = (
       return `/items/accessory_${rarity}_2.webp`
   }
 }
+
+export const toCamelCase = (string?: string) =>
+  (string ?? '').toLocaleLowerCase().replace(/\s/g, '_')

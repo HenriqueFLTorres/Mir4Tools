@@ -1,6 +1,7 @@
 'use client'
 import { MapsAtom } from '@/atoms/Maps'
 import { cn } from '@/utils/classNames'
+import { toCamelCase } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
 import React from 'react'
@@ -24,7 +25,7 @@ export default function Maps() {
     <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center gap-8 px-6 pt-32 selection:bg-primary-800">
       <div className="relative flex min-h-[40rem] w-full max-w-5xl items-center justify-center gap-4 rounded-md border-2 border-white/10 backdrop-blur-md">
         <Image
-          src={'/maps/global_map.webp'}
+          src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
           alt=""
           fill
           className={'absolute -z-10 rounded-md object-cover'}

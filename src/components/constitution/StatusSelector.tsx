@@ -11,7 +11,7 @@ import PhysAtk from '@/icons/PhysAtk'
 import PhysDef from '@/icons/PhysDef'
 import SpellDef from '@/icons/SpellDef'
 import { cn } from '@/utils/classNames'
-import { prepareItemForDisplay, sumObjects } from '@/utils/index'
+import { prepareItemForDisplay, sumObjects, toCamelCase } from '@/utils/index'
 import { Transition } from '@headlessui/react'
 import { useAtom } from 'jotai'
 import millify from 'millify'
@@ -117,9 +117,7 @@ export default function ConstitutionStatusSelector() {
                         className="flex flex-col items-center gap-2"
                       >
                         <ItemFrame
-                          item={
-                            name.toLowerCase().replace(/\s/g, '_') as ItemTypes
-                          }
+                          item={toCamelCase(name) as ItemTypes}
                           rarity={rarity}
                           size="sm"
                         />
@@ -196,7 +194,7 @@ function StatusInput({
         onChange={(e) => handleInput(e.target.value, 'from')}
         suffix="Lv."
         placeholder="45"
-        autoComplete='off'
+        autoComplete="off"
       />
       <Input
         className="w-24 rounded-t-none [&>div]:rounded-t-none"
@@ -204,7 +202,7 @@ function StatusInput({
         onChange={(e) => handleInput(e.target.value, 'to')}
         suffix="Lv."
         placeholder="50"
-        autoComplete='off'
+        autoComplete="off"
       />
     </div>
   )

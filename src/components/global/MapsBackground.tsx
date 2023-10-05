@@ -1,6 +1,7 @@
 'use client'
 import { MapsAtom } from '@/atoms/Maps'
 import { cn } from '@/utils/classNames'
+import { toCamelCase } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -8,7 +9,7 @@ import { useState } from 'react'
 export default function MapsBackground() {
   const [isLoading, setLoading] = useState(true)
   const mapsStack = useAtomValue(MapsAtom)
-  const currentMapPath = mapsStack.at(1)?.toLowerCase().replace(/\s/g, '_')
+  const currentMapPath = toCamelCase(mapsStack.at(1))
 
   return (
     <div className="pointer-events-none fixed h-screen w-screen select-none bg-primary-900/50">

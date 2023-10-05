@@ -7,6 +7,7 @@ import {
   getReadableNumber,
   prepareItemForDisplay,
   sumObjects,
+  toCamelCase,
 } from '@/utils/index'
 import { useAtomValue, useSetAtom } from 'jotai'
 import millify from 'millify'
@@ -97,7 +98,7 @@ export default function ConstitutionCostInformation() {
         {orderByRarity(cost).map(({ name, rarity, amount }, index) => (
           <li key={index} className="flex flex-col items-center gap-2">
             <ItemFrame
-              item={name.toLowerCase().replace(/\s/g, '_') as ItemTypes}
+              item={toCamelCase(name) as ItemTypes}
               rarity={rarity}
             />
             <Tooltip.Wrapper>

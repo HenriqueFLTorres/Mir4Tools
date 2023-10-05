@@ -2,6 +2,7 @@
 
 import { ConquestsAtom } from '@/atoms/Conquests'
 import ConquestTowersData from '@/data/ConquestTowerData'
+import { toCamelCase } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useTranslation } from '../../../public/locales/client'
@@ -19,9 +20,7 @@ export default function ConquestConditions() {
           ([buildingName, level]) => (
             <ConditionCard
               key={buildingName}
-              image={`/conquests/previews/${buildingName
-                .toLocaleLowerCase()
-                .replace(/\s/g, '_')}.png`}
+              image={`/conquests/previews/${toCamelCase(buildingName)}.png`}
               name={t(buildingName)}
               level={level}
             />
