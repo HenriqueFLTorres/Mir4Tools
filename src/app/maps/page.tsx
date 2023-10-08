@@ -29,6 +29,7 @@ export default function Maps() {
       type: nodeTypes
     }
   }>({})
+  const [zoom, setZoom] = useState(1.0)
 
   console.log(currentMapPoints)
 
@@ -42,6 +43,18 @@ export default function Maps() {
     }
 
     setMapsStack(results)
+  }
+
+  const handleZoomLevel = (scrollData: number) => {
+    setZoom((prev) => {
+      const calculation = prev + scrollData / 200
+      const formattedValue = Number(calculation.toFixed(2))
+      console.log(scrollData)
+
+      if (formattedValue > 5) return 5
+      else if (formattedValue < 1) return 1
+      return formattedValue
+    })
   }
 
   const handleNodeDeletion = (key: string) => {
@@ -60,7 +73,7 @@ export default function Maps() {
     <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
       <div
         className={cn(
-          'relative flex w-auto max-w-5xl min-h-[45rem] flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
+          'relative flex min-h-[45rem] w-auto max-w-5xl flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
           { 'w-full': isNavigationMap }
         )}
       >
@@ -71,6 +84,7 @@ export default function Maps() {
               {index < mapsStack.length - 1 ? <p>{'>'}</p> : <></>}
             </React.Fragment>
           ))}
+          <p>Zoom: {zoom}</p>
         </header>
 
         {isNavigationMap ? (
@@ -83,7 +97,8 @@ export default function Maps() {
           />
         ) : (
           <div
-            className="relative flex items-center justify-center"
+            onWheel={(e) => handleZoomLevel(e.nativeEvent.wheelDelta)}
+            className="relative flex items-center justify-center overflow-hidden"
             onClick={(e) => {
               if (e.currentTarget !== e.target) return
 
@@ -107,7 +122,10 @@ export default function Maps() {
               alt=""
               width={600}
               height={600}
-              className={'pointer-events-none object-contain'}
+              className={
+                'pointer-events-none object-contain transition-transform'
+              }
+              style={{ transform: `scale(${zoom})` }}
               sizes="100%"
             />
             {Object.entries(currentMapPoints).map(
@@ -125,7 +143,15 @@ export default function Maps() {
                     >
                       <NodeIcon className="h-3 w-3" />
                     </Popover.Trigger>
-                    <Popover.Content className="flex flex-col gap-2 rounded-md border border-primary-500 bg-primary-600 p-2">
+                    <Popover.Content
+                      sideOffset={8}
+                      alignOffset={8}
+                      className="flex flex-col gap-2 rounded-md border border-primary-500 bg-primary-600 p-2"
+                    >
+                      <p className="text-center font-main text-xs text-white opacity-60">
+                        Press ESC to exit
+                      </p>
+
                       <div className="flex flex-row gap-2">
                         {mapNodeTypes.map((node) => {
                           const TypeIcon = nodeTypeToIcon[node]
