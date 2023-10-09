@@ -8,6 +8,7 @@ import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useState } from 'react'
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
+import Controls from './Controls'
 import MapNode from './MapNode'
 
 const nodeSizeOffset = 10
@@ -61,36 +62,40 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
       doubleClick={{ disabled: true }}
       onZoom={(e) => setZoom(e.state.scale)}
     >
-      <TransformComponent>
-        <div
-          onContextMenu={handleNodeCreation}
-          className="flex items-center justify-center"
-        >
-          <Image
-            src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
-            alt=""
-            width={600}
-            height={600}
-            className={'pointer-events-none select-none object-contain'}
-            sizes="100%"
-          />
-          {Object.entries(currentMapPoints).map(
-            ([id, { pos, rarity, type }]) =>
-              (
-                <MapNode
-                  key={id}
-                  id={id}
-                  pos={pos}
-                  isVisible={rarityVisiblity[type][rarity]}
-                  handleNodeDeletion={() => handleNodeDeletion(id)}
-                  nodeScale={nodeScale}
-                  rarity={rarity}
-                  type={type}
-                />
-              )
-          )}
-        </div>
-      </TransformComponent>
+      {({ centerView, zoomIn, zoomOut, resetTransform }) => (
+        <>
+          <Controls centerView={() => resetTransform()} zoomIn={() => zoomIn()} zoomOut={() => zoomOut()} />
+          <TransformComponent wrapperClass="rounded-lg">
+            <div
+              onContextMenu={handleNodeCreation}
+              className="flex items-center justify-center"
+            >
+              <Image
+                src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+                alt=""
+                width={600}
+                height={600}
+                className={'pointer-events-none select-none object-contain'}
+                sizes="100%"
+              />
+              {Object.entries(currentMapPoints).map(
+                ([id, { pos, rarity, type }]) => (
+                  <MapNode
+                    key={id}
+                    id={id}
+                    pos={pos}
+                    isVisible={rarityVisiblity[type][rarity]}
+                    handleNodeDeletion={() => handleNodeDeletion(id)}
+                    nodeScale={nodeScale}
+                    rarity={rarity}
+                    type={type}
+                  />
+                )
+              )}
+            </div>
+          </TransformComponent>
+        </>
+      )}
     </TransformWrapper>
   )
 }
