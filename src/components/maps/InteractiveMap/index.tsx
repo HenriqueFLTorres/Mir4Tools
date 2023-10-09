@@ -14,6 +14,8 @@ import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
 import Button from '../Button'
 import RarityToggle from '../RarityToggle'
 
+const nodeSizeOffset = 10
+
 export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const [currentMapPoints, setCurrentMapPoints] = useState<{
     [key in string]: {
@@ -41,8 +43,10 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
     e.preventDefault()
     if (e.currentTarget !== e.target) return
 
-    const x = e.nativeEvent.offsetX / e.currentTarget.clientWidth
-    const y = e.nativeEvent.offsetY / e.currentTarget.clientHeight
+    const x =
+      (e.nativeEvent.offsetX - nodeSizeOffset) / e.currentTarget.clientWidth
+    const y =
+      (e.nativeEvent.offsetY - nodeSizeOffset) / e.currentTarget.clientHeight
 
     const posX = x * 100
     const posY = y * 100
@@ -87,7 +91,7 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
                 <Popover.Wrapper key={key}>
                   <Popover.Trigger
                     className={cn(
-                      'absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-[transform,colors] hover:scale-150',
+                      'absolute flex h-5 w-5 origin-center items-center justify-center rounded-full border-2 p-0.5 transition-[transform,colors]',
                       rarityVariantStyles[rarity]
                     )}
                     onContextMenu={(e) => {
@@ -97,10 +101,10 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
                     style={{
                       left: `${pos[0]}%`,
                       top: `${pos[1]}%`,
-                      scale: nodeScale,
+                      transform: `scale(${nodeScale})`,
                     }}
                   >
-                    <NodeIcon className="h-3 w-3" />
+                    <NodeIcon className="h-full w-full shrink-0" />
                   </Popover.Trigger>
                   <Popover.Content
                     sideOffset={8}
