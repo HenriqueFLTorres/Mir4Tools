@@ -43,3 +43,11 @@ export const rarityVisibilityAtom = atom<{
     Common: true,
   },
 })
+
+export const currentMapPointsAtom = atom<{
+  [key in string]: {
+    type: nodeTypes,
+    rarity: RarityTypes,
+    pos: [number, number]
+  }
+}>({})
