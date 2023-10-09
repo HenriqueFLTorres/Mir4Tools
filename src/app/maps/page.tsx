@@ -1,37 +1,25 @@
 'use client'
-import {
-  MapsAtom,
-  rarityVisibilityAtom,
-  type rarityVibilityObject,
-} from '@/atoms/Maps'
-import Popover from '@/components/Popover'
-import { rarityVariantStyles } from '@/components/crafting/ItemFrame'
-import ChestNode from '@/icons/ChestNode'
-import EnergyNode from '@/icons/EnergyNode'
-import GatherNode from '@/icons/GatherNode'
-import MiningNode from '@/icons/MiningNode'
+import { MapsAtom, rarityVisibilityAtom } from '@/atoms/Maps'
+import Button from '@/components/maps/Button'
+import InteractiveMap, {
+  mapNodeTypes,
+  nodeTypeToIcon,
+} from '@/components/maps/InteractiveMap'
+import MapButton from '@/components/maps/MapButton'
+import RarityToggle from '@/components/maps/RarityToggle'
+
 import Reset from '@/icons/Reset'
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
-import React, { useState, type HTMLAttributes } from 'react'
+import React from 'react'
 
 export const navigationMaps = ['Global Map', 'Snake Pit Area']
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
   const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
-  const [currentMapPoints, setCurrentMapPoints] = useState<{
-    [key in string]: {
-      pos: [number, number]
-      rarity: RarityTypes
-      type: nodeTypes
-    }
-  }>({})
-  const [zoom, setZoom] = useState(1.0)
-
-  console.log(currentMapPoints)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -45,29 +33,8 @@ export default function Maps() {
     setMapsStack(results)
   }
 
-  const handleZoomLevel = (scrollData: number) => {
-    setZoom((prev) => {
-      const calculation = prev + scrollData / 200
-      const formattedValue = Number(calculation.toFixed(2))
-      console.log(scrollData)
-
-      if (formattedValue > 5) return 5
-      else if (formattedValue < 1) return 1
-      return formattedValue
-    })
-  }
-
-  const handleNodeDeletion = (key: string) => {
-    setCurrentMapPoints((prev) => {
-      const newObj = structuredClone(prev)
-      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-      delete newObj[key]
-
-      return newObj
-    })
-  }
-
-  const isNavigationMap = navigationMaps.includes(mapsStack.at(-1) ?? '')
+  const lastMap = mapsStack.at(-1) as string
+  const isNavigationMap = navigationMaps.includes(lastMap ?? '')
 
   return (
     <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
@@ -84,122 +51,24 @@ export default function Maps() {
               {index < mapsStack.length - 1 ? <p>{'>'}</p> : <></>}
             </React.Fragment>
           ))}
-          <p>Zoom: {zoom}</p>
+          {/* <p className="absolute top-12 text-sm">
+            Zoom: {zoom} <br /> Pos: {position[0]} {position[1]}
+          </p> */}
         </header>
 
         {isNavigationMap ? (
           <Image
-            src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+            src={`/maps/${toCamelCase(lastMap)}.webp`}
             alt=""
             fill
             className={'absolute -z-10 rounded-md object-cover'}
             sizes="100%"
           />
         ) : (
-          <div
-            onWheel={(e) => handleZoomLevel(e.nativeEvent.wheelDelta)}
-            className="relative flex items-center justify-center overflow-hidden"
-            onClick={(e) => {
-              if (e.currentTarget !== e.target) return
-
-              const x = e.nativeEvent.layerX / e.currentTarget.clientWidth
-              const y = e.nativeEvent.layerY / e.currentTarget.clientHeight
-
-              const posX = (x * 100).toFixed(2)
-              const posY = (y * 100).toFixed(2)
-              const id = Math.random().toString(16).slice(2)
-              console.log(posX, posY)
-              console.dir(e)
-
-              setCurrentMapPoints((prev) => ({
-                ...prev,
-                [id]: { pos: [posX, posY], rarity: 'Rare', type: 'energy' },
-              }))
-            }}
-          >
-            <Image
-              src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
-              alt=""
-              width={600}
-              height={600}
-              className={
-                'pointer-events-none object-contain transition-transform'
-              }
-              style={{ transform: `scale(${zoom})` }}
-              sizes="100%"
-            />
-            {Object.entries(currentMapPoints).map(
-              ([key, { pos, type, rarity }]) => {
-                const NodeIcon = nodeTypeToIcon[type]
-
-                return (
-                  <Popover.Wrapper key={key}>
-                    <Popover.Trigger
-                      className={cn(
-                        'absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-[transform,colors] hover:scale-150',
-                        rarityVariantStyles[rarity]
-                      )}
-                      style={{ left: `${pos[0]}%`, top: `${pos[1]}%` }}
-                    >
-                      <NodeIcon className="h-3 w-3" />
-                    </Popover.Trigger>
-                    <Popover.Content
-                      sideOffset={8}
-                      alignOffset={8}
-                      className="flex flex-col gap-2 rounded-md border border-primary-500 bg-primary-600 p-2"
-                    >
-                      <p className="text-center font-main text-xs text-white opacity-60">
-                        Press ESC to exit
-                      </p>
-
-                      <div className="flex flex-row gap-2">
-                        {mapNodeTypes.map((node) => {
-                          const TypeIcon = nodeTypeToIcon[node]
-
-                          return (
-                            <Button
-                              key={node}
-                              onClick={() =>
-                                setCurrentMapPoints((prev) => ({
-                                  ...prev,
-                                  [key]: { ...prev[key], type: node },
-                                }))
-                              }
-                              className="h-12 w-12 p-1"
-                            >
-                              <TypeIcon />
-                            </Button>
-                          )
-                        })}
-                      </div>
-
-                      <div className="flex justify-between gap-2 [&>button]:h-9 [&>button]:w-9">
-                        <RarityToggle
-                          action={(rarity) =>
-                            setCurrentMapPoints((prev) => ({
-                              ...prev,
-                              [key]: { ...prev[key], rarity },
-                            }))
-                          }
-                        />
-                      </div>
-
-                      <button
-                        aria-label="Delete Node"
-                        onClick={() => handleNodeDeletion(key)}
-                        className="flex rounded bg-csred-400 p-2 text-sm font-extrabold text-white opacity-80 transition-opacity hover:opacity-100"
-                      >
-                        Delete Node
-                      </button>
-                    </Popover.Content>
-                  </Popover.Wrapper>
-                )
-              }
-            )}
-          </div>
+          <InteractiveMap mapsStack={mapsStack} />
         )}
 
-        {MapPoints[mapsStack.at(-1)]?.map(({ label, pos }, index) => (
+        {MapPoints[lastMap]?.map(({ label, pos }, index) => (
           <label
             key={index}
             className="group absolute flex -translate-x-1/2 -translate-y-[calc(100%-1rem)] cursor-pointer flex-col items-center gap-2 p-2"
@@ -296,96 +165,6 @@ export default function Maps() {
       )}
     </div>
   )
-}
-
-const Button = ({
-  children,
-  className,
-  ...props
-}: {
-  children: React.ReactNode
-  className?: string
-} & HTMLAttributes<HTMLButtonElement>) => {
-  return (
-    <button
-      className={cn(
-        'flex h-12 w-12 items-center justify-center rounded bg-white/10 p-2 transition-colors hover:bg-white/20',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
-
-const RarityToggle = ({
-  isActive = {
-    Legendary: true,
-    Epic: true,
-    Rare: true,
-    Uncommon: true,
-    Common: true,
-  },
-  action,
-}: {
-  isActive?: rarityVibilityObject
-  action: (rarity: RarityTypes) => void
-}) => {
-  return (
-    <>
-      {rarities.map((rarity) => (
-        <button
-          key={rarity}
-          className={cn(
-            'h-8 w-8 rounded border opacity-40 transition-opacity',
-            rarityVariantStyles[rarity],
-            { 'opacity-100': isActive[rarity] }
-          )}
-          onClick={() => action(rarity)}
-        />
-      ))}
-    </>
-  )
-}
-
-function MapButton({
-  children,
-  className,
-  ...props
-}: {
-  children: React.ReactNode
-  className?: string
-} & React.HTMLAttributes<HTMLButtonElement>) {
-  return (
-    <button
-      className={cn(
-        'rounded px-4 py-3 text-xl font-bold text-white transition-colors hover:bg-white/10',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
-
-const rarities: RarityTypes[] = [
-  'Legendary',
-  'Epic',
-  'Rare',
-  'Uncommon',
-  'Common',
-]
-const mapNodeTypes = ['energy', 'mining', 'chest', 'gather'] as const
-type nodeTypes = (typeof mapNodeTypes)[number]
-const nodeTypeToIcon: {
-  [key in nodeTypes]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
-} = {
-  chest: ChestNode,
-  energy: EnergyNode,
-  gather: GatherNode,
-  mining: MiningNode,
 }
 
 const GlobalMapPoints: Array<{ label: string; pos: [number, number] }> = [
