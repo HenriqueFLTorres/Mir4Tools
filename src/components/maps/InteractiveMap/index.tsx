@@ -43,7 +43,7 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
 
     const x = e.nativeEvent.offsetX / e.currentTarget.clientWidth
     const y = e.nativeEvent.offsetY / e.currentTarget.clientHeight
-    
+
     const posX = x * 100
     const posY = y * 100
     const id = Math.random().toString(16).slice(2)
@@ -162,7 +162,6 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
 }
 
 export const mapNodeTypes = ['energy', 'mining', 'chest', 'gather'] as const
-type nodeTypes = (typeof mapNodeTypes)[number]
 export const nodeTypeToIcon: {
   [key in nodeTypes]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 } = {

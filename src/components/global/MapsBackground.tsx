@@ -1,11 +1,11 @@
 'use client'
-import { navigationMaps } from '@/app/maps/page'
 import { MapsAtom } from '@/atoms/Maps'
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { navigationMaps } from '../maps/MapPoints'
 
 export default function MapsBackground() {
   const [currentMapImage, setCurrentMapImage] = useState('')
@@ -13,7 +13,7 @@ export default function MapsBackground() {
   const mapsStack = useAtomValue(MapsAtom)
 
   useEffect(() => {
-    const isNavigationMap = navigationMaps.includes(mapsStack.at(-1) ?? '')
+    const isNavigationMap = navigationMaps.includes(mapsStack.at(-1) as mapTypes)
 
     if (isNavigationMap) setCurrentMapImage(mapsStack.at(-1) ?? '')
   }, [JSON.stringify(mapsStack)])
