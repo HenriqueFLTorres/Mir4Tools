@@ -13,6 +13,7 @@ export default function MapNode({
   rarity,
   nodeScale,
   handleNodeDeletion,
+  isVisible
 }: {
   id: string
   type: nodeTypes
@@ -20,6 +21,7 @@ export default function MapNode({
   pos: [number, number]
   nodeScale: number
   handleNodeDeletion: () => void
+  isVisible: boolean
 }) {
   const setCurrentMapPoints = useSetAtom(currentMapPointsAtom)
 
@@ -29,7 +31,7 @@ export default function MapNode({
     <Popover.Wrapper>
       <Popover.Trigger
         className={cn(
-          'absolute flex h-5 w-5 origin-center items-center justify-center rounded-full border-2 p-0.5 transition-[transform,colors]',
+          'absolute flex h-5 w-5 origin-center items-center justify-center rounded-full border-2 p-0.5 transition-[transform,colors,opacity]',
           rarityVariantStyles[rarity]
         )}
         onContextMenu={(e) => {
@@ -40,6 +42,7 @@ export default function MapNode({
           left: `${pos[0]}%`,
           top: `${pos[1]}%`,
           transform: `scale(${nodeScale})`,
+          opacity: isVisible ? 1 : 0,
         }}
       >
         <NodeIcon className="h-full w-full shrink-0" />

@@ -1,10 +1,10 @@
-import { currentMapPointsAtom } from '@/atoms/Maps'
+import { currentMapPointsAtom, rarityVisibilityAtom } from '@/atoms/Maps'
 import ChestNode from '@/icons/ChestNode'
 import EnergyNode from '@/icons/EnergyNode'
 import GatherNode from '@/icons/GatherNode'
 import MiningNode from '@/icons/MiningNode'
 import { toCamelCase } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useState } from 'react'
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
@@ -14,6 +14,7 @@ const nodeSizeOffset = 10
 
 export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const [currentMapPoints, setCurrentMapPoints] = useAtom(currentMapPointsAtom)
+  const rarityVisiblity = useAtomValue(rarityVisibilityAtom)
   const [zoom, setZoom] = useState(1)
   const nodeScale = 1.5 * Math.exp(-zoom / 5)
 
@@ -39,8 +40,8 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
     const y =
       (e.nativeEvent.offsetY - nodeSizeOffset) / e.currentTarget.clientHeight
 
-    const posX = x * 100
-    const posY = y * 100
+    const posX = (x * 100).toFixed(2)
+    const posY = (y * 100).toFixed(2)
     const id = Math.random().toString(16).slice(2)
 
     setCurrentMapPoints((prev) => ({
@@ -74,17 +75,19 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
             sizes="100%"
           />
           {Object.entries(currentMapPoints).map(
-            ([id, { pos, rarity, type }]) => (
-              <MapNode
-                key={id}
-                id={id}
-                pos={pos}
-                handleNodeDeletion={() => handleNodeDeletion(id)}
-                nodeScale={nodeScale}
-                rarity={rarity}
-                type={type}
-              />
-            )
+            ([id, { pos, rarity, type }]) =>
+              (
+                <MapNode
+                  key={id}
+                  id={id}
+                  pos={pos}
+                  isVisible={rarityVisiblity[type][rarity]}
+                  handleNodeDeletion={() => handleNodeDeletion(id)}
+                  nodeScale={nodeScale}
+                  rarity={rarity}
+                  type={type}
+                />
+              )
           )}
         </div>
       </TransformComponent>
