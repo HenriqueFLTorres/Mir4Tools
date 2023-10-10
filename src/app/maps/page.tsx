@@ -1,5 +1,9 @@
 'use client'
-import { MapsAtom, rarityVisibilityAtom } from '@/atoms/Maps'
+import {
+  MapsAtom,
+  currentMapPointsAtom,
+  rarityVisibilityAtom,
+} from '@/atoms/Maps'
 import Button from '@/components/maps/Button'
 import InteractiveMap, {
   mapNodeTypes,
@@ -12,13 +16,14 @@ import RarityToggle from '@/components/maps/RarityToggle'
 import Reset from '@/icons/Reset'
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import Image from 'next/image'
 import React from 'react'
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
   const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
+  const setCurrentMapPoints = useSetAtom(currentMapPointsAtom)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -74,7 +79,11 @@ export default function Maps() {
         <></>
       ) : (
         <div className="flex h-full max-w-md flex-col gap-4 rounded-md border border-primary-500 bg-primary-600 p-4 pb-6 text-sm font-light text-white">
-          <Button className="ml-auto">
+          <Button
+            aria-label="Reset map nodes"
+            onClick={() => setCurrentMapPoints({})}
+            className="ml-auto"
+          >
             <Reset />
           </Button>
 

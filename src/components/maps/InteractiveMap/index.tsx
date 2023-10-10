@@ -3,7 +3,7 @@ import ChestNode from '@/icons/ChestNode'
 import EnergyNode from '@/icons/EnergyNode'
 import GatherNode from '@/icons/GatherNode'
 import MiningNode from '@/icons/MiningNode'
-import { toCamelCase } from '@/utils/index'
+import { createNodeGroups, toCamelCase } from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -17,9 +17,9 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const [currentMapPoints, setCurrentMapPoints] = useAtom(currentMapPointsAtom)
   const rarityVisiblity = useAtomValue(rarityVisibilityAtom)
   const [zoom, setZoom] = useState(1)
-  const nodeScale = 1.5 * Math.exp(-zoom / 5)
+  const [isDragging, setIsDragging] = useState(false)
 
-  console.log(currentMapPoints)
+  const nodeScale = 1.5 * Math.exp(-zoom / 5)
 
   const handleNodeDeletion = (id: string) => {
     setCurrentMapPoints((prev) => {
@@ -61,14 +61,23 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
       smooth
       doubleClick={{ disabled: true }}
       onZoom={(e) => setZoom(e.state.scale)}
+      onPanningStart={() => setIsDragging(true)}
+      onPanningStop={() => setIsDragging(false)}
     >
-      {({ centerView, zoomIn, zoomOut, resetTransform }) => (
+      {({ zoomIn, zoomOut, resetTransform }) => (
         <>
-          <Controls centerView={() => resetTransform()} zoomIn={() => zoomIn()} zoomOut={() => zoomOut()} />
+          <Controls
+            centerView={() => resetTransform()}
+            zoomIn={() => zoomIn()}
+            zoomOut={() => zoomOut()}
+          />
           <TransformComponent wrapperClass="rounded-lg">
             <div
               onContextMenu={handleNodeCreation}
               className="flex items-center justify-center"
+              style={{
+                cursor: isDragging ? 'grabbing' : 'grab',
+              }}
             >
               <Image
                 src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
@@ -78,8 +87,11 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
                 className={'pointer-events-none select-none object-contain'}
                 sizes="100%"
               />
-              {Object.entries(currentMapPoints).map(
-                ([id, { pos, rarity, type }]) => (
+              {Object.entries(
+                zoom < 2 ? createNodeGroups(currentMapPoints) : currentMapPoints
+              ).map(([id, obj]) => {
+                const { pos, rarity, type } = obj
+                return (
                   <MapNode
                     key={id}
                     id={id}
@@ -89,9 +101,10 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
                     nodeScale={nodeScale}
                     rarity={rarity}
                     type={type}
+                    amount={obj?.amount}
                   />
                 )
-              )}
+              })}
             </div>
           </TransformComponent>
         </>

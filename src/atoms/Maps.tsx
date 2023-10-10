@@ -45,60 +45,121 @@ export const rarityVisibilityAtom = atom<{
 })
 
 export const currentMapPointsAtom = atom<{
-  [key in string]: {
-    type: nodeTypes
-    rarity: RarityTypes
-    pos: [number, number]
-  }
+  [key in string]: nodeObject
 }>({
-  '60fef7127e3f2': {
-    pos: [70.66666666666667, 50.16666666666667],
-    rarity: 'Legendary',
-    type: 'energy',
-  },
-  '7d5af38442098': {
-    pos: [66.66666666666666, 44],
-    rarity: 'Epic',
-    type: 'energy',
-  },
-  ce4f19a7d627f: {
-    pos: [42.833333333333336, 45.83333333333333],
-    rarity: 'Uncommon',
-    type: 'energy',
-  },
-  '229861231ba57': {
-    pos: [35, 57.666666666666664],
-    rarity: 'Common',
-    type: 'energy',
-  },
-  d233fa7dc9e93: {
-    pos: [54.50000000000001, 42.333333333333336],
+  bf811aa53a773: {
+    pos: [56.17, 50.17],
     rarity: 'Rare',
     type: 'energy',
   },
-  '2cb535b83dad': {
-    pos: [72.5, 69.33333333333334],
-    rarity: 'Epic',
-    type: 'gather',
-  },
-  '5d37d74762cf9': {
-    pos: [50.66666666666667, 60.333333333333336],
-    rarity: 'Legendary',
-    type: 'mining',
-  },
-  '9803dbd30203f': {
-    pos: [57.49999999999999, 55.833333333333336],
-    rarity: 'Epic',
-    type: 'mining',
-  },
-  '7e85397762aeb': {
-    pos: [47.333333333333336, 67.5],
+  '4cf160769ad2d': {
+    pos: [56.67, 51],
     rarity: 'Rare',
-    type: 'chest',
+    type: 'energy',
   },
-  ce33de516a9f5: {
-    pos: [55.833333333333336, 65],
-    rarity: 'Common',
-    type: 'gather',
+  '2014a3a6c941b': {
+    pos: [56.5, 51.67],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '0c1a82c1feeed': {
+    pos: [56.17, 52.67],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '0e502844bc3e4': {
+    pos: [55.83, 51.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '01c3ae07120b4': {
+    pos: [55.17, 52],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '28ad0c4e7d1b8': {
+    pos: [36, 57.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '241ae21ae8a9d': {
+    pos: [34.5, 56.33],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '7781acf66c89e': {
+    pos: [33.17, 55.33],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '9712cd8913556': {
+    pos: [37, 55.5],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  f500a22b27667: {
+    pos: [35.17, 54.83],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '060fb6c83bd0b': {
+    pos: [42.33, 37.67],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '3b1f199020e9e': {
+    pos: [41.83, 35.5],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  ce6679e6ed907: {
+    pos: [40.17, 37.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '4a78177e021b': {
+    pos: [41.17, 33.67],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  c26d4a8ce6cc1: {
+    pos: [39.5, 35],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '1de3a92bed61c': {
+    pos: [38.67, 32.5],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  ed4bf6658af4: {
+    pos: [41, 31.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '526c1b458878c': {
+    pos: [42.83, 30.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  '83ccde79d6d9b': {
+    pos: [42.17, 32.17],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  1232158725709: {
+    pos: [40.67, 29.5],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  a662546f39aed: {
+    pos: [41.83, 28.33],
+    rarity: 'Rare',
+    type: 'energy',
+  },
+  a7bc0427d83f9: {
+    pos: [39.67, 27.5],
+    rarity: 'Rare',
+    type: 'energy',
   },
 })

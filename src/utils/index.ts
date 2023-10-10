@@ -319,3 +319,53 @@ export const getItemImagePath = (
 
 export const toCamelCase = (string?: string) =>
   (string ?? '').toLocaleLowerCase().replace(/\s/g, '_')
+
+export const createNodeGroups = (currentMapPoints: {
+  [key in string]: nodeObject
+}) => {
+  const groupedNodes: Record<string, Array<nodeObject & { id: string }>> = {}
+
+  Object.entries(currentMapPoints).forEach(([id, { pos, type, rarity }]) => {
+    const sum = `${Math.round(pos[0] / 5)} ${Math.round(pos[1] / 5)} ${type} ${rarity}`
+    const obj = {
+      pos: [pos[0], pos[1]] as [number, number],
+      type,
+      rarity,
+      id,
+    }
+
+    if (sum in groupedNodes) {
+      groupedNodes[sum].push(obj)
+    } else groupedNodes[sum] = [obj]
+  })
+
+  const readyToDisplayGroups: {
+    [key in string]: nodeObject & {
+      amount: number
+    }
+  } = {}
+  Object.values(groupedNodes).forEach((values) => {
+    const reduceResult = values.reduce(
+      (acc, cur) => {
+        acc.left += cur.pos[0]
+        acc.right += cur.pos[1]
+        return acc
+      },
+      { left: 0, right: 0 }
+    )
+
+    const amount = values.length
+    const valueX = (reduceResult.left / amount).toFixed(2)
+    const valueY = (reduceResult.right / amount).toFixed(2)
+    const { rarity, type } = values[0]
+
+    readyToDisplayGroups[values[0].id] = {
+      pos: [Number(valueX), Number(valueY)],
+      amount,
+      rarity,
+      type,
+    }
+  })
+
+  return readyToDisplayGroups
+}
