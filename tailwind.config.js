@@ -42,7 +42,7 @@ module.exports = {
           900: '#1D1822',
         },
         csred: {
-          400: '#CB5353',
+          400: '#ed5f69',
         },
       },
       keyframes: {

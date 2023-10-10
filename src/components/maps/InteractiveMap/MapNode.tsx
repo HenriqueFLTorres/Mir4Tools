@@ -108,7 +108,7 @@ export default function MapNode({
         <button
           aria-label="Delete Node"
           onClick={handleNodeDeletion}
-          className="flex rounded bg-csred-400 p-2 text-sm font-extrabold text-white opacity-80 transition-opacity hover:opacity-100"
+          className="flex rounded bg-csred-400 p-2 text-sm font-medium text-white transition-colors hover:bg-red-500/70"
         >
           Delete Node
         </button>

@@ -21,7 +21,7 @@ export default function RarityToggle({
         <button
           key={rarity}
           className={cn(
-            'h-8 w-8 rounded border opacity-40 transition-opacity',
+            'h-8 w-8 rounded border opacity-40 will-change-transform transition-[opacity,transform] hover:scale-125',
             rarityVariantStyles[rarity],
             { 'opacity-100': isActive[rarity] }
           )}
