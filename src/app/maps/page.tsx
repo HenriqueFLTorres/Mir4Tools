@@ -16,14 +16,14 @@ import RarityToggle from '@/components/maps/RarityToggle'
 import Reset from '@/icons/Reset'
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
 import Image from 'next/image'
 import React from 'react'
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
   const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
-  const setCurrentMapPoints = useSetAtom(currentMapPointsAtom)
+  const [currentMapPoints, setCurrentMapPoints] = useAtom(currentMapPointsAtom)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -143,17 +143,23 @@ export default function Maps() {
           </ul>
 
           <footer className="mt-auto flex flex-col gap-4">
-            <button
+            {/* <button
               className={
                 'flex w-full cursor-pointer items-center justify-center rounded border-2 border-primary-400 bg-primary-500/50 p-3 font-medium leading-none transition-colors hover:bg-primary-500 focus:border-white focus:outline-none'
               }
             >
               Import map
-            </button>
+            </button> */}
 
-            <button className="flex rounded bg-[#368D6E] p-3 text-xs font-extrabold text-white">
+            <a
+              href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                JSON.stringify(currentMapPoints, null, 2)
+              )}`}
+              download={`${toCamelCase(lastMap)}.json`}
+              className="flex rounded bg-[#368D6E] justify-center p-3 text-xs font-extrabold text-white"
+            >
               Export map as JSON
-            </button>
+            </a>
           </footer>
         </div>
       )}
