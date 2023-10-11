@@ -5,9 +5,10 @@ import EnergyNode from '@/icons/EnergyNode'
 import GatherNode from '@/icons/GatherNode'
 import MiningNode from '@/icons/MiningNode'
 import { createNodeGroups, toCamelCase } from '@/utils/index'
+import { Transition } from '@headlessui/react'
 import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
 import Controls from './Controls'
 import MapNode from './MapNode'
@@ -24,11 +25,16 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const lastMap = toCamelCase(mapsStack.at(-1))
 
   useEffect(
-    () =>
-      setCurrentMapPoints(
-        MapNodesObject[lastMap as subMaps]
-      ),
+    () => setCurrentMapPoints(MapNodesObject[lastMap as subMaps]),
     [JSON.stringify(mapsStack)]
+  )
+
+  const displayCurrentPoints = useMemo(
+    () =>
+      Object.entries(
+        zoom < 2 ? createNodeGroups(currentMapPoints) : currentMapPoints
+      ),
+    [zoom, JSON.stringify(currentMapPoints)]
   )
 
   const handleNodeDeletion = (id: string) => {
@@ -96,22 +102,30 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
                 className={'pointer-events-none select-none object-contain'}
                 sizes="100%"
               />
-              {Object.entries(
-                zoom < 2 ? createNodeGroups(currentMapPoints) : currentMapPoints
-              ).map(([id, obj]) => {
+              {displayCurrentPoints.map(([id, obj]) => {
                 const { pos, rarity, type } = obj
                 return (
-                  <MapNode
+                  <Transition
                     key={id}
-                    id={id}
-                    pos={pos}
-                    isVisible={rarityVisiblity[type][rarity]}
-                    handleNodeDeletion={() => handleNodeDeletion(id)}
-                    nodeScale={nodeScale}
-                    rarity={rarity}
-                    type={type}
-                    amount={obj?.amount}
-                  />
+                    show={rarityVisiblity[type][rarity]}
+                    enter="transition-transform duration-200"
+                    enterFrom="opacity-0"
+                    enterTo={'opacity-100'}
+                    leave="transition-opacity duration-300"
+                    leaveFrom={'opacity-100'}
+                    leaveTo="opacity-0"
+                  >
+                    <MapNode
+                      id={id}
+                      pos={pos}
+                      isVisible={rarityVisiblity[type][rarity]}
+                      handleNodeDeletion={() => handleNodeDeletion(id)}
+                      nodeScale={nodeScale}
+                      rarity={rarity}
+                      type={type}
+                      amount={obj?.amount}
+                    />
+                  </Transition>
                 )
               })}
             </div>
