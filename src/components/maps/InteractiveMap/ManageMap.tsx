@@ -7,6 +7,7 @@ import {
 import Button from '@/components/maps/Button'
 import { mapNodeTypes, nodeTypeToIcon } from '@/components/maps/InteractiveMap'
 import RarityToggle from '@/components/maps/RarityToggle'
+import Modal from '@/components/shared/Modal'
 
 import Reset from '@/icons/Reset'
 import { cn } from '@/utils/classNames'
@@ -22,13 +23,39 @@ export default function ManageMap() {
 
   return (
     <div className="flex h-full max-w-md flex-col gap-4 rounded-md border border-primary-500 bg-primary-600 p-4 pb-6 text-sm font-light text-white">
-      <Button
-        aria-label="Reset map nodes"
-        onClick={() => setCurrentMapPoints({})}
-        className="ml-auto"
-      >
-        <Reset />
-      </Button>
+      <header className="flex gap-4">
+        <Modal.Wrapper>
+          <Modal.Trigger className="w-full rounded bg-primary-450 p-2 font-bold drop-shadow-md">
+            Show controls
+          </Modal.Trigger>
+          <Modal.Content className="flex gap-4 rounded-md border border-primary-500 bg-primary-600 text-white">
+            <ul className="[&>li>kbd]:rounded flex flex-col gap-4 [&>li>kbd]:border [&>li>kbd]:border-primary-500 [&>li>kbd]:bg-primary-800 [&>li>kbd]:px-2 [&>li>kbd]:py-1 [&>li>kbd]:drop-shadow-md">
+              <li>
+                <kbd>hold left-click</kbd> - Move the map
+              </li>
+              <li>
+                <kbd>double left-click</kbd> - Zoom in on focused area
+              </li>
+              <li>
+                <kbd>right-click</kbd> - Create or Delete a node
+              </li>
+              <li>
+                <kbd>wheel-up</kbd> - Zoom In
+              </li>
+              <li>
+                <kbd>wheel-down</kbd> - Zoon Out
+              </li>
+            </ul>
+          </Modal.Content>
+        </Modal.Wrapper>
+
+        <Button
+          aria-label="Reset map nodes"
+          onClick={() => setCurrentMapPoints({})}
+        >
+          <Reset />
+        </Button>
+      </header>
 
       <h2 className="text-xl">Visibility Settings</h2>
 

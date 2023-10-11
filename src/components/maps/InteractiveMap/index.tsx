@@ -1,4 +1,5 @@
 import { currentMapPointsAtom, rarityVisibilityAtom } from '@/atoms/Maps'
+import { MapNodesObject } from '@/data/Maps'
 import ChestNode from '@/icons/ChestNode'
 import EnergyNode from '@/icons/EnergyNode'
 import GatherNode from '@/icons/GatherNode'
@@ -6,7 +7,7 @@ import MiningNode from '@/icons/MiningNode'
 import { createNodeGroups, toCamelCase } from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch'
 import Controls from './Controls'
 import MapNode from './MapNode'
@@ -20,6 +21,15 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const [isDragging, setIsDragging] = useState(false)
 
   const nodeScale = 1.5 * Math.exp(-zoom / 5)
+  const lastMap = toCamelCase(mapsStack.at(-1))
+
+  useEffect(
+    () =>
+      setCurrentMapPoints(
+        MapNodesObject[lastMap as subMaps]
+      ),
+    [JSON.stringify(mapsStack)]
+  )
 
   const handleNodeDeletion = (id: string) => {
     setCurrentMapPoints((prev) => {
@@ -59,7 +69,6 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
     <TransformWrapper
       wheel={{ smoothStep: 0.005 }}
       smooth
-      doubleClick={{ disabled: true }}
       onZoom={(e) => setZoom(e.state.scale)}
       onPanningStart={() => setIsDragging(true)}
       onPanningStop={() => setIsDragging(false)}
@@ -80,7 +89,7 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
               }}
             >
               <Image
-                src={`/maps/${toCamelCase(mapsStack.at(-1))}.webp`}
+                src={`/maps/${lastMap}.webp`}
                 alt=""
                 width={600}
                 height={600}

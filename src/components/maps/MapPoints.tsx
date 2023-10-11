@@ -1,3 +1,5 @@
+import { MapPointsObject } from '@/data/Maps'
+
 export const navigationMaps: mapTypes[] = ['Global Map', 'Snake Pit Area']
 
 export default function MapPoints({
@@ -26,75 +28,4 @@ export default function MapPoints({
       ))}
     </>
   )
-}
-
-const GlobalMapPoints: mapPointsObject = [
-  {
-    label: 'Bicheon Area',
-    pos: [44, 72],
-  },
-  {
-    label: 'Snake Pit Area',
-    pos: [40, 46],
-  },
-  {
-    label: 'Spiritual Center Area',
-    pos: [22, 41.5],
-  },
-  {
-    label: 'Sabuk Area',
-    pos: [59, 40],
-  },
-  {
-    label: 'Sabuk Area',
-    pos: [69.2, 54],
-  },
-  {
-    label: 'Snowfield Area',
-    pos: [67, 25.5],
-  },
-]
-
-const SnakePitMapPoints: mapPointsObject = [
-  {
-    label: 'Death George',
-    pos: [14, 41],
-  },
-  {
-    label: 'Snake Valley',
-    pos: [25.5, 49],
-  },
-  {
-    label: 'Snake Pit Labyrinth',
-    pos: [27, 71],
-  },
-  {
-    label: 'Abandoned Mine',
-    pos: [38, 34],
-  },
-  {
-    label: 'Abandoned Mine Labyrinth',
-    pos: [59, 36],
-  },
-  {
-    label: 'Snake Pit',
-    pos: [51.5, 57],
-  },
-  {
-    label: "Sinner's Shrine",
-    pos: [80.5, 35],
-  },
-  {
-    label: 'Secret Mine',
-    pos: [85, 52],
-  },
-  {
-    label: 'Viberbeast Plain',
-    pos: [70.5, 74],
-  },
-]
-
-const MapPointsObject: { [key in mapTypes]: mapPointsObject } = {
-  'Global Map': GlobalMapPoints,
-  'Snake Pit Area': SnakePitMapPoints,
 }
