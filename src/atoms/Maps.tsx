@@ -2,8 +2,8 @@ import { atom } from 'jotai'
 
 export const MapsAtom = atom<string[]>([
   'Global Map',
-  // 'Snake Pit Area',
-  // 'Snake Pit',
+  'Snake Pit Area',
+  'Snake Pit',
 ])
 
 export type rarityVibilityObject = { [key in RarityTypes]: boolean }
