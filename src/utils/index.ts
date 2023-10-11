@@ -324,9 +324,11 @@ export const createNodeGroups = (currentMapPoints: {
   [key in string]: nodeObject
 }) => {
   const groupedNodes: Record<string, Array<nodeObject & { id: string }>> = {}
-
+  if (!currentMapPoints) return []
   Object.entries(currentMapPoints).forEach(([id, { pos, type, rarity }]) => {
-    const sum = `${Math.round(pos[0] / 5)} ${Math.round(pos[1] / 5)} ${type} ${rarity}`
+    const sum = `${Math.round(pos[0] / 5)} ${Math.round(
+      pos[1] / 5
+    )} ${type} ${rarity}`
     const obj = {
       pos: [pos[0], pos[1]] as [number, number],
       type,

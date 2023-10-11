@@ -1,7 +1,7 @@
 type nodeTypes = 'energy' | 'mining' | 'chest' | 'gather'
 
 type mapTypes = 'Global Map' | 'Snake Pit Area'
-type subMaps = 'snake_pit'
+type subMaps = 'snake_pit' | 'secret_peak'
 type mapPointsObject = Array<{ label: string; pos: [number, number] }>
 interface nodeObject {
   type: nodeTypes

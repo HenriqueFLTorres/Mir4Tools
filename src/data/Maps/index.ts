@@ -34,4 +34,5 @@ export const MapPointsObject: { [key in mapTypes]: mapPointsObject } = {
 
 export const MapNodesObject: Record<subMaps, mapNodesObject> = {
   ...SnakePitAreaMaps,
+  secret_peak: {},
 }

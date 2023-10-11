@@ -58,6 +58,26 @@ export default function Maps() {
           <InteractiveMap mapsStack={mapsStack} />
         )}
 
+        {lastMap === 'Global Map' ? (
+          <button
+            onClick={() => setMapsStack((prev) => [...prev, 'Secret Peak'])}
+            className="group relative ml-auto flex h-[12rem] w-[35rem] items-end justify-end overflow-hidden rounded-md p-2 text-2xl font-bold text-white transition-[width,height] hover:h-[16rem] hover:w-[40rem]"
+          >
+            <Image
+              src={'/maps/secret_peak_miniature.webp'}
+              alt=""
+              fill
+              className="absolute rounded-md object-cover"
+            />
+
+            <p className="absolute drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] transition-transform group-hover:-translate-y-3">
+              Secret Peak 1f - 6f
+            </p>
+          </button>
+        ) : (
+          <></>
+        )}
+
         <MapPoints
           lastMap={lastMap}
           onPointClick={(label) => setMapsStack((prev) => [...prev, label])}
