@@ -2,7 +2,7 @@
 
 import { WalkthroughAtom } from '@/atoms/Walkthrough'
 import { ExperienceWalkthroughStages } from '@/data/WalkthroughStages'
-import Tutorial from '@/icons/Questionmark'
+import QuestionMark from '@/icons/QuestionMark'
 import { cn } from '@/utils/classNames'
 import { retrieveWalkthroughFromStorage } from '@/utils/index'
 import { useAtom } from 'jotai'
@@ -44,7 +44,7 @@ export default function ExperienceNavExtesion() {
             'animate-vibrate': !walkData.xp,
           })}
         >
-          <Tutorial className={'inline-block w-6 fill-white'} />
+          <QuestionMark className={'inline-block w-6 fill-white'} />
         </div>
       </button>
     </div>
