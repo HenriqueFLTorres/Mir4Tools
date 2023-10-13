@@ -6,6 +6,8 @@ export const MapsAtom = atom<string[]>([
   // 'Snake Pit',
 ])
 
+export const MapsFloorAtom = atom<number>(0)
+
 export type rarityVibilityObject = { [key in RarityTypes]: boolean }
 
 export const rarityVisibilityAtom = atom<{

@@ -15,7 +15,13 @@ import MapNode from './MapNode'
 
 const nodeSizeOffset = 10
 
-export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
+export default function InteractiveMap({
+  mapsStack,
+  floor,
+}: {
+  mapsStack: string[]
+  floor?: number
+}) {
   const [currentMapPoints, setCurrentMapPoints] = useAtom(currentMapPointsAtom)
   const rarityVisiblity = useAtomValue(rarityVisibilityAtom)
   const [zoom, setZoom] = useState(1)
@@ -25,8 +31,13 @@ export default function InteractiveMap({ mapsStack }: { mapsStack: string[] }) {
   const lastMap = toCamelCase(mapsStack.at(-1))
 
   useEffect(
-    () => setCurrentMapPoints(MapNodesObject[lastMap as subMaps]),
-    [JSON.stringify(mapsStack)]
+    () =>
+      Array.isArray(MapNodesObject[lastMap as subMaps])
+        ? setCurrentMapPoints(
+            MapNodesObject[lastMap as subMapsWithFloor][floor as number]
+          )
+        : setCurrentMapPoints(MapNodesObject[lastMap as subMaps]),
+    [JSON.stringify(mapsStack), floor]
   )
 
   const displayCurrentPoints = useMemo(

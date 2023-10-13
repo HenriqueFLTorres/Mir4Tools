@@ -1,9 +1,11 @@
 'use client'
-import { MapsAtom } from '@/atoms/Maps'
+import { MapsAtom, MapsFloorAtom } from '@/atoms/Maps'
 import InteractiveMap from '@/components/maps/InteractiveMap'
+import FloorsHandler from '@/components/maps/InteractiveMap/FloorsHandler'
 import ManageMap from '@/components/maps/InteractiveMap/ManageMap'
 import MapButton from '@/components/maps/MapButton'
 import MapPoints, { navigationMaps } from '@/components/maps/MapPoints'
+import { mapFloors } from '@/data/Maps'
 
 import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
@@ -13,6 +15,7 @@ import React from 'react'
 
 export default function Maps() {
   const [mapsStack, setMapsStack] = useAtom(MapsAtom)
+  const [mapsFloor, setMapFloor] = useAtom(MapsFloorAtom)
 
   const handleMapChange = (selected: string) => {
     const results = [...mapsStack]
@@ -23,11 +26,13 @@ export default function Maps() {
       else break
     }
 
+    setMapFloor(0)
     setMapsStack(results)
   }
 
   const lastMap = mapsStack.at(-1) as mapTypes
   const isNavigationMap = navigationMaps.includes(lastMap ?? '')
+  const currentMapFloors = mapFloors?.[toCamelCase(lastMap) as subMapsWithFloor]
 
   return (
     <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
@@ -55,12 +60,26 @@ export default function Maps() {
             sizes="100%"
           />
         ) : (
-          <InteractiveMap mapsStack={mapsStack} />
+          <>
+            {currentMapFloors ? (
+              <FloorsHandler
+                floors={currentMapFloors}
+                activeIndex={mapsFloor}
+                action={(floorIndex) => setMapFloor(floorIndex)}
+              />
+            ) : (
+              <></>
+            )}
+            <InteractiveMap mapsStack={mapsStack} floor={mapsFloor} />
+          </>
         )}
 
         {lastMap === 'Global Map' ? (
           <button
-            onClick={() => setMapsStack((prev) => [...prev, 'Secret Peak'])}
+            onClick={() => {
+              setMapsStack((prev) => [...prev, 'Secret Peak'])
+              setMapFloor(0)
+            }}
             className="group relative ml-auto flex h-[12rem] w-[35rem] items-end justify-end overflow-hidden rounded-md p-2 text-2xl font-bold text-white transition-[width,height] hover:h-[16rem] hover:w-[40rem]"
           >
             <Image
@@ -80,7 +99,10 @@ export default function Maps() {
 
         <MapPoints
           lastMap={lastMap}
-          onPointClick={(label) => setMapsStack((prev) => [...prev, label])}
+          onPointClick={(label) => {
+            setMapsStack((prev) => [...prev, label])
+            setMapFloor(0)
+          }}
         />
       </div>
 

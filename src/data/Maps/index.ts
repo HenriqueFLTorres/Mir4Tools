@@ -32,7 +32,12 @@ export const MapPointsObject: { [key in mapTypes]: mapPointsObject } = {
   'Snake Pit Area': SnakePitAreaMapPoints,
 }
 
-export const MapNodesObject: Record<subMaps, mapNodesObject> = {
+export const MapNodesObject: Record<subMaps, mapNodesObject> &
+  Record<subMapsWithFloor, mapNodesObject[]> = {
   ...SnakePitAreaMaps,
-  secret_peak: {},
+  secret_peak: [{}, {}, {}, {}],
+}
+
+export const mapFloors: Partial<{ [key in subMapsWithFloor]: string[] }> = {
+  secret_peak: ['1f-6f', '7f', '8f', '9f'],
 }
