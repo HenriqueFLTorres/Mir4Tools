@@ -1,4 +1,29 @@
-const ConquestTowersData = {
+const ConquestTowersData: {
+  [key in ConquestTowers]: {
+    BuildingId: number
+    Unlock?:
+      | {
+          [key in string]: number | { [key in number]: string }
+        }
+      | {
+          Building: Partial<{ Portal: number }>
+        }
+    Steps: Array<{
+      Step: number
+      Power: number
+      UpgradeTime: number
+      Cost: Partial<{ [key in 'Copper' | 'Energy' | 'Darksteel']: number }>
+      Condition?: {
+        Level?: number
+      } & { Achievement: { [key in number]: string } } & {
+        Building: Partial<{ [key in ConquestTowers]: number }>
+      }
+      Effects: {
+        [key in string]: string | number
+      }
+    }>
+  }
+} = {
   'Millennial Tree': {
     BuildingId: 4000000,
     Unlock: {
@@ -7,6 +32,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 32',
         98008102: 'Gather herbs 100 times',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -20,6 +46,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 32',
             98008102: 'Gather herbs 100 times',
           },
+          Building: {},
         },
         Effects: {
           'PHYS DEF': 10,
@@ -594,6 +621,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 32',
         98007201: 'Bicheon Labyrinth 1F common mission 15x',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -606,6 +634,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 32',
             98007201: 'Bicheon Labyrinth 1F common mission 15x',
           },
+          Building: {},
         },
         Effects: {
           'PHYS ATK': 20,
@@ -1093,6 +1122,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 34',
         98004101: 'Clear Raid 2 times',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -1105,6 +1135,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
+          Building: {},
         },
         Effects: {
           'Spell DEF': 10,
@@ -1632,6 +1663,7 @@ const ConquestTowersData = {
         UpgradeTime: 3,
         Cost: { Copper: 20000 },
         Condition: {
+          Achievement: {},
           Building: {
             'Tower of Quintessence': 1,
           },
@@ -2183,6 +2215,7 @@ const ConquestTowersData = {
         UpgradeTime: 3,
         Cost: { Copper: 5000 },
         Condition: {
+          Achievement: {},
           Building: {
             'Tower of Conquest': 1,
           },
@@ -2741,6 +2774,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 30',
         102010280: 'Guided by Destiny - 18. Mine Darksteel in the area',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -2753,6 +2787,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 30',
             98003101: 'Mine Darksteel 20 times',
           },
+          Building: {},
         },
         Effects: { 'Spell DEF': 10, 'Darksteel Gain Boost': 0 },
       },
@@ -3134,6 +3169,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 30',
         102010280: '[Elite] Nefariox Necropolis 1F common mission 13x',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -3146,6 +3182,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 30',
             98002001: '[Elite] Nefariox Necropolis 2F common mission 13x',
           },
+          Building: {},
         },
         Effects: { 'PHYS DEF': 10, 'Darksteel Storage Boost': 5000000 },
       },
@@ -3792,6 +3829,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 34',
         98006201: 'Promote Muscle Strength Manual to Tier 2',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -3804,6 +3842,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 34',
             98004101: 'Clear Raid 2 times',
           },
+          Building: {},
         },
         Effects: {
           MP: 50,
@@ -4322,6 +4361,7 @@ const ConquestTowersData = {
         0o0: 'Reach Lv. 36',
         98009000: 'Join clan',
       },
+      Building: {},
     },
     Steps: [
       {
@@ -4334,6 +4374,7 @@ const ConquestTowersData = {
             0o0: 'Reach Lv. 36',
             98009000: 'Join clan',
           },
+          Building: {},
         },
         Effects: {
           'Character HP': 300,
@@ -4815,6 +4856,6 @@ const ConquestTowersData = {
       },
     ],
   },
-} as const
+}
 
 export default ConquestTowersData
