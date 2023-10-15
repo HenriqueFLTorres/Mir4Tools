@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ChangeLanguage from './ChangeLanguage'
-import ProfileSection from './ProfileSection'
+import ManageSettings from './ManageSettings'
 import SupportUs from './SupportUs'
 
 export default function GlobalNavbar({
@@ -28,7 +28,7 @@ export default function GlobalNavbar({
       <header className="absolute z-[40] flex w-full flex-col border-b border-white/10 bg-primary-400/5 px-3 py-2 drop-shadow-md backdrop-blur-xl">
         <div className="relative flex w-full items-center justify-end gap-4 2xl:justify-between">
           <div className="mr-auto flex gap-4 2xl:mr-0">
-            <ProfileSection />
+            <ManageSettings />
 
             <ChangeLanguage />
           </div>

@@ -45,7 +45,7 @@ export default function ChangeLanguage() {
           <Select.Viewport>
             {languages.map(({ label, value }) => (
               <Select.Item
-                className="flex cursor-pointer gap-2 rounded p-2 text-base font-medium text-white outline-none transition-colors hover:bg-black/20"
+                className="flex cursor-pointer items-center gap-2 rounded p-2 text-base font-medium text-white outline-none transition-colors hover:bg-black/20"
                 value={value}
                 key={value}
               >
@@ -54,7 +54,7 @@ export default function ChangeLanguage() {
                   alt={label}
                   width={20}
                   height={20}
-                  className="shrink-0 object-contain"
+                  className="object-contain w-5 h-5"
                 />
                 <Select.ItemText>{label}</Select.ItemText>
               </Select.Item>
