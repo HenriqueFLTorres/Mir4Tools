@@ -77,6 +77,14 @@ export const RouteMetadata = {
     image: '/seo/constitution.webp',
     imageAlt: 'Constitution banner',
   }),
+  Maps: getSeo({
+    title: 'Maps',
+    href: '/maps',
+    description:
+      'An interactive mir4 resource tracker to display energy, mining, chests, and dark steel nodes in maps and secret peaks on any floor.',
+    image: '/seo/maps.webp',
+    imageAlt: 'Maps banner',
+  }),
 }
 
 export function getSeo({
