@@ -1,4 +1,4 @@
-type nodeTypes = 'energy' | 'mining' | 'chest' | 'gather'
+type nodeTypes = 'energy' | 'mining' | 'chest' | 'gather' | 'darksteel'
 
 type mapTypes = 'Global Map' | 'Snake Pit Area'
 type subMaps = 'snake_pit'

@@ -1,6 +1,7 @@
 import { currentMapPointsAtom, rarityVisibilityAtom } from '@/atoms/Maps'
 import { MapNodesObject } from '@/data/Maps'
 import ChestNode from '@/icons/ChestNode'
+import DarksteelNode from '@/icons/DarksteelNode'
 import EnergyNode from '@/icons/EnergyNode'
 import GatherNode from '@/icons/GatherNode'
 import MiningNode from '@/icons/MiningNode'
@@ -147,7 +148,13 @@ export default function InteractiveMap({
   )
 }
 
-export const mapNodeTypes = ['energy', 'mining', 'chest', 'gather'] as const
+export const mapNodeTypes = [
+  'energy',
+  'mining',
+  'darksteel',
+  'chest',
+  'gather',
+] as const
 export const nodeTypeToIcon: {
   [id in nodeTypes]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 } = {
@@ -155,4 +162,5 @@ export const nodeTypeToIcon: {
   energy: EnergyNode,
   gather: GatherNode,
   mining: MiningNode,
+  darksteel: DarksteelNode,
 }

@@ -14,7 +14,11 @@ import { cn } from '@/utils/classNames'
 import { toCamelCase } from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 
-export default function ManageMap() {
+export default function ManageMap({
+  mapFloor,
+}: {
+  mapFloor?: string
+}) {
   const mapsStack = useAtomValue(MapsAtom)
   const [rarityVisibility, setRarityVisibility] = useAtom(rarityVisibilityAtom)
   const [currentMapPoints, setCurrentMapPoints] = useAtom(currentMapPointsAtom)
@@ -29,7 +33,7 @@ export default function ManageMap() {
             Show controls
           </Modal.Trigger>
           <Modal.Content className="flex gap-4 rounded-md border border-primary-500 bg-primary-600 text-white">
-            <ul className="[&>li>kbd]:rounded flex flex-col gap-4 [&>li>kbd]:border [&>li>kbd]:border-primary-500 [&>li>kbd]:bg-primary-800 [&>li>kbd]:px-2 [&>li>kbd]:py-1 [&>li>kbd]:drop-shadow-md">
+            <ul className="flex flex-col gap-4 [&>li>kbd]:rounded [&>li>kbd]:border [&>li>kbd]:border-primary-500 [&>li>kbd]:bg-primary-800 [&>li>kbd]:px-2 [&>li>kbd]:py-1 [&>li>kbd]:drop-shadow-md">
               <li>
                 <kbd>hold left-click</kbd> - Move the map
               </li>
@@ -125,7 +129,9 @@ export default function ManageMap() {
           href={`data:text/json;charset=utf-8,${encodeURIComponent(
             JSON.stringify(currentMapPoints, null, 2)
           )}`}
-          download={`${toCamelCase(lastMap)}.json`}
+          download={`${toCamelCase(lastMap)}${
+            mapFloor ? `-${mapFloor}` : ''
+          }.json`}
           className="flex justify-center rounded bg-[#368D6E] p-3 text-xs font-extrabold text-white"
         >
           Export map as JSON

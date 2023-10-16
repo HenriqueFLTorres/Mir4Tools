@@ -106,7 +106,7 @@ export default function Maps() {
         />
       </div>
 
-      {isNavigationMap ? <></> : <ManageMap />}
+      {isNavigationMap ? <></> : <ManageMap mapFloor={currentMapFloors?.[mapsFloor]} />}
     </div>
   )
 }

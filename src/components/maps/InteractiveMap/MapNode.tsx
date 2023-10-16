@@ -33,7 +33,7 @@ export default function MapNode({
     <Popover.Wrapper>
       <Popover.Trigger
         className={cn(
-          'absolute flex h-5 w-5 origin-center disabled:cursor-not-allowed items-center justify-center rounded-full border-2 p-0.5 transition-[transform,colors,opacity]',
+          'absolute flex h-5 w-5 origin-center items-center justify-center rounded-full border-2 p-0.5 transition-[transform,colors,opacity] disabled:cursor-not-allowed',
           rarityVariantStyles[rarity]
         )}
         disabled={!!amount && amount > 1}
