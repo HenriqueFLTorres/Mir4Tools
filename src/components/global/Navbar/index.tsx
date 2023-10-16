@@ -13,6 +13,7 @@ import { useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ChangeLanguage from './ChangeLanguage'
 import ManageSettings from './ManageSettings'
+import PatchNotes from './PatchNotes'
 import SupportUs from './SupportUs'
 
 export default function GlobalNavbar({
@@ -44,6 +45,9 @@ export default function GlobalNavbar({
                 {label}
               </Link>
             ))}
+
+            <PatchNotes />
+
             <SupportUs />
           </nav>
 

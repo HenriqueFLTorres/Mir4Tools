@@ -54,6 +54,9 @@
       ],
       "@/pages/*": [
         "./src/pages/*"
+      ],
+      "@/content/*": [
+        "./src/content/*"
       ]
     }
   },
