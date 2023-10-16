@@ -94,7 +94,7 @@ export default function CraftingMain() {
                   item: category,
                   rarity: itemRarity,
                   weaponType,
-                })}
+                }).toLowerCase()}
               />
             </>
           )}
