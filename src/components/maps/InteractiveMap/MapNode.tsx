@@ -56,7 +56,11 @@ export default function MapNode({
         ) : (
           <></>
         )}
-        <NodeIcon className="h-full w-full shrink-0" />
+        <NodeIcon
+          className={cn('h-full w-full shrink-0', {
+            'drop-shadow-[0_0_3px_rgba(24,17,46,1)]': type === 'darksteel',
+          })}
+        />
       </Popover.Trigger>
       <Popover.Content
         sideOffset={8}
@@ -91,7 +95,7 @@ export default function MapNode({
           })}
         </div>
 
-        <div className="flex justify-between gap-2 [&>button]:h-9 [&>button]:w-9">
+        <div className="flex justify-between gap-2 [&>button]:h-12 [&>button]:w-12 [&>button]:border-2">
           <RarityToggle
             action={(rarity) =>
               setCurrentMapPoints((prev) => ({
