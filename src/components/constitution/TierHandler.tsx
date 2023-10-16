@@ -1,11 +1,9 @@
 'use client'
-import { useAtom } from 'jotai'
-import { useTranslation } from '../../../public/locales/client'
 import { statusLevelsAtom } from '@/atoms/Constitution'
+import { useAtom } from 'jotai'
 
 export default function TierHandler() {
   const [levels, setLevels] = useAtom(statusLevelsAtom)
-  const { t } = useTranslation()
 
   const handleStageChange = (type: 'increment' | 'decrement') => {
     const minLevel = Math.min(
@@ -36,7 +34,7 @@ export default function TierHandler() {
   return (
     <div className="absolute flex items-center text-base font-bold text-white">
       <button
-        aria-label={t('Decrement constitution tier')}
+        aria-label={'Decrement constitution tier'}
         onClick={() => handleStageChange('decrement')}
         className="rounded-l-full bg-primary-500 p-2 transition-colors hover:bg-primary-450"
       >
@@ -44,7 +42,7 @@ export default function TierHandler() {
       </button>
       <p className="bg-primary-500 p-2">Tier {currentTier}</p>
       <button
-        aria-label={t('Increment constitution tier')}
+        aria-label={'Increment constitution tier'}
         onClick={() => handleStageChange('increment')}
         className="rounded-r-full bg-primary-500 p-2 transition-colors hover:bg-primary-450"
       >

@@ -1,5 +1,7 @@
 const { i18n } = require('./next-i18next.config')
 
+const withMDX = require("@next/mdx")
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -24,4 +26,4 @@ const nextConfig = {
   i18n,
 }
 
-module.exports = nextConfig
+module.exports = withMDX(nextConfig)

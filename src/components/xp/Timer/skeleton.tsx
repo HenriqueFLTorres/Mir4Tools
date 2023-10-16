@@ -1,3 +1,4 @@
+import Input from '@/components/Input'
 import Image from 'next/image'
 
 export default function TimerSkeleton() {
@@ -15,7 +16,31 @@ export default function TimerSkeleton() {
         priority
       />
 
-      <h1 className="text-5xl font-bold text-white sm:text-6xl">5 : 00</h1>
+      <div
+        className={
+          'flex flex-row items-center gap-2 text-5xl font-bold text-white transition-transform duration-300 sm:text-6xl'
+        }
+      >
+        <Input
+          placeholder="05"
+          label={'Minutes'}
+          value={'5'}
+          disabled
+          className={
+            'transition-colors duration-300 [&>div>input]:w-24 [&>div>input]:text-5xl [&>div>input]:font-bold [&>div>input]:sm:text-6xl [&>div]:transition-[transform,_background-color] [&>div]:duration-300'
+          }
+        />
+        :
+        <Input
+          placeholder="05"
+          label={'Seconds'}
+          value={'0'}
+          disabled
+          className={
+            'transition-colors duration-300 [&>div>input]:w-24 [&>div>input]:text-5xl [&>div>input]:font-bold [&>div>input]:sm:text-6xl [&>div]:transition-[transform,_background-color] [&>div]:duration-300'
+          }
+        />
+      </div>
 
       <div className="flex flex-row gap-3">
         <div className="rounded-[4px] bg-[#368D6E] px-4 py-2 text-xs font-bold uppercase text-white disabled:bg-opacity-50">

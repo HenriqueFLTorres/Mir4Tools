@@ -2,9 +2,9 @@
 
 import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
+import { SettingsAtom } from '@/atoms/Settings'
 import TableCostFragment from '@/components/crafting/TableCostFragment'
 import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
-import SettingsFallback from '@/utils/SettingsFallback'
 import { cn } from '@/utils/classNames'
 import {
   ComplementaryItems,
@@ -12,16 +12,14 @@ import {
   getItemImagePath,
   itemTierToQuantity,
 } from '@/utils/index'
-import { useAtom } from 'jotai'
-import { useSession } from 'next-auth/react'
+import { useAtom, useAtomValue } from 'jotai'
 import React, { useEffect, useState } from 'react'
 import ItemFrame from './ItemFrame'
 import MainItemFrame from './MainItemFrame'
 import TotalCost from './TotalCost'
 
 export default function CraftingMain() {
-  const { data: session } = useSession()
-  const settings = session?.user?.settings ?? SettingsFallback
+  const settings = useAtomValue(SettingsAtom)
   const [inventory] = useAtom(InventoryAtom)
   const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom)
 
@@ -96,7 +94,7 @@ export default function CraftingMain() {
                   item: category,
                   rarity: itemRarity,
                   weaponType,
-                })}
+                }).toLowerCase()}
               />
             </>
           )}
@@ -174,8 +172,7 @@ function RecursiveCostFragment({
   rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
   multiplier: number
 }) {
-  const { data: session } = useSession()
-  const settings = session?.user?.settings ?? SettingsFallback
+  const settings = useAtomValue(SettingsAtom)
 
   if (!parentRarity) return <></>
 

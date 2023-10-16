@@ -41,6 +41,9 @@ module.exports = {
           800: '#1A1830',
           900: '#1D1822',
         },
+        csred: {
+          400: '#ed5f69',
+        },
       },
       keyframes: {
         contentShow: {

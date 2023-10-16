@@ -52,11 +52,11 @@
       "@/server-rsc/*": [
         "./src/server-rsc/*"
       ],
-      "@/@trpc/*": [
-        "./src/@trpc/*"
-      ],
       "@/pages/*": [
         "./src/pages/*"
+      ],
+      "@/content/*": [
+        "./src/content/*"
       ]
     }
   },

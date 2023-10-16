@@ -8,18 +8,15 @@
     "Uncommon": "Incomum",
     "Common": "Comum",
     "Manage Settings": "Gerenciar Configurações",
-    "Log in with Google": "Entrar com Google",
-    "Log out": "Sair",
     "Language": "Linguagem",
     "Resources Filter": "Filtro de Recursos",
     "Advanced View": "Visão Avançada",
     "Show Owned Items": "Mostrar Items Possuídos",
     "Panel Visibility": "Visibilidade do painel",
-    "Save Settings": "Salvar Configurações",
-    "You have to be logged in to do this": "Você precisa estar logado para fazer isso",
-    "Settings updated successfully!": "Configurações atualizadas com sucesso!",
+    "Additional Costs": "Custos adicionais",
+    "Patch Notes": "Notas de atualização",
     "For support": "Para suporte",
-    
+
     "__pages__": "",
 
     "Experience Calculator": "Calculador de Experiência",
@@ -50,13 +47,15 @@
     "XP Earned": "XP Ganho",
     "Time": "Tempo",
     "minutes": "minutos",
+    "Minutes": "Minutos",
+    "Seconds": "Segundos",
     "You are earning": "Você está ganhando",
     "XP every": "XP a cada",
     "to level up": "para upar",
 
     "Enter your tickets and your XP earned per run to calculate the time taken to level up paired with peak/square runs.": "Insira seus tickets e seu XP ganho por ronda para calcular o tempo necessário para subir de nível junto de rondas de pico/praça.",
     "Enter your remaining vigor in hours to calculate your XP and percentage earned during an active vigor.": "Insira seu vigor restante em horas para calcular seu XP e a porcentagem ganha durante um vigor ativo.",
-    
+
     "__crafting_calculator__": "",
 
     "Inventory": "Inventário",
@@ -64,7 +63,7 @@
     "Primary": "Primária",
     "Secondary": "Secundária",
     "Total": "Total",
-    
+
     "__constitution__": "",
 
     "Increment current level": "Incrementar o nível atual",
@@ -85,7 +84,7 @@
     "Tier Constitution": "Constituição - Estrela {{tier}}",
     "Show promotion cost": "Mostrar custo da promoção",
     "Cost": "Custo",
-    
+
     "__conquests__": "",
 
     "Mine": "Mina",
@@ -122,9 +121,12 @@
     "Daily Septaria Gain": "Ganho Diário de Septaria",
     "Darksteel Gain Boost": "Aumento do Ganho de Aço Negro",
     "Darksteel Storage Boost": "Aumento de Armazenamento de Aço Negro",
-    
+
+    "__maps__": "",
+    "Maps": "Mapas",
+
     "__walkthrough__": "",
-    
+
     "Next": "Próximo",
     "Skip": "Pular",
     "Previous": "Anterior",
@@ -158,9 +160,9 @@
     "Recommended for users who have already measured experience gainings or if you already know the xp amount earned per minute.": "Recomendado para usuários que já mediram ganhos de experiência ou se já sabem a quantidade de xp ganhos por minuto.",
     "Level and performance section": "Seção de nível e desempenho",
     "Insert your current and desired level, when the necessary fields are correctly filled, you'll be able to see:\n\nRemaining XP to the desired level. (accounts for your current percentage)\nThe amount of time needed to reach your desired level.\nYour XP gains every 5 minutes.": "Insira seu nível atual e desejado, quando os campos necessários forem preenchidos corretamente, você verá:\n\nXP restando para o nível desejado. (representa sua porcentagem atual)\nA quantidade de tempo necessária para atingir o nível desejado.\nSeu ganho de XP a cada 5 minutos.",
-    
+
     "__achievements__": "",
-    
+
     "Gather herbs {{amount}} times": "Recolher Ervas {{amount}} vezes",
     "Promote Constitution to Tier {{tier}}": "Promover Constituição para Estrela {{tier}}",
     "Reach Lv. {{amount}}": "Alcançar o Lv. {{amount}}",

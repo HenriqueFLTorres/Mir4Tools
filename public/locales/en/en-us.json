@@ -8,16 +8,13 @@
     "Uncommon": "Uncommon",
     "Common": "Common",
     "Manage Settings": "Manage Settings",
-    "Log in with Google": "Log in with Google",
-    "Log out": "Log out",
     "Language": "Language",
     "Resources Filter": "Resources Filter",
     "Advanced View": "Advanced View",
     "Show Owned Items": "Show Owned Items",
     "Panel Visibility": "Panel Visibility",
-    "Save Settings": "Save Settings",
-    "You have to be logged in to do this": "You have to be logged in to do this",
-    "Settings updated successfully!": "Settings updated successfully!",
+    "Additional Costs": "Additional Costs",
+    "Patch Notes": "Patch Notes",
     "For support": "For support",
 
     "__pages__": "",
@@ -50,6 +47,8 @@
     "XP Earned": "XP Earned",
     "Time": "Time",
     "minutes": "minutes",
+    "Minutes": "Minutes",
+    "Seconds": "Seconds",
     "You are earning": "You are earning",
     "XP every": "XP every",
     "to level up": "to level up",
@@ -122,6 +121,9 @@
     "Daily Septaria Gain": "Daily Septaria Gain",
     "Darksteel Gain Boost": "Darksteel Gain Boost",
     "Darksteel Storage Boost": "Darksteel Storage Boost",
+
+    "__maps__": "",
+    "Maps": "Maps",
 
     "__walkthrough__": "",
 

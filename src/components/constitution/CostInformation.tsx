@@ -1,14 +1,16 @@
 'use client'
 
 import { constitutionUpgradeAtom, statusLevelsAtom } from '@/atoms/Constitution'
+import { SettingsAtom } from '@/atoms/Settings'
 import ConstitutionData from '@/data/ConstituionData'
 import ConstitutionMasteryData from '@/data/ConstitutionMasteryData'
 import {
   getReadableNumber,
   prepareItemForDisplay,
   sumObjects,
+  toCamelCase,
 } from '@/utils/index'
-import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import millify from 'millify'
 import { useEffect, useState } from 'react'
 import { useTranslation } from '../../../public/locales/client'
@@ -28,7 +30,7 @@ export const ItemRarities = [
 export default function ConstitutionCostInformation() {
   const levels = useAtomValue(statusLevelsAtom)
   const setConstUpgrade = useSetAtom(constitutionUpgradeAtom)
-  const [showPromotion, setShowPromotion] = useState(false)
+  const [{ showConstitutionPromotion }, setSettings] = useAtom(SettingsAtom)
   const [cost, setCost] = useState<ItemForDisplay[]>([])
   const { t } = useTranslation()
 
@@ -64,9 +66,11 @@ export default function ConstitutionCostInformation() {
 
     setConstUpgrade({ masteryIteration })
 
-    if (showPromotion) {
+    if (showConstitutionPromotion) {
       const masteryData = sumObjects(
-        masteryIteration.map((i) => ConstitutionMasteryData[i + 1].Cost)
+        masteryIteration.map((i) =>
+          i > 19 ? {} : ConstitutionMasteryData[i + 1]?.Cost
+        )
       )
       const CopperCost = masteryIteration
         .map((i) => ConstitutionMasteryData[i].Copper as number)
@@ -81,7 +85,7 @@ export default function ConstitutionCostInformation() {
     }
 
     setCost([...mergedResults, ...masteryCost])
-  }, [JSON.stringify(levels), showPromotion])
+  }, [JSON.stringify(levels), showConstitutionPromotion])
 
   return (
     <div className="flex w-full flex-col gap-4">
@@ -89,17 +93,19 @@ export default function ConstitutionCostInformation() {
         <h1 className="text-3xl font-bold text-white">{t('Cost')}</h1>
         <Checkbox
           label={t('Show promotion cost')}
-          onClick={() => setShowPromotion((prev) => !prev)}
-          checked={showPromotion}
+          onCheckedChange={(checked) =>
+            setSettings((prev) => ({
+              ...prev,
+              showConstitutionPromotion: checked as boolean,
+            }))
+          }
+          checked={showConstitutionPromotion}
         />
       </header>
       <ul className="flex w-full flex-wrap gap-4">
         {orderByRarity(cost).map(({ name, rarity, amount }, index) => (
           <li key={index} className="flex flex-col items-center gap-2">
-            <ItemFrame
-              item={name.toLowerCase().replace(/\s/g, '_') as ItemTypes}
-              rarity={rarity}
-            />
+            <ItemFrame item={toCamelCase(name) as ItemTypes} rarity={rarity} />
             <Tooltip.Wrapper>
               <Tooltip.Trigger
                 asChild={false}
