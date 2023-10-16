@@ -68,7 +68,9 @@ export default function ConstitutionCostInformation() {
 
     if (showConstitutionPromotion) {
       const masteryData = sumObjects(
-        masteryIteration.map((i) => ConstitutionMasteryData[i + 1].Cost)
+        masteryIteration.map((i) =>
+          i > 19 ? {} : ConstitutionMasteryData[i + 1]?.Cost
+        )
       )
       const CopperCost = masteryIteration
         .map((i) => ConstitutionMasteryData[i].Copper as number)
