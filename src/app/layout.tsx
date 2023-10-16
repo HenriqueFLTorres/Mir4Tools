@@ -54,6 +54,13 @@ export default function RootLayout({
               </Script>
             </>
           )}
+
+          <Script
+            async
+            src="https://analytics.eu.umami.is/script.js"
+            data-website-id="248f2306-3f8b-4094-93cc-581cd0d6e68d"
+          ></Script>
+
           <WalkthroughWrapper />
           <Toaster
             position="top-right"

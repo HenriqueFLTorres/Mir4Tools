@@ -90,7 +90,7 @@ export default function Maps() {
             />
 
             <p className="absolute drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] transition-transform group-hover:-translate-y-3">
-              Secret Peak 1f - 6f
+              Secret Peak
             </p>
           </button>
         ) : (

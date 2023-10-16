@@ -27,7 +27,7 @@ export default function InteractiveMap({
   const rarityVisiblity = useAtomValue(rarityVisibilityAtom)
   const [zoom, setZoom] = useState(1)
   const [isDragging, setIsDragging] = useState(false)
-  console.log(currentMapPoints)
+
   const nodeScale = 1.5 * Math.exp(-zoom / 5)
   const lastMap = toCamelCase(mapsStack.at(-1))
 

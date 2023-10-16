@@ -1,4 +1,4 @@
-export const secretPeak8f: mapNodesObject = {
+export const secretPeak9f: mapNodesObject = {
   '1dd4e55eb9835': {
     pos: [54.5, 21.5],
     rarity: 'Epic',
@@ -236,4 +236,4 @@ export const secretPeak8f: mapNodesObject = {
   },
 }
 
-export default secretPeak8f
+export default secretPeak9f
