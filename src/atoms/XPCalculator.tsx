@@ -19,6 +19,8 @@ export const XPCalculatorAtom: PrimitiveAtom<XPCalculatorType> &
   },
 })
 
+export const customTimerAtom = atom({ minutes: '5', seconds: '0' })
+
 export const XPInvalidInput = atom(false)
 
 interface XPCalculatorType {

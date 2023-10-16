@@ -1,6 +1,10 @@
 'use client'
 
-import { XPCalculatorAtom, XPInvalidInput } from '@/atoms/XPCalculator'
+import {
+  XPCalculatorAtom,
+  XPInvalidInput,
+  customTimerAtom,
+} from '@/atoms/XPCalculator'
 import Input from '@/components/Input'
 import XPPerLevel from '@/data/XPPerLevel'
 import {
@@ -9,23 +13,23 @@ import {
   getReadableNumber,
   getValidNumber,
 } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function PercentageDifference() {
   const [{ levels, percentages, manualCalculation }, setXPCalc] =
     useAtom(XPCalculatorAtom)
+  const customTimer = useAtomValue(customTimerAtom)
   const [invalidInput, setIsInvalid] = useAtom(XPInvalidInput)
   const { t } = useTranslation()
 
   useEffect(() => {
     if (
-      levels.initial !== undefined &&
-      (levels.initialPercentage !== undefined ||
-        percentages.final !== undefined) &&
-      percentages.initial !== undefined &&
-      percentages.final !== undefined
+      levels.initial &&
+      (levels.initialPercentage ?? percentages.final) &&
+      percentages.initial &&
+      percentages.final
     ) {
       setXPCalc((prev) => ({
         ...prev,
@@ -34,7 +38,7 @@ export default function PercentageDifference() {
               XPPerLevel[levels.initial],
               (Number(levels.initialPercentage ?? percentages.final) -
                 Number(percentages.initial)) /
-                5
+                (Number(customTimer.minutes) + Number(customTimer.seconds) / 60)
             )
           : prev.xpPerMinute,
       }))
@@ -45,6 +49,7 @@ export default function PercentageDifference() {
     percentages.final,
     percentages.initial,
     setXPCalc,
+    JSON.stringify(customTimer),
   ])
 
   const handleInvalid = () => {
@@ -79,7 +84,7 @@ export default function PercentageDifference() {
     <div id="percentageDifference" className="mb-4 flex !w-max flex-col gap-3">
       <div
         id="experienceTimerInput"
-        className={'mt-8 flex items-end flex-col sm:flex-row'}
+        className={'mt-8 flex flex-col items-end sm:flex-row'}
       >
         <Input
           placeholder="Start"
