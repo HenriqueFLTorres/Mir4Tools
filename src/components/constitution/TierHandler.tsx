@@ -1,11 +1,9 @@
 'use client'
-import { useAtom } from 'jotai'
-import { useTranslation } from '../../../public/locales/client'
 import { statusLevelsAtom } from '@/atoms/Constitution'
+import { useAtom } from 'jotai'
 
 export default function TierHandler() {
   const [levels, setLevels] = useAtom(statusLevelsAtom)
-  const { t } = useTranslation()
 
   const handleStageChange = (type: 'increment' | 'decrement') => {
     const minLevel = Math.min(
