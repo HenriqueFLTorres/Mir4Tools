@@ -1,5 +1,6 @@
 import { secretPeak1f6f } from './SecretPeak/1f-6f'
 import { secretPeak7f } from './SecretPeak/7f'
+import secretPeak8f from './SecretPeak/8f'
 import { SnakePitAreaMapPoints, SnakePitAreaMaps } from './SnakePitArea'
 
 export const GlobalMapPoints: mapPointsObject = [
@@ -40,7 +41,7 @@ export const MapNodesObject: Record<subMaps, mapNodesObject> &
   secret_peak: [
     secretPeak1f6f,
     secretPeak7f,
-    {},
+    secretPeak8f,
     {},
   ],
 }
