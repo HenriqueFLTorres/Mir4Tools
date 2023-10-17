@@ -1,6 +1,5 @@
 'use client'
 
-import SupportTag from '@/components/global/Navbar/SupportTag'
 import Conquest from '@/icons/Conquest'
 import Constitution from '@/icons/Constitution'
 import EXP from '@/icons/EXP'
@@ -12,6 +11,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ChangeLanguage from './ChangeLanguage'
+import DiscordButton from './DiscordButton'
+import DiscordGroup from './DiscordGroup'
 import ManageSettings from './ManageSettings'
 import PatchNotes from './PatchNotes'
 import SupportUs from './SupportUs'
@@ -48,6 +49,8 @@ export default function GlobalNavbar({
 
             <PatchNotes />
 
+            <DiscordGroup />
+
             <SupportUs />
           </nav>
 
@@ -65,7 +68,7 @@ export default function GlobalNavbar({
         <MobileNavbar showMobile={showMobile} />
       </header>
 
-      <SupportTag />
+      <DiscordButton />
     </>
   )
 }
@@ -78,7 +81,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
       className={cn(
         'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden transition-[max-height,_margin] duration-300 will-change-[max-height,_margin] 3xl:hidden',
         {
-          'mt-5 max-h-[27rem]': showMobile,
+          'mt-5 max-h-[31rem]': showMobile,
         }
       )}
     >
@@ -94,6 +97,8 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
       ))}
 
       <PatchNotes />
+
+      <DiscordGroup />
 
       <SupportUs />
     </nav>
