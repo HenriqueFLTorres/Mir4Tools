@@ -234,6 +234,11 @@ export const secretPeak9f: mapNodesObject = {
     rarity: 'Legendary',
     type: 'darksteel',
   },
+  e5ca928e61f43: {
+    pos: [20.46, 57.5],
+    rarity: 'Legendary',
+    type: 'energy',
+  },
 }
 
 export default secretPeak9f

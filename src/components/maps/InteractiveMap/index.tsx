@@ -28,6 +28,8 @@ export default function InteractiveMap({
   const [zoom, setZoom] = useState(1)
   const [isDragging, setIsDragging] = useState(false)
 
+  console.log(currentMapPoints)
+
   const nodeScale = 1.5 * Math.exp(-zoom / 5)
   const lastMap = toCamelCase(mapsStack.at(-1))
 
