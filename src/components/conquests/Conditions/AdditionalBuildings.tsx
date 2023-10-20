@@ -14,12 +14,12 @@ export default function AditionalBuildingsConditions() {
 
   const currentTower = ConquestTowersData[tower].Steps[stage]
   const hasBuildingInConditions =
-    Object.keys(currentTower?.Condition?.Building ?? {}).length > 0
+    Object.keys(currentTower?.Building ?? {}).length > 0
   const subBuildingConditions = useMemo(
     () =>
       retrieveBuildingsRecursive({
-        building: currentTower.Condition?.Building,
-        baseBuildingConditions: currentTower.Condition?.Building ?? {},
+        building: currentTower?.Building,
+        baseBuildingConditions: currentTower?.Building ?? {},
         towerName: tower,
       }),
     [tower, stage]
@@ -82,8 +82,7 @@ function retrieveBuildingsRecursive({
 
     retrieveBuildingsRecursive({
       building:
-        ConquestTowersData?.[buildName]?.Steps?.[level - 1]?.Condition
-          ?.Building,
+        ConquestTowersData?.[buildName]?.Steps?.[level - 1]?.Building,
       baseBuildingConditions,
       towerName,
       result,

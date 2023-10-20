@@ -14,48 +14,42 @@ export default function ConquestConditions() {
 
   const currentTower = ConquestTowersData[tower].Steps[stage]
 
-  return currentTower.Condition ? (
+  return (
     <section className="flex flex-col gap-4">
       <div className="custom-scroll relative mx-auto mt-6 flex flex-row flex-wrap items-start justify-start gap-4 overflow-auto px-2 py-3 sm:flex-nowrap lg:max-w-7xl lg:px-8 lg:py-6">
-        {Object.entries(currentTower.Condition?.Building).map(
-            ([buildingName, level]) => (
-              <ConditionCard
-                key={buildingName}
-                image={`/conquests/previews/${toCamelCase(buildingName)}.png`}
-                name={t(buildingName)}
-                level={level}
-              />
-            )
-          )}
+        {Object.entries(currentTower.Building).map(([buildingName, level]) => (
+          <ConditionCard
+            key={buildingName}
+            image={`/conquests/previews/${toCamelCase(buildingName)}.png`}
+            name={t(buildingName)}
+            level={level}
+          />
+        ))}
 
-        {Object.values(currentTower.Condition?.Achievement).map(
-            (achievment, index) => {
-              const isMultiple = hasMultiple(achievment)
-              let amount = 0
-              if (isMultiple) {
-                const match = achievment.match(/\d+/gm)?.[0]
-                amount = Number.isInteger(Number(match)) ? Number(match) : 0
+        {Object.values(currentTower.Achievement).map((achievment, index) => {
+          const isMultiple = hasMultiple(achievment)
+          let amount = 0
+          if (isMultiple) {
+            const match = achievment.match(/\d+/gm)?.[0]
+            amount = Number.isInteger(Number(match)) ? Number(match) : 0
+          }
+
+          return (
+            <ConditionCard
+              key={index}
+              image={'/conquests/previews/condition.png'}
+              name={
+                hasMultiple(achievment)
+                  ? t(achievment.replace(/\d+/gm, '{{amount}}'), { amount })
+                  : t(achievment)
               }
-
-              return (
-                <ConditionCard
-                  key={index}
-                  image={'/conquests/previews/condition.png'}
-                  name={
-                    hasMultiple(achievment)
-                      ? t(achievment.replace(/\d+/gm, '{{amount}}'), { amount })
-                      : t(achievment)
-                  }
-                />
-              )
-            }
-          )}
+            />
+          )
+        })}
       </div>
 
       <AditionalBuildingsConditions />
     </section>
-  ) : (
-    <></>
   )
 }
 
