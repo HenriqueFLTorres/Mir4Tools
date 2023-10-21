@@ -34,8 +34,8 @@ const ConquestTowersData: {
         Building: {},
         Achievement: {},
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '10.00%',
+          'Character Max Level': 60,
+          'Unified Market Tax Rate Reduction': '-1% (24%)',
           'Boss ATK DMG Boost': '3.00%',
           'Boss DMG Reduction': '3.00%',
         },
@@ -52,8 +52,8 @@ const ConquestTowersData: {
         },
         Achievement: {},
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '20.00%',
+          'Character Max Level': 60,
+          'Unified Market Tax Rate Reduction': '-2% (23%)',
           'Boss ATK DMG Boost': '6.00%',
           'Boss DMG Reduction': '6.00%',
         },
@@ -73,8 +73,8 @@ const ConquestTowersData: {
           98001102: 'Nefariox Ruins 2F common mission 9x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '30.00%',
+          'Character Max Level': 60,
+          'Unified Market Tax Rate Reduction': '-3% (22%)',
           'Boss ATK DMG Boost': '9.00%',
           'Boss DMG Reduction': '9.00%',
         },
@@ -96,8 +96,8 @@ const ConquestTowersData: {
           98001103: 'Bullface Forest Common Mission 11x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '40.00%',
+          'Character Max Level': 70,
+          'Unified Market Tax Rate Reduction': '-4% (21%)',
           'Boss ATK DMG Boost': '12.00%',
           'Boss DMG Reduction': '12.00%',
         },
@@ -120,8 +120,8 @@ const ConquestTowersData: {
           98001205: 'Ginkgo Valley common mission 15x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '50.00%',
+          'Character Max Level': 70,
+          'Unified Market Tax Rate Reduction': '-5% (20%)',
           'Boss ATK DMG Boost': '15.00%',
           'Boss DMG Reduction': '15.00%',
         },
@@ -143,8 +143,8 @@ const ConquestTowersData: {
           98001105: 'Bicheon Town common mission 14x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '60.00%',
+          'Character Max Level': 70,
+          'Unified Market Tax Rate Reduction': '-6% (19%)',
           'Boss ATK DMG Boost': '15.00%',
           'Boss DMG Reduction': '15.00%',
         },
@@ -166,8 +166,8 @@ const ConquestTowersData: {
           98001106: 'Snake Pit common mission 17x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '80.00%',
+          'Character Max Level': 80,
+          'Unified Market Tax Rate Reduction': '-8% (17%)',
           'Boss ATK DMG Boost': '18.00%',
           'Boss DMG Reduction': '18.00%',
         },
@@ -189,8 +189,8 @@ const ConquestTowersData: {
           98001107: 'Viperbeast Plain common mission 14x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '110.00%',
+          'Character Max Level': 80,
+          'Unified Market Tax Rate Reduction': '-11% (14%)',
           'Boss ATK DMG Boost': '18.00%',
           'Boss DMG Reduction': '18.00%',
         },
@@ -213,8 +213,8 @@ const ConquestTowersData: {
           98001108: 'Death Gorge All Floors common mission 32x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '150.00%',
+          'Character Max Level': 80,
+          'Unified Market Tax Rate Reduction': '-15% (10%)',
           'Boss ATK DMG Boost': '21.00%',
           'Boss DMG Reduction': '21.00%',
         },
@@ -237,8 +237,8 @@ const ConquestTowersData: {
           98001109: 'Abandoned Mine All Floors common mission 43x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 80,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '21.00%',
           'Boss DMG Reduction': '21.00%',
         },
@@ -263,8 +263,8 @@ const ConquestTowersData: {
           98001211: 'Seocheon Trading Post Common Mission 15x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 100,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '24.00%',
           'Boss DMG Reduction': '24.00%',
         },
@@ -288,8 +288,8 @@ const ConquestTowersData: {
           98001111: 'Phantom Woods Common Mission 14x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 100,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '24.00%',
           'Boss DMG Reduction': '24.00%',
         },
@@ -313,8 +313,8 @@ const ConquestTowersData: {
           98001112: "Heaven's Way Peak Lower Level common mission 12x",
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 100,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '27.00%',
           'Boss DMG Reduction': '27.00%',
         },
@@ -338,8 +338,8 @@ const ConquestTowersData: {
           98001113: "Heaven's Way Peak Upper Level common mission 9x",
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 100,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '27.00%',
           'Boss DMG Reduction': '27.00%',
         },
@@ -363,8 +363,8 @@ const ConquestTowersData: {
           98001114: 'Redmoon Mountain common mission 11x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 110,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '30.00%',
           'Boss DMG Reduction': '30.00%',
         },
@@ -389,8 +389,8 @@ const ConquestTowersData: {
           98001116: 'Desert Road Common Mission 12x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 120,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '30.00%',
           'Boss DMG Reduction': '30.00%',
         },
@@ -415,8 +415,8 @@ const ConquestTowersData: {
           98001118: 'Ant Hole Common Mission 27x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 130,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '33.00%',
           'Boss DMG Reduction': '33.00%',
         },
@@ -441,8 +441,8 @@ const ConquestTowersData: {
           98001120: 'Rockcut Tomb 2F Common Mission 15x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 140,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '36.00%',
           'Boss DMG Reduction': '36.00%',
         },
@@ -467,8 +467,8 @@ const ConquestTowersData: {
           98001122: 'Bladehaven 1 - 2F Common Mission 26x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 150,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '39.00%',
           'Boss DMG Reduction': '39.00%',
         },
@@ -493,8 +493,8 @@ const ConquestTowersData: {
           98001124: 'Gorge Cave Common Mission 15x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 160,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '42.00%',
           'Boss DMG Reduction': '42.00%',
         },
@@ -518,8 +518,8 @@ const ConquestTowersData: {
           98001125: 'Great Sabuk Wall Common Mission 47x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 170,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '45.00%',
           'Boss DMG Reduction': '45.00%',
         },
@@ -544,8 +544,8 @@ const ConquestTowersData: {
           98001127: 'Nine Dragon Ice Palace Common Mission 14x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 175,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '48.00%',
           'Boss DMG Reduction': '48.00%',
         },
@@ -569,8 +569,8 @@ const ConquestTowersData: {
           98001128: 'Sagittarion Temple All Floors Common Mission 42x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 180,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '51.00%',
           'Boss DMG Reduction': '51.00%',
         },
@@ -595,8 +595,8 @@ const ConquestTowersData: {
           98001130: '[World 1] Demon Bull Temple 1F - 3F Common Mission 41x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 185,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '54.00%',
           'Boss DMG Reduction': '54.00%',
         },
@@ -621,8 +621,8 @@ const ConquestTowersData: {
           98001132: '[World 8] Abandoned Mine 1F - 3F Common Mission 39x',
         },
         Effects: {
-          'Character Max Level': 0,
-          'Unified Market Tax Rate Reduction': '200.00%',
+          'Character Max Level': 190,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '57.00%',
           'Boss DMG Reduction': '57.00%',
         },
@@ -644,8 +644,8 @@ const ConquestTowersData: {
           98002001: '[Elite] Nefariox Necropolis 1F common mission 13x',
         },
         Effects: {
-          'PHYS DEF': '1.00%',
-          'Darksteel Storage Boost': '500000.00%',
+          'PHYS DEF': 10,
+          'Darksteel Storage Boost': 5000000,
         },
       },
       {
@@ -662,8 +662,8 @@ const ConquestTowersData: {
           98002002: '[Elite] Nefariox Necropolis 2F common mission 13x',
         },
         Effects: {
-          'PHYS DEF': '2.00%',
-          'Darksteel Storage Boost': '500000.00%',
+          'PHYS DEF': 20,
+          'Darksteel Storage Boost': 5000000,
         },
       },
       {
@@ -680,8 +680,8 @@ const ConquestTowersData: {
           98002003: '[Elite] Demon Bull Temple 1F common mission 11x',
         },
         Effects: {
-          'PHYS DEF': '3.00%',
-          'Darksteel Storage Boost': '1000000.00%',
+          'PHYS DEF': 30,
+          'Darksteel Storage Boost': 10000000,
         },
       },
       {
@@ -699,8 +699,8 @@ const ConquestTowersData: {
           98002004: '[Elite] Demon Bull Temple 3F common mission 13x',
         },
         Effects: {
-          'PHYS DEF': '4.00%',
-          'Darksteel Storage Boost': '1000000.00%',
+          'PHYS DEF': 40,
+          'Darksteel Storage Boost': 10000000,
         },
       },
       {
@@ -718,8 +718,8 @@ const ConquestTowersData: {
           98002005: '[Elite] Viperbeast Plain common mission 8x',
         },
         Effects: {
-          'PHYS DEF': '5.00%',
-          'Darksteel Storage Boost': '1500000.00%',
+          'PHYS DEF': 50,
+          'Darksteel Storage Boost': 15000000,
         },
       },
       {
@@ -737,8 +737,8 @@ const ConquestTowersData: {
           98002006: '[Elite] Death Gorge Upper Level common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '5.00%',
-          'Darksteel Storage Boost': '1500000.00%',
+          'PHYS DEF': 50,
+          'Darksteel Storage Boost': 15000000,
         },
       },
       {
@@ -756,8 +756,8 @@ const ConquestTowersData: {
           98002007: '[Elite] Death Gorge Lower Level common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '6.00%',
-          'Darksteel Storage Boost': '2000000.00%',
+          'PHYS DEF': 60,
+          'Darksteel Storage Boost': 20000000,
         },
       },
       {
@@ -775,8 +775,8 @@ const ConquestTowersData: {
           98002008: '[Elite] Abandoned Mine 1F common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '6.00%',
-          'Darksteel Storage Boost': '2000000.00%',
+          'PHYS DEF': 60,
+          'Darksteel Storage Boost': 20000000,
         },
       },
       {
@@ -794,8 +794,8 @@ const ConquestTowersData: {
           98002009: '[Elite] Abandoned Mine 3F common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '7.00%',
-          'Darksteel Storage Boost': '3000000.00%',
+          'PHYS DEF': 70,
+          'Darksteel Storage Boost': 30000000,
         },
       },
       {
@@ -813,8 +813,8 @@ const ConquestTowersData: {
           98002010: '[Elite] Secret Mine 1F common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '7.00%',
-          'Darksteel Storage Boost': '3000000.00%',
+          'PHYS DEF': 70,
+          'Darksteel Storage Boost': 30000000,
         },
       },
       {
@@ -832,8 +832,8 @@ const ConquestTowersData: {
           98002011: '[Elite] Secret Mine 2F common mission 12x',
         },
         Effects: {
-          'PHYS DEF': '8.00%',
-          'Darksteel Storage Boost': '4000000.00%',
+          'PHYS DEF': 80,
+          'Darksteel Storage Boost': 40000000,
         },
       },
       {
@@ -851,8 +851,8 @@ const ConquestTowersData: {
           98002012: '[Elite] Phantom Woods common mission 8x',
         },
         Effects: {
-          'PHYS DEF': '8.00%',
-          'Darksteel Storage Boost': '4000000.00%',
+          'PHYS DEF': 80,
+          'Darksteel Storage Boost': 40000000,
         },
       },
       {
@@ -870,8 +870,8 @@ const ConquestTowersData: {
           98002013: "[Elite] Heaven's Way Peak Upper Level common mission 8x",
         },
         Effects: {
-          'PHYS DEF': '9.00%',
-          'Darksteel Storage Boost': '4500000.00%',
+          'PHYS DEF': 90,
+          'Darksteel Storage Boost': 45000000,
         },
       },
       {
@@ -889,8 +889,8 @@ const ConquestTowersData: {
           98002014: '[Elite] Redmoon Mountain common mission 8x',
         },
         Effects: {
-          'PHYS DEF': '9.00%',
-          'Darksteel Storage Boost': '4500000.00%',
+          'PHYS DEF': 90,
+          'Darksteel Storage Boost': 45000000,
         },
       },
       {
@@ -908,8 +908,8 @@ const ConquestTowersData: {
           98002015: '[Elite] Redmoon Gorge common mission 36x',
         },
         Effects: {
-          'PHYS DEF': '10.00%',
-          'Darksteel Storage Boost': '5000000.00%',
+          'PHYS DEF': 100,
+          'Darksteel Storage Boost': 50000000,
         },
       },
       {
@@ -928,8 +928,8 @@ const ConquestTowersData: {
           98002017: '[Elite] Ant Hole 1F Common Mission 11x',
         },
         Effects: {
-          'PHYS DEF': '10.00%',
-          'Darksteel Storage Boost': '5000000.00%',
+          'PHYS DEF': 100,
+          'Darksteel Storage Boost': 50000000,
         },
       },
       {
@@ -948,8 +948,8 @@ const ConquestTowersData: {
           98002019: '[Elite] Ant Hole 2F Common Mission 11x',
         },
         Effects: {
-          'PHYS DEF': '11.00%',
-          'Darksteel Storage Boost': '5500000.00%',
+          'PHYS DEF': 110,
+          'Darksteel Storage Boost': 55000000,
         },
       },
       {
@@ -968,8 +968,8 @@ const ConquestTowersData: {
           98002021: '[Elite] Rockcut Tomb 2F Common Mission 9x',
         },
         Effects: {
-          'PHYS DEF': '12.00%',
-          'Darksteel Storage Boost': '5500000.00%',
+          'PHYS DEF': 120,
+          'Darksteel Storage Boost': 55000000,
         },
       },
       {
@@ -989,8 +989,8 @@ const ConquestTowersData: {
           98002024: '[Elite] Bladehaven 2F Common Mission 9x',
         },
         Effects: {
-          'PHYS DEF': '13.00%',
-          'Darksteel Storage Boost': '6000000.00%',
+          'PHYS DEF': 130,
+          'Darksteel Storage Boost': 60000000,
         },
       },
       {
@@ -1009,8 +1009,8 @@ const ConquestTowersData: {
           98002026: '[Elite] Great Sabuk Wall Camp Common Mission 11x',
         },
         Effects: {
-          'PHYS DEF': '14.00%',
-          'Darksteel Storage Boost': '6000000.00%',
+          'PHYS DEF': 140,
+          'Darksteel Storage Boost': 60000000,
         },
       },
       {
@@ -1029,8 +1029,8 @@ const ConquestTowersData: {
           98002028: '[Elite] Great Sabuk Wall Control Room Common Mission 11x',
         },
         Effects: {
-          'PHYS DEF': '15.00%',
-          'Darksteel Storage Boost': '6500000.00%',
+          'PHYS DEF': 150,
+          'Darksteel Storage Boost': 65000000,
         },
       },
       {
@@ -1049,8 +1049,8 @@ const ConquestTowersData: {
           98002030: '[Elite] Sagittarion Temple 2F Common Mission 9x',
         },
         Effects: {
-          'PHYS DEF': '16.00%',
-          'Darksteel Storage Boost': '6500000.00%',
+          'PHYS DEF': 160,
+          'Darksteel Storage Boost': 65000000,
         },
       },
       {
@@ -1069,8 +1069,8 @@ const ConquestTowersData: {
           98002032: '[Elite] Nine Dragon Ice Palace Common Mission 8x',
         },
         Effects: {
-          'PHYS DEF': '17.00%',
-          'Darksteel Storage Boost': '7000000.00%',
+          'PHYS DEF': 170,
+          'Darksteel Storage Boost': 70000000,
         },
       },
       {
@@ -1089,8 +1089,8 @@ const ConquestTowersData: {
           98002401: 'Reach Blue Dragon Mystique Stage 4 4x',
         },
         Effects: {
-          'PHYS DEF': '18.00%',
-          'Darksteel Storage Boost': '7000000.00%',
+          'PHYS DEF': 180,
+          'Darksteel Storage Boost': 70000000,
         },
       },
       {
@@ -1109,8 +1109,8 @@ const ConquestTowersData: {
           98002402: 'Reach Blue Dragon Mystique Stage 5 5x',
         },
         Effects: {
-          'PHYS DEF': '19.00%',
-          'Darksteel Storage Boost': '7500000.00%',
+          'PHYS DEF': 190,
+          'Darksteel Storage Boost': 75000000,
         },
       },
     ],
@@ -1130,7 +1130,7 @@ const ConquestTowersData: {
           98003101: 'Mine Darksteel 20x',
         },
         Effects: {
-          'Spell DEF': '1.00%',
+          'Spell DEF': 10,
           'Darksteel Gain Boost': 0,
         },
       },
@@ -1148,8 +1148,8 @@ const ConquestTowersData: {
           98003002: 'Mine Ores 300x',
         },
         Effects: {
-          'Spell DEF': '2.00%',
-          'Darksteel Gain Boost': '50.00%',
+          'Spell DEF': 20,
+          'Darksteel Gain Boost': '5.00%',
         },
       },
       {
@@ -1166,8 +1166,8 @@ const ConquestTowersData: {
           98003103: 'Mine Darksteel 80x',
         },
         Effects: {
-          'Spell DEF': '3.00%',
-          'Darksteel Gain Boost': '50.00%',
+          'Spell DEF': 30,
+          'Darksteel Gain Boost': '5.00%',
         },
       },
       {
@@ -1185,8 +1185,8 @@ const ConquestTowersData: {
           98003204: 'Bicheon Valley 1F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '4.00%',
-          'Darksteel Gain Boost': '100.00%',
+          'Spell DEF': 40,
+          'Darksteel Gain Boost': '10.00%',
         },
       },
       {
@@ -1204,8 +1204,8 @@ const ConquestTowersData: {
           98003005: 'Mine Ores 700x',
         },
         Effects: {
-          'Spell DEF': '5.00%',
-          'Darksteel Gain Boost': '100.00%',
+          'Spell DEF': 50,
+          'Darksteel Gain Boost': '10.00%',
         },
       },
       {
@@ -1223,8 +1223,8 @@ const ConquestTowersData: {
           98003206: 'Bicheon Valley 2F common mission 6x',
         },
         Effects: {
-          'Spell DEF': '5.00%',
-          'Darksteel Gain Boost': '150.00%',
+          'Spell DEF': 50,
+          'Darksteel Gain Boost': '15.00%',
         },
       },
       {
@@ -1242,8 +1242,8 @@ const ConquestTowersData: {
           98003007: 'Mine Ores 2000x',
         },
         Effects: {
-          'Spell DEF': '6.00%',
-          'Darksteel Gain Boost': '150.00%',
+          'Spell DEF': 60,
+          'Darksteel Gain Boost': '15.00%',
         },
       },
       {
@@ -1261,8 +1261,8 @@ const ConquestTowersData: {
           98003208: 'Bicheon Valley 4F common mission 6x',
         },
         Effects: {
-          'Spell DEF': '6.00%',
-          'Darksteel Gain Boost': '200.00%',
+          'Spell DEF': 60,
+          'Darksteel Gain Boost': '20.00%',
         },
       },
       {
@@ -1280,8 +1280,8 @@ const ConquestTowersData: {
           98003109: 'Mine Darksteel 7900x',
         },
         Effects: {
-          'Spell DEF': '7.00%',
-          'Darksteel Gain Boost': '200.00%',
+          'Spell DEF': 70,
+          'Darksteel Gain Boost': '20.00%',
         },
       },
       {
@@ -1299,8 +1299,8 @@ const ConquestTowersData: {
           98003210: 'Snake Valley 1F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '7.00%',
-          'Darksteel Gain Boost': '250.00%',
+          'Spell DEF': 70,
+          'Darksteel Gain Boost': '25.00%',
         },
       },
       {
@@ -1318,8 +1318,8 @@ const ConquestTowersData: {
           98003211: 'Snake Valley 2F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '8.00%',
-          'Darksteel Gain Boost': '250.00%',
+          'Spell DEF': 80,
+          'Darksteel Gain Boost': '25.00%',
         },
       },
       {
@@ -1337,8 +1337,8 @@ const ConquestTowersData: {
           98003212: 'Snake Valley 3F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '8.00%',
-          'Darksteel Gain Boost': '750.00%',
+          'Spell DEF': 80,
+          'Darksteel Gain Boost': '75.00%',
         },
       },
       {
@@ -1356,8 +1356,8 @@ const ConquestTowersData: {
           98003213: 'Snake Valley 4F common mission 6x',
         },
         Effects: {
-          'Spell DEF': '9.00%',
-          'Darksteel Gain Boost': '850.00%',
+          'Spell DEF': 90,
+          'Darksteel Gain Boost': '85.00%',
         },
       },
       {
@@ -1375,8 +1375,8 @@ const ConquestTowersData: {
           98003214: 'Redmoon Valley 1F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '9.00%',
-          'Darksteel Gain Boost': '950.00%',
+          'Spell DEF': 90,
+          'Darksteel Gain Boost': '95.00%',
         },
       },
       {
@@ -1394,8 +1394,8 @@ const ConquestTowersData: {
           98003215: 'Redmoon Valley 2F common mission 7x',
         },
         Effects: {
-          'Spell DEF': '10.00%',
-          'Darksteel Gain Boost': '1050.00%',
+          'Spell DEF': 100,
+          'Darksteel Gain Boost': '105.00%',
         },
       },
       {
@@ -1414,8 +1414,8 @@ const ConquestTowersData: {
           98003216: 'Redmoon Valley 3F Common Mission 7x',
         },
         Effects: {
-          'Spell DEF': '10.00%',
-          'Darksteel Gain Boost': '1150.00%',
+          'Spell DEF': 100,
+          'Darksteel Gain Boost': '115.00%',
         },
       },
       {
@@ -1434,8 +1434,8 @@ const ConquestTowersData: {
           98003217: 'Redmoon Valley 4F Common Mission 6x',
         },
         Effects: {
-          'Spell DEF': '11.00%',
-          'Darksteel Gain Boost': '1650.00%',
+          'Spell DEF': 110,
+          'Darksteel Gain Boost': '165.00%',
         },
       },
       {
@@ -1454,8 +1454,8 @@ const ConquestTowersData: {
           98003219: 'Phantasia Valley 2F Common Mission 8x',
         },
         Effects: {
-          'Spell DEF': '12.00%',
-          'Darksteel Gain Boost': '1750.00%',
+          'Spell DEF': 120,
+          'Darksteel Gain Boost': '175.00%',
         },
       },
       {
@@ -1474,8 +1474,8 @@ const ConquestTowersData: {
           98003221: 'Phantasia Valley 4F Common Mission 7x',
         },
         Effects: {
-          'Spell DEF': '13.00%',
-          'Darksteel Gain Boost': '1850.00%',
+          'Spell DEF': 130,
+          'Darksteel Gain Boost': '185.00%',
         },
       },
       {
@@ -1494,8 +1494,8 @@ const ConquestTowersData: {
           98003223: 'Defeat Snake Valley Demonic Phantom Dragon 2x',
         },
         Effects: {
-          'Spell DEF': '14.00%',
-          'Darksteel Gain Boost': '1950.00%',
+          'Spell DEF': 140,
+          'Darksteel Gain Boost': '195.00%',
         },
       },
       {
@@ -1514,8 +1514,8 @@ const ConquestTowersData: {
           98003225: 'Defeat Phantasia Valley Heavenly Asura 2x',
         },
         Effects: {
-          'Spell DEF': '15.00%',
-          'Darksteel Gain Boost': '2050.00%',
+          'Spell DEF': 150,
+          'Darksteel Gain Boost': '205.00%',
         },
       },
       {
@@ -1534,8 +1534,8 @@ const ConquestTowersData: {
           98003227: 'Sagittarion Valley 2F Common Mission 7x',
         },
         Effects: {
-          'Spell DEF': '16.00%',
-          'Darksteel Gain Boost': '2150.00%',
+          'Spell DEF': 160,
+          'Darksteel Gain Boost': '215.00%',
         },
       },
       {
@@ -1554,8 +1554,8 @@ const ConquestTowersData: {
           98003229: 'Sagittarion Valley 4F Common Mission 6x',
         },
         Effects: {
-          'Spell DEF': '17.00%',
-          'Darksteel Gain Boost': '2250.00%',
+          'Spell DEF': 170,
+          'Darksteel Gain Boost': '225.00%',
         },
       },
       {
@@ -1574,8 +1574,8 @@ const ConquestTowersData: {
           98002201: 'Reach Black Tortoise Mystique Stage 4 4x',
         },
         Effects: {
-          'Spell DEF': '18.00%',
-          'Darksteel Gain Boost': '2350.00%',
+          'Spell DEF': 180,
+          'Darksteel Gain Boost': '235.00%',
         },
       },
       {
@@ -1594,8 +1594,8 @@ const ConquestTowersData: {
           98002202: 'Reach Black Tortoise Mystique Stage 5 5x',
         },
         Effects: {
-          'Spell DEF': '19.00%',
-          'Darksteel Gain Boost': '2450.00%',
+          'Spell DEF': 190,
+          'Darksteel Gain Boost': '245.00%',
         },
       },
     ],
@@ -1615,9 +1615,9 @@ const ConquestTowersData: {
           98005001: 'Gather Herbs 100x',
         },
         Effects: {
-          'PHYS DEF': '1.00%',
-          'Max Number of Magic Square Tickets': 0,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 10,
+          'Max Number of Magic Square Tickets': '+0',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1634,9 +1634,9 @@ const ConquestTowersData: {
           98005102: 'Promote Constitution to Tier 2',
         },
         Effects: {
-          'PHYS DEF': '2.00%',
-          'Max Number of Magic Square Tickets': 0,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 20,
+          'Max Number of Magic Square Tickets': '+0',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1653,9 +1653,9 @@ const ConquestTowersData: {
           98005003: 'Gather Herbs 100x',
         },
         Effects: {
-          'PHYS DEF': '3.00%',
-          'Max Number of Magic Square Tickets': 0,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 30,
+          'Max Number of Magic Square Tickets': '+0',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1674,9 +1674,9 @@ const ConquestTowersData: {
           98005104: 'Promote Constitution to Tier 3',
         },
         Effects: {
-          'PHYS DEF': '4.00%',
-          'Max Number of Magic Square Tickets': 0,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 40,
+          'Max Number of Magic Square Tickets': '+0',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1695,9 +1695,9 @@ const ConquestTowersData: {
           98005005: 'Gather Herbs 500x',
         },
         Effects: {
-          'PHYS DEF': '5.00%',
-          'Max Number of Magic Square Tickets': 0,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 50,
+          'Max Number of Magic Square Tickets': '+0',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1716,9 +1716,9 @@ const ConquestTowersData: {
           98005106: 'Promote Constitution to Tier 4',
         },
         Effects: {
-          'PHYS DEF': '5.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 50,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1737,9 +1737,9 @@ const ConquestTowersData: {
           98005007: 'Gather Herbs 800x',
         },
         Effects: {
-          'PHYS DEF': '6.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 60,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1758,9 +1758,9 @@ const ConquestTowersData: {
           98005108: 'Promote Constitution to Tier 5',
         },
         Effects: {
-          'PHYS DEF': '6.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 60,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1779,9 +1779,9 @@ const ConquestTowersData: {
           98005009: 'Gather Herbs 1500x',
         },
         Effects: {
-          'PHYS DEF': '7.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 70,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1800,9 +1800,9 @@ const ConquestTowersData: {
           98005110: 'Promote Constitution to Tier 6',
         },
         Effects: {
-          'PHYS DEF': '7.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 70,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1822,9 +1822,9 @@ const ConquestTowersData: {
           98005011: 'Gather Herbs 4000x',
         },
         Effects: {
-          'PHYS DEF': '8.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 80,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1844,9 +1844,9 @@ const ConquestTowersData: {
           98005112: 'Promote Constitution to Tier 7',
         },
         Effects: {
-          'PHYS DEF': '8.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 0,
+          'PHYS DEF': 80,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+0',
         },
       },
       {
@@ -1866,9 +1866,9 @@ const ConquestTowersData: {
           98005113: 'Promote Constitution to Tier 8',
         },
         Effects: {
-          'PHYS DEF': '9.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 90,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -1888,9 +1888,9 @@ const ConquestTowersData: {
           98005114: 'Promote Constitution to Tier 9',
         },
         Effects: {
-          'PHYS DEF': '9.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 90,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -1910,9 +1910,9 @@ const ConquestTowersData: {
           98005115: 'Promote Constitution to Tier 10',
         },
         Effects: {
-          'PHYS DEF': '10.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 100,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -1933,9 +1933,9 @@ const ConquestTowersData: {
           98005116: 'Promote Constitution to Tier 11',
         },
         Effects: {
-          'PHYS DEF': '10.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 100,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -1956,9 +1956,9 @@ const ConquestTowersData: {
           98005117: 'Promote Constitution to Tier 12',
         },
         Effects: {
-          'PHYS DEF': '11.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 110,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -1980,9 +1980,9 @@ const ConquestTowersData: {
           98005118: 'Promote Constitution to Tier 13',
         },
         Effects: {
-          'PHYS DEF': '12.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 120,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2004,9 +2004,9 @@ const ConquestTowersData: {
           98005119: 'Promote Constitution to Tier 14',
         },
         Effects: {
-          'PHYS DEF': '13.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 130,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2026,9 +2026,9 @@ const ConquestTowersData: {
           98005120: 'Promote Constitution to Tier 15',
         },
         Effects: {
-          'PHYS DEF': '14.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 140,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2048,9 +2048,9 @@ const ConquestTowersData: {
           98005121: 'Promote Constitution to Tier 16',
         },
         Effects: {
-          'PHYS DEF': '15.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 150,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2070,9 +2070,9 @@ const ConquestTowersData: {
           98005122: 'Promote Constitution to Tier 17',
         },
         Effects: {
-          'PHYS DEF': '16.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 160,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2092,9 +2092,9 @@ const ConquestTowersData: {
           98005123: 'Promote Constitution to Tier 18',
         },
         Effects: {
-          'PHYS DEF': '17.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 170,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2114,9 +2114,9 @@ const ConquestTowersData: {
           98005124: 'Promote Constitution to Tier 19',
         },
         Effects: {
-          'PHYS DEF': '18.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 180,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
       {
@@ -2136,9 +2136,9 @@ const ConquestTowersData: {
           98005125: 'Promote Constitution to Tier 20',
         },
         Effects: {
-          'PHYS DEF': '19.00%',
-          'Max Number of Magic Square Tickets': 1,
-          'Max Number of Secret Peak Tickets': 1,
+          'PHYS DEF': 190,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
         },
       },
     ],
@@ -2158,9 +2158,9 @@ const ConquestTowersData: {
           98006201: 'Promote Muscle Strength Manual to Tier 2',
         },
         Effects: {
-          MP: '5.00%',
-          'Copper Gain Boost': '20.00%',
-          'Energy Storage Limit Boost': '500000.00%',
+          MP: 50,
+          'Copper Gain Boost': '2.00%',
+          'Energy Storage Limit Boost': 5000000,
           'PvP DMG Reduction': '1.00%',
         },
       },
@@ -2178,9 +2178,9 @@ const ConquestTowersData: {
           98006102: 'Collect Energy 300 times',
         },
         Effects: {
-          MP: '10.00%',
-          'Copper Gain Boost': '40.00%',
-          'Energy Storage Limit Boost': '500000.00%',
+          MP: 100,
+          'Copper Gain Boost': '4.00%',
+          'Energy Storage Limit Boost': 5000000,
           'PvP DMG Reduction': '2.00%',
         },
       },
@@ -2198,9 +2198,9 @@ const ConquestTowersData: {
           98006103: 'Collect Energy 400 times',
         },
         Effects: {
-          MP: '15.00%',
-          'Copper Gain Boost': '80.00%',
-          'Energy Storage Limit Boost': '1000000.00%',
+          MP: 150,
+          'Copper Gain Boost': '8.00%',
+          'Energy Storage Limit Boost': 10000000,
           'PvP DMG Reduction': '3.00%',
         },
       },
@@ -2219,9 +2219,9 @@ const ConquestTowersData: {
           98006104: 'Collect Energy 1100 times',
         },
         Effects: {
-          MP: '20.00%',
-          'Copper Gain Boost': '100.00%',
-          'Energy Storage Limit Boost': '1000000.00%',
+          MP: 200,
+          'Copper Gain Boost': '10.00%',
+          'Energy Storage Limit Boost': 10000000,
           'PvP DMG Reduction': '4.00%',
         },
       },
@@ -2240,9 +2240,9 @@ const ConquestTowersData: {
           98006205: 'Promote Muscle Strength Manual to Tier 4 2x',
         },
         Effects: {
-          MP: '25.00%',
-          'Copper Gain Boost': '120.00%',
-          'Energy Storage Limit Boost': '1500000.00%',
+          MP: 250,
+          'Copper Gain Boost': '12.00%',
+          'Energy Storage Limit Boost': 15000000,
           'PvP DMG Reduction': '5.00%',
         },
       },
@@ -2261,9 +2261,9 @@ const ConquestTowersData: {
           98006206: 'Promote Muscle Strength Manual to Tier 5',
         },
         Effects: {
-          MP: '25.00%',
-          'Copper Gain Boost': '140.00%',
-          'Energy Storage Limit Boost': '1500000.00%',
+          MP: 250,
+          'Copper Gain Boost': '14.00%',
+          'Energy Storage Limit Boost': 15000000,
           'PvP DMG Reduction': '5.00%',
         },
       },
@@ -2282,9 +2282,9 @@ const ConquestTowersData: {
           98006307: 'Promote Nine Yin Manual to Tier 5 4x',
         },
         Effects: {
-          MP: '30.00%',
-          'Copper Gain Boost': '160.00%',
-          'Energy Storage Limit Boost': '2000000.00%',
+          MP: 300,
+          'Copper Gain Boost': '16.00%',
+          'Energy Storage Limit Boost': 20000000,
           'PvP DMG Reduction': '6.00%',
         },
       },
@@ -2303,9 +2303,9 @@ const ConquestTowersData: {
           98006308: 'Promote Nine Yin Manual to Tier 6',
         },
         Effects: {
-          MP: '30.00%',
-          'Copper Gain Boost': '180.00%',
-          'Energy Storage Limit Boost': '2000000.00%',
+          MP: 300,
+          'Copper Gain Boost': '18.00%',
+          'Energy Storage Limit Boost': 20000000,
           'PvP DMG Reduction': '6.00%',
         },
       },
@@ -2324,9 +2324,9 @@ const ConquestTowersData: {
           98006409: 'Promote Nine Yang Manual to Tier 6 5x',
         },
         Effects: {
-          MP: '35.00%',
-          'Copper Gain Boost': '200.00%',
-          'Energy Storage Limit Boost': '3000000.00%',
+          MP: 350,
+          'Copper Gain Boost': '20.00%',
+          'Energy Storage Limit Boost': 30000000,
           'PvP DMG Reduction': '7.00%',
         },
       },
@@ -2345,9 +2345,9 @@ const ConquestTowersData: {
           98006210: 'Promote Muscle Strength Manual to Tier 6',
         },
         Effects: {
-          MP: '35.00%',
-          'Copper Gain Boost': '220.00%',
-          'Energy Storage Limit Boost': '3000000.00%',
+          MP: 350,
+          'Copper Gain Boost': '22.00%',
+          'Energy Storage Limit Boost': 30000000,
           'PvP DMG Reduction': '7.00%',
         },
       },
@@ -2366,9 +2366,9 @@ const ConquestTowersData: {
           98006211: 'Promote Muscle Strength Manual to Tier 7',
         },
         Effects: {
-          MP: '40.00%',
-          'Copper Gain Boost': '240.00%',
-          'Energy Storage Limit Boost': '4000000.00%',
+          MP: 400,
+          'Copper Gain Boost': '24.00%',
+          'Energy Storage Limit Boost': 40000000,
           'PvP DMG Reduction': '8.00%',
         },
       },
@@ -2387,9 +2387,9 @@ const ConquestTowersData: {
           98006312: 'Promote Nine Yin Manual to Tier 7',
         },
         Effects: {
-          MP: '40.00%',
-          'Copper Gain Boost': '260.00%',
-          'Energy Storage Limit Boost': '4000000.00%',
+          MP: 400,
+          'Copper Gain Boost': '26.00%',
+          'Energy Storage Limit Boost': 40000000,
           'PvP DMG Reduction': '8.00%',
         },
       },
@@ -2408,9 +2408,9 @@ const ConquestTowersData: {
           98006313: 'Promote Nine Yin Manual to Tier 8',
         },
         Effects: {
-          MP: '45.00%',
-          'Copper Gain Boost': '280.00%',
-          'Energy Storage Limit Boost': '4500000.00%',
+          MP: 450,
+          'Copper Gain Boost': '28.00%',
+          'Energy Storage Limit Boost': 45000000,
           'PvP DMG Reduction': '9.00%',
         },
       },
@@ -2429,9 +2429,9 @@ const ConquestTowersData: {
           98006414: 'Promote Nine Yang Manual to Tier 8 2x',
         },
         Effects: {
-          MP: '45.00%',
-          'Copper Gain Boost': '300.00%',
-          'Energy Storage Limit Boost': '4500000.00%',
+          MP: 450,
+          'Copper Gain Boost': '30.00%',
+          'Energy Storage Limit Boost': 45000000,
           'PvP DMG Reduction': '9.00%',
         },
       },
@@ -2450,9 +2450,9 @@ const ConquestTowersData: {
           98006415: 'Promote Nine Yang Manual to Tier 9',
         },
         Effects: {
-          MP: '50.00%',
-          'Copper Gain Boost': '320.00%',
-          'Energy Storage Limit Boost': '5000000.00%',
+          MP: 500,
+          'Copper Gain Boost': '32.00%',
+          'Energy Storage Limit Boost': 50000000,
           'PvP DMG Reduction': '10.00%',
         },
       },
@@ -2473,9 +2473,9 @@ const ConquestTowersData: {
           98006704: 'Promote to Tier 2 Toad Stance',
         },
         Effects: {
-          MP: '50.00%',
-          'Copper Gain Boost': '340.00%',
-          'Energy Storage Limit Boost': '5000000.00%',
+          MP: 500,
+          'Copper Gain Boost': '34.00%',
+          'Energy Storage Limit Boost': 50000000,
           'PvP DMG Reduction': '10.00%',
         },
       },
@@ -2496,9 +2496,9 @@ const ConquestTowersData: {
           98006417: 'Promote Nine Yang Manual to Tier 11 2x',
         },
         Effects: {
-          MP: '55.00%',
-          'Copper Gain Boost': '360.00%',
-          'Energy Storage Limit Boost': '5500000.00%',
+          MP: 550,
+          'Copper Gain Boost': '36.00%',
+          'Energy Storage Limit Boost': 55000000,
           'PvP DMG Reduction': '11.00%',
         },
       },
@@ -2519,9 +2519,9 @@ const ConquestTowersData: {
           98006707: 'Promote to Tier 4 Toad Stance 2x',
         },
         Effects: {
-          MP: '60.00%',
-          'Copper Gain Boost': '380.00%',
-          'Energy Storage Limit Boost': '5500000.00%',
+          MP: 600,
+          'Copper Gain Boost': '38.00%',
+          'Energy Storage Limit Boost': 55000000,
           'PvP DMG Reduction': '12.00%',
         },
       },
@@ -2542,9 +2542,9 @@ const ConquestTowersData: {
           98006418: 'Promote Nine Yang Manual to Tier 13 2x',
         },
         Effects: {
-          MP: '65.00%',
-          'Copper Gain Boost': '400.00%',
-          'Energy Storage Limit Boost': '6000000.00%',
+          MP: 650,
+          'Copper Gain Boost': '40.00%',
+          'Energy Storage Limit Boost': 60000000,
           'PvP DMG Reduction': '13.00%',
         },
       },
@@ -2565,9 +2565,9 @@ const ConquestTowersData: {
           98006708: 'Promote to Tier 5 Toad Stance',
         },
         Effects: {
-          MP: '70.00%',
-          'Copper Gain Boost': '420.00%',
-          'Energy Storage Limit Boost': '6000000.00%',
+          MP: 700,
+          'Copper Gain Boost': '42.00%',
+          'Energy Storage Limit Boost': 60000000,
           'PvP DMG Reduction': '14.00%',
         },
       },
@@ -2588,9 +2588,9 @@ const ConquestTowersData: {
           98006419: 'Promote Nine Yang Manual to Tier 14',
         },
         Effects: {
-          MP: '75.00%',
-          'Copper Gain Boost': '440.00%',
-          'Energy Storage Limit Boost': '6500000.00%',
+          MP: 750,
+          'Copper Gain Boost': '44.00%',
+          'Energy Storage Limit Boost': 65000000,
           'PvP DMG Reduction': '15.00%',
         },
       },
@@ -2611,9 +2611,9 @@ const ConquestTowersData: {
           98006709: 'Promote to Tier 6 Toad Stance',
         },
         Effects: {
-          MP: '80.00%',
-          'Copper Gain Boost': '460.00%',
-          'Energy Storage Limit Boost': '6500000.00%',
+          MP: 800,
+          'Copper Gain Boost': '46.00%',
+          'Energy Storage Limit Boost': 65000000,
           'PvP DMG Reduction': '16.00%',
         },
       },
@@ -2634,9 +2634,9 @@ const ConquestTowersData: {
           98006420: 'Promote Nine Yang Manual to Tier 15',
         },
         Effects: {
-          MP: '85.00%',
-          'Copper Gain Boost': '480.00%',
-          'Energy Storage Limit Boost': '7000000.00%',
+          MP: 850,
+          'Copper Gain Boost': '48.00%',
+          'Energy Storage Limit Boost': 70000000,
           'PvP DMG Reduction': '17.00%',
         },
       },
@@ -2657,9 +2657,9 @@ const ConquestTowersData: {
           98006710: 'Promote to Tier 7 Toad Stance',
         },
         Effects: {
-          MP: '90.00%',
-          'Copper Gain Boost': '500.00%',
-          'Energy Storage Limit Boost': '7000000.00%',
+          MP: 900,
+          'Copper Gain Boost': '50.00%',
+          'Energy Storage Limit Boost': 70000000,
           'PvP DMG Reduction': '18.00%',
         },
       },
@@ -2680,9 +2680,9 @@ const ConquestTowersData: {
           98006421: 'Promote Nine Yang Manual to Tier 16',
         },
         Effects: {
-          MP: '95.00%',
-          'Copper Gain Boost': '520.00%',
-          'Energy Storage Limit Boost': '7500000.00%',
+          MP: 950,
+          'Copper Gain Boost': '52.00%',
+          'Energy Storage Limit Boost': 75000000,
           'PvP DMG Reduction': '19.00%',
         },
       },
@@ -2703,9 +2703,9 @@ const ConquestTowersData: {
         },
         Achievement: {},
         Effects: {
-          'Hunting EXP Boost': '50.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '5.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+1',
           'PvP ATK DMG Boost': '1.00%',
         },
       },
@@ -2723,9 +2723,9 @@ const ConquestTowersData: {
           98008102: 'Unseal 10x',
         },
         Effects: {
-          'Hunting EXP Boost': '60.00%',
-          'Magic Stone Slot Expansion': 1,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '6.00%',
+          'Magic Stone Slot Expansion': 'Magic Stone Slot 4',
+          'Unsealed Slot Expansion': '+1',
           'PvP ATK DMG Boost': '2.00%',
         },
       },
@@ -2743,9 +2743,9 @@ const ConquestTowersData: {
           98008003: 'Ginkgo Valley Request 7x',
         },
         Effects: {
-          'Hunting EXP Boost': '70.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '7.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+2',
           'PvP ATK DMG Boost': '3.00%',
         },
       },
@@ -2765,9 +2765,9 @@ const ConquestTowersData: {
           98008104: 'Unseal 10x',
         },
         Effects: {
-          'Hunting EXP Boost': '80.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '8.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+2',
           'PvP ATK DMG Boost': '4.00%',
         },
       },
@@ -2787,9 +2787,9 @@ const ConquestTowersData: {
           98008005: 'Bicheon Castle Request 38x',
         },
         Effects: {
-          'Hunting EXP Boost': '100.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '10.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+3',
           'PvP ATK DMG Boost': '5.00%',
         },
       },
@@ -2811,9 +2811,9 @@ const ConquestTowersData: {
           98008106: 'Unseal 10x',
         },
         Effects: {
-          'Hunting EXP Boost': '120.00%',
-          'Magic Stone Slot Expansion': 1,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '12.00%',
+          'Magic Stone Slot Expansion': 'Magic Stone Slot 5',
+          'Unsealed Slot Expansion': '+3',
           'PvP ATK DMG Boost': '5.00%',
         },
       },
@@ -2835,9 +2835,9 @@ const ConquestTowersData: {
           98008007: 'Bicheon Town Request 28x',
         },
         Effects: {
-          'Hunting EXP Boost': '140.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '14.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+4',
           'PvP ATK DMG Boost': '6.00%',
         },
       },
@@ -2859,9 +2859,9 @@ const ConquestTowersData: {
           98008108: 'Unseal 20x',
         },
         Effects: {
-          'Hunting EXP Boost': '160.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '16.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+4',
           'PvP ATK DMG Boost': '6.00%',
         },
       },
@@ -2883,9 +2883,9 @@ const ConquestTowersData: {
           98008009: 'Snake Pit Request 27x',
         },
         Effects: {
-          'Hunting EXP Boost': '180.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '18.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+5',
           'PvP ATK DMG Boost': '7.00%',
         },
       },
@@ -2907,9 +2907,9 @@ const ConquestTowersData: {
           98008110: 'Unseal 40x',
         },
         Effects: {
-          'Hunting EXP Boost': '200.00%',
-          'Magic Stone Slot Expansion': 1,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '20.00%',
+          'Magic Stone Slot Expansion': 'Magic Stone Slot 6',
+          'Unsealed Slot Expansion': '+5',
           'PvP ATK DMG Boost': '7.00%',
         },
       },
@@ -2932,9 +2932,9 @@ const ConquestTowersData: {
           98008011: "Sinner's Shire Request 30x",
         },
         Effects: {
-          'Hunting EXP Boost': '240.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '24.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+6',
           'PvP ATK DMG Boost': '8.00%',
         },
       },
@@ -2957,9 +2957,9 @@ const ConquestTowersData: {
           98008112: 'Unseal 60x',
         },
         Effects: {
-          'Hunting EXP Boost': '280.00%',
-          'Magic Stone Slot Expansion': 1,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '28.00%',
+          'Magic Stone Slot Expansion': 'Spectrumite Slot 1',
+          'Unsealed Slot Expansion': '+6',
           'PvP ATK DMG Boost': '8.00%',
         },
       },
@@ -2982,9 +2982,9 @@ const ConquestTowersData: {
           98008013: 'Seocheon Trading Post Request 17x',
         },
         Effects: {
-          'Hunting EXP Boost': '300.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '30.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+7',
           'PvP ATK DMG Boost': '9.00%',
         },
       },
@@ -3008,9 +3008,9 @@ const ConquestTowersData: {
           98008015: 'Spiritual Center Request 78x',
         },
         Effects: {
-          'Hunting EXP Boost': '320.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '32.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+7',
           'PvP ATK DMG Boost': '9.00%',
         },
       },
@@ -3034,9 +3034,9 @@ const ConquestTowersData: {
           98008017: 'Redmoon Mountain Request 4x',
         },
         Effects: {
-          'Hunting EXP Boost': '360.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '36.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+8',
           'PvP ATK DMG Boost': '10.00%',
         },
       },
@@ -3060,9 +3060,9 @@ const ConquestTowersData: {
           98008019: 'Desert Road Request 4x',
         },
         Effects: {
-          'Hunting EXP Boost': '400.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '40.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+8',
           'PvP ATK DMG Boost': '10.00%',
         },
       },
@@ -3085,9 +3085,9 @@ const ConquestTowersData: {
           98008020: 'Sabuk Town Request 14x',
         },
         Effects: {
-          'Hunting EXP Boost': '440.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '44.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+9',
           'PvP ATK DMG Boost': '11.00%',
         },
       },
@@ -3111,9 +3111,9 @@ const ConquestTowersData: {
           98008022: 'Sabuk Town Request 5x',
         },
         Effects: {
-          'Hunting EXP Boost': '480.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '48.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+9',
           'PvP ATK DMG Boost': '12.00%',
         },
       },
@@ -3136,9 +3136,9 @@ const ConquestTowersData: {
           98008023: 'Sabuk Castle Request 37x',
         },
         Effects: {
-          'Hunting EXP Boost': '520.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '52.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+10',
           'PvP ATK DMG Boost': '13.00%',
         },
       },
@@ -3161,9 +3161,9 @@ const ConquestTowersData: {
           98008025: 'Sabuk Castle Request 15x',
         },
         Effects: {
-          'Hunting EXP Boost': '560.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '56.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+10',
           'PvP ATK DMG Boost': '14.00%',
         },
       },
@@ -3185,9 +3185,9 @@ const ConquestTowersData: {
           98008026: 'Gorge Cliff Path Request 15x',
         },
         Effects: {
-          'Hunting EXP Boost': '600.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '60.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+11',
           'PvP ATK DMG Boost': '15.00%',
         },
       },
@@ -3211,9 +3211,9 @@ const ConquestTowersData: {
           98008029: "Complete Guardian Soul's Request",
         },
         Effects: {
-          'Hunting EXP Boost': '640.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '64.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+11',
           'PvP ATK DMG Boost': '16.00%',
         },
       },
@@ -3236,9 +3236,9 @@ const ConquestTowersData: {
           98008031: 'Nine Dragon Ice Field Requests 27x',
         },
         Effects: {
-          'Hunting EXP Boost': '680.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '68.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+12',
           'PvP ATK DMG Boost': '17.00%',
         },
       },
@@ -3260,9 +3260,9 @@ const ConquestTowersData: {
           98008032: 'Mirage Ship Deck Request 22x',
         },
         Effects: {
-          'Hunting EXP Boost': '720.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '72.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+12',
           'PvP ATK DMG Boost': '18.00%',
         },
       },
@@ -3284,9 +3284,9 @@ const ConquestTowersData: {
           98008033: 'Mirage Ship Inner Cabins Request 19x',
         },
         Effects: {
-          'Hunting EXP Boost': '800.00%',
-          'Magic Stone Slot Expansion': 0,
-          'Unsealed Slot Expansion': 0,
+          'Hunting EXP Boost': '80.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+13',
           'PvP ATK DMG Boost': '19.00%',
         },
       },
@@ -3307,9 +3307,9 @@ const ConquestTowersData: {
           98004101: 'Clear Raid 2 times',
         },
         Effects: {
-          'Spell DEF': '1.00%',
-          'Max Number of Raid Tickets': 0,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 10,
+          'Max Number of Raid Tickets': '+0',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3326,9 +3326,9 @@ const ConquestTowersData: {
           98004002: 'Clear Boss Raid 2 times',
         },
         Effects: {
-          'Spell DEF': '2.00%',
-          'Max Number of Raid Tickets': 0,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 20,
+          'Max Number of Raid Tickets': '+0',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3346,9 +3346,9 @@ const ConquestTowersData: {
           98004203: 'Complete 2 Codices',
         },
         Effects: {
-          'Spell DEF': '3.00%',
-          'Max Number of Raid Tickets': 0,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 30,
+          'Max Number of Raid Tickets': '+0',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3367,9 +3367,9 @@ const ConquestTowersData: {
           98004004: 'Clear Boss Raid 3 times',
         },
         Effects: {
-          'Spell DEF': '4.00%',
-          'Max Number of Raid Tickets': 0,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 40,
+          'Max Number of Raid Tickets': '+0',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3389,9 +3389,9 @@ const ConquestTowersData: {
           98004205: 'Complete 2 Codices',
         },
         Effects: {
-          'Spell DEF': '5.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 50,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3410,9 +3410,9 @@ const ConquestTowersData: {
           98004006: 'Clear Boss Raid 11 times',
         },
         Effects: {
-          'Spell DEF': '5.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.00%',
+          'Spell DEF': 50,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+0',
         },
       },
       {
@@ -3432,9 +3432,9 @@ const ConquestTowersData: {
           98004207: 'Complete 6 Codices',
         },
         Effects: {
-          'Spell DEF': '6.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.1.00%',
+          'Spell DEF': 60,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+1',
         },
       },
       {
@@ -3453,9 +3453,9 @@ const ConquestTowersData: {
           98004008: 'Clear Boss Raid 19 times',
         },
         Effects: {
-          'Spell DEF': '6.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.1.00%',
+          'Spell DEF': 60,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+1',
         },
       },
       {
@@ -3475,9 +3475,9 @@ const ConquestTowersData: {
           98004209: 'Complete 20 Codices',
         },
         Effects: {
-          'Spell DEF': '7.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.2.00%',
+          'Spell DEF': 70,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+2',
         },
       },
       {
@@ -3496,9 +3496,9 @@ const ConquestTowersData: {
           98004010: 'Clear Boss Raid 25 times',
         },
         Effects: {
-          'Spell DEF': '7.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.2.00%',
+          'Spell DEF': 70,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+2',
         },
       },
       {
@@ -3519,9 +3519,9 @@ const ConquestTowersData: {
           98004211: 'Complete 30 Codices',
         },
         Effects: {
-          'Spell DEF': '8.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.3.00%',
+          'Spell DEF': 80,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+3',
         },
       },
       {
@@ -3541,9 +3541,9 @@ const ConquestTowersData: {
           98004012: 'Clear Boss Raid 30 times',
         },
         Effects: {
-          'Spell DEF': '8.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.3.00%',
+          'Spell DEF': 80,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+3',
         },
       },
       {
@@ -3564,9 +3564,9 @@ const ConquestTowersData: {
           98004213: 'Complete 60 Codices',
         },
         Effects: {
-          'Spell DEF': '9.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.4.00%',
+          'Spell DEF': 90,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+4',
         },
       },
       {
@@ -3586,9 +3586,9 @@ const ConquestTowersData: {
           98004014: 'Clear Boss Raid 40 times',
         },
         Effects: {
-          'Spell DEF': '9.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.4.00%',
+          'Spell DEF': 90,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+4',
         },
       },
       {
@@ -3609,9 +3609,9 @@ const ConquestTowersData: {
           98004215: 'Complete 30 Codices',
         },
         Effects: {
-          'Spell DEF': '10.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.5.00%',
+          'Spell DEF': 100,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+5',
         },
       },
       {
@@ -3631,9 +3631,9 @@ const ConquestTowersData: {
           98004015: 'Clear Boss Raid 50 times',
         },
         Effects: {
-          'Spell DEF': '10.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.5.00%',
+          'Spell DEF': 100,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+5',
         },
       },
       {
@@ -3654,9 +3654,9 @@ const ConquestTowersData: {
           98004216: 'Complete 30 Codices',
         },
         Effects: {
-          'Spell DEF': '11.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.6.00%',
+          'Spell DEF': 110,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+6',
         },
       },
       {
@@ -3679,9 +3679,9 @@ const ConquestTowersData: {
           98004118: 'Clear Raid 150 times',
         },
         Effects: {
-          'Spell DEF': '12.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.6.00%',
+          'Spell DEF': 120,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+6',
         },
       },
       {
@@ -3704,9 +3704,9 @@ const ConquestTowersData: {
           98004119: 'Clear Raid 150 times',
         },
         Effects: {
-          'Spell DEF': '13.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 130,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3728,9 +3728,9 @@ const ConquestTowersData: {
           98004401: 'Raid Hidden Altar 25x',
         },
         Effects: {
-          'Spell DEF': '14.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 140,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3752,9 +3752,9 @@ const ConquestTowersData: {
           98004402: 'Defeat Sabuk Execution Ground Hwangwoong 20x',
         },
         Effects: {
-          'Spell DEF': '15.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 150,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3776,9 +3776,9 @@ const ConquestTowersData: {
           98004404: 'Hell Raid Triumphant Tiger Demon King 10x',
         },
         Effects: {
-          'Spell DEF': '16.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 160,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3800,9 +3800,9 @@ const ConquestTowersData: {
           98004406: 'Hell Raid Inferno Chief 15x',
         },
         Effects: {
-          'Spell DEF': '17.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 170,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3824,9 +3824,9 @@ const ConquestTowersData: {
           98004408: 'Hell Raid Blood-crazed Oddevil 20x',
         },
         Effects: {
-          'Spell DEF': '18.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 180,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
       {
@@ -3847,9 +3847,9 @@ const ConquestTowersData: {
           98004409: 'Boss Raid Nefariox Celestial Overlord 15x',
         },
         Effects: {
-          'Spell DEF': '19.00%',
-          'Max Number of Raid Tickets': 1,
-          'Mystical Piece Slot Expansion': '0.7.00%',
+          'Spell DEF': 190,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
         },
       },
     ],
@@ -3867,9 +3867,9 @@ const ConquestTowersData: {
         Building: {},
         Achievement: {},
         Effects: {
-          'Character HP': '30.00%',
+          'Character HP': 300,
           'Energy Gain Boost': 0,
-          'Max number of Free EXP restores': 0,
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3886,9 +3886,9 @@ const ConquestTowersData: {
           98009002: 'Clan support 10x',
         },
         Effects: {
-          'Character HP': '60.00%',
-          'Energy Gain Boost': '10.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 600,
+          'Energy Gain Boost': '1.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3906,9 +3906,9 @@ const ConquestTowersData: {
           98009203: 'Complete Nefariox Horn',
         },
         Effects: {
-          'Character HP': '90.00%',
-          'Energy Gain Boost': '10.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 900,
+          'Energy Gain Boost': '1.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3926,9 +3926,9 @@ const ConquestTowersData: {
           98009004: 'Clan support 30x',
         },
         Effects: {
-          'Character HP': '120.00%',
-          'Energy Gain Boost': '20.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 1200,
+          'Energy Gain Boost': '2.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3946,9 +3946,9 @@ const ConquestTowersData: {
           98009105: 'Clan cooperation 50x',
         },
         Effects: {
-          'Character HP': '150.00%',
-          'Energy Gain Boost': '20.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 1500,
+          'Energy Gain Boost': '2.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3967,9 +3967,9 @@ const ConquestTowersData: {
           98009206: 'Complete Myriad Needle',
         },
         Effects: {
-          'Character HP': '150.00%',
-          'Energy Gain Boost': '30.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 1500,
+          'Energy Gain Boost': '3.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -3987,9 +3987,9 @@ const ConquestTowersData: {
           98009107: 'Clan cooperation 80x',
         },
         Effects: {
-          'Character HP': '180.00%',
-          'Energy Gain Boost': '30.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 1800,
+          'Energy Gain Boost': '3.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4007,9 +4007,9 @@ const ConquestTowersData: {
           98009008: 'Clan support 140x',
         },
         Effects: {
-          'Character HP': '180.00%',
-          'Energy Gain Boost': '50.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 1800,
+          'Energy Gain Boost': '5.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4028,9 +4028,9 @@ const ConquestTowersData: {
           98009209: 'Complete A Noble Cause',
         },
         Effects: {
-          'Character HP': '210.00%',
-          'Energy Gain Boost': '50.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2100,
+          'Energy Gain Boost': '5.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4048,9 +4048,9 @@ const ConquestTowersData: {
           98009010: 'Clan support 230x',
         },
         Effects: {
-          'Character HP': '210.00%',
-          'Energy Gain Boost': '70.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2100,
+          'Energy Gain Boost': '7.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4068,9 +4068,9 @@ const ConquestTowersData: {
           98009111: 'Clan cooperation 370x',
         },
         Effects: {
-          'Character HP': '240.00%',
-          'Energy Gain Boost': '70.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2400,
+          'Energy Gain Boost': '7.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4089,9 +4089,9 @@ const ConquestTowersData: {
           98009212: "Complete Demonic Cult's Lost Tome",
         },
         Effects: {
-          'Character HP': '240.00%',
-          'Energy Gain Boost': '90.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2400,
+          'Energy Gain Boost': '9.00%',
+          'Max number of Free EXP restores': '+0',
         },
       },
       {
@@ -4109,9 +4109,9 @@ const ConquestTowersData: {
           98009113: 'Clan cooperation 600x',
         },
         Effects: {
-          'Character HP': '270.00%',
-          'Energy Gain Boost': '90.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2700,
+          'Energy Gain Boost': '9.00%',
+          'Max number of Free EXP restores': '+1',
         },
       },
       {
@@ -4130,9 +4130,9 @@ const ConquestTowersData: {
           98009214: 'Complete Incomparable Master',
         },
         Effects: {
-          'Character HP': '270.00%',
-          'Energy Gain Boost': '120.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 2700,
+          'Energy Gain Boost': '12.00%',
+          'Max number of Free EXP restores': '+1',
         },
       },
       {
@@ -4150,9 +4150,9 @@ const ConquestTowersData: {
           98009115: 'Clan cooperation 1300x',
         },
         Effects: {
-          'Character HP': '300.00%',
-          'Energy Gain Boost': '120.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 3000,
+          'Energy Gain Boost': '12.00%',
+          'Max number of Free EXP restores': '+2',
         },
       },
       {
@@ -4170,9 +4170,9 @@ const ConquestTowersData: {
           98009016: 'Clan support 500x',
         },
         Effects: {
-          'Character HP': '300.00%',
-          'Energy Gain Boost': '150.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 3000,
+          'Energy Gain Boost': '15.00%',
+          'Max number of Free EXP restores': '+2',
         },
       },
       {
@@ -4190,9 +4190,9 @@ const ConquestTowersData: {
           98009017: 'Clan support 1200x',
         },
         Effects: {
-          'Character HP': '330.00%',
-          'Energy Gain Boost': '150.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 3300,
+          'Energy Gain Boost': '15.00%',
+          'Max number of Free EXP restores': '+3',
         },
       },
       {
@@ -4213,9 +4213,9 @@ const ConquestTowersData: {
             'Conquest Achievement Requirement - Temp script for Mystery',
         },
         Effects: {
-          'Character HP': '360.00%',
-          'Energy Gain Boost': '180.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 3600,
+          'Energy Gain Boost': '18.00%',
+          'Max number of Free EXP restores': '+3',
         },
       },
       {
@@ -4235,9 +4235,9 @@ const ConquestTowersData: {
           98009600: 'Clan Expedition Azure Flame Emperor',
         },
         Effects: {
-          'Character HP': '390.00%',
-          'Energy Gain Boost': '180.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 3900,
+          'Energy Gain Boost': '18.00%',
+          'Max number of Free EXP restores': '+4',
         },
       },
       {
@@ -4256,9 +4256,9 @@ const ConquestTowersData: {
           98009601: 'Clan Expedition Azure Flame Emperor 3x',
         },
         Effects: {
-          'Character HP': '420.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 4200,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+4',
         },
       },
       {
@@ -4277,9 +4277,9 @@ const ConquestTowersData: {
           98009602: 'Clan Expedition Azure Flame Emperor 6x',
         },
         Effects: {
-          'Character HP': '450.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 4500,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
         },
       },
       {
@@ -4298,9 +4298,9 @@ const ConquestTowersData: {
           98009304: 'Solitude Training Limbo Realm Stage 1 8x',
         },
         Effects: {
-          'Character HP': '480.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 4800,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
         },
       },
       {
@@ -4319,9 +4319,9 @@ const ConquestTowersData: {
           98009305: 'Solitude Training Limbo Realm Stage 2 8x',
         },
         Effects: {
-          'Character HP': '510.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 5100,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
         },
       },
       {
@@ -4340,9 +4340,9 @@ const ConquestTowersData: {
           98009306: 'Solitude Training Limbo Realm Stage 6 32x',
         },
         Effects: {
-          'Character HP': '540.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 5400,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
         },
       },
       {
@@ -4361,9 +4361,9 @@ const ConquestTowersData: {
           98009603: 'Clan Expedition Soul-absorbing Demon Beast 3x',
         },
         Effects: {
-          'Character HP': '570.00%',
-          'Energy Gain Boost': '200.00%',
-          'Max number of Free EXP restores': 0,
+          'Character HP': 5700,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
         },
       },
     ],
@@ -4383,8 +4383,8 @@ const ConquestTowersData: {
           98007201: 'Bicheon Labyrinth 1F common mission 15x',
         },
         Effects: {
-          'PHYS ATK': '2.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 20,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4401,8 +4401,8 @@ const ConquestTowersData: {
           98007202: 'Bicheon Labyrinth 2F common mission 15x',
         },
         Effects: {
-          'PHYS ATK': '4.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 40,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4422,8 +4422,8 @@ const ConquestTowersData: {
           98007203: 'Bicheon Labyrinth 3F common mission 10x',
         },
         Effects: {
-          'PHYS ATK': '6.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 60,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4445,8 +4445,8 @@ const ConquestTowersData: {
           98007304: 'Combine Spirit Stones 1 times',
         },
         Effects: {
-          'PHYS ATK': '8.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 80,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4468,8 +4468,8 @@ const ConquestTowersData: {
           98007205: 'Demon Bull Labyrinth 2F common mission 10x',
         },
         Effects: {
-          'PHYS ATK': '10.00%',
-          'Unlock Spirit Slot': 1,
+          'PHYS ATK': 100,
+          'Unlock Spirit Slot': '4th Slot',
         },
       },
       {
@@ -4491,8 +4491,8 @@ const ConquestTowersData: {
           98007406: 'Obtain 10 Spirit Stones',
         },
         Effects: {
-          'PHYS ATK': '12.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 120,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4514,8 +4514,8 @@ const ConquestTowersData: {
           98007207: 'Snake Pit Labyrinth 1F common mission 11x',
         },
         Effects: {
-          'PHYS ATK': '14.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 140,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4537,8 +4537,8 @@ const ConquestTowersData: {
           98007308: 'Combine Spirit Stones 19 times',
         },
         Effects: {
-          'PHYS ATK': '16.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 160,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4560,8 +4560,8 @@ const ConquestTowersData: {
           98007209: 'Snake Pit Labyrinth 3F common mission 10x',
         },
         Effects: {
-          'PHYS ATK': '18.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 180,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4583,8 +4583,8 @@ const ConquestTowersData: {
           98007410: 'Obtain 50 Spirit Stones',
         },
         Effects: {
-          'PHYS ATK': '20.00%',
-          'Unlock Spirit Slot': 1,
+          'PHYS ATK': 200,
+          'Unlock Spirit Slot': '5th Slot',
         },
       },
       {
@@ -4607,8 +4607,8 @@ const ConquestTowersData: {
           98007211: 'Abandoned Mine Labyrinth 2F common mission 10x',
         },
         Effects: {
-          'PHYS ATK': '22.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 220,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4631,8 +4631,8 @@ const ConquestTowersData: {
           98007312: 'Combine Spirit Stones 30 times',
         },
         Effects: {
-          'PHYS ATK': '24.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 240,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4655,8 +4655,8 @@ const ConquestTowersData: {
           98007213: "Heaven's Way Labyrinth 1F common mission 10x",
         },
         Effects: {
-          'PHYS ATK': '26.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 260,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4679,8 +4679,8 @@ const ConquestTowersData: {
           98007414: 'Obtain 240 Spirit Stones',
         },
         Effects: {
-          'PHYS ATK': '28.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 280,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4703,8 +4703,8 @@ const ConquestTowersData: {
           98007215: "Heaven's Way Labyrinth 3F common mission 10x",
         },
         Effects: {
-          'PHYS ATK': '30.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 300,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4727,8 +4727,8 @@ const ConquestTowersData: {
           98007217: 'Phantasia Labyrinth 2F common mission 11x',
         },
         Effects: {
-          'PHYS ATK': '32.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 320,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4751,8 +4751,8 @@ const ConquestTowersData: {
           98007219: 'Phantasia Labyrinth 4F common mission 11x',
         },
         Effects: {
-          'PHYS ATK': '34.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 340,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4773,8 +4773,8 @@ const ConquestTowersData: {
           98007221: 'Rockcut Labyrinth 2F Common Mission 11x',
         },
         Effects: {
-          'PHYS ATK': '36.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 360,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4795,8 +4795,8 @@ const ConquestTowersData: {
           98007223: 'Rockcut Labyrinth 4F Common Mission 10x',
         },
         Effects: {
-          'PHYS ATK': '38.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 380,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4816,8 +4816,8 @@ const ConquestTowersData: {
           98007225: 'Sabuk Labyrinth 2F Common Mission 11x',
         },
         Effects: {
-          'PHYS ATK': '40.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 400,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4837,8 +4837,8 @@ const ConquestTowersData: {
           98007227: 'Sabuk Labyrinth 4F Common Mission 10x',
         },
         Effects: {
-          'PHYS ATK': '42.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 420,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4858,8 +4858,8 @@ const ConquestTowersData: {
           98007229: 'Nine Dragon Labyrinth 2F Common Mission 10x',
         },
         Effects: {
-          'PHYS ATK': '44.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 440,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4879,8 +4879,8 @@ const ConquestTowersData: {
           98007231: 'Nine Dragon Labyrinth 4F Common Mission 9x',
         },
         Effects: {
-          'PHYS ATK': '46.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 460,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4900,8 +4900,8 @@ const ConquestTowersData: {
           98007601: 'Reach White Tiger Mystique Stage 4 4x',
         },
         Effects: {
-          'PHYS ATK': '48.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 480,
+          'Unlock Spirit Slot': '-',
         },
       },
       {
@@ -4921,8 +4921,8 @@ const ConquestTowersData: {
           98007602: 'Reach White Tiger Mystique Stage 5 5x',
         },
         Effects: {
-          'PHYS ATK': '50.00%',
-          'Unlock Spirit Slot': 0,
+          'PHYS ATK': 500,
+          'Unlock Spirit Slot': '-',
         },
       },
     ],
@@ -4947,9 +4947,9 @@ const ConquestTowersData: {
           98009209: 'Complete A Noble Cause',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '0.2.00%',
-          EVA: '0.2.00%',
+          'Daily Septaria Gain': '1',
+          Accuracy: 2,
+          EVA: 2,
         },
       },
       {
@@ -4970,9 +4970,9 @@ const ConquestTowersData: {
           98011101: "Complete Cryptic Stone's Whereabouts 1",
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '0.4.00%',
-          EVA: '0.4.00%',
+          'Daily Septaria Gain': '2',
+          Accuracy: 4,
+          EVA: 4,
         },
       },
       {
@@ -4993,9 +4993,9 @@ const ConquestTowersData: {
           98011201: 'Complete Hydrakin 1',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '0.6.00%',
-          EVA: '0.6.00%',
+          'Daily Septaria Gain': '5',
+          Accuracy: 6,
+          EVA: 6,
         },
       },
       {
@@ -5016,9 +5016,9 @@ const ConquestTowersData: {
           98011301: "Complete Cryptic Stone's Whereabouts 2",
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '0.8.00%',
-          EVA: '0.8.00%',
+          'Daily Septaria Gain': '6',
+          Accuracy: 8,
+          EVA: 8,
         },
       },
       {
@@ -5040,9 +5040,9 @@ const ConquestTowersData: {
           98011401: "Complete Cryptic Stone's Whereabouts 3",
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '1.00%',
-          EVA: '1.00%',
+          'Daily Septaria Gain': '7',
+          Accuracy: 10,
+          EVA: 10,
         },
       },
       {
@@ -5063,9 +5063,9 @@ const ConquestTowersData: {
           98011501: 'Complete Hydrakin 2',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '1.2.00%',
-          EVA: '1.2.00%',
+          'Daily Septaria Gain': '10',
+          Accuracy: 12,
+          EVA: 12,
         },
       },
       {
@@ -5087,9 +5087,9 @@ const ConquestTowersData: {
           98011002: 'Defeat Immortal Ogre at Magic Square 5F',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '1.4.00%',
-          EVA: '1.4.00%',
+          'Daily Septaria Gain': '11',
+          Accuracy: 14,
+          EVA: 14,
         },
       },
       {
@@ -5111,9 +5111,9 @@ const ConquestTowersData: {
           98011004: 'Defeat Bloody Yeticlops at Secret Peak 5F',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '1.6.00%',
-          EVA: '1.6.00%',
+          'Daily Septaria Gain': '12',
+          Accuracy: 16,
+          EVA: 16,
         },
       },
       {
@@ -5135,9 +5135,9 @@ const ConquestTowersData: {
           98011601: 'Complete Hydrakin 3',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '1.8.00%',
-          EVA: '1.8.00%',
+          'Daily Septaria Gain': '15',
+          Accuracy: 18,
+          EVA: 18,
         },
       },
       {
@@ -5160,9 +5160,9 @@ const ConquestTowersData: {
           98011701: 'Complete Orders From Above',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '2.00%',
-          EVA: '2.00%',
+          'Daily Septaria Gain': '16',
+          Accuracy: 20,
+          EVA: 20,
         },
       },
       {
@@ -5186,9 +5186,9 @@ const ConquestTowersData: {
           98011008: 'Defeat Beastial Gorefiend Squasher at Secret Peak 6F',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '2.2.00%',
-          EVA: '2.2.00%',
+          'Daily Septaria Gain': '17',
+          Accuracy: 22,
+          EVA: 22,
         },
       },
       {
@@ -5209,9 +5209,9 @@ const ConquestTowersData: {
           98011801: 'Complete Hydra of the Abyss',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '2.4.00%',
-          EVA: '2.4.00%',
+          'Daily Septaria Gain': '20',
+          Accuracy: 24,
+          EVA: 24,
         },
       },
       {
@@ -5232,9 +5232,9 @@ const ConquestTowersData: {
           98011901: 'Complete Weaken the Hydrakin 2',
         },
         Effects: {
-          'Daily Septaria Gain': 1,
-          Accuracy: '2.8.00%',
-          EVA: '2.8.00%',
+          'Daily Septaria Gain': '25',
+          Accuracy: 28,
+          EVA: 28,
         },
       },
     ],
