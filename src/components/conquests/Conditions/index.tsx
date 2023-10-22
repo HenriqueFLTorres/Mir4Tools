@@ -27,22 +27,11 @@ export default function ConquestConditions() {
         ))}
 
         {Object.values(currentTower.Achievement).map((achievment, index) => {
-          const isMultiple = hasMultiple(achievment)
-          let amount = 0
-          if (isMultiple) {
-            const match = achievment.match(/\d+/gm)?.[0]
-            amount = Number.isInteger(Number(match)) ? Number(match) : 0
-          }
-
           return (
             <ConditionCard
               key={index}
               image={'/conquests/previews/condition.png'}
-              name={
-                hasMultiple(achievment)
-                  ? t(achievment.replace(/\d+/gm, '{{amount}}'), { amount })
-                  : t(achievment)
-              }
+              name={t(achievment, { ns: 'conquest' })}
             />
           )
         })}
@@ -51,17 +40,4 @@ export default function ConquestConditions() {
       <AditionalBuildingsConditions />
     </section>
   )
-}
-
-function hasMultiple(achievement: string) {
-  return [
-    'times',
-    'Promote Constitution to Tier ',
-    'Reach Lv. ',
-    ' Spirit Stones',
-    ' Codices',
-    'Promote ',
-    'Solitude Training Limbo Realm',
-    'Solitude Training Profound Realm Lv',
-  ].some((d) => achievement.includes(d))
 }

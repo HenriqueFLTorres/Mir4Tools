@@ -6,6 +6,9 @@ const money = require('./MONEY.json')
 const fs = require('fs')
 
 const ConquestTowersData = {}
+const toTranslateENG = {}
+const toTranslatePT = {}
+const toTranslateES = {}
 
 const SEPTARIA_STRING_KEY = 5000103
 const CHARACTER_MAX_LVL_STRING_KEY = 5000054
@@ -150,14 +153,22 @@ function getStepAchievements(stepObj) {
     if (stepObj[stringKey] === 0) return
     const count = achievementData[stepObj[idKey]].CompleteCount
     let achievementString = stringData[stepObj[stringKey]].ENG
+    const achievementStringES = stringData[stepObj[stringKey]].SPA
+    const achievementStringPT = stringData[stepObj[stringKey]].POR
 
     const achievementHasCount = achievementString.match(/\{1\}/gm)
 
     if (achievementHasCount) {
       achievementString = achievementString.replace(/\{1\}/gm, count)
-    } else if (count > 1) achievementString = `${achievementString} ${count}x`
+    } else if (count > 1) {
+      achievementString = `${achievementString} ${count}x`
+    }
 
     object[stepObj[idKey]] = achievementString
+
+    toTranslateENG[achievementString] = achievementString
+    toTranslateES[achievementString] = achievementStringES
+    toTranslatePT[achievementString] = achievementStringPT
   })
 
   return object
@@ -180,5 +191,8 @@ function getStepBuildingConditions(stepObj) {
 }
 
 dumpConquestTowers()
-// console.log(ConquestTowersData)
+
+fs.writeFileSync('../public/locales/en/conquest.json', JSON.stringify(toTranslateENG, null, 2))
+fs.writeFileSync('../public/locales/pt/conquest.json', JSON.stringify(toTranslatePT, null, 2))
+fs.writeFileSync('../public/locales/es/conquest.json', JSON.stringify(toTranslateES, null, 2))
 fs.writeFileSync('./result.json', JSON.stringify(ConquestTowersData, null, 2))

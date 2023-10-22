@@ -8,15 +8,27 @@ import {
   useTranslation as useTranslationOrg,
   type UseTranslationOptions,
 } from 'react-i18next'
+import ENUS_CONQUEST from './en/conquest.json'
 import ENUS from './en/en-us.json'
+import ES_CONQUEST from './es/conquest.json'
 import ES from './es/es.json'
+import PTBR_CONQUEST from './pt/conquest.json'
 import PTBR from './pt/pt-br.json'
 import { languages } from './settings'
 
 const resources = {
-  pt: PTBR,
-  en: ENUS,
-  es: ES,
+  pt: {
+    translation: { ...PTBR },
+    conquest: PTBR_CONQUEST,
+  },
+  en: {
+    translation: { ...ENUS },
+    conquest: ENUS_CONQUEST,
+  },
+  es: {
+    translation: { ...ES },
+    conquest: ES_CONQUEST,
+  },
 }
 
 const runsOnServerSide = typeof window === 'undefined'
@@ -32,6 +44,7 @@ void i18next
       escapeValue: false,
     },
     lng: 'en',
+    ns: '',
     detection: {
       order: ['path', 'htmlTag', 'cookie', 'navigator'],
     },
