@@ -3,7 +3,6 @@
 import { ConquestsAtom } from '@/atoms/Conquests'
 import Chevron from '@/icons/Chevron'
 import { useAtom } from 'jotai'
-import { useEffect } from 'react'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function ConquestStageHandler() {
@@ -21,29 +20,6 @@ export default function ConquestStageHandler() {
 
     setConquests((prev) => ({ ...prev, stage: value }))
   }
-
-  const onKeyPress = (event: KeyboardEvent) => {
-    if (event.key === 'ArrowLeft') {
-      return setConquests((prev) => ({
-        ...prev,
-        stage: Math.max(prev.stage - 1, 0),
-      }))
-    }
-
-    if (event.key === 'ArrowRight') {
-      return setConquests((prev) => ({
-        ...prev,
-        stage: Math.min(prev.stage + 1, maxStage),
-      }))
-    }
-  }
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-
-    window.addEventListener('keydown', onKeyPress)
-    return () => window.removeEventListener('keydown', onKeyPress)
-  }, [])
 
   return (
     <div className="mb-4 flex items-center justify-between gap-4 rounded-full bg-primary-600 px-4 py-2 lg:mb-2">
