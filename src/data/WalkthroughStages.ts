@@ -7,7 +7,7 @@ export const CraftingWalkthroughStages = (t: (key: string) => string) => [
     ),
   },
   {
-    id: '#mainItemFrame',
+    id: '#itemSelectorFrame',
     title: t('Select your item recipe'),
     content: t(
       "That's the main item frame where you can control the selected recipe."

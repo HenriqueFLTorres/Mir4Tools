@@ -45,43 +45,15 @@ type InventoryType = {
   [key in NonRarityItems]: number
 }
 
-type ParsedInventoryType = {
-  [key in ItemWithRarity]: {
-    [key in RarityTypes]: number
-  }
-} & {
-  [key in NonRarityItems]: number
-}
-
-type ItemsForRecipe = ItemTypes | 'dragon_scale'
-
-type CraftCostType = Partial<{
-  [key in ItemTypes]: {
-    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
-      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
-    }>
-  }
-}>
-
-type ItemCraftCostType = {
-  [key in 'primary' | 'secondary']: {
-    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
-      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
-    }>
-  }
-} & {
-  [key in 'armor' | 'necklace' | 'earrings']: {
-    [key in Exclude<RarityTypes, 'Common' | 'Uncommon'>]: Partial<{
-      [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
-    }>
+type ItemCostObject = {
+  [key in Exclude<RarityTypes, 'Uncommon' | 'Common'>]: {
+    [key in string]: number
   }
 }
 
-type CraftingCalcObject = {
-  [key in ItemWithRarity]: {
-    [key in RarityTypes]: number
-  }
-} & { [key in NonRarityItems]: number }
+type EquipmentCost = {
+  [key in Exclude<ItemCategory, 'weapon'>]: ItemCostObject
+} & { ['weapon']: { [key in 'primary' | 'secondary']: ItemCostObject } }
 
 interface InventoryItem {
   traddable: number
@@ -93,7 +65,7 @@ interface PercentageState {
   final?: string
 }
 
-type ItemCategory = 'weapon' | 'armor' | 'necklace' | 'earrings'
+type ItemCategory = 'weapon' | 'armor' | 'jewelry' | 'earrings'
 
 type ItemTier = 1 | 2 | 3 | 4
 

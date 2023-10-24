@@ -1,4 +1,4 @@
-const EquipmentCost = {
+const EquipmentCost: EquipmentCost = {
   weapon: {
     primary: {
       Legendary: {
