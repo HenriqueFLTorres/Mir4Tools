@@ -3,13 +3,13 @@
 import { ConquestsAtom } from '@/atoms/Conquests'
 import ConquestTowersData from '@/data/ConquestTowerData'
 import { toCamelCase } from '@/utils/index'
-import { useAtomValue } from 'jotai'
+import { useAtom } from 'jotai'
 import { useMemo } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ConditionCard from './ConditionCard'
 
 export default function AditionalBuildingsConditions() {
-  const { tower, stage } = useAtomValue(ConquestsAtom)
+  const [{ tower, stage }, setConquests] = useAtom(ConquestsAtom)
   const { t } = useTranslation()
 
   const currentTower = ConquestTowersData[tower].Steps[stage]
@@ -45,6 +45,12 @@ export default function AditionalBuildingsConditions() {
             image={`/conquests/previews/${toCamelCase(buildingName)}.png`}
             name={t(buildingName)}
             level={level}
+            onConditionSelection={() =>
+              setConquests({
+                tower: buildingName as ConquestTowers,
+                stage: level ?? stage,
+              })
+            }
           />
         ))}
       </div>
@@ -81,8 +87,7 @@ function retrieveBuildingsRecursive({
     }
 
     retrieveBuildingsRecursive({
-      building:
-        ConquestTowersData?.[buildName]?.Steps?.[level - 1]?.Building,
+      building: ConquestTowersData?.[buildName]?.Steps?.[level - 1]?.Building,
       baseBuildingConditions,
       towerName,
       result,
