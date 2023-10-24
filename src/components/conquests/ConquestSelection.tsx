@@ -51,9 +51,9 @@ export default function ConquestSelection() {
             className={cn('rounded-full', buttonStyling)}
             onClick={() => handleTowerChange(label)}
           />
-          <span className="max-w-[5rem] text-center text-sm font-extrabold text-neutral-100 drop-shadow-[0_1px_4px_rgb(0,0,0,0.6)] transition-[transform,_color,_filter] will-change-[transform,color,filter] group-hover:-translate-y-2 group-data-[active=true]:text-white group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(200,200,200)] lg:max-w-[8rem] lg:text-xl">
+          <p className="max-w-[5rem] text-center justify-center flex text-sm font-extrabold text-neutral-100 drop-shadow-[0_1px_4px_rgb(0,0,0,0.6)] transition-[transform,_color,_filter] will-change-[transform,color,filter] group-hover:-translate-y-2 group-data-[active=true]:text-white group-data-[active=true]:drop-shadow-[0_1px_4px_rgb(200,200,200)] lg:max-w-[8rem] lg:text-xl">
             {t(label)}
-          </span>
+          </p>
         </label>
       ))}
     </div>

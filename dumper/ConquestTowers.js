@@ -153,15 +153,19 @@ function getStepAchievements(stepObj) {
     if (stepObj[stringKey] === 0) return
     const count = achievementData[stepObj[idKey]].CompleteCount
     let achievementString = stringData[stepObj[stringKey]].ENG
-    const achievementStringES = stringData[stepObj[stringKey]].SPA
-    const achievementStringPT = stringData[stepObj[stringKey]].POR
+    let achievementStringES = stringData[stepObj[stringKey]].SPA
+    let achievementStringPT = stringData[stepObj[stringKey]].POR
 
     const achievementHasCount = achievementString.match(/\{1\}/gm)
 
     if (achievementHasCount) {
       achievementString = achievementString.replace(/\{1\}/gm, count)
+      achievementStringES = achievementStringES.replace(/\{1\}/gm, count)
+      achievementStringPT = achievementStringPT.replace(/\{1\}/gm, count)
     } else if (count > 1) {
       achievementString = `${achievementString} ${count}x`
+      achievementStringES = `${achievementStringES} ${count}x`
+      achievementStringPT = `${achievementStringPT} ${count}x`
     }
 
     object[stepObj[idKey]] = achievementString

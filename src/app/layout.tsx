@@ -37,29 +37,35 @@ export default function RootLayout({
       <Providers>
         <body className="overflow-auto">
           {children}
-          <Analytics />
-          {process.env.GA_TRACKING_ID && (
+          {process.env.NODE_ENV !== 'development' ? (
             <>
-              <Script
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
-              />
-              <Script id="google-analytics">
-                {`
+              <Analytics />
+              {process.env.GA_TRACKING_ID && (
+                <>
+                  <Script
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+                  />
+                  <Script id="google-analytics">
+                    {`
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                 
                   gtag('config', "${process.env.GA_TRACKING_ID}");
                 `}
-              </Script>
-            </>
-          )}
+                  </Script>
+                </>
+              )}
 
-          <Script
-            async
-            src="https://analytics.eu.umami.is/script.js"
-            data-website-id="248f2306-3f8b-4094-93cc-581cd0d6e68d"
-          ></Script>
+              <Script
+                async
+                src="https://analytics.eu.umami.is/script.js"
+                data-website-id="248f2306-3f8b-4094-93cc-581cd0d6e68d"
+              ></Script>
+            </>
+          ) : (
+            <></>
+          )}
 
           <WalkthroughWrapper />
           <Toaster
