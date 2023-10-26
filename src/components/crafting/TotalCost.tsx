@@ -15,24 +15,8 @@ export default function TotalCost({
   itemFullRecipe: Record<string, number>
   formattedRecipe: Array<Array<[string, number]>>
 }) {
-  // const settings = useAtomValue(SettingsAtom)
   const inventory = useAtomValue(InventoryAtom)
   const { t } = useTranslation()
-
-  // const isBaseRecipe = (name: string, rarity: string) => {
-  //   const baseResources = Object.entries(targetRecipe)
-
-  //   return baseResources.some(
-  //     ([baseName, baseItem]) => baseName === name && baseItem?.rarity === rarity
-  //   )
-  // }
-
-  // const hasOtherRaritiesThanBase = (rarity: RarityTypes) => {
-  //   return !Array.from(Array(mappedRarity[rarity]).keys())
-  //     .map((n) => settings.displayRarity.includes(rarities[n - 1]))
-  //     .some((check) => !!check)
-  // }
-  console.log(itemFullRecipe)
 
   return (
     <section id="totalCostPanel" className="flex w-full flex-col gap-8">
@@ -41,12 +25,12 @@ export default function TotalCost({
       </h2>
 
       <div className="flex w-full flex-col gap-5 md:flex-row">
-        <section id="totalCostWithRarity" className="flex flex-col w-full gap-6">
+        <section
+          id="totalCostWithRarity"
+          className="flex w-full flex-col gap-6"
+        >
           {formattedRecipe.map((rarityColumn, index) => (
-            <ul
-              className="flex items-center gap-6"
-              key={index}
-            >
+            <ul className="flex items-center gap-6" key={index}>
               {rarityColumn.map(([name, amount]) => {
                 if (ComplementaryItems.includes(name) || amount <= 0) {
                   return <></>
@@ -54,16 +38,12 @@ export default function TotalCost({
 
                 const formattedName = formatItemName(name)
                 const itemRarity = extractItemRarity(name)
-                const inventoryItem =
-                  inventory[formattedName][itemRarity as RarityTypes]
-                const ownedAmount =
-                  inventoryItem.traddable + inventoryItem.nonTraddable
 
                 return (
                   <CostFragment
                     key={name}
                     name={formattedName}
-                    cost={amount - ownedAmount}
+                    cost={amount}
                     rarity={itemRarity}
                     disabledMillify
                   />
@@ -91,7 +71,7 @@ export default function TotalCost({
             cost={
               itemFullRecipe['Glittering Powder'] - inventory.glittering_powder
             }
-            rarity="Default"
+            rarity="Uncommon"
           />
         </ul>
       </div>

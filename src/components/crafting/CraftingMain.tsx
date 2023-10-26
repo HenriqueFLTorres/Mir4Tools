@@ -1,6 +1,5 @@
 'use client'
 
-// import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { ItemSelectorAtom } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
 import ItemSelector from '@/components/crafting/ItemSelector'
@@ -80,18 +79,12 @@ export default function CraftingMain() {
                   const itemRarity = extractItemRarity(name)
                   if (itemRarity === 'Default') return <></>
 
-                  const inventoryItem =
-                    inventory[formatItemName(name)][itemRarity]
-                  const ownedAmount =
-                    inventoryItem.traddable + inventoryItem.nonTraddable
-
                   return (
                     <TableCostFragment
                       key={name}
-                      cost={amount - ownedAmount}
-                      name={formatItemName(name) as unknown as ItemWithRarity}
+                      name={name}
                       rarity={itemRarity}
-                      size="md"
+                      cost={amount}
                     />
                   )
                 })}
@@ -118,7 +111,21 @@ function getFullItemRecipe(
     const itemRarity = extractItemRarity(item)
 
     getItemRecipe(item, itemRarity, result, amount, inventory)
-    result[item] = (result[item] || 0) + amount
+
+    const inventoryItem =
+      itemRarity === 'Default'
+        ? inventory[formatItemName(item) as NonRarityItems]
+        : inventory[formatItemName(item)][itemRarity]
+
+    let ownedAmount = 0
+    if (inventoryItem) {
+      ownedAmount =
+        typeof inventoryItem === 'number'
+          ? inventoryItem
+          : inventoryItem?.traddable + inventoryItem?.nonTraddable
+    }
+
+    result[item] = (result[item] || 0) + amount - ownedAmount
   }
 
   return result
@@ -160,7 +167,7 @@ function getItemRecipe(
           : inventoryItem?.traddable + inventoryItem?.nonTraddable
     }
 
-    const totalAmount = ((result[item] || 0) + amount) * multiplier
+    const totalAmount = (result[item] || 0) + amount * multiplier
 
     result[item] = totalAmount - ownedAmount - parentAmount * amount
 
