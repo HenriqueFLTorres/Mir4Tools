@@ -280,3 +280,11 @@ export const createNodeGroups = (currentMapPoints: {
 
   return readyToDisplayGroups
 }
+
+export function formatItemName(name: string): ItemWithRarity {
+  const nameWithoutRarity = name.replace(rarityRegex, '')
+
+  return nameWithoutRarity
+    .toLocaleLowerCase()
+    .replace(/\s/g, '_') as ItemWithRarity
+}

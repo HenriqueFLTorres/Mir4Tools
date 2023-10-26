@@ -10,6 +10,7 @@ import { cn } from '@/utils/classNames'
 import {
   ComplementaryItems,
   extractItemRarity,
+  formatItemName,
   getItemImagePath,
   itemTierToQuantity,
   rarityRegex,
@@ -17,6 +18,7 @@ import {
 import { useAtomValue } from 'jotai'
 import ItemFrame from './ItemFrame'
 import TableCostFragment from './TableCostFragment'
+import TotalCost from './TotalCost'
 
 export default function CraftingMain() {
   const { tier, category, rarity, weaponType } = useAtomValue(ItemSelectorAtom)
@@ -27,7 +29,8 @@ export default function CraftingMain() {
       ? EquipmentCost[category][weaponType][rarity]
       : EquipmentCost[category][rarity]
 
-  const ItemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
+  const itemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
+  const formattedRecipe = formatRecipeToDisplay(itemFullRecipe)
 
   return (
     <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
@@ -66,55 +69,41 @@ export default function CraftingMain() {
             id="recipeSubitems"
             className="flex w-full justify-center md:table-row-group md:gap-5"
           >
-            {Object?.entries(ItemFullRecipe)?.map(([name, amount]) => {
-              if (ComplementaryItems.includes(name)) return <></>
-
-              const itemRarity = extractItemRarity(name)
-              const inventoryItem =
-                inventory[formatItemName(name) as any][itemRarity]
-              const ownedAmount =
-                inventoryItem.traddable + inventoryItem.nonTraddable
-
-              return (
+            {formattedRecipe.map(
+              (rarityColumn, index) => (
                 <tr
                   className="flex flex-col items-center gap-6 md:table-row md:gap-20"
-                  key={name}
+                  key={index}
                 >
-                  <TableCostFragment
-                    key={name}
-                    cost={amount - ownedAmount}
-                    name={formatItemName(name) as ItemTypes}
-                    rarity={itemRarity}
-                    size="md"
-                  />
+                  {rarityColumn.map(([name, amount]) => {
+                    if (ComplementaryItems.includes(name)) return <></>
 
-                  {/* {itemRarity !== 'Default' ? (
-                    <RecursiveCostFragment
-                      name={name as ItemTypes}
-                      rarity={itemRarity}
-                      multiplier={amount * itemTierToQuantity[tier]}
-                    />
-                  ) : (
-                    <></>
-                  )} */}
+                    const itemRarity = extractItemRarity(name)
+                    const inventoryItem =
+                      inventory[formatItemName(name)][itemRarity as RarityTypes]
+                    const ownedAmount =
+                      inventoryItem.traddable + inventoryItem.nonTraddable
+
+                    return (
+                      <TableCostFragment
+                        key={name}
+                        cost={amount - ownedAmount}
+                        name={formatItemName(name) as ItemTypes}
+                        rarity={itemRarity}
+                        size="md"
+                      />
+                    )
+                  })}
                 </tr>
               )
-            })}
+            )}
           </tbody>
         </table>
       </section>
 
-      {/* <TotalCost craftCost={ItemFullRecipe} targetRecipe={targetItem} /> */}
+      <TotalCost formattedRecipe={formattedRecipe} itemFullRecipe={itemFullRecipe} />
     </div>
   )
-}
-
-function formatItemName(name: string): ItemWithRarity {
-  const nameWithoutRarity = name.replace(rarityRegex, '')
-
-  return nameWithoutRarity
-    .toLocaleLowerCase()
-    .replace(/\s/g, '_') as ItemWithRarity
 }
 
 function getFullItemRecipe(
@@ -125,7 +114,7 @@ function getFullItemRecipe(
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
 
-    getItemRecipe(item, itemRarity, result, amount, inventory, 0)
+    getItemRecipe(item, itemRarity, result, amount, inventory)
     result[item] = (result[item] || 0) + amount
   }
 
@@ -174,4 +163,29 @@ function getItemRecipe(
 
     getItemRecipe(item, itemRarity, result, amount, inventory)
   }
+}
+
+function formatRecipeToDisplay(object: Record<string, number>) {
+  const result: {
+    [key in Exclude<RarityTypes, 'Uncommon' | 'Common'>]: Array<
+      [string, number]
+    >
+  } = {
+    Legendary: [],
+    Epic: [],
+    Rare: [],
+  }
+
+  for (const [item, amount] of Object.entries(object)) {
+    const rarity = extractItemRarity(item)
+
+    if (['Default', 'Common', 'Uncommon'].includes(rarity)) continue
+
+    result[rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>].push([
+      item,
+      amount,
+    ])
+  }
+
+  return Object.values(result)
 }

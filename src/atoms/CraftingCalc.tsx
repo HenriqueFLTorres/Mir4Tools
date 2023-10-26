@@ -12,7 +12,7 @@ export const ItemSelectorAtom = atom<{
   weaponType: 'primary',
 })
 
-export const defaultCostObject: CraftingCalcObject = {
+export const defaultCostObject = {
   anima_stone: {
     Legendary: 0,
     Epic: 0,

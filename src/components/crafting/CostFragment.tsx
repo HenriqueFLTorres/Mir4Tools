@@ -8,25 +8,28 @@ export default function CostFragment({
   rarity,
   size = 'md',
   cost,
+  disabledMillify
 }: {
   name: ItemTypes
   rarity: RarityTypes | 'Default'
   size?: 'sm' | 'md' | 'lg'
   cost: number
+  disabledMillify?: boolean
 }) {
   if (!cost) return <></>
+
   return (
     <li className="flex flex-col gap-2">
       <ItemFrame item={name} rarity={rarity} size={size} />
 
       <Tooltip.Wrapper delayDuration={0}>
-        <Tooltip.Trigger>
+        <Tooltip.Trigger disabled={disabledMillify}>
           <span
             className={
-              'flex w-full items-center text-xs sm:text-base justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 font-medium text-white outline-none'
+              'flex w-full items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 text-xs font-medium text-white outline-none sm:text-base'
             }
           >
-            {millify(cost)}
+            {disabledMillify ? getReadableNumber(cost) : millify(cost)}
           </span>
         </Tooltip.Trigger>
         <Tooltip.Content sideOffset={6}>
