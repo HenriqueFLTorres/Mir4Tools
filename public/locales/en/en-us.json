@@ -62,6 +62,10 @@
   "Primary": "Primary",
   "Secondary": "Secondary",
   "Total": "Total",
+  "Are you sure?": "Are you sure?",
+  "This action is irreversible and will result in the loss of all your items.": "This action is irreversible and will result in the loss of all your items.",
+  "Cancel": "Cancel",
+  "Yes, reset my inventory": "Yes, reset my inventory",
 
   "__constitution__": "",
 

@@ -83,7 +83,7 @@ export default function ImageMatchingModal({
   return (
     <Modal.Wrapper open={show} onOpenChange={setShow}>
       <Modal.Trigger
-        className="ml-auto h-12 w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10"
+        className="h-12 w-14 rounded-md p-3 transition-colors hover:bg-gray-100/10"
         aria-label="Inventory image matcher"
       >
         <Robot className="fill-white" />

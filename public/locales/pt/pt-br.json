@@ -62,6 +62,10 @@
   "Primary": "Primária",
   "Secondary": "Secundária",
   "Total": "Total",
+  "Are you sure?": "Tem certeza?",
+  "This action is irreversible and will result in the loss of all your items.": "Esta ação é irreversível e resultará na perda de todos os seus itens.",
+  "Cancel": "Cancelar",
+  "Yes, reset my inventory": "Sim, redefinir meu inventário",
 
   "__constitution__": "",
 
