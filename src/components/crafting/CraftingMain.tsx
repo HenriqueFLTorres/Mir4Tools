@@ -69,39 +69,42 @@ export default function CraftingMain() {
             id="recipeSubitems"
             className="flex w-full justify-center md:table-row-group md:gap-5"
           >
-            {formattedRecipe.map(
-              (rarityColumn, index) => (
-                <tr
-                  className="flex flex-col items-center gap-6 md:table-row md:gap-20"
-                  key={index}
-                >
-                  {rarityColumn.map(([name, amount]) => {
-                    if (ComplementaryItems.includes(name)) return <></>
+            {formattedRecipe.map((rarityColumn, index) => (
+              <tr
+                className="flex flex-col items-center gap-6 md:table-row md:gap-20"
+                key={index}
+              >
+                {rarityColumn.map(([name, amount]) => {
+                  if (ComplementaryItems.includes(name)) return <></>
 
-                    const itemRarity = extractItemRarity(name)
-                    const inventoryItem =
-                      inventory[formatItemName(name)][itemRarity as RarityTypes]
-                    const ownedAmount =
-                      inventoryItem.traddable + inventoryItem.nonTraddable
+                  const itemRarity = extractItemRarity(name)
+                  if (itemRarity === 'Default') return <></>
 
-                    return (
-                      <TableCostFragment
-                        key={name}
-                        cost={amount - ownedAmount}
-                        name={formatItemName(name) as ItemTypes}
-                        rarity={itemRarity}
-                        size="md"
-                      />
-                    )
-                  })}
-                </tr>
-              )
-            )}
+                  const inventoryItem =
+                    inventory[formatItemName(name)][itemRarity]
+                  const ownedAmount =
+                    inventoryItem.traddable + inventoryItem.nonTraddable
+
+                  return (
+                    <TableCostFragment
+                      key={name}
+                      cost={amount - ownedAmount}
+                      name={formatItemName(name) as unknown as ItemWithRarity}
+                      rarity={itemRarity}
+                      size="md"
+                    />
+                  )
+                })}
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
 
-      <TotalCost formattedRecipe={formattedRecipe} itemFullRecipe={itemFullRecipe} />
+      <TotalCost
+        formattedRecipe={formattedRecipe}
+        itemFullRecipe={itemFullRecipe}
+      />
     </div>
   )
 }
