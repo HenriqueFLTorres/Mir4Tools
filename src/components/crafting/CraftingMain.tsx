@@ -2,14 +2,32 @@
 
 // import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
 import { ItemSelectorAtom } from '@/atoms/CraftingCalc'
+import { InventoryAtom } from '@/atoms/Inventory'
 import ItemSelector from '@/components/crafting/ItemSelector'
+import BaseResourceCost from '@/data/BaseResouceCost'
+import EquipmentCost from '@/data/EquipmentCost'
 import { cn } from '@/utils/classNames'
-import { getItemImagePath, itemTierToQuantity } from '@/utils/index'
+import {
+  ComplementaryItems,
+  extractItemRarity,
+  getItemImagePath,
+  itemTierToQuantity,
+  rarityRegex,
+} from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import ItemFrame from './ItemFrame'
+import TableCostFragment from './TableCostFragment'
 
 export default function CraftingMain() {
   const { tier, category, rarity, weaponType } = useAtomValue(ItemSelectorAtom)
+  const inventory = useAtomValue(InventoryAtom)
+
+  const ItemRecipe =
+    category === 'weapon'
+      ? EquipmentCost[category][weaponType][rarity]
+      : EquipmentCost[category][rarity]
+
+  const ItemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
 
   return (
     <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
@@ -48,107 +66,112 @@ export default function CraftingMain() {
             id="recipeSubitems"
             className="flex w-full justify-center md:table-row-group md:gap-5"
           >
-            {/* {Object?.entries(targetItem)?.map(([name, item]) => {
-              let inventoryCount = 0
-              const itemHasRarity =
-                typeof inventory[name as NonRarityItems] === 'object'
+            {Object?.entries(ItemFullRecipe)?.map(([name, amount]) => {
+              if (ComplementaryItems.includes(name)) return <></>
 
-              if (itemHasRarity && !!item.rarity) {
-                inventoryCount =
-                  inventory[name][item.rarity].traddable +
-                  inventory[name][item.rarity].nonTraddable
-              } else {
-                inventoryCount = inventory?.[name as NonRarityItems]
-              }
+              const itemRarity = extractItemRarity(name)
+              const inventoryItem =
+                inventory[formatItemName(name) as any][itemRarity]
+              const ownedAmount =
+                inventoryItem.traddable + inventoryItem.nonTraddable
 
               return (
-                !ComplementaryItems.includes(name) && (
-                  <tr
-                    className="flex flex-col items-center gap-6 md:table-row md:gap-20"
+                <tr
+                  className="flex flex-col items-center gap-6 md:table-row md:gap-20"
+                  key={name}
+                >
+                  <TableCostFragment
                     key={name}
-                  >
-                    <TableCostFragment
-                      key={name}
-                      cost={
-                        (item.cost -
-                          (Number.isNaN(inventoryCount) ? 0 : inventoryCount)) *
-                        itemTierToQuantity[selectedTier]
-                      }
-                      name={name as ItemTypes}
-                      rarity={item?.rarity ? item?.rarity : 'Default'}
-                      size="md"
-                    />
+                    cost={amount - ownedAmount}
+                    name={formatItemName(name) as ItemTypes}
+                    rarity={itemRarity}
+                    size="md"
+                  />
 
-                    {item?.rarity && (
-                      <RecursiveCostFragment
-                        name={name as ItemTypes}
-                        rarity={
-                          item?.rarity as Exclude<
-                            RarityTypes,
-                            'Uncommon' | 'Common'
-                          >
-                        }
-                        multiplier={
-                          item.cost * itemTierToQuantity[selectedTier]
-                        }
-                      />
-                    )}
-                  </tr>
-                )
+                  {/* {itemRarity !== 'Default' ? (
+                    <RecursiveCostFragment
+                      name={name as ItemTypes}
+                      rarity={itemRarity}
+                      multiplier={amount * itemTierToQuantity[tier]}
+                    />
+                  ) : (
+                    <></>
+                  )} */}
+                </tr>
               )
-            })} */}
+            })}
           </tbody>
         </table>
       </section>
 
-      {/* <TotalCost craftCost={craftCost} targetRecipe={targetItem} /> */}
+      {/* <TotalCost craftCost={ItemFullRecipe} targetRecipe={targetItem} /> */}
     </div>
   )
 }
 
-// function RecursiveCostFragment({
-//   name: parentName,
-//   rarity: parentRarity,
-//   multiplier,
-// }: {
-//   name: keyof typeof CraftCost
-//   rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
-//   multiplier: number
-// }) {
-//   const settings = useAtomValue(SettingsAtom)
+function formatItemName(name: string): ItemWithRarity {
+  const nameWithoutRarity = name.replace(rarityRegex, '')
 
-//   if (!parentRarity) return <></>
+  return nameWithoutRarity
+    .toLocaleLowerCase()
+    .replace(/\s/g, '_') as ItemWithRarity
+}
 
-//   const craftable = CraftCost?.[parentName]?.[parentRarity]
+function getFullItemRecipe(
+  itemRecipe: Record<string, number>,
+  result: Record<string, number>,
+  inventory: InventoryType
+) {
+  for (const [item, amount] of Object.entries(itemRecipe)) {
+    const itemRarity = extractItemRarity(item)
 
-//   if (craftable == null) return <></>
+    getItemRecipe(item, itemRarity, result, amount, inventory, 0)
+    result[item] = (result[item] || 0) + amount
+  }
 
-//   return (
-//     <>
-//       {Object.entries(craftable).map(
-//         ([name, recipe]) =>
-//           recipe.rarity &&
-//           !ComplementaryItems.includes(name) &&
-//           settings?.displayRarity.includes(recipe.rarity) && (
-//             <React.Fragment key={`${name} ${recipe.cost}`}>
-//               <TableCostFragment
-//                 key={name}
-//                 cost={recipe.cost * multiplier}
-//                 name={name as ItemTypes}
-//                 rarity={recipe.rarity ? recipe.rarity : 'Default'}
-//                 size="md"
-//               />
+  return result
+}
 
-//               <RecursiveCostFragment
-//                 name={name as keyof typeof CraftCost}
-//                 rarity={
-//                   recipe.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>
-//                 }
-//                 multiplier={recipe.cost * multiplier}
-//               />
-//             </React.Fragment>
-//           )
-//       )}
-//     </>
-//   )
-// }
+function getItemRecipe(
+  itemName: string,
+  rarity: RarityTypes | 'Default',
+  result: Record<string, number>,
+  multiplier: number,
+  inventory: InventoryType
+) {
+  if (rarity === 'Default') return
+
+  const nameWithoutRarity = itemName.replace(rarityRegex, '')
+  const itemRecipe =
+    BaseResourceCost?.[nameWithoutRarity as keyof typeof BaseResourceCost]?.[
+      rarity as Exclude<RarityTypes, 'Rare' | 'Uncommon' | 'Common'>
+    ]
+
+  if (!itemRecipe) return
+
+  const ownedItem = inventory[formatItemName(nameWithoutRarity)][rarity]
+  const parentAmount = ownedItem?.traddable + ownedItem?.nonTraddable
+
+  for (const [item, amount] of Object.entries(itemRecipe)) {
+    const itemRarity = extractItemRarity(item)
+
+    const inventoryItem =
+      itemRarity === 'Default'
+        ? inventory[formatItemName(item) as NonRarityItems]
+        : inventory[formatItemName(item)][itemRarity]
+
+    let ownedAmount = 0
+    if (inventoryItem) {
+      ownedAmount =
+        typeof inventoryItem === 'number'
+          ? inventoryItem
+          : inventoryItem?.traddable + inventoryItem?.nonTraddable
+    }
+
+    const totalAmount = ((result[item] || 0) + amount) * multiplier
+
+    result[item] = totalAmount - ownedAmount - parentAmount * amount
+
+    getItemRecipe(item, itemRarity, result, amount, inventory)
+  }
+}

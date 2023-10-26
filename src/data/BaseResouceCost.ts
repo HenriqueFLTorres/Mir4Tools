@@ -1,11 +1,11 @@
 const BaseResourceCost = {
   Steel: {
-    Rare: {
-      '[UC] Steel': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Steel': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Steel': 10,
       'Glittering Powder': 25,
@@ -20,12 +20,12 @@ const BaseResourceCost = {
     },
   },
   Platinum: {
-    Rare: {
-      '[UC] Platinum': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Platinum': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Platinum': 10,
       'Glittering Powder': 25,
@@ -40,12 +40,12 @@ const BaseResourceCost = {
     },
   },
   'Evil Minded Orb': {
-    Rare: {
-      '[UC] Evil Minded Orb': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Evil Minded Orb': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Evil Minded Orb': 10,
       'Glittering Powder': 25,
@@ -60,12 +60,12 @@ const BaseResourceCost = {
     },
   },
   'Moon Shadow Stone': {
-    Rare: {
-      '[UC] Moon Shadow Stone': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Moon Shadow Stone': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Moon Shadow Stone': 10,
       'Glittering Powder': 25,
@@ -80,12 +80,12 @@ const BaseResourceCost = {
     },
   },
   Quintessence: {
-    Rare: {
-      '[UC] Quintessence': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Quintessence': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Quintessence': 10,
       'Glittering Powder': 25,
@@ -100,12 +100,12 @@ const BaseResourceCost = {
     },
   },
   'Exorcism Bauble': {
-    Rare: {
-      '[UC] Exorcism Bauble': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Exorcism Bauble': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Exorcism Bauble': 10,
       'Glittering Powder': 25,
@@ -120,12 +120,12 @@ const BaseResourceCost = {
     },
   },
   'Illuminating Fragment': {
-    Rare: {
-      '[UC] Illuminating Fragment': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Illuminating Fragment': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Illuminating Fragment': 10,
       'Glittering Powder': 25,
@@ -140,12 +140,12 @@ const BaseResourceCost = {
     },
   },
   'Anima Stone': {
-    Rare: {
-      '[UC] Anima Stone': 10,
-      'Glittering Powder': 2,
-      Copper: 2000,
-      Darksteel: 1000,
-    },
+    // Rare: {
+    //   '[UC] Anima Stone': 10,
+    //   'Glittering Powder': 2,
+    //   Copper: 2000,
+    //   Darksteel: 1000,
+    // },
     Epic: {
       '[R] Anima Stone': 10,
       'Glittering Powder': 25,

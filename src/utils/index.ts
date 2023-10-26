@@ -1,6 +1,15 @@
 import { type Level } from '@/app/xp/page'
 import { atom } from 'jotai'
 
+export const rarityRegex = /(\[L\].|\[E\].|\[R\].|\[UC\].)/gm
+
+export const ComplementaryItems = [
+  'Darksteel',
+  'Copper',
+  'Energy',
+  'Glittering Powder',
+]
+
 export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
   if (typeof window === 'undefined') return atom(initialValue) as any
 
@@ -172,8 +181,8 @@ export const prepareItemForDisplay = (
   }) as any
 }
 
-const extractItemRarity = (name: string): RarityTypes | 'Default' => {
-  if (name === 'Copper') return 'Default'
+export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
+  if (name === 'Copper' || name === 'Darksteel') return 'Default'
 
   const rarity = name.match(/^([\S]+)/gm)
 
