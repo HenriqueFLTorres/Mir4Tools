@@ -124,8 +124,8 @@ function getFullItemRecipe(
           ? inventoryItem
           : inventoryItem?.traddable + inventoryItem?.nonTraddable
     }
-
-    result[item] = (result[item] || 0) + amount - ownedAmount
+    const totalResource = (result[item] || 0) + amount
+    result[item] = totalResource - Math.min(totalResource, ownedAmount)
   }
 
   return result
@@ -149,7 +149,8 @@ function getItemRecipe(
   if (!itemRecipe) return
 
   const ownedItem = inventory[formatItemName(nameWithoutRarity)][rarity]
-  const parentAmount = ownedItem?.traddable + ownedItem?.nonTraddable
+  let parentAmount = ownedItem?.traddable + ownedItem?.nonTraddable
+  parentAmount = Math.min(multiplier, parentAmount)
 
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
