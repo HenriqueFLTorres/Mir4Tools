@@ -7,7 +7,7 @@ export const CraftingWalkthroughStages = (t: (key: string) => string) => [
     ),
   },
   {
-    id: '#mainItemFrame',
+    id: '#itemSelectorFrame',
     title: t('Select your item recipe'),
     content: t(
       "That's the main item frame where you can control the selected recipe."
@@ -17,14 +17,14 @@ export const CraftingWalkthroughStages = (t: (key: string) => string) => [
     id: '#recipeSubitems',
     title: t('Recipe cost'),
     content: t(
-      "Here you can see the needed amount of items for the recipe you've selected. \n\n Remember you can change the visibility settings of each rarity. \n eg: Show only Legendary and Epic items."
+      "Here you can edit the values below each item to your owned amount of them, this is useful for subtracting the total cost and seeing how many items are left."
     ),
   },
   {
     id: '#recipeSubitems>*>*',
     title: t('Recipe item'),
     content: t(
-      'It shows the required amount of each item and its rarity, you can hover with your mouse over an abstract number and reveal its specific value. \n eg: 3k -> 3000. \n \n Remember you can also show your tradable and non-tradable owned amount of that item by changing your settings.'
+      "Here you can choose how much you have of this item so it can be subtracted from the total cost result on the bottom of the page. \n\n You can also hover over the item, and if a recipe is available to it, you'll see a popup with the required items. (Your inventory affects this recipe)"
     ),
   },
   {

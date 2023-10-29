@@ -38,3 +38,7 @@ next-env.d.ts
 .unlighthouse
 
 .vscode
+
+# dumper functions
+
+dumper/*.json

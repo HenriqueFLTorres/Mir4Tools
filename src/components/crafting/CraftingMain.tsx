@@ -1,80 +1,43 @@
 'use client'
 
-import { CraftingCalcAtom, defaultCostObject } from '@/atoms/CraftingCalc'
+import { ItemSelectorAtom } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
-import { SettingsAtom } from '@/atoms/Settings'
-import TableCostFragment from '@/components/crafting/TableCostFragment'
-import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
+import ItemSelector from '@/components/crafting/ItemSelector'
+import BaseResourceCost from '@/data/BaseResouceCost'
+import EquipmentCost from '@/data/EquipmentCost'
 import { cn } from '@/utils/classNames'
 import {
   ComplementaryItems,
-  calculateCraftByItem,
+  extractItemRarity,
+  formatItemName,
   getItemImagePath,
   itemTierToQuantity,
+  rarityRegex,
 } from '@/utils/index'
-import { useAtom, useAtomValue } from 'jotai'
-import React, { useEffect, useState } from 'react'
+import { useAtomValue } from 'jotai'
 import ItemFrame from './ItemFrame'
-import MainItemFrame from './MainItemFrame'
+import TableCostFragment from './TableCostFragment'
 import TotalCost from './TotalCost'
 
 export default function CraftingMain() {
-  const settings = useAtomValue(SettingsAtom)
-  const [inventory] = useAtom(InventoryAtom)
-  const [craftCost, setCraftCost] = useAtom(CraftingCalcAtom)
+  const { tier, category, rarity, weaponType } = useAtomValue(ItemSelectorAtom)
+  const inventory = useAtomValue(InventoryAtom)
 
-  const [category, setCategory] = useState<ItemCategory>('weapon')
-  const [selectedTier, setTier] = useState<ItemTier>(1)
-  const [weaponType, setWeaponType] = useState<'primary' | 'secondary'>(
-    'primary'
-  )
-  const [itemRarity, setItemRarity] =
-    useState<Exclude<RarityTypes, 'Common' | 'Uncommon'>>('Epic')
-
-  const targetItem =
+  const ItemRecipe =
     category === 'weapon'
-      ? ItemCraftCost[weaponType][itemRarity]
-      : ItemCraftCost[category][itemRarity]
+      ? EquipmentCost[category][weaponType][rarity]
+      : EquipmentCost[category][rarity]
 
-  useEffect(() => {
-    setCraftCost(defaultCostObject)
-    calculateCraftByItem({
-      setAtom: setCraftCost,
-      category,
-      parentRarity: itemRarity,
-      displayRarity: settings?.displayRarity,
-      parentIsBase: true,
-      weaponType,
-      inventory,
-      multiply: itemTierToQuantity[selectedTier],
-    })
-  }, [
-    category,
-    itemRarity,
-    selectedTier,
-    setCraftCost,
-    settings?.displayRarity,
-    weaponType,
-    inventory,
-  ])
+  const itemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
+  const formattedRecipe = formatRecipeToDisplay(itemFullRecipe)
 
   return (
     <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
       <section className="mb-4 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16">
         <div className="flex items-center gap-6">
-          <MainItemFrame
-            name={category}
-            rarity={itemRarity}
-            category={category}
-            setCategory={setCategory}
-            selectedTier={selectedTier}
-            setTier={setTier}
-            weaponType={weaponType}
-            setWeaponType={setWeaponType}
-            setItemRarity={setItemRarity}
-          />
+          <ItemSelector />
 
-          {selectedTier > 1 && (
+          {tier > 1 && (
             <>
               <div
                 className={cn(
@@ -84,15 +47,15 @@ export default function CraftingMain() {
               />
 
               <ItemFrame
-                item={category as ItemTypes}
-                rarity={itemRarity}
+                item={category}
+                rarity={rarity}
                 tier={1}
-                quantity={itemTierToQuantity[selectedTier]}
+                quantity={itemTierToQuantity[tier]}
                 size="lg"
                 className="my-auto shrink-0"
                 customPath={getItemImagePath({
-                  item: category,
-                  rarity: itemRarity,
+                  category,
+                  rarity,
                   weaponType,
                 }).toLowerCase()}
               />
@@ -105,107 +68,150 @@ export default function CraftingMain() {
             id="recipeSubitems"
             className="flex w-full justify-center md:table-row-group md:gap-5"
           >
-            {Object?.entries(targetItem)?.map(([name, item]) => {
-              let inventoryCount = 0
-              const itemHasRarity =
-                typeof inventory[name as NonRarityItems] === 'object'
+            {formattedRecipe.map((rarityColumn, index) => (
+              <tr
+                className="flex flex-col items-center gap-6 md:table-row md:gap-20"
+                key={index}
+              >
+                {rarityColumn.map(([name, amount]) => {
+                  if (ComplementaryItems.includes(name)) return <></>
 
-              if (itemHasRarity && !!item.rarity) {
-                inventoryCount =
-                  inventory[name as ItemWithRarity][item.rarity].traddable +
-                  inventory[name as ItemWithRarity][item.rarity].nonTraddable
-              } else {
-                inventoryCount = inventory?.[name as NonRarityItems]
-              }
+                  const itemRarity = extractItemRarity(name)
+                  if (itemRarity === 'Default') return <></>
 
-              return (
-                !ComplementaryItems.includes(name) && (
-                  <tr
-                    className="flex flex-col items-center gap-6 md:table-row md:gap-20"
-                    key={name}
-                  >
+                  return (
                     <TableCostFragment
                       key={name}
-                      cost={
-                        (item.cost -
-                          (Number.isNaN(inventoryCount) ? 0 : inventoryCount)) *
-                        itemTierToQuantity[selectedTier]
-                      }
-                      name={name as ItemTypes}
-                      rarity={item?.rarity ? item?.rarity : 'Default'}
-                      size="md"
+                      name={name}
+                      rarity={itemRarity}
+                      cost={amount}
                     />
-
-                    {item?.rarity && (
-                      <RecursiveCostFragment
-                        name={name as ItemTypes}
-                        rarity={
-                          item?.rarity as Exclude<
-                            RarityTypes,
-                            'Uncommon' | 'Common'
-                          >
-                        }
-                        multiplier={
-                          item.cost * itemTierToQuantity[selectedTier]
-                        }
-                      />
-                    )}
-                  </tr>
-                )
-              )
-            })}
+                  )
+                })}
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
 
-      <TotalCost craftCost={craftCost} targetRecipe={targetItem} />
+      <TotalCost
+        formattedRecipe={formattedRecipe}
+        itemFullRecipe={itemFullRecipe}
+      />
     </div>
   )
 }
 
-function RecursiveCostFragment({
-  name: parentName,
-  rarity: parentRarity,
-  multiplier,
+function getFullItemRecipe(
+  itemRecipe: Record<string, number>,
+  result: Record<string, number>,
+  inventory: InventoryType
+) {
+  for (const [item, amount] of Object.entries(itemRecipe)) {
+    const itemRarity = extractItemRarity(item)
+
+    getItemRecipe(item, itemRarity, result, amount, inventory)
+
+    const ownedAmount = getItemOwnedAmount({
+      item: item as ItemWithRarity,
+      rarity: itemRarity,
+      inventory,
+    })
+    const totalResource = (result[item] || 0) + amount
+    result[item] = totalResource - Math.min(totalResource, ownedAmount)
+  }
+
+  return result
+}
+
+function getItemRecipe(
+  itemName: string,
+  rarity: RarityTypes | 'Default',
+  result: Record<string, number>,
+  multiplier: number,
+  inventory: InventoryType
+) {
+  if (rarity === 'Default') return
+
+  const nameWithoutRarity = itemName.replace(rarityRegex, '')
+  const itemRecipe =
+    BaseResourceCost?.[nameWithoutRarity as keyof typeof BaseResourceCost]?.[
+      rarity as Exclude<RarityTypes, 'Rare' | 'Uncommon' | 'Common'>
+    ]
+
+  if (!itemRecipe) return
+
+  let parentAmount = getItemOwnedAmount({
+    item: nameWithoutRarity as ItemWithRarity,
+    rarity,
+    inventory,
+  })
+  parentAmount = Math.min(multiplier, parentAmount)
+
+  for (const [item, amount] of Object.entries(itemRecipe)) {
+    const itemRarity = extractItemRarity(item)
+
+    const ownedAmount = getItemOwnedAmount({
+      item: item as ItemWithRarity,
+      rarity: itemRarity,
+      inventory,
+    })
+
+    const totalAmount = (result[item] || 0) + amount * multiplier
+
+    result[item] = totalAmount - ownedAmount - parentAmount * amount
+
+    getItemRecipe(item, itemRarity, result, amount * multiplier, inventory)
+  }
+}
+
+function formatRecipeToDisplay(object: Record<string, number>) {
+  const result: {
+    [key in Exclude<RarityTypes, 'Uncommon' | 'Common'>]: Array<
+      [string, number]
+    >
+  } = {
+    Legendary: [],
+    Epic: [],
+    Rare: [],
+  }
+
+  for (const [item, amount] of Object.entries(object)) {
+    const rarity = extractItemRarity(item)
+
+    if (['Default', 'Common', 'Uncommon'].includes(rarity)) continue
+
+    result[rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>].push([
+      item,
+      amount,
+    ])
+  }
+
+  return Object.values(result)
+}
+
+function getItemOwnedAmount({
+  item,
+  rarity,
+  inventory,
 }: {
-  name: keyof typeof CraftCost
-  rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'> | null
-  multiplier: number
+  item: ItemWithRarity | NonRarityItems
+  rarity: RarityTypes | 'Default'
+  inventory: InventoryType
 }) {
-  const settings = useAtomValue(SettingsAtom)
+  if (rarity === 'Default') {
+    return inventory[formatItemName(item) as NonRarityItems]
+  }
 
-  if (!parentRarity) return <></>
+  const inventoryItem = inventory[formatItemName(item)][rarity]
 
-  const craftable = CraftCost?.[parentName]?.[parentRarity]
+  let ownedAmount = 0
+  if (inventoryItem) {
+    ownedAmount =
+      typeof inventoryItem === 'number'
+        ? inventoryItem
+        : inventoryItem?.traddable + inventoryItem?.nonTraddable
+  }
 
-  if (craftable == null) return <></>
-
-  return (
-    <>
-      {Object.entries(craftable).map(
-        ([name, recipe]) =>
-          recipe.rarity &&
-          !ComplementaryItems.includes(name) &&
-          settings?.displayRarity.includes(recipe.rarity) && (
-            <React.Fragment key={`${name} ${recipe.cost}`}>
-              <TableCostFragment
-                key={name}
-                cost={recipe.cost * multiplier}
-                name={name as ItemTypes}
-                rarity={recipe.rarity ? recipe.rarity : 'Default'}
-                size="md"
-              />
-
-              <RecursiveCostFragment
-                name={name as keyof typeof CraftCost}
-                rarity={
-                  recipe.rarity as Exclude<RarityTypes, 'Uncommon' | 'Common'>
-                }
-                multiplier={recipe.cost * multiplier}
-              />
-            </React.Fragment>
-          )
-      )}
-    </>
-  )
+  return ownedAmount
 }

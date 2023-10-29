@@ -1,43 +1,22 @@
 import { InventoryAtom } from '@/atoms/Inventory'
-import { SettingsAtom } from '@/atoms/Settings'
 import CostFragment from '@/components/crafting/CostFragment'
+import {
+  ComplementaryItems,
+  extractItemRarity,
+  formatItemName,
+} from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
 
-const rarities: RarityTypes[] = [
-  'Common',
-  'Uncommon',
-  'Rare',
-  'Epic',
-  'Legendary',
-]
-
 export default function TotalCost({
-  craftCost,
-  targetRecipe,
+  itemFullRecipe,
+  formattedRecipe,
 }: {
-  craftCost: CraftingCalcObject
-  targetRecipe: Partial<{
-    [key in ItemTypes]: { rarity: RarityTypes | null; cost: number }
-  }>
+  itemFullRecipe: Record<string, number>
+  formattedRecipe: Array<Array<[string, number]>>
 }) {
-  const settings = useAtomValue(SettingsAtom)
   const inventory = useAtomValue(InventoryAtom)
   const { t } = useTranslation()
-
-  const isBaseRecipe = (name: string, rarity: string) => {
-    const baseResources = Object.entries(targetRecipe)
-
-    return baseResources.some(
-      ([baseName, baseItem]) => baseName === name && baseItem?.rarity === rarity
-    )
-  }
-
-  const hasOtherRaritiesThanBase = (rarity: RarityTypes) => {
-    return !Array.from(Array(mappedRarity[rarity]).keys())
-      .map((n) => settings.displayRarity.includes(rarities[n - 1]))
-      .some((check) => !!check)
-  }
 
   return (
     <section id="totalCostPanel" className="flex w-full flex-col gap-8">
@@ -46,62 +25,56 @@ export default function TotalCost({
       </h2>
 
       <div className="flex w-full flex-col gap-5 md:flex-row">
-        <ul id="totalCostWithRarity" className="flex w-full gap-5">
-          {Object.entries(craftCost).map(
-            ([name, item]) =>
-              typeof item !== 'number' &&
-              Object.entries(item).map(([rarity, value]) => {
-                const showItemRarity = settings?.displayRarity.includes(
-                  rarity as RarityTypes
-                )
-                const isNotBaseRecipe = !isBaseRecipe(name, rarity)
+        <section
+          id="totalCostWithRarity"
+          className="flex w-full flex-col gap-6"
+        >
+          {formattedRecipe.map((rarityColumn, index) => (
+            <ul className="flex items-center gap-6" key={index}>
+              {rarityColumn.map(([name, amount]) => {
+                if (ComplementaryItems.includes(name) || amount <= 0) {
+                  return <></>
+                }
 
-                const showItem = value > 0 && isNotBaseRecipe && showItemRarity
+                const formattedName = formatItemName(name)
+                const itemRarity = extractItemRarity(name)
 
                 return (
-                  (showItem ||
-                    (isBaseRecipe(name, rarity) &&
-                      hasOtherRaritiesThanBase(rarity as RarityTypes))) && (
-                    <CostFragment
-                      key={`${name} ${rarity}`}
-                      name={name as ItemTypes}
-                      cost={value}
-                      rarity={rarity as RarityTypes}
-                    />
-                  )
+                  <CostFragment
+                    key={name}
+                    name={formattedName}
+                    cost={amount}
+                    rarity={itemRarity}
+                    disabledMillify
+                  />
                 )
-              })
-          )}
-        </ul>
+              })}
+            </ul>
+          ))}
+        </section>
 
         <ul id="totalCostWithoutRarity" className="flex gap-5">
           <CostFragment
             name="darksteel"
-            cost={craftCost.darksteel - inventory.darksteel}
+            cost={itemFullRecipe.Darksteel - inventory.darksteel}
             rarity="Default"
           />
 
           <CostFragment
             name="copper"
-            cost={craftCost.copper - inventory.copper}
+            cost={itemFullRecipe.Copper - inventory.copper}
             rarity="Default"
           />
 
           <CostFragment
             name="glittering_powder"
-            cost={craftCost.glittering_powder - inventory.glittering_powder}
-            rarity="Default"
+            cost={
+              itemFullRecipe['Glittering Powder'] - inventory.glittering_powder
+            }
+            rarity="Uncommon"
           />
         </ul>
       </div>
     </section>
   )
-}
-
-const mappedRarity = {
-  Legendary: 5,
-  Epic: 4,
-  Rare: 3,
-  Uncommon: 2,
-  Common: 1,
 }

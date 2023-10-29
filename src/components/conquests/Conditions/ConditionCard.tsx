@@ -4,13 +4,19 @@ export default function ConditionCard({
   image,
   name,
   level,
+  onConditionSelection,
 }: {
   image: string
   name: string
   level?: number
+  onConditionSelection?: () => void
 }) {
   return (
-    <div className="flex shrink-0 flex-col items-center gap-3">
+    <button
+      onClick={() => onConditionSelection?.()}
+      disabled={!onConditionSelection}
+      className="flex h-full shrink-0 flex-col items-center justify-start gap-3 rounded p-2 transition-[transform,_background-color] will-change-[transform,_background-color] enabled:hover:scale-105 enabled:hover:bg-primary-400/40"
+    >
       <Image
         src={image}
         alt={name}
@@ -30,6 +36,6 @@ export default function ConditionCard({
           <></>
         )}
       </p>
-    </div>
+    </button>
   )
 }

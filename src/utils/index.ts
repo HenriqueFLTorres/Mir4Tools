@@ -1,6 +1,14 @@
 import { type Level } from '@/app/xp/page'
-import CraftCost, { ItemCraftCost } from '@/data/CraftCost'
-import { atom, type SetStateAction } from 'jotai'
+import { atom } from 'jotai'
+
+export const rarityRegex = /(\[L\].|\[E\].|\[R\].|\[UC\].)/gm
+
+export const ComplementaryItems = [
+  'Darksteel',
+  'Copper',
+  'Energy',
+  'Glittering Powder',
+]
 
 export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
   if (typeof window === 'undefined') return atom(initialValue) as any
@@ -26,105 +34,6 @@ export const atomWithLocalStorage = <T>(key: string, initialValue: T) => {
     }
   )
   return derivedAtom
-}
-
-export const ComplementaryItems = [
-  'darksteel',
-  'copper',
-  'energy',
-  'glittering_powder',
-]
-
-export const calculateCraftByItem = ({
-  setAtom,
-  name,
-  category,
-  parentRarity,
-  multiply = 1,
-  displayRarity,
-  parentIsBase,
-  weaponType,
-  baseRarity,
-  inventory,
-}: {
-  name?: ItemTypes
-  setAtom: React.Dispatch<SetStateAction<CraftingCalcObject>>
-  category?: ItemCategory
-  parentRarity?: Exclude<RarityTypes, 'Uncommon' | 'Common'>
-  baseRarity?: Exclude<RarityTypes, 'Uncommon' | 'Common'>
-  multiply?: number
-  displayRarity: RarityTypes[]
-  parentIsBase: boolean
-  weaponType?: 'primary' | 'secondary'
-  inventory: InventoryType
-}) => {
-  if (
-    parentRarity !== undefined &&
-    !displayRarity.includes(parentRarity) &&
-    parentRarity !== (baseRarity ?? parentRarity) &&
-    !parentIsBase
-  ) {
-    return
-  }
-
-  let targetItem
-
-  if (!!parentRarity && !!category) {
-    targetItem =
-      category === 'weapon'
-        ? ItemCraftCost[weaponType as 'primary' | 'secondary'][parentRarity]
-        : ItemCraftCost[category][parentRarity]
-  } else if (name && parentRarity) {
-    targetItem = CraftCost?.[name]?.[parentRarity]
-  }
-
-  if (targetItem == null) return
-
-  Object.entries(targetItem).forEach(([name, item]) => {
-    let ownedAmount = 0
-    const itemHasRarity = typeof inventory[name as NonRarityItems] === 'object'
-
-    if (itemHasRarity && !!item.rarity) {
-      ownedAmount =
-        inventory[name as ItemWithRarity][item.rarity].traddable +
-        inventory[name as ItemWithRarity][item.rarity].nonTraddable
-    } else {
-      ownedAmount = inventory?.[name as NonRarityItems]
-    }
-
-    if (item.rarity && !ComplementaryItems.includes(name)) {
-      setAtom((prev) => ({
-        ...prev,
-        ...{
-          [name]: {
-            ...prev[name as ItemWithRarity],
-            [item.rarity as RarityTypes]:
-              prev[name as ItemWithRarity][item.rarity as RarityTypes] +
-              item.cost * multiply -
-              ownedAmount,
-          },
-        },
-      }))
-      calculateCraftByItem({
-        setAtom,
-        name: name as unknown as ItemTypes,
-        parentRarity: item.rarity as Exclude<
-          RarityTypes,
-          'Uncommon' | 'Common'
-        >,
-        multiply: item.cost * multiply - ownedAmount,
-        displayRarity,
-        parentIsBase: false,
-        baseRarity: parentRarity,
-        inventory,
-      })
-    } else {
-      setAtom((prev) => ({
-        ...prev,
-        [name]: prev[name as NonRarityItems] + item.cost * multiply,
-      }))
-    }
-  })
 }
 
 export const formatForExperience = (value: string) => {
@@ -272,8 +181,9 @@ export const prepareItemForDisplay = (
   }) as any
 }
 
-const extractItemRarity = (name: string): RarityTypes | 'Default' => {
-  if (name === 'Copper') return 'Default'
+export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
+  if (name === 'Copper' || name === 'Darksteel') return 'Default'
+  if (name === 'Glittering Powder') return 'Uncommon'
 
   const rarity = name.match(/^([\S]+)/gm)
 
@@ -296,21 +206,21 @@ const extractItemRarity = (name: string): RarityTypes | 'Default' => {
 export const getItemImagePath = (
   props: (
     | {
-        item: 'weapon'
+        category: 'weapon'
         weaponType: 'primary' | 'secondary'
       }
-    | { item: 'earrings' | 'necklace' | 'armor' }
+    | { category: Exclude<ItemCategory, 'weapon'> }
   ) & {
     rarity: RarityTypes
   }
 ) => {
-  const { item, rarity } = props
-  switch (item) {
+  const { category, rarity } = props
+  switch (category) {
     case 'weapon':
       return `/items/weapon_${rarity}_${props.weaponType}.webp`
     case 'armor':
       return `/items/armor_${rarity}.webp`
-    case 'necklace':
+    case 'jewelry':
       return `/items/accessory_${rarity}_1.webp`
     case 'earrings':
       return `/items/accessory_${rarity}_2.webp`
@@ -370,4 +280,12 @@ export const createNodeGroups = (currentMapPoints: {
   })
 
   return readyToDisplayGroups
+}
+
+export function formatItemName(name: string): ItemWithRarity {
+  const nameWithoutRarity = name.replace(rarityRegex, '')
+
+  return nameWithoutRarity
+    .toLocaleLowerCase()
+    .replace(/\s/g, '_') as ItemWithRarity
 }

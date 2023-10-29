@@ -67,7 +67,7 @@ const sizeToPX = {
 }
 
 type ItemFrameProps = {
-  item: ItemTypes
+  item: ItemTypes | ItemCategory
   rarity: RarityTypes | 'Default'
   size?: 'sm' | 'md' | 'lg'
   tier?: ItemTier

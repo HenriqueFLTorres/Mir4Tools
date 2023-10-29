@@ -2,6 +2,7 @@
 
 import { ConquestsAtom } from '@/atoms/Conquests'
 import ConquestTowersData from '@/data/ConquestTowerData'
+import { getReadableNumber } from '@/utils/index'
 import {
   flexRender,
   getCoreRowModel,
@@ -24,7 +25,7 @@ export default function ConquestEffectsTable() {
 
     const dataObject: {
       [key in string]: {
-        current: string | number | undefined
+        current: string | number
         next: string | number
       }
     } = {}
@@ -50,8 +51,14 @@ export default function ConquestEffectsTable() {
 
     return Object.entries(dataObject).map(([key, values]) => ({
       effectName: key,
-      currentEffect: values.current ?? '-',
-      nextEffect: values.next ?? '-',
+      currentEffect:
+        typeof values.current === 'number'
+          ? getReadableNumber(values.current)
+          : values.current,
+      nextEffect:
+        typeof values.next === 'number'
+          ? getReadableNumber(values.next)
+          : values.next,
     }))
   }, [tower, stage])
 

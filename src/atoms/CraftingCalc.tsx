@@ -1,6 +1,18 @@
 import { atom } from 'jotai'
 
-export const defaultCostObject: CraftingCalcObject = {
+export const ItemSelectorAtom = atom<{
+  rarity: Exclude<RarityTypes, 'Uncommon' | 'Common'>
+  category: ItemCategory
+  tier: ItemTier
+  weaponType: 'primary' | 'secondary'
+}>({
+  rarity: 'Epic',
+  category: 'weapon',
+  tier: 1,
+  weaponType: 'primary',
+})
+
+export const defaultCostObject = {
   anima_stone: {
     Legendary: 0,
     Epic: 0,
