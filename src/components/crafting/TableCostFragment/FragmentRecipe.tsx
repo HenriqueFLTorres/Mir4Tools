@@ -39,7 +39,7 @@ export default function FragmentRecipe({
                 className={
                   'flex w-full items-center justify-center gap-1.5 rounded bg-primary-600 px-3 py-1 text-xs font-medium text-white outline-none data-[hasItems=true]:bg-primary-450'
                 }
-                data-hasItems={cost === 0}
+                data-hasItems={cost <= 0}
               >
                 {totalCost > 0 ? getReadableNumber(totalCost) : 0}
               </span>
