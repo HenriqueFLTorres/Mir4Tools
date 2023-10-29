@@ -1,5 +1,6 @@
 import { ItemSelectorAtom } from '@/atoms/CraftingCalc'
 import MenuButton from '@/components/crafting/ItemSelector/MenuButton'
+import { cn } from '@/utils/classNames'
 import { getItemImagePath } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
@@ -22,7 +23,9 @@ export default function CategorySelector() {
         return (
           <MenuButton
             key={currentCategory}
-            className={'data-[active=true]:bg-primary-100/10'}
+            className={cn('data-[active=true]:bg-primary-100/10', {
+              'w-50 md:w-56': currentCategory === 'jewelry',
+            })}
             onClick={() =>
               setItemToCraft((prev) => ({
                 ...prev,
@@ -35,9 +38,11 @@ export default function CategorySelector() {
             <Image
               src={path.toLowerCase()}
               alt={''}
-              width={80}
+              width={190}
               height={80}
-              className="h-12 w-12 object-contain md:h-20 md:w-20"
+              className={cn('h-12 w-12 object-contain md:h-20 md:w-20', {
+                'w-40 md:w-64': currentCategory === 'jewelry',
+              })}
             />
           </MenuButton>
         )
