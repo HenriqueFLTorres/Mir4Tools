@@ -148,31 +148,27 @@ function getItemRecipe(
 
   if (!itemRecipe) return
 
-  const ownedItem = inventory[formatItemName(nameWithoutRarity)][rarity]
-  let parentAmount = ownedItem?.traddable + ownedItem?.nonTraddable
+  let parentAmount = getItemOwnedAmount({
+    item: itemName as ItemWithRarity,
+    rarity,
+    inventory,
+  })
   parentAmount = Math.min(multiplier, parentAmount)
 
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
 
-    const inventoryItem =
-      itemRarity === 'Default'
-        ? inventory[formatItemName(item) as NonRarityItems]
-        : inventory[formatItemName(item)][itemRarity]
-
-    let ownedAmount = 0
-    if (inventoryItem) {
-      ownedAmount =
-        typeof inventoryItem === 'number'
-          ? inventoryItem
-          : inventoryItem?.traddable + inventoryItem?.nonTraddable
-    }
+    const ownedAmount = getItemOwnedAmount({
+      item: item as ItemWithRarity,
+      rarity,
+      inventory,
+    })
 
     const totalAmount = (result[item] || 0) + amount * multiplier
 
     result[item] = totalAmount - ownedAmount - parentAmount * amount
 
-    getItemRecipe(item, itemRarity, result, amount, inventory)
+    getItemRecipe(item, itemRarity, result, amount * multiplier, inventory)
   }
 }
 
@@ -199,4 +195,31 @@ function formatRecipeToDisplay(object: Record<string, number>) {
   }
 
   return Object.values(result)
+}
+
+function getItemOwnedAmount({
+  item,
+  rarity,
+  inventory,
+}: (
+  | { item: NonRarityItems; rarity: 'Default' }
+  | { item: ItemWithRarity; rarity: RarityTypes }
+) & {
+  inventory: InventoryType
+}) {
+  if (rarity === 'Default') {
+    return inventory[formatItemName(item) as NonRarityItems]
+  }
+
+  const inventoryItem = inventory[formatItemName(item)][rarity]
+
+  let ownedAmount = 0
+  if (inventoryItem) {
+    ownedAmount =
+      typeof inventoryItem === 'number'
+        ? inventoryItem
+        : inventoryItem?.traddable + inventoryItem?.nonTraddable
+  }
+
+  return ownedAmount
 }
