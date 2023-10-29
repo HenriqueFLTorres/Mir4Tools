@@ -17,7 +17,7 @@ export const CraftingWalkthroughStages = (t: (key: string) => string) => [
     id: '#recipeSubitems',
     title: t('Recipe cost'),
     content: t(
-      "Here you can edit the values below each item to your owned amount of them, this is useful for subtracting the total cost and seeing how many items are left."
+      'Here you can edit the values below each item to your owned amount of them, this is useful for subtracting the total cost and seeing how many items are left.'
     ),
   },
   {
