@@ -112,18 +112,11 @@ function getFullItemRecipe(
 
     getItemRecipe(item, itemRarity, result, amount, inventory)
 
-    const inventoryItem =
-      itemRarity === 'Default'
-        ? inventory[formatItemName(item) as NonRarityItems]
-        : inventory[formatItemName(item)][itemRarity]
-
-    let ownedAmount = 0
-    if (inventoryItem) {
-      ownedAmount =
-        typeof inventoryItem === 'number'
-          ? inventoryItem
-          : inventoryItem?.traddable + inventoryItem?.nonTraddable
-    }
+    const ownedAmount = getItemOwnedAmount({
+      item: item as ItemWithRarity,
+      rarity: itemRarity,
+      inventory,
+    })
     const totalResource = (result[item] || 0) + amount
     result[item] = totalResource - Math.min(totalResource, ownedAmount)
   }
@@ -149,7 +142,7 @@ function getItemRecipe(
   if (!itemRecipe) return
 
   let parentAmount = getItemOwnedAmount({
-    item: itemName as ItemWithRarity,
+    item: nameWithoutRarity as ItemWithRarity,
     rarity,
     inventory,
   })
@@ -160,7 +153,7 @@ function getItemRecipe(
 
     const ownedAmount = getItemOwnedAmount({
       item: item as ItemWithRarity,
-      rarity,
+      rarity: itemRarity,
       inventory,
     })
 
@@ -201,10 +194,9 @@ function getItemOwnedAmount({
   item,
   rarity,
   inventory,
-}: (
-  | { item: NonRarityItems; rarity: 'Default' }
-  | { item: ItemWithRarity; rarity: RarityTypes }
-) & {
+}: {
+  item: ItemWithRarity | NonRarityItems
+  rarity: RarityTypes | 'Default'
   inventory: InventoryType
 }) {
   if (rarity === 'Default') {
