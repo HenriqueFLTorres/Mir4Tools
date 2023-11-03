@@ -32,7 +32,7 @@ export default function TotalCost({
           {formattedRecipe.map((rarityColumn, index) => (
             <ul className="flex items-center gap-6" key={index}>
               {rarityColumn.map(([name, amount]) => {
-                if (ComplementaryItems.includes(name) || amount <= 0) {
+                if (ComplementaryItems.includes(name)) {
                   return <></>
                 }
 

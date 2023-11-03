@@ -110,15 +110,17 @@ function getFullItemRecipe(
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
 
-    getItemRecipe(item, itemRarity, result, amount, inventory)
-
     const ownedAmount = getItemOwnedAmount({
       item: item as ItemWithRarity,
       rarity: itemRarity,
       inventory,
     })
     const totalResource = (result[item] || 0) + amount
-    result[item] = totalResource - Math.min(totalResource, ownedAmount)
+    const totalAmount = totalResource - Math.min(totalResource, ownedAmount)
+
+    getItemRecipe(item, itemRarity, result, totalAmount, inventory)
+
+    result[item] = totalAmount
   }
 
   return result
@@ -141,13 +143,6 @@ function getItemRecipe(
 
   if (!itemRecipe) return
 
-  let parentAmount = getItemOwnedAmount({
-    item: nameWithoutRarity as ItemWithRarity,
-    rarity,
-    inventory,
-  })
-  parentAmount = Math.min(multiplier, parentAmount)
-
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
 
@@ -159,9 +154,15 @@ function getItemRecipe(
 
     const totalAmount = (result[item] || 0) + amount * multiplier
 
-    result[item] = totalAmount - ownedAmount - parentAmount * amount
+    result[item] = totalAmount - ownedAmount
 
-    getItemRecipe(item, itemRarity, result, amount * multiplier, inventory)
+    getItemRecipe(
+      item,
+      itemRarity,
+      result,
+      totalAmount - ownedAmount,
+      inventory
+    )
   }
 }
 
