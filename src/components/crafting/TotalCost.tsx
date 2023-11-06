@@ -1,11 +1,9 @@
-import { InventoryAtom } from '@/atoms/Inventory'
 import CostFragment from '@/components/crafting/CostFragment'
 import {
   ComplementaryItems,
   extractItemRarity,
   formatItemName,
 } from '@/utils/index'
-import { useAtomValue } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function TotalCost({
@@ -15,7 +13,6 @@ export default function TotalCost({
   itemFullRecipe: Record<string, number>
   formattedRecipe: Array<Array<[string, number]>>
 }) {
-  const inventory = useAtomValue(InventoryAtom)
   const { t } = useTranslation()
 
   return (
@@ -56,21 +53,19 @@ export default function TotalCost({
         <ul id="totalCostWithoutRarity" className="flex gap-5">
           <CostFragment
             name="darksteel"
-            cost={itemFullRecipe.Darksteel - inventory.darksteel}
+            cost={itemFullRecipe.Darksteel}
             rarity="Default"
           />
 
           <CostFragment
             name="copper"
-            cost={itemFullRecipe.Copper - inventory.copper}
+            cost={itemFullRecipe.Copper}
             rarity="Default"
           />
 
           <CostFragment
             name="glittering_powder"
-            cost={
-              itemFullRecipe['Glittering Powder'] - inventory.glittering_powder
-            }
+            cost={itemFullRecipe['Glittering Powder']}
             rarity="Uncommon"
           />
         </ul>

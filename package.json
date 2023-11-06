@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-typescript": "^7.23.2",
     "@headlessui/react": "^1.7.15",
     "@mdx-js/loader": "^2.3.0",
     "@next/font": "13.1",
@@ -51,6 +54,7 @@
     "react-zoom-pan-pinch": "^3.1.0",
     "tailwind-merge": "^1.12.0",
     "tailwindcss": "3.3.1",
+    "ts-node": "^10.9.1",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

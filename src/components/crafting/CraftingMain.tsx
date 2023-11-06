@@ -3,16 +3,14 @@
 import { ItemSelectorAtom } from '@/atoms/CraftingCalc'
 import { InventoryAtom } from '@/atoms/Inventory'
 import ItemSelector from '@/components/crafting/ItemSelector'
-import BaseResourceCost from '@/data/BaseResouceCost'
 import EquipmentCost from '@/data/EquipmentCost'
 import { cn } from '@/utils/classNames'
+import { getFullItemRecipe } from '@/utils/craftingCalculator'
 import {
   ComplementaryItems,
   extractItemRarity,
-  formatItemName,
   getItemImagePath,
   itemTierToQuantity,
-  rarityRegex,
 } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import ItemFrame from './ItemFrame'
@@ -102,70 +100,6 @@ export default function CraftingMain() {
   )
 }
 
-function getFullItemRecipe(
-  itemRecipe: Record<string, number>,
-  result: Record<string, number>,
-  inventory: InventoryType
-) {
-  for (const [item, amount] of Object.entries(itemRecipe)) {
-    const itemRarity = extractItemRarity(item)
-
-    const ownedAmount = getItemOwnedAmount({
-      item: item as ItemWithRarity,
-      rarity: itemRarity,
-      inventory,
-    })
-    const totalResource = (result[item] || 0) + amount
-    const totalAmount = totalResource - Math.min(totalResource, ownedAmount)
-
-    getItemRecipe(item, itemRarity, result, totalAmount, inventory)
-
-    result[item] = totalAmount
-  }
-
-  return result
-}
-
-function getItemRecipe(
-  itemName: string,
-  rarity: RarityTypes | 'Default',
-  result: Record<string, number>,
-  multiplier: number,
-  inventory: InventoryType
-) {
-  if (rarity === 'Default') return
-
-  const nameWithoutRarity = itemName.replace(rarityRegex, '')
-  const itemRecipe =
-    BaseResourceCost?.[nameWithoutRarity as keyof typeof BaseResourceCost]?.[
-      rarity as Exclude<RarityTypes, 'Rare' | 'Uncommon' | 'Common'>
-    ]
-
-  if (!itemRecipe) return
-
-  for (const [item, amount] of Object.entries(itemRecipe)) {
-    const itemRarity = extractItemRarity(item)
-
-    const ownedAmount = getItemOwnedAmount({
-      item: item as ItemWithRarity,
-      rarity: itemRarity,
-      inventory,
-    })
-
-    const totalAmount = (result[item] || 0) + amount * multiplier
-
-    result[item] = totalAmount - ownedAmount
-
-    getItemRecipe(
-      item,
-      itemRarity,
-      result,
-      totalAmount - ownedAmount,
-      inventory
-    )
-  }
-}
-
 function formatRecipeToDisplay(object: Record<string, number>) {
   const result: {
     [key in Exclude<RarityTypes, 'Uncommon' | 'Common'>]: Array<
@@ -189,30 +123,4 @@ function formatRecipeToDisplay(object: Record<string, number>) {
   }
 
   return Object.values(result)
-}
-
-function getItemOwnedAmount({
-  item,
-  rarity,
-  inventory,
-}: {
-  item: ItemWithRarity | NonRarityItems
-  rarity: RarityTypes | 'Default'
-  inventory: InventoryType
-}) {
-  if (rarity === 'Default') {
-    return inventory[formatItemName(item) as NonRarityItems]
-  }
-
-  const inventoryItem = inventory[formatItemName(item)][rarity]
-
-  let ownedAmount = 0
-  if (inventoryItem) {
-    ownedAmount =
-      typeof inventoryItem === 'number'
-        ? inventoryItem
-        : inventoryItem?.traddable + inventoryItem?.nonTraddable
-  }
-
-  return ownedAmount
 }
