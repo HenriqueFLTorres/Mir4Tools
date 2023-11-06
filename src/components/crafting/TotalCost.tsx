@@ -51,23 +51,29 @@ export default function TotalCost({
         </section>
 
         <ul id="totalCostWithoutRarity" className="flex gap-5">
-          <CostFragment
-            name="darksteel"
-            cost={itemFullRecipe.Darksteel}
-            rarity="Default"
-          />
+          {Number.isInteger(itemFullRecipe.Darksteel) && (
+            <CostFragment
+              name="darksteel"
+              cost={itemFullRecipe.Darksteel}
+              rarity="Default"
+            />
+          )}
 
-          <CostFragment
-            name="copper"
-            cost={itemFullRecipe.Copper}
-            rarity="Default"
-          />
+          {Number.isInteger(itemFullRecipe.Copper) && (
+            <CostFragment
+              name="copper"
+              cost={itemFullRecipe.Copper}
+              rarity="Default"
+            />
+          )}
 
-          <CostFragment
-            name="glittering_powder"
-            cost={itemFullRecipe['Glittering Powder']}
-            rarity="Uncommon"
-          />
+          {Number.isInteger(itemFullRecipe['Glittering Powder']) && (
+            <CostFragment
+              name="glittering_powder"
+              cost={itemFullRecipe['Glittering Powder']}
+              rarity="Uncommon"
+            />
+          )}
         </ul>
       </div>
     </section>
