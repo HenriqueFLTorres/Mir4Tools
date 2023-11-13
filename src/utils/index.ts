@@ -289,3 +289,15 @@ export function formatItemName(name: string): ItemWithRarity {
     .toLocaleLowerCase()
     .replace(/\s/g, '_') as ItemWithRarity
 }
+
+// Get Value either by using percentage or seconds input
+export function getMiningSpeedValue(input: number, isPercentage: boolean) {
+  const baseSeconds = 10
+  if (isPercentage) {
+    const outputValue = baseSeconds / (input / 100 + 1)
+    return outputValue.toFixed(2)
+  }
+
+  const percentageValue = (100 * baseSeconds) / input - 100
+  return Math.round(percentageValue).toString()
+}

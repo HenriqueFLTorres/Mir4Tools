@@ -29,8 +29,6 @@ export default function CraftingMain() {
   const itemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
   const formattedRecipe = formatRecipeToDisplay(itemFullRecipe)
 
-  console.log(formattedRecipe)
-
   return (
     <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
       <section className="mb-4 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16">
