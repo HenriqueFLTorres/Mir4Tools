@@ -30,6 +30,14 @@ type ItemTypes =
   | 'snow_panax'
   | 'unihorn_slice'
   | 'virtue_pill'
+  | 'boundless_shard'
+  | 'epic_box'
+  | 'ethereal_shard'
+  | 'glittering_powder_box'
+  | 'lunar_shard'
+  | 'rare_box'
+  | 'solar_shard'
+  | 'uncommon_box'
 
 type ItemWithRarity = Exclude<
   ItemTypes,
@@ -105,3 +113,9 @@ type statusEffects =
   | 'Accuracy'
   | 'MP'
   | 'Spell DEF'
+
+type shardsType =
+  | 'ethereal_shard'
+  | 'lunar_shard'
+  | 'solar_shard'
+  | 'boundless_shard'
