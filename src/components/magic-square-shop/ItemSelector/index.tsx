@@ -11,7 +11,7 @@ import {
 } from '@/utils/index'
 import * as Tabs from '@radix-ui/react-tabs'
 import { useAtomValue } from 'jotai'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import MagicShopItem from './Item'
 
 export type RecipeType = Record<string, number>
@@ -72,36 +72,40 @@ export default function MagicSquareItemSelector() {
           </Tabs.Trigger>
         </Tabs.List>
 
-        <Tabs.Content value="special">
-          <ul className="grid grid-cols-4 gap-4">
-            {Object.entries(MagicSquareShopItems.Special).map(
-              ([item, recipe], index) => {
-                const name = formatItemName(item)
-                const rarity = extractItemRarity(item)
+        {content.map((content) => (
+          <Tabs.Content key={content} value={content.toLocaleLowerCase()}>
+            <ul className="grid grid-cols-4 gap-4">
+              {Object.entries(MagicSquareShopItems[content]).map(
+                ([item, recipe], index) => {
+                  const name = formatItemName(item)
+                  const rarity = extractItemRarity(item)
 
-                const itemName = getSpecialImageByName(
-                  name,
-                  rarity
-                ).toLowerCase()
+                  const itemName = getSpecialImageByName(
+                    name,
+                    rarity
+                  ).toLowerCase()
 
-                return (
-                  <MagicShopItem
-                    key={index}
-                    name={itemName}
-                    originalName={item}
-                    rarity={rarity}
-                    recipe={recipe as RecipeType}
-                    amount={totalRecipe?.[item as keyof typeof totalRecipe]}
-                  />
-                )
-              }
-            )}
-          </ul>
-        </Tabs.Content>
+                  return (
+                    <MagicShopItem
+                      key={index}
+                      name={itemName}
+                      originalName={item}
+                      rarity={rarity}
+                      recipe={recipe as RecipeType}
+                      amount={totalRecipe?.[item as keyof typeof totalRecipe]}
+                    />
+                  )
+                }
+              )}
+            </ul>
+          </Tabs.Content>
+        ))}
       </Tabs.Root>
     </div>
   )
 }
+
+const content = ['Special', 'Equipment', 'Promotion'] as const
 
 function checkRecipe(
   recipe: object,
