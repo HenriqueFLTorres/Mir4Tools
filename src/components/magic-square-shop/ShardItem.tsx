@@ -10,6 +10,7 @@ export default function ShardItem({
   rarity: 'Epic' | 'Rare' | 'Uncommon'
 }) {
   const [shardsInventory, setShardsInventory] = useAtom(ShardsInventoryAtom)
+
   return (
     <li className="flex flex-col gap-4 px-2 pt-4">
       <ItemFrame item={item} rarity={rarity} />

@@ -1,4 +1,4 @@
-const SpecialMaterial = {
+const Special = {
   '[E] Darksteel Box': {
     '[E] Lunar Shard': 5,
     '[E] Boundless Shard': 5,
@@ -225,7 +225,7 @@ const Promotion = {
 }
 
 const MagicSquareShopItems = {
-  SpecialMaterial,
+  Special,
   Equipment,
   Promotion,
 }
