@@ -7,6 +7,16 @@ import {
   rarityRegex,
 } from '@/utils/index'
 
+export const defaultItemObject = { traddable: 0, nonTraddable: 0 }
+
+export const defaultFullItemObject = {
+  Legendary: { traddable: 0, nonTraddable: 0 },
+  Epic: { traddable: 0, nonTraddable: 0 },
+  Rare: { traddable: 0, nonTraddable: 0 },
+  Uncommon: { traddable: 0, nonTraddable: 0 },
+  Common: { traddable: 0, nonTraddable: 0 },
+}
+
 export const defaultInventoryValue = {
   anima_stone: {
     Legendary: { traddable: 0, nonTraddable: 0 },
@@ -232,7 +242,7 @@ export function getFullItemRecipe(
     if (ComplementaryItems.includes(item)) ownedAmount = 0
 
     const totalResource = (result[item] || 0) + amount
-    const totalAmount = totalResource - ownedAmount
+    const totalAmount = Math.max(totalResource - ownedAmount, 0)
 
     getItemRecipe(item, itemRarity, result, totalAmount, inventory)
 
@@ -282,14 +292,15 @@ export function getItemRecipe(
     if (ComplementaryItems.includes(item)) ownedAmount = 0
 
     const totalAmount = (result[item] || 0) + amount * multiplier
+    const realAmount = Math.max(totalAmount - ownedAmount, 0)
 
-    result[item] = totalAmount - ownedAmount
+    result[item] = realAmount
 
     getItemRecipe(
       item,
       itemRarity,
       result,
-      totalAmount - ownedAmount,
+      realAmount,
       inventory
     )
   }
