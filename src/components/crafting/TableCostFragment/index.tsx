@@ -2,13 +2,10 @@ import { InventoryAtom } from '@/atoms/Inventory'
 import Tooltip from '@/components/ToolTip'
 import ItemFrame from '@/components/crafting/ItemFrame'
 import BaseResourceCost from '@/data/BaseResouceCost'
-import Balance from '@/icons/Balance'
-import { cn } from '@/utils/classNames'
 import { formatItemName, rarityRegex } from '@/utils/index'
 import { useAtom } from 'jotai'
-import millify from 'millify'
-import { useState } from 'react'
 import FragmentRecipe from './FragmentRecipe'
+import InventoryInput from './InventoryInput'
 
 export default function TableCostFragment({
   name,
@@ -79,44 +76,5 @@ export default function TableCostFragment({
         <></>
       )}
     </Tooltip.Wrapper>
-  )
-}
-
-function InventoryInput({
-  isTraddable,
-  className,
-  ...props
-}: { isTraddable?: boolean } & React.InputHTMLAttributes<HTMLInputElement>) {
-  const [focused, setFocused] = useState(false)
-
-  return (
-    <label
-      className={cn(
-        'relative flex w-full items-center gap-1.5 px-2 py-1 text-xs sm:text-base',
-        className
-      )}
-    >
-      {isTraddable ? (
-        <Balance className="h-6 w-6 shrink-0 fill-white" />
-      ) : (
-        <></>
-      )}
-      <input
-        className={
-          'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm font-semibold outline-none transition-colors duration-300 selection:bg-primary-800 placeholder:text-neutral-200/70 sm:text-base'
-        }
-        {...props}
-        value={
-          focused
-            ? props.value
-            : typeof props.value === 'number' && Number(props.value)
-            ? millify(props.value)
-            : props.value
-        }
-        onBlur={() => setFocused(false)}
-        onFocus={() => setFocused(true)}
-        onClick={(e) => e.currentTarget.setSelectionRange(0, 25, 'backward')}
-      />
-    </label>
   )
 }

@@ -5,6 +5,7 @@ import {
   formatItemName,
 } from '@/utils/index'
 import { useTranslation } from '../../../public/locales/client'
+import AdditionalCostFragment from './TableCostFragment/AdditionalCostFragment'
 
 export default function TotalCost({
   itemFullRecipe,
@@ -52,7 +53,7 @@ export default function TotalCost({
 
         <ul id="totalCostWithoutRarity" className="flex gap-5">
           {Number.isInteger(itemFullRecipe.Darksteel) && (
-            <CostFragment
+            <AdditionalCostFragment
               name="darksteel"
               cost={itemFullRecipe.Darksteel}
               rarity="Default"
@@ -60,7 +61,7 @@ export default function TotalCost({
           )}
 
           {Number.isInteger(itemFullRecipe.Copper) && (
-            <CostFragment
+            <AdditionalCostFragment
               name="copper"
               cost={itemFullRecipe.Copper}
               rarity="Default"
@@ -68,7 +69,7 @@ export default function TotalCost({
           )}
 
           {Number.isInteger(itemFullRecipe['Glittering Powder']) && (
-            <CostFragment
+            <AdditionalCostFragment
               name="glittering_powder"
               cost={itemFullRecipe['Glittering Powder']}
               rarity="Uncommon"
