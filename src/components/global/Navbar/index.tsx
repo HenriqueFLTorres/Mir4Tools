@@ -5,6 +5,7 @@ import Constitution from '@/icons/Constitution'
 import EXP from '@/icons/EXP'
 import Forge from '@/icons/Forge'
 import Hamburguer from '@/icons/Hamburguer'
+import Misc from '@/icons/Misc'
 import Monument from '@/icons/Monument'
 import { cn } from '@/utils/classNames'
 import Link from 'next/link'
@@ -81,7 +82,7 @@ function MobileNavbar({ showMobile }: { showMobile: boolean }) {
       className={cn(
         'mt-0 flex max-h-0 flex-col gap-4 overflow-hidden transition-[max-height,_margin] duration-300 will-change-[max-height,_margin] 3xl:hidden',
         {
-          'mt-5 max-h-[31rem]': showMobile,
+          'mt-5 max-h-[41rem]': showMobile,
         }
       )}
     >
@@ -130,5 +131,15 @@ const links = (t: (key: string) => string) => [
     href: '/maps',
     label: t('Maps'),
     Icon: Monument,
+  },
+  {
+    href: '/magic-square-shop',
+    label: t('Magic Square Shop'),
+    Icon: Monument,
+  },
+  {
+    href: '/misc',
+    label: t('Miscellaneous'),
+    Icon: Misc,
   },
 ]

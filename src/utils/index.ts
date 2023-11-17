@@ -183,7 +183,7 @@ export const prepareItemForDisplay = (
 
 export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
   if (name === 'Copper' || name === 'Darksteel') return 'Default'
-  if (name === 'Glittering Powder') return 'Uncommon'
+  if (name === 'Glittering Powder' || name === 'Life Essence') return 'Uncommon'
 
   const rarity = name.match(/^([\S]+)/gm)
 
@@ -288,4 +288,16 @@ export function formatItemName(name: string): ItemWithRarity {
   return nameWithoutRarity
     .toLocaleLowerCase()
     .replace(/\s/g, '_') as ItemWithRarity
+}
+
+// Get Value either by using percentage or seconds input
+export function getMiningSpeedValue(input: number, isPercentage: boolean) {
+  const baseSeconds = 10
+  if (isPercentage) {
+    const outputValue = baseSeconds / (input / 100 + 1)
+    return outputValue.toFixed(2)
+  }
+
+  const percentageValue = (100 * baseSeconds) / input - 100
+  return Math.round(percentageValue).toString()
 }

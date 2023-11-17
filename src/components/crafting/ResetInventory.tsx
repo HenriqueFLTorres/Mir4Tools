@@ -1,8 +1,9 @@
-import { InventoryAtom, defaultInventoryValue } from '@/atoms/Inventory'
+import { InventoryAtom } from '@/atoms/Inventory'
 import Reset from '@/icons/Reset'
 import { useSetAtom } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
 import ConfirmationDialog from '../shared/ConfirmationDialog'
+import { defaultInventoryValue } from '@/utils/craftingCalculator'
 
 export default function ResetInventory() {
   const { t } = useTranslation()

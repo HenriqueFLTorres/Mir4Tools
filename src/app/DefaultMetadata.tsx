@@ -47,7 +47,6 @@ export const DefaultMetadata: Metadata = {
 export const RouteMetadata = {
   CraftingCalculator: getSeo({
     title: 'Crafting Calculator',
-    href: '/',
     description:
       'A crafting tool to help players calculate their craft with precision and speed that includes advanced features such as an inventory system and a large variety of customization.',
     image: '/seo/crafting-calculator.webp',
@@ -55,7 +54,6 @@ export const RouteMetadata = {
   }),
   ExperienceCalculator: getSeo({
     title: 'Experience Calculator',
-    href: '/xp',
     description:
       'An experience-level calculator to help players measure and calculate their progress through the game with time and item cost predictions.',
     image: '/seo/experience-calculator.webp',
@@ -63,7 +61,6 @@ export const RouteMetadata = {
   }),
   Conquests: getSeo({
     title: 'Conquests',
-    href: '/conquests',
     description:
       'A tool used to show upgrade costs, time, and effects of conquest towers.',
     image: '/seo/conquests.webp',
@@ -71,7 +68,6 @@ export const RouteMetadata = {
   }),
   Constitution: getSeo({
     title: 'Constitution',
-    href: '/constitution',
     description:
       'A page used to calculate and show the effects of constitution levels.',
     image: '/seo/constitution.webp',
@@ -79,11 +75,17 @@ export const RouteMetadata = {
   }),
   Maps: getSeo({
     title: 'Maps',
-    href: '/maps',
     description:
       'An interactive mir4 resource tracker to display energy, mining, chests, and dark steel nodes in maps and secret peaks on any floor.',
     image: '/seo/maps.webp',
     imageAlt: 'Maps banner',
+  }),
+  Miscellaneous: getSeo({
+    title: 'Miscellaneous',
+    description:
+      'A place where you can access additional tools such as a mining speed calculator.',
+    image: '/seo/misc.webp',
+    imageAlt: 'Miscellaneous banner',
   }),
 }
 
@@ -92,13 +94,11 @@ export function getSeo({
   description,
   image,
   imageAlt,
-  href,
 }: {
   title: string
   description: string
   image: string
   imageAlt: string
-  href: string
 }): Metadata {
   return {
     title,

@@ -1,11 +1,9 @@
-import { InventoryAtom } from '@/atoms/Inventory'
 import CostFragment from '@/components/crafting/CostFragment'
 import {
   ComplementaryItems,
   extractItemRarity,
   formatItemName,
 } from '@/utils/index'
-import { useAtomValue } from 'jotai'
 import { useTranslation } from '../../../public/locales/client'
 
 export default function TotalCost({
@@ -15,7 +13,6 @@ export default function TotalCost({
   itemFullRecipe: Record<string, number>
   formattedRecipe: Array<Array<[string, number]>>
 }) {
-  const inventory = useAtomValue(InventoryAtom)
   const { t } = useTranslation()
 
   return (
@@ -32,7 +29,7 @@ export default function TotalCost({
           {formattedRecipe.map((rarityColumn, index) => (
             <ul className="flex items-center gap-6" key={index}>
               {rarityColumn.map(([name, amount]) => {
-                if (ComplementaryItems.includes(name) || amount <= 0) {
+                if (ComplementaryItems.includes(name)) {
                   return <></>
                 }
 
@@ -54,25 +51,29 @@ export default function TotalCost({
         </section>
 
         <ul id="totalCostWithoutRarity" className="flex gap-5">
-          <CostFragment
-            name="darksteel"
-            cost={itemFullRecipe.Darksteel - inventory.darksteel}
-            rarity="Default"
-          />
+          {Number.isInteger(itemFullRecipe.Darksteel) && (
+            <CostFragment
+              name="darksteel"
+              cost={itemFullRecipe.Darksteel}
+              rarity="Default"
+            />
+          )}
 
-          <CostFragment
-            name="copper"
-            cost={itemFullRecipe.Copper - inventory.copper}
-            rarity="Default"
-          />
+          {Number.isInteger(itemFullRecipe.Copper) && (
+            <CostFragment
+              name="copper"
+              cost={itemFullRecipe.Copper}
+              rarity="Default"
+            />
+          )}
 
-          <CostFragment
-            name="glittering_powder"
-            cost={
-              itemFullRecipe['Glittering Powder'] - inventory.glittering_powder
-            }
-            rarity="Uncommon"
-          />
+          {Number.isInteger(itemFullRecipe['Glittering Powder']) && (
+            <CostFragment
+              name="glittering_powder"
+              cost={itemFullRecipe['Glittering Powder']}
+              rarity="Uncommon"
+            />
+          )}
         </ul>
       </div>
     </section>
