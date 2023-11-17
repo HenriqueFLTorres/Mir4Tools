@@ -183,7 +183,7 @@ export const prepareItemForDisplay = (
 
 export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
   if (name === 'Copper' || name === 'Darksteel') return 'Default'
-  if (name === 'Glittering Powder') return 'Uncommon'
+  if (name === 'Glittering Powder' || name === 'Life Essence') return 'Uncommon'
 
   const rarity = name.match(/^([\S]+)/gm)
 

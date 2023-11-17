@@ -44,37 +44,32 @@ export default function MagicSquareItemSelector() {
   }, [JSON.stringify(shardsInventory)])
 
   return (
-    <div className="relative flex flex-col gap-8">
+    <div className="relative flex flex-col w-full gap-8">
       <h2 className="text-3xl font-bold">What you want</h2>
 
-      <Tabs.Root defaultValue="special">
+      <Tabs.Root defaultValue="special" className='flex flex-col gap-8'>
         <Tabs.List
-          className="custom-scroll flex gap-3 overflow-auto pb-2 [&>button]:flex [&>button]:cursor-pointer [&>button]:rounded [&>button]:px-4 [&>button]:py-2"
+          className="custom-scroll flex gap-3 font-bold overflow-auto pb-2 [&>button]:flex [&>button]:cursor-pointer [&>button]:rounded [&>button]:px-4 [&>button]:py-2"
           aria-label="Manage your settings"
         >
-          <Tabs.Trigger
-            value="special"
-            className="data-[state=active]:bg-white/10"
-          >
-            Special
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            value="equipment"
-            className="data-[state=active]:bg-white/10"
-          >
-            Equipment
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            value="promotion"
-            className="data-[state=active]:bg-white/10"
-          >
-            Promotion
-          </Tabs.Trigger>
+          {content.map((content) => (
+            <Tabs.Trigger
+              key={content}
+              value={content.toLowerCase()}
+              className="data-[state=active]:bg-white/10"
+            >
+              {content}
+            </Tabs.Trigger>
+          ))}
         </Tabs.List>
 
         {content.map((content) => (
-          <Tabs.Content key={content} value={content.toLocaleLowerCase()}>
-            <ul className="grid grid-cols-4 gap-4">
+          <Tabs.Content
+            key={content}
+            className="custom-scroll"
+            value={content.toLocaleLowerCase()}
+          >
+            <ul className="flex flex-row justify-center flex-wrap xl:grid xl:grid-cols-4 gap-4">
               {Object.entries(MagicSquareShopItems[content]).map(
                 ([item, recipe], index) => {
                   const name = formatItemName(item)
@@ -105,7 +100,13 @@ export default function MagicSquareItemSelector() {
   )
 }
 
-const content = ['Special', 'Equipment', 'Promotion'] as const
+const content = [
+  'Special',
+  'Equipment',
+  'Promotion',
+  'Training',
+  'Material',
+] as const
 
 function checkRecipe(
   recipe: object,

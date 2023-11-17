@@ -12,8 +12,8 @@ export default function ShardItem({
   const [shardsInventory, setShardsInventory] = useAtom(ShardsInventoryAtom)
 
   return (
-    <li className="flex flex-col gap-4 px-2 pt-4">
-      <ItemFrame item={item} rarity={rarity} />
+    <li className="flex flex-col items-center gap-4 px-2 pt-4">
+      <ItemFrame item={item as ItemTypes} rarity={rarity} />
 
       <label
         className={
