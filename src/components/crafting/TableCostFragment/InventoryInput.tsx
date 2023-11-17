@@ -32,6 +32,7 @@ export default function InventoryInput({
       ) : (
         <></>
       )}
+
       <input
         className={
           'flex w-full appearance-none items-center justify-center bg-transparent text-center text-sm font-semibold outline-none transition-colors duration-300 selection:bg-primary-800 placeholder:text-neutral-200/70 sm:text-base'
