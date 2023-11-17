@@ -253,7 +253,7 @@ export function getFullItemRecipe(
     if (item in result) {
       result[item] -= getItemOwnedAmount({
         item: formatItemName(item),
-        rarity: item === 'Glittering Powder' ? 'Uncommon' : 'Default',
+        rarity: 'Default',
         inventory,
       })
     }
@@ -296,12 +296,6 @@ export function getItemRecipe(
 
     result[item] = realAmount
 
-    getItemRecipe(
-      item,
-      itemRarity,
-      result,
-      realAmount,
-      inventory
-    )
+    getItemRecipe(item, itemRarity, result, realAmount, inventory)
   }
 }
