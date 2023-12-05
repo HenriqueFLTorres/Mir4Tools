@@ -26,7 +26,7 @@ export default function CraftingMain() {
       ? EquipmentCost[category][weaponType][rarity]
       : EquipmentCost[category][rarity]
 
-  const itemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory)
+  const itemFullRecipe = getFullItemRecipe(ItemRecipe, {}, inventory, itemTierToQuantity[tier])
   const formattedRecipe = formatRecipeToDisplay(itemFullRecipe)
 
   return (

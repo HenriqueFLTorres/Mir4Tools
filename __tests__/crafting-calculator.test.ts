@@ -12,7 +12,8 @@ describe('Properly return full item recipe w/ Inventory', () => {
       getFullItemRecipe(
         EquipmentCost.weapon.primary.Legendary,
         {},
-        defaultInventoryValue
+        defaultInventoryValue,
+        1
       )
     ).toStrictEqual({
       '[E] Steel': 3000,
@@ -32,7 +33,7 @@ describe('Properly return full item recipe w/ Inventory', () => {
   })
   test('Armor recipe', () => {
     expect(
-      getFullItemRecipe(EquipmentCost.armor.Epic, {}, defaultInventoryValue)
+      getFullItemRecipe(EquipmentCost.armor.Epic, {}, defaultInventoryValue, 1)
     ).toStrictEqual({
       '[R] Steel': 3000,
       'Glittering Powder': 12500,
@@ -51,7 +52,8 @@ describe('Properly return full item recipe w/ Inventory', () => {
       getFullItemRecipe(
         EquipmentCost.earrings.Legendary,
         {},
-        defaultInventoryValue
+        defaultInventoryValue,
+        1
       )
     ).toStrictEqual({
       '[E] Platinum': 3000,
@@ -88,7 +90,8 @@ describe('Properly return item recipe with inventory', () => {
           },
           copper: 1,
           darksteel: 1,
-        }
+        },
+        1
       )
     ).toStrictEqual({
       '[E] Steel': 2800,
@@ -130,7 +133,8 @@ describe('Properly return item recipe with inventory', () => {
           },
           copper: 1,
           darksteel: 1,
-        }
+        },
+        1
       )
     ).toStrictEqual({
       '[E] Steel': 0,
@@ -164,7 +168,8 @@ describe('Properly return item recipe with inventory', () => {
           },
           copper: 25000000,
           darksteel: 9999,
-        }
+        },
+        1
       )
     ).toStrictEqual({
       '[R] Platinum': 75,
