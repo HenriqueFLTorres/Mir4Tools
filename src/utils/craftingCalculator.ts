@@ -228,7 +228,8 @@ export function getItemOwnedAmount({
 export function getFullItemRecipe(
   itemRecipe: Record<string, number>,
   result: Record<string, number>,
-  inventory: InventoryType
+  inventory: InventoryType,
+  tierMultiplier: number
 ) {
   for (const [item, amount] of Object.entries(itemRecipe)) {
     const itemRarity = extractItemRarity(item)
@@ -241,10 +242,16 @@ export function getFullItemRecipe(
 
     if (ComplementaryItems.includes(item)) ownedAmount = 0
 
-    const totalResource = (result[item] || 0) + amount
+    const totalResource = ((result[item] || 0) + amount) * tierMultiplier
     const totalAmount = Math.max(totalResource - ownedAmount, 0)
 
-    getItemRecipe(item, itemRarity, result, totalAmount, inventory)
+    getItemRecipe(
+      item,
+      itemRarity,
+      result,
+      totalAmount,
+      inventory
+    )
 
     result[item] = totalAmount
   }
