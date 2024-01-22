@@ -122,6 +122,11 @@ export const AllowedInventoryItemTypes = [
   'snow_panax',
   'unihorn_slice',
   'virtue_pill',
+  'greater_yang_pill',
+  'greater_yin_pill',
+  'lesser_yang_pill',
+  'lesser_yin_pill',
+  'epic_azureum_mineral_fluid',
 ]
 
 export function deepMerge(targetObject: any, sourceObject: any) {
@@ -184,6 +189,7 @@ export const prepareItemForDisplay = (
 export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
   if (name === 'Copper' || name === 'Darksteel') return 'Default'
   if (name === 'Glittering Powder' || name === 'Life Essence') return 'Uncommon'
+  if (name === 'Epic Azureum Mineral Fluid') return 'Epic'
 
   const rarity = name.match(/^([\S]+)/gm)
 
@@ -300,4 +306,11 @@ export function getMiningSpeedValue(input: number, isPercentage: boolean) {
 
   const percentageValue = (100 * baseSeconds) / input - 100
   return Math.round(percentageValue).toString()
+}
+
+export function getNumbersInRange(start: number, end: number) {
+  return Array.from(
+    { length: (end - start) / 1 + 1 },
+    (_, index) => start + index * 1
+  )
 }
