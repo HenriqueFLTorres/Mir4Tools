@@ -5,176 +5,44 @@ import Tooltip from '@/components/ToolTip'
 import ItemFrame from '@/components/crafting/ItemFrame'
 import BloodFrame from '@/components/inner-force/BloodFrame'
 import TabButton from '@/components/inner-force/TabButton'
-import {
-  ArbalistInnerForce,
-  DarkistInnerForce,
-  LancerInnerForce,
-  SorcererInnerForce,
-  TaoistInnerForce,
-  WarriorInnerForce,
-} from '@/data/InnerForce'
-import {
-  Alkaid,
-  Antirelaxation,
-  CentenaryCongregation,
-  DiviseAction,
-  Dubhe,
-  EarthValley,
-  EmbroideredThrone,
-  FertileScale,
-  GoldenJade,
-  GreatRuler,
-  GreatUnion,
-  LandsEnd,
-  Mizar,
-  PinnacleStar,
-  PulsingSky,
-  Quorum,
-  RoyalDecree,
-  SkyPalace,
-  Springwater,
-  UnitedHeaven,
-  VirtuousElevation,
-  Waterbridge,
-  WindHub,
-} from '@/icons/inner-force/index'
+import TierHandler from '@/components/inner-force/TierHandler'
 import {
   AllowedInventoryItemTypes,
+  calculateBloodCost,
+  calculateBloodEffects,
+  effectToBloodName,
   extractItemRarity,
+  formatEffectValue,
   formatItemName,
-  getNumbersInRange,
+  getBloodIcon,
+  getBloodsByTab,
   getReadableNumber,
 } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import millify from 'millify'
 import { useMemo } from 'react'
 
-const getBloodIcon = {
-  Alkaid,
-  Antirelaxation,
-  'Centenary Congregation': CentenaryCongregation,
-  'Divise Action': DiviseAction,
-  Dubhe,
-  'Earth Valley': EarthValley,
-  'Embroidered Throne': EmbroideredThrone,
-  'Fertile Scale': FertileScale,
-  'Golden Jade': GoldenJade,
-  'Great Ruler': GreatRuler,
-  'Great Union': GreatUnion,
-  'Heart Core': SkyPalace,
-  "Land's End": LandsEnd,
-  Mizar,
-  'Pinnacle Star': PinnacleStar,
-  'Pulsing Sky': PulsingSky,
-  Quorum,
-  'Royal Decree': RoyalDecree,
-  'Sky Palace': SkyPalace,
-  Springwater,
-  'United Heaven': UnitedHeaven,
-  'Virtuous Elevation': VirtuousElevation,
-  Waterbridge,
-  'Wind Hub': WindHub,
-}
-
-const bloodNameToSet: { [key in BloodNames]: BloodSets } = {
-  'Sky Palace': 'Muscle Strength Manual',
-  'Royal Decree': 'Muscle Strength Manual',
-  'Pulsing Sky': 'Muscle Strength Manual',
-  'Great Ruler': 'Muscle Strength Manual',
-  "Land's End": 'Nine Yin Manual',
-  'Centenary Congregation': 'Nine Yin Manual',
-  'Embroidered Throne': 'Nine Yin Manual',
-  'Golden Jade': 'Nine Yin Manual',
-  'Heart Core': 'Nine Yang Manual',
-  'Virtuous Elevation': 'Nine Yang Manual',
-  Antirelaxation: 'Nine Yang Manual',
-  Springwater: 'Nine Yang Manual',
-  'Pinnacle Star': 'Nine Yang Manual',
-  'Wind Hub': 'Nine Yang Manual',
-  'Great Union': 'Nine Yang Manual',
-  'Earth Valley': 'Nine Yang Manual',
-  Dubhe: 'Northern Profound Art',
-  'Fertile Scale': 'Northern Profound Art',
-  Mizar: 'Northern Profound Art',
-  Alkaid: 'Northern Profound Art',
-  'Divise Action': 'Toad Stance',
-  Waterbridge: 'Toad Stance',
-  'United Heaven': 'Toad Stance',
-  Quorum: 'Toad Stance',
-}
-
-const getBloodsByTab: { [key in BloodSets]: BloodNames[] } = {
-  'Muscle Strength Manual': [
-    'Sky Palace',
-    'Royal Decree',
-    'Pulsing Sky',
-    'Great Ruler',
-  ],
-  'Nine Yin Manual': [
-    "Land's End",
-    'Centenary Congregation',
-    'Embroidered Throne',
-    'Golden Jade',
-  ],
-  'Nine Yang Manual': [
-    'Heart Core',
-    'Virtuous Elevation',
-    'Antirelaxation',
-    'Springwater',
-  ],
-  'Violet Mist Art': [
-    'Pinnacle Star',
-    'Wind Hub',
-    'Great Union',
-    'Earth Valley',
-  ],
-  'Northern Profound Art': ['Dubhe', 'Fertile Scale', 'Mizar', 'Alkaid'],
-  'Toad Stance': ['Divise Action', 'Waterbridge', 'United Heaven', 'Quorum'],
-}
-
-const getDataByClass = {
-  Warrior: WarriorInnerForce,
-  Sorcerer: SorcererInnerForce,
-  Taoist: TaoistInnerForce,
-  Arbalist: ArbalistInnerForce,
-  Lancer: LancerInnerForce,
-  Darkist: DarkistInnerForce,
-}
-
 export default function InnerForce() {
   const bloodTab = useAtomValue(InnerForceTabAtom)
   const bloodObject = useAtomValue(InnerForceBloodsAtom)
   const { class: mir4Class } = useAtomValue(SettingsAtom)
 
-  const calculateBloodCost = () => {
-    const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
-
-    const resultObj: { [key in string]: number } = {}
-    for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
-      if (initial === final) continue
-
-      const levelDifference = final - initial
-      if (levelDifference < 1) continue
-
-      const levelIteration = getNumbersInRange(initial + 1, final)
-      for (const levelstep of levelIteration) {
-        const bloodLevel = dataObject[bloodNameToSet[bloodName as BloodNames]][levelstep as keyof typeof dataObject[BloodSets]]
-        const bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
-
-        for (const [key, value] of Object.entries(bloodContent)) {
-          resultObj[key] = (resultObj?.[key] || 0) + (value as number)
-          resultObj.energy = (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
-        }
-      }
-    }
-
-    return resultObj
-  }
-
   const resultObject = useMemo(
-    () => calculateBloodCost(),
-    [JSON.stringify(bloodObject)]
+    () => calculateBloodCost(bloodObject, mir4Class),
+    [JSON.stringify(bloodObject), mir4Class]
   )
+
+  const effectsObject = useMemo(() => {
+    const object = calculateBloodEffects(bloodObject, mir4Class)
+    const formattedObject = Object.entries(object).sort(([name1], [name2]) => {
+      if (name1 < name2) return -1
+      if (name1 > name2) return 1
+
+      return 0
+    })
+
+    return formattedObject
+  }, [JSON.stringify(bloodObject), mir4Class])
 
   return (
     <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-8 px-6 pt-20 selection:bg-primary-800">
@@ -188,11 +56,61 @@ export default function InnerForce() {
       </aside>
 
       <div className="flex max-w-[40rem] flex-col items-center gap-8">
+        {effectsObject.length > 0 ? (
+          <ul className="relative flex grid-cols-2 flex-col gap-1 rounded-md bg-primary-600 p-1 md:rounded-xl lg:grid">
+            {effectsObject.map(([name, value]) => {
+              const formattedName = formatItemName(name)
+
+              if (
+                AllowedInventoryItemTypes.includes(formattedName) ||
+                value.final < value.initial
+              ) {
+                return <></>
+              }
+
+              const Icon =
+                getBloodIcon[effectToBloodName[name as statusEffects]]
+
+              const hasIncreased = value.final > value.initial
+
+              return (
+                <li
+                  key={name}
+                  className="flex items-center gap-4 rounded bg-primary-500/20 px-1 py-0.5 text-xs font-light text-white md:px-3 md:py-1.5 md:text-sm"
+                >
+                  <Icon className="h-6 w-6" />{' '}
+                  <b className="mr-auto font-bold">{name}</b>
+                  <p className="ml-4 shrink-0 text-end font-medium">
+                    {hasIncreased ? (
+                      <>
+                        {formatEffectValue(name, value.initial)}{' '}
+                        <span className="text-success-400">
+                          {'>'} {formatEffectValue(name, value.final)}
+                        </span>
+                      </>
+                    ) : (
+                      formatEffectValue(name, value.initial)
+                    )}
+                  </p>
+                </li>
+              )
+            })}
+          </ul>
+        ) : (
+          <></>
+        )}
+
         <ol className="flex items-center gap-6">
           {getBloodsByTab[bloodTab].map((blood) => (
-            <BloodFrame key={blood} bloodName={blood} Icon={getBloodIcon[blood]} />
+            <BloodFrame
+              key={blood}
+              bloodName={blood}
+              Icon={getBloodIcon[blood]}
+            />
           ))}
         </ol>
+
+        <TierHandler />
 
         <ul className="flex w-full flex-wrap items-center justify-center gap-4">
           {Object.entries(resultObject).map(([name, value]) => {

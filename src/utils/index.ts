@@ -1,4 +1,38 @@
 import { type Level } from '@/app/xp/page'
+import { type InnerForceObject } from '@/atoms/InnerForce'
+import {
+  ArbalistInnerForce,
+  DarkistInnerForce,
+  LancerInnerForce,
+  SorcererInnerForce,
+  TaoistInnerForce,
+  WarriorInnerForce,
+} from '@/data/InnerForce'
+import {
+  Alkaid,
+  Antirelaxation,
+  CentenaryCongregation,
+  DiviseAction,
+  Dubhe,
+  EarthValley,
+  EmbroideredThrone,
+  FertileScale,
+  GoldenJade,
+  GreatRuler,
+  GreatUnion,
+  LandsEnd,
+  Mizar,
+  PinnacleStar,
+  PulsingSky,
+  Quorum,
+  RoyalDecree,
+  SkyPalace,
+  Springwater,
+  UnitedHeaven,
+  VirtuousElevation,
+  Waterbridge,
+  WindHub,
+} from '@/icons/inner-force/index'
 import { atom } from 'jotai'
 
 export const rarityRegex = /(\[L\].|\[E\].|\[R\].|\[UC\].)/gm
@@ -313,4 +347,285 @@ export function getNumbersInRange(start: number, end: number) {
     { length: (end - start) / 1 + 1 },
     (_, index) => start + index * 1
   )
+}
+
+export const getBloodIcon = {
+  Alkaid,
+  Antirelaxation,
+  'Centenary Congregation': CentenaryCongregation,
+  'Divise Action': DiviseAction,
+  Dubhe,
+  'Earth Valley': EarthValley,
+  'Embroidered Throne': EmbroideredThrone,
+  'Fertile Scale': FertileScale,
+  'Golden Jade': GoldenJade,
+  'Great Ruler': GreatRuler,
+  'Great Union': GreatUnion,
+  'Heart Core': SkyPalace,
+  "Land's End": LandsEnd,
+  Mizar,
+  'Pinnacle Star': PinnacleStar,
+  'Pulsing Sky': PulsingSky,
+  Quorum,
+  'Royal Decree': RoyalDecree,
+  'Sky Palace': SkyPalace,
+  Springwater,
+  'United Heaven': UnitedHeaven,
+  'Virtuous Elevation': VirtuousElevation,
+  Waterbridge,
+  'Wind Hub': WindHub,
+}
+
+export const bloodNameToSet: { [key in BloodNames]: BloodSets } = {
+  'Sky Palace': 'Muscle Strength Manual',
+  'Royal Decree': 'Muscle Strength Manual',
+  'Pulsing Sky': 'Muscle Strength Manual',
+  'Great Ruler': 'Muscle Strength Manual',
+  "Land's End": 'Nine Yin Manual',
+  'Centenary Congregation': 'Nine Yin Manual',
+  'Embroidered Throne': 'Nine Yin Manual',
+  'Golden Jade': 'Nine Yin Manual',
+  'Heart Core': 'Nine Yang Manual',
+  'Virtuous Elevation': 'Nine Yang Manual',
+  Antirelaxation: 'Nine Yang Manual',
+  Springwater: 'Nine Yang Manual',
+  'Pinnacle Star': 'Violet Mist Art',
+  'Wind Hub': 'Violet Mist Art',
+  'Great Union': 'Violet Mist Art',
+  'Earth Valley': 'Violet Mist Art',
+  Dubhe: 'Northern Profound Art',
+  'Fertile Scale': 'Northern Profound Art',
+  Mizar: 'Northern Profound Art',
+  Alkaid: 'Northern Profound Art',
+  'Divise Action': 'Toad Stance',
+  Waterbridge: 'Toad Stance',
+  'United Heaven': 'Toad Stance',
+  Quorum: 'Toad Stance',
+}
+
+export const getBloodsByTab: { [key in BloodSets]: BloodNames[] } = {
+  'Muscle Strength Manual': [
+    'Sky Palace',
+    'Royal Decree',
+    'Pulsing Sky',
+    'Great Ruler',
+  ],
+  'Nine Yin Manual': [
+    "Land's End",
+    'Centenary Congregation',
+    'Embroidered Throne',
+    'Golden Jade',
+  ],
+  'Nine Yang Manual': [
+    'Heart Core',
+    'Virtuous Elevation',
+    'Antirelaxation',
+    'Springwater',
+  ],
+  'Violet Mist Art': [
+    'Pinnacle Star',
+    'Wind Hub',
+    'Great Union',
+    'Earth Valley',
+  ],
+  'Northern Profound Art': ['Dubhe', 'Fertile Scale', 'Mizar', 'Alkaid'],
+  'Toad Stance': ['Divise Action', 'Waterbridge', 'United Heaven', 'Quorum'],
+}
+
+export const getDataByClass = {
+  Warrior: WarriorInnerForce,
+  Sorcerer: SorcererInnerForce,
+  Taoist: TaoistInnerForce,
+  Arbalist: ArbalistInnerForce,
+  Lancer: LancerInnerForce,
+  Darkist: DarkistInnerForce,
+}
+
+export const effectToBloodName: { [key in string]: BloodNames } = {
+  HP: 'Virtuous Elevation',
+  MP: 'Antirelaxation',
+  'PHYS ATK': 'Sky Palace',
+  'PHYS DEF': 'Pulsing Sky',
+  Accuracy: "Land's End",
+  EVA: 'Centenary Congregation',
+  CRIT: 'Embroidered Throne',
+  'CRIT ATK DMG Boost': 'Divise Action',
+  'CRIT DMG REDUCTION': 'Waterbridge',
+  'CRIT EVA': 'Springwater',
+  'Spell DEF': 'Great Ruler',
+  'Monster ATK DMG Boost': 'Royal Decree',
+  'Monster DMG Reduction': 'Golden Jade',
+  'Skill ATK DMG Boost': 'United Heaven',
+  'Skill DMG Reduction': 'Quorum',
+  'Stun Success Boost': 'Pinnacle Star',
+  'Stun RES Boost': 'Wind Hub',
+  'Debilitation Success Boost': 'Great Union',
+  'Debilitation RES Boost': 'Earth Valley',
+  'Silence Success Boost': 'Dubhe',
+  'Silence RES Boost': 'Fertile Scale',
+  'Knockdown Sucess Boost': 'Mizar',
+  'Knockdown RES Boost': 'Alkaid',
+}
+
+export function getBloodSetObject(
+  currentSet: BloodSets,
+  originalObject: InnerForceObject
+): Partial<{ [key in BloodNames]: { initial: number; final: number } }> {
+  const {
+    'Sky Palace': SkyPalace,
+    'Royal Decree': RoyalDecree,
+    'Pulsing Sky': PulsingSky,
+    'Great Ruler': GreatRuler,
+    "Land's End": LandsEnd,
+    'Centenary Congregation': CentenaryCongregation,
+    'Embroidered Throne': EmbroideredThrone,
+    'Golden Jade': GoldenJade,
+    'Heart Core': HeartCore,
+    'Virtuous Elevation': VirtuousElevation,
+    Antirelaxation,
+    Springwater,
+    'Pinnacle Star': PinnacleStar,
+    'Wind Hub': WindHub,
+    'Great Union': GreatUnion,
+    'Earth Valley': EarthValley,
+    Dubhe,
+    'Fertile Scale': FertileScale,
+    Mizar,
+    Alkaid,
+    'Divise Action': DiviseAction,
+    Waterbridge,
+    'United Heaven': UnitedHeaven,
+    Quorum,
+  } = originalObject
+
+  switch (currentSet) {
+    case 'Muscle Strength Manual':
+      return {
+        'Sky Palace': SkyPalace,
+        'Royal Decree': RoyalDecree,
+        'Pulsing Sky': PulsingSky,
+        'Great Ruler': GreatRuler,
+      }
+    case 'Nine Yin Manual':
+      return {
+        "Land's End": LandsEnd,
+        'Centenary Congregation': CentenaryCongregation,
+        'Embroidered Throne': EmbroideredThrone,
+        'Golden Jade': GoldenJade,
+      }
+    case 'Nine Yang Manual':
+      return {
+        'Heart Core': HeartCore,
+        'Virtuous Elevation': VirtuousElevation,
+        Antirelaxation,
+        Springwater,
+      }
+    case 'Violet Mist Art':
+      return {
+        'Pinnacle Star': PinnacleStar,
+        'Wind Hub': WindHub,
+        'Great Ruler': GreatUnion,
+        'Earth Valley': EarthValley,
+      }
+    case 'Northern Profound Art':
+      return { Dubhe, 'Fertile Scale': FertileScale, Mizar, Alkaid }
+    case 'Toad Stance':
+      return {
+        'Divise Action': DiviseAction,
+        Waterbridge,
+        'United Heaven': UnitedHeaven,
+        Quorum,
+      }
+  }
+}
+
+export const calculateBloodCost = (
+  bloodObject: InnerForceObject,
+  mir4Class: Mir4Classes
+) => {
+  const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
+
+  const resultObj: { [key in string]: number } = {}
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    if (initial === final) continue
+
+    const levelDifference = final - initial
+    if (levelDifference < 1) continue
+
+    const levelIteration = getNumbersInRange(initial + 1, final)
+    for (const levelstep of levelIteration) {
+      const bloodLevel =
+        dataObject[bloodNameToSet[bloodName as BloodNames]][
+          levelstep as keyof (typeof dataObject)[BloodSets]
+        ]
+      const bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+
+      for (const [key, value] of Object.entries(bloodContent)) {
+        resultObj[key] = (resultObj?.[key] || 0) + (value as number)
+        resultObj.energy =
+          (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
+      }
+    }
+  }
+
+  return resultObj
+}
+
+export const calculateBloodEffects = (
+  bloodObject: InnerForceObject,
+  mir4Class: Mir4Classes
+) => {
+  const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
+
+  const resultObj: { [key in string]: { initial: number; final: number } } = {}
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    if (initial === final) continue
+
+    const levelDifference = final - initial
+    if (levelDifference < 1) continue
+
+    let bloodLevel =
+      dataObject[bloodNameToSet[bloodName as BloodNames]][
+        (initial + 1) as keyof (typeof dataObject)[BloodSets]
+      ]
+    let bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+
+    for (const [key, value] of Object.entries(bloodContent)) {
+      resultObj[key] = { initial: value, final: 0 }
+    }
+
+    bloodLevel =
+      dataObject[bloodNameToSet[bloodName as BloodNames]][
+        final as keyof (typeof dataObject)[BloodSets]
+      ]
+    bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+
+    for (const [key, value] of Object.entries(bloodContent)) {
+      resultObj[key] = { ...resultObj[key], final: value }
+    }
+  }
+
+  return resultObj
+}
+
+export function formatEffectValue(name: string, value: number) {
+  switch (name) {
+    case 'CRIT ATK DMG Boost':
+    case 'CRIT DMG REDUCTION':
+    case 'Monster ATK DMG Boost':
+    case 'Monster DMG Reduction':
+    case 'Skill ATK DMG Boost':
+    case 'Skill DMG Reduction':
+    case 'Stun Success Boost':
+    case 'Stun RES Boost':
+    case 'Debilitation Success Boost':
+    case 'Debilitation RES Boost':
+    case 'Silence Success Boost':
+    case 'Silence RES Boost':
+    case 'Knockdown Sucess Boost':
+    case 'Knockdown RES Boost':
+      return value / 10
+    default:
+      return value
+  }
 }

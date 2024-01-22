@@ -3,7 +3,7 @@ import { atomWithLocalStorage } from '../utils'
 
 export const InnerForceTabAtom = atom<BloodSets>('Muscle Strength Manual')
 
-type InnerForceObject = {
+export type InnerForceObject = {
   [key in BloodNames]: { initial: number; final: number }
 }
 

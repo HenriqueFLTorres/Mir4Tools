@@ -1,10 +1,11 @@
 'use client'
 
-import { InnerForceTabAtom } from '@/atoms/InnerForce'
+import { InnerForceBloodsAtom, InnerForceTabAtom } from '@/atoms/InnerForce'
 import { cn } from '@/utils/classNames'
-import { toCamelCase } from '@/utils/index'
-import { useAtom } from 'jotai'
+import { getBloodSetObject, toCamelCase } from '@/utils/index'
+import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
+import { useMemo } from 'react'
 
 export default function TabButton({
   tabName,
@@ -14,6 +15,17 @@ export default function TabButton({
   tabName: BloodSets
 } & Exclude<React.HTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const [tab, setTab] = useAtom(InnerForceTabAtom)
+  const bloodObject = useAtomValue(InnerForceBloodsAtom)
+
+  const targetedObject = useMemo(
+    () => getBloodSetObject(tabName, bloodObject),
+    [tabName, bloodObject]
+  )
+
+  const minLevel = Math.min(
+    ...Object.values(targetedObject).map((values) => values.initial)
+  )
+  const currentTier = Math.round(minLevel / 5) + 1
 
   return (
     <button
@@ -34,7 +46,7 @@ export default function TabButton({
       />
       <div className="flex h-full flex-col justify-between text-end text-xs font-medium">
         <p>
-          Tier 1 {/* <span className="text-success-400">{'>'} Tier 5</span> */}
+          Tier {currentTier} {/* <span className="text-success-400">{'>'} Tier 5</span> */}
         </p>
         <p className="max-w-[6rem]">{tabName}</p>
       </div>
