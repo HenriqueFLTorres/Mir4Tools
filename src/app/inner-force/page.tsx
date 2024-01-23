@@ -106,7 +106,9 @@ export default function InnerForce() {
               width={32}
               height={32}
             />
-            {getReadableNumber(sortedResult?.energy ?? 0)}
+            {getReadableNumber(
+              sortedResult.find(([name]) => name === 'energy')?.[1] ?? 0
+            )}
           </div>
         </div>
 
