@@ -23,15 +23,44 @@ import millify from 'millify'
 import Image from 'next/image'
 import { useMemo } from 'react'
 
+const ItemRarities = [
+  'Legendary',
+  'Epic',
+  'Rare',
+  'Uncommon',
+  'Common',
+  'Default',
+]
+
 export default function InnerForce() {
   const bloodTab = useAtomValue(InnerForceTabAtom)
   const bloodObject = useAtomValue(InnerForceBloodsAtom)
   const { class: mir4Class } = useAtomValue(SettingsAtom)
 
-  const resultObject = useMemo(
-    () => calculateBloodCost(bloodObject, mir4Class),
-    [JSON.stringify(bloodObject), mir4Class]
-  )
+  const sortedResult = useMemo(() => {
+    const object = calculateBloodCost(bloodObject, mir4Class)
+    const sortedObject = Object.entries(object)
+      .sort(([name1], [name2]) => {
+        const formatted1 = formatItemName(name1)
+        const formatted2 = formatItemName(name2)
+
+        if (formatted1 > formatted2) return -1
+        if (formatted1 < formatted2) return 1
+
+        return 0
+      })
+      .sort(([name1], [name2]) => {
+        const rarity1 = ItemRarities.indexOf(extractItemRarity(name1))
+        const rarity2 = ItemRarities.indexOf(extractItemRarity(name2))
+
+        if (rarity1 > rarity2) return -1
+        if (rarity1 < rarity2) return 1
+
+        return 0
+      })
+
+    return sortedObject
+  }, [JSON.stringify(bloodObject), mir4Class])
 
   const effectsObject = useMemo(() => {
     const object = calculateBloodEffects(bloodObject, mir4Class)
@@ -121,12 +150,12 @@ export default function InnerForce() {
               width={32}
               height={32}
             />
-            {getReadableNumber(resultObject.energy ?? 0)}
+            {getReadableNumber(sortedResult.energy ?? 0)}
           </div>
         </div>
 
         <ul className="flex w-full flex-wrap items-center justify-center gap-4">
-          {Object.entries(resultObject).map(([name, value]) => {
+          {sortedResult.map(([name, value]) => {
             const formattedName = formatItemName(name)
             const itemRarity = extractItemRarity(name)
 

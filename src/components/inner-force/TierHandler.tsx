@@ -4,7 +4,7 @@ import {
   InnerForceTabAtom,
   type InnerForceObject,
 } from '@/atoms/InnerForce'
-import { getBloodSetObject } from '@/utils/index'
+import { getBloodSetObject, getValidBloodValue } from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 
@@ -23,11 +23,11 @@ export default function TierHandler() {
     const tier = Math.round(minLevel / 5)
 
     const newValues = Object.values(targetedObject).map(() => ({
-      initial: getValidNumber(
+      initial: getValidBloodValue(
         bloodTab,
         5 * (type === 'increment' ? tier + 1 : tier - 1)
       ),
-      final: getValidNumber(
+      final: getValidBloodValue(
         bloodTab,
         5 * (type === 'increment' ? tier + 2 : tier)
       ),
@@ -67,20 +67,4 @@ export default function TierHandler() {
       </button>
     </div>
   )
-}
-
-function getValidNumber(bloodTab: BloodSets, value: number) {
-  let MAX_VALUE = 100
-
-  if (
-    ['Violet Mist Art', 'Northern Profound Art', 'Toad Stance'].includes(
-      bloodTab
-    )
-  ) {
-    MAX_VALUE = 60
-  }
-
-  if (value < 1) return 1
-  if (value > MAX_VALUE) return MAX_VALUE
-  return value
 }

@@ -2,6 +2,7 @@
 
 import { InnerForceBloodsAtom } from '@/atoms/InnerForce'
 import { cn } from '@/utils/classNames'
+import { bloodNameToSet, getValidBloodValue } from '@/utils/index'
 import { useAtom } from 'jotai'
 import Image from 'next/image'
 
@@ -25,7 +26,7 @@ export default function BloodFrame({
       ...prev,
       [bloodName]: {
         ...prev[bloodName],
-        [type]: Number(e.currentTarget.value.replace(/\D/g, '')),
+        [type]: getValidBloodValue(bloodNameToSet[bloodName], Number(e.currentTarget.value.replace(/\D/g, ''))),
       },
     }))
 

@@ -353,7 +353,7 @@ export const getBloodIcon = {
   Alkaid,
   Antirelaxation,
   'Centenary Congregation': CentenaryCongregation,
-  'Divise Action': DiviseAction,
+  'Divisive Action': DiviseAction,
   Dubhe,
   'Earth Valley': EarthValley,
   'Embroidered Throne': EmbroideredThrone,
@@ -397,7 +397,7 @@ export const bloodNameToSet: { [key in BloodNames]: BloodSets } = {
   'Fertile Scale': 'Northern Profound Art',
   Mizar: 'Northern Profound Art',
   Alkaid: 'Northern Profound Art',
-  'Divise Action': 'Toad Stance',
+  'Divisive Action': 'Toad Stance',
   Waterbridge: 'Toad Stance',
   'United Heaven': 'Toad Stance',
   Quorum: 'Toad Stance',
@@ -429,7 +429,7 @@ export const getBloodsByTab: { [key in BloodSets]: BloodNames[] } = {
     'Earth Valley',
   ],
   'Northern Profound Art': ['Dubhe', 'Fertile Scale', 'Mizar', 'Alkaid'],
-  'Toad Stance': ['Divise Action', 'Waterbridge', 'United Heaven', 'Quorum'],
+  'Toad Stance': ['Divisive Action', 'Waterbridge', 'United Heaven', 'Quorum'],
 }
 
 export const getDataByClass = {
@@ -449,8 +449,8 @@ export const effectToBloodName: { [key in string]: BloodNames } = {
   Accuracy: "Land's End",
   EVA: 'Centenary Congregation',
   CRIT: 'Embroidered Throne',
-  'CRIT ATK DMG Boost': 'Divise Action',
-  'CRIT DMG REDUCTION': 'Waterbridge',
+  'CRIT ATK DMG Boost': 'Divisive Action',
+  'CRIT DMG Reduction': 'Waterbridge',
   'CRIT EVA': 'Springwater',
   'Spell DEF': 'Great Ruler',
   'Monster ATK DMG Boost': 'Royal Decree',
@@ -463,7 +463,7 @@ export const effectToBloodName: { [key in string]: BloodNames } = {
   'Debilitation RES Boost': 'Earth Valley',
   'Silence Success Boost': 'Dubhe',
   'Silence RES Boost': 'Fertile Scale',
-  'Knockdown Sucess Boost': 'Mizar',
+  'Knockdown Success Boost': 'Mizar',
   'Knockdown RES Boost': 'Alkaid',
 }
 
@@ -492,7 +492,7 @@ export function getBloodSetObject(
     'Fertile Scale': FertileScale,
     Mizar,
     Alkaid,
-    'Divise Action': DiviseAction,
+    'Divisive Action': DiviseAction,
     Waterbridge,
     'United Heaven': UnitedHeaven,
     Quorum,
@@ -531,7 +531,7 @@ export function getBloodSetObject(
       return { Dubhe, 'Fertile Scale': FertileScale, Mizar, Alkaid }
     case 'Toad Stance':
       return {
-        'Divise Action': DiviseAction,
+        'Divisive Action': DiviseAction,
         Waterbridge,
         'United Heaven': UnitedHeaven,
         Quorum,
@@ -611,7 +611,7 @@ export const calculateBloodEffects = (
 export function formatEffectValue(name: string, value: number) {
   switch (name) {
     case 'CRIT ATK DMG Boost':
-    case 'CRIT DMG REDUCTION':
+    case 'CRIT DMG Reduction':
     case 'Monster ATK DMG Boost':
     case 'Monster DMG Reduction':
     case 'Skill ATK DMG Boost':
@@ -622,10 +622,26 @@ export function formatEffectValue(name: string, value: number) {
     case 'Debilitation RES Boost':
     case 'Silence Success Boost':
     case 'Silence RES Boost':
-    case 'Knockdown Sucess Boost':
+    case 'Knockdown Success Boost':
     case 'Knockdown RES Boost':
       return value / 10
     default:
       return value
   }
+}
+
+export function getValidBloodValue(bloodTab: BloodSets, value: number) {
+  let MAX_VALUE = 100
+
+  if (
+    ['Violet Mist Art', 'Northern Profound Art', 'Toad Stance'].includes(
+      bloodTab
+    )
+  ) {
+    MAX_VALUE = 60
+  }
+
+  if (value < 1) return 1
+  if (value > MAX_VALUE) return MAX_VALUE
+  return value
 }

@@ -29,7 +29,7 @@ export const InnerForceBloodsAtom: PrimitiveAtom<InnerForceObject> &
   'Fertile Scale': { initial: 1, final: 1 },
   Mizar: { initial: 1, final: 1 },
   Alkaid: { initial: 1, final: 1 },
-  'Divise Action': { initial: 1, final: 1 },
+  'Divisive Action': { initial: 1, final: 1 },
   Waterbridge: { initial: 1, final: 1 },
   'United Heaven': { initial: 1, final: 1 },
   Quorum: { initial: 1, final: 1 },

@@ -27,7 +27,7 @@ type BloodNames =
   | 'Fertile Scale'
   | 'Mizar'
   | 'Alkaid'
-  | 'Divise Action'
+  | 'Divisive Action'
   | 'Waterbridge'
   | 'United Heaven'
   | 'Quorum'
