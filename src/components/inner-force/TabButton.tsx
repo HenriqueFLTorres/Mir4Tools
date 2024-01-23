@@ -30,7 +30,7 @@ export default function TabButton({
   return (
     <button
       className={cn(
-        'flex h-20 w-52 items-center justify-between rounded border-2 border-transparent bg-primary-600/50 px-3 py-2 text-white transition-colors hover:border-primary-400 hover:bg-primary-600/80',
+        'flex w-20 h-20 sm:h-28 sm:w-28 shrink-0 flex-col justify-center rounded border-2 border-transparent bg-primary-600/50 px-3 py-2 text-white transition-colors hover:border-primary-400 hover:bg-primary-600/80 xl:h-20 xl:w-52 xl:flex-row xl:items-center xl:justify-between',
         { 'border-primary-400 bg-primary-600/80': tab === tabName },
         className
       )}
@@ -42,11 +42,12 @@ export default function TabButton({
         alt={tabName}
         width={70}
         height={58}
-        className="object-contain"
+        className="object-contain w-12 sm:w-[4.5rem]"
       />
-      <div className="flex h-full flex-col justify-between text-end text-xs font-medium">
+      <div className="hidden flex-col justify-between text-center text-xs font-medium xl:flex xl:h-full xl:text-end">
         <p>
-          Tier {currentTier} {/* <span className="text-success-400">{'>'} Tier 5</span> */}
+          Tier {currentTier}{' '}
+          {/* <span className="text-success-400">{'>'} Tier 5</span> */}
         </p>
         <p className="max-w-[6rem]">{tabName}</p>
       </div>

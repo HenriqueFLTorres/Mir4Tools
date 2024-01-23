@@ -4,15 +4,15 @@ import { SettingsAtom } from '@/atoms/Settings'
 import Tooltip from '@/components/ToolTip'
 import ItemFrame from '@/components/crafting/ItemFrame'
 import BloodFrame from '@/components/inner-force/BloodFrame'
+import DesktopEffectsTable from '@/components/inner-force/EffectsTable/Desktop'
+import MobileEffectsTable from '@/components/inner-force/EffectsTable/Mobile'
 import TabButton from '@/components/inner-force/TabButton'
 import TierHandler from '@/components/inner-force/TierHandler'
 import {
   AllowedInventoryItemTypes,
   calculateBloodCost,
   calculateBloodEffects,
-  effectToBloodName,
   extractItemRarity,
-  formatEffectValue,
   formatItemName,
   getBloodIcon,
   getBloodsByTab,
@@ -75,8 +75,8 @@ export default function InnerForce() {
   }, [JSON.stringify(bloodObject), mir4Class])
 
   return (
-    <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-8 px-6 pt-20 selection:bg-primary-800">
-      <aside className="flex flex-col gap-4">
+    <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
+      <aside className="custom-scroll mx-auto flex w-full max-w-max flex-row gap-4 overflow-x-auto py-4 xl:mx-0 xl:w-max xl:shrink-0 xl:flex-col xl:py-0">
         <TabButton tabName="Muscle Strength Manual" />
         <TabButton tabName="Nine Yin Manual" />
         <TabButton tabName="Nine Yang Manual" />
@@ -86,51 +86,7 @@ export default function InnerForce() {
       </aside>
 
       <div className="flex max-w-[40rem] flex-col items-center gap-8">
-        {effectsObject.length > 0 ? (
-          <ul className="relative flex grid-cols-2 flex-col gap-1 rounded-md bg-primary-600 p-1 md:rounded-xl lg:grid">
-            {effectsObject.map(([name, value]) => {
-              const formattedName = formatItemName(name)
-
-              if (
-                AllowedInventoryItemTypes.includes(formattedName) ||
-                value.final < value.initial
-              ) {
-                return <></>
-              }
-
-              const Icon =
-                getBloodIcon[effectToBloodName[name as statusEffects]]
-
-              const hasIncreased = value.final > value.initial
-
-              return (
-                <li
-                  key={name}
-                  className="flex items-center gap-4 rounded bg-primary-500/20 px-1 py-0.5 text-xs font-light text-white md:px-3 md:py-1.5 md:text-sm"
-                >
-                  <Icon className="h-6 w-6" />{' '}
-                  <b className="mr-auto font-bold">{name}</b>
-                  <p className="ml-4 shrink-0 text-end font-medium">
-                    {hasIncreased ? (
-                      <>
-                        {formatEffectValue(name, value.initial)}{' '}
-                        <span className="text-success-400">
-                          {'>'} {formatEffectValue(name, value.final)}
-                        </span>
-                      </>
-                    ) : (
-                      formatEffectValue(name, value.initial)
-                    )}
-                  </p>
-                </li>
-              )
-            })}
-          </ul>
-        ) : (
-          <></>
-        )}
-
-        <ol className="flex items-center gap-6">
+        <ol className="grid scale-[0.8] grid-cols-2 items-center gap-6 sm:scale-100 md:flex">
           {getBloodsByTab[bloodTab].map((blood) => (
             <BloodFrame
               key={blood}
@@ -140,7 +96,7 @@ export default function InnerForce() {
           ))}
         </ol>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
           <TierHandler />
 
           <div className="flex items-center gap-4 rounded-full bg-primary-600 px-3 py-2 pr-6 text-xl font-bold text-white">
@@ -150,7 +106,7 @@ export default function InnerForce() {
               width={32}
               height={32}
             />
-            {getReadableNumber(sortedResult.energy ?? 0)}
+            {getReadableNumber(sortedResult?.energy ?? 0)}
           </div>
         </div>
 
@@ -184,6 +140,10 @@ export default function InnerForce() {
           })}
         </ul>
       </div>
+
+      <MobileEffectsTable effectsObject={effectsObject} />
+
+      <DesktopEffectsTable effectsObject={effectsObject} />
     </div>
   )
 }
