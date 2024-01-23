@@ -20,6 +20,7 @@ import {
 } from '@/utils/index'
 import { useAtomValue } from 'jotai'
 import millify from 'millify'
+import Image from 'next/image'
 import { useMemo } from 'react'
 
 export default function InnerForce() {
@@ -110,14 +111,31 @@ export default function InnerForce() {
           ))}
         </ol>
 
-        <TierHandler />
+        <div className="flex items-center gap-4">
+          <TierHandler />
+
+          <div className="flex items-center gap-4 rounded-full bg-primary-600 px-3 py-2 pr-6 text-xl font-bold text-white">
+            <Image
+              src={'/items/energy.webp'}
+              alt={'Energy icon'}
+              width={32}
+              height={32}
+            />
+            {getReadableNumber(resultObject.energy ?? 0)}
+          </div>
+        </div>
 
         <ul className="flex w-full flex-wrap items-center justify-center gap-4">
           {Object.entries(resultObject).map(([name, value]) => {
             const formattedName = formatItemName(name)
             const itemRarity = extractItemRarity(name)
 
-            if (!AllowedInventoryItemTypes.includes(formattedName)) return <></>
+            if (
+              !AllowedInventoryItemTypes.includes(formattedName) ||
+              formattedName === ('energy' as ItemWithRarity)
+            ) {
+              return <></>
+            }
 
             return (
               <li key={name} className="flex flex-col items-center gap-2">

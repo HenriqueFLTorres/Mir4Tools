@@ -47,19 +47,21 @@ export default function TierHandler() {
   const currentTier = Math.round(minLevel / 5) + 1
 
   return (
-    <div className="flex items-center text-base font-bold text-white">
+    <div className="flex h-12 items-center text-base font-bold text-white">
       <button
         aria-label={'Decrement constitution tier'}
         onClick={() => handleStageChange('decrement')}
-        className="rounded-l-full bg-primary-500 p-2 transition-colors hover:bg-primary-450"
+        className="h-full rounded-l-full bg-primary-500 px-3 py-2 transition-colors hover:bg-primary-450"
       >
         -
       </button>
-      <p className="bg-primary-500 p-2">Tier {currentTier}</p>
+      <p className="flex h-full items-center bg-primary-500 p-2 text-center">
+        Tier {currentTier}
+      </p>
       <button
         aria-label={'Increment constitution tier'}
         onClick={() => handleStageChange('increment')}
-        className="rounded-r-full bg-primary-500 p-2 transition-colors hover:bg-primary-450"
+        className="h-full rounded-r-full bg-primary-500 px-3 py-2 transition-colors hover:bg-primary-450"
       >
         +
       </button>
