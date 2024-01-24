@@ -32,6 +32,21 @@ const ItemRarities = [
   'Default',
 ]
 
+function divideByRarity(list: Array<[string, number]>) {
+  const resultList: Array<Array<[string, number]>> = [[], [], [], [], []]
+
+  for (const [item, value] of Object.values(list)) {
+    const itemRarity = extractItemRarity(item)
+    const rarityIndex = ItemRarities.indexOf(itemRarity)
+
+    if (rarityIndex === 5) continue // 'Default' rarity
+
+    resultList[rarityIndex].push([item, value])
+  }
+
+  return resultList.reverse()
+}
+
 export default function InnerForce() {
   const bloodTab = useAtomValue(InnerForceTabAtom)
   const bloodObject = useAtomValue(InnerForceBloodsAtom)
@@ -112,35 +127,41 @@ export default function InnerForce() {
           </div>
         </div>
 
-        <ul className="flex w-full flex-wrap items-center justify-center gap-4">
-          {sortedResult.map(([name, value]) => {
-            const formattedName = formatItemName(name)
-            const itemRarity = extractItemRarity(name)
+        <div className="flex flex-col gap-4">
+          {divideByRarity(sortedResult).map((rarityArray, index) => (
+            <ul className="flex items-center justify-center gap-4" key={index}>
+              {rarityArray.map(([name, value]) => {
+                const formattedName = formatItemName(name)
+                const itemRarity = extractItemRarity(name)
 
-            if (
-              !AllowedInventoryItemTypes.includes(formattedName) ||
-              formattedName === ('energy' as ItemWithRarity)
-            ) {
-              return <></>
-            }
+                if (
+                  !AllowedInventoryItemTypes.includes(formattedName) ||
+                  formattedName === ('energy' as ItemWithRarity)
+                ) {
+                  return <></>
+                }
 
-            return (
-              <li key={name} className="flex flex-col items-center gap-2">
-                <ItemFrame item={formattedName} rarity={itemRarity} />
-                <Tooltip.Wrapper>
-                  <Tooltip.Trigger
-                    asChild={false}
-                    aria-label="See detailed amount"
-                    className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-                  >
-                    {millify(value)}
-                  </Tooltip.Trigger>
-                  <Tooltip.Content>{getReadableNumber(value)}</Tooltip.Content>
-                </Tooltip.Wrapper>
-              </li>
-            )
-          })}
-        </ul>
+                return (
+                  <li key={name} className="flex flex-col items-center gap-2">
+                    <ItemFrame item={formattedName} rarity={itemRarity} />
+                    <Tooltip.Wrapper>
+                      <Tooltip.Trigger
+                        asChild={false}
+                        aria-label="See detailed amount"
+                        className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
+                      >
+                        {millify(value)}
+                      </Tooltip.Trigger>
+                      <Tooltip.Content>
+                        {getReadableNumber(value)}
+                      </Tooltip.Content>
+                    </Tooltip.Wrapper>
+                  </li>
+                )
+              })}
+            </ul>
+          ))}
+        </div>
       </div>
 
       <MobileEffectsTable effectsObject={effectsObject} />
