@@ -20,7 +20,7 @@ export default function DesktopEffectsTable({
   >
 }) {
   return effectsObject.length > 0 ? (
-    <ul className="custom-scroll relative hidden max-h-[calc(100vh-10rem)] flex-col gap-1 overflow-auto rounded-md bg-primary-600 p-1 md:rounded-xl xl:flex">
+    <ul className="custom-scroll relative hidden w-[23rem] max-h-[calc(100vh-10rem)] flex-col gap-1 overflow-auto rounded-md bg-primary-600 p-1 md:rounded-xl xl:flex">
       {effectsObject.map(([name, value]) => {
         const formattedName = formatItemName(name)
 

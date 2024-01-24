@@ -1,51 +1,66 @@
 'use client'
 import { InnerForceBloodsAtom, InnerForceTabAtom } from '@/atoms/InnerForce'
 import { SettingsAtom } from '@/atoms/Settings'
-import Tooltip from '@/components/ToolTip'
-import ItemFrame from '@/components/crafting/ItemFrame'
+import { ItemRarities } from '@/components/constitution/CostInformation'
 import BloodFrame from '@/components/inner-force/BloodFrame'
-import DesktopEffectsTable from '@/components/inner-force/EffectsTable/Desktop'
-import MobileEffectsTable from '@/components/inner-force/EffectsTable/Mobile'
-import TabButton from '@/components/inner-force/TabButton'
-import TierHandler from '@/components/inner-force/TierHandler'
+import DesktopEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Desktop.Skeleton'
+import MobileEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Mobile.skeleton'
+import EnergyCostSkeleton from '@/components/inner-force/EnergyCost/Skeleton'
+import TabButtonSkeleton from '@/components/inner-force/TabButton.skeleton'
+import TierHandlerSkeleton from '@/components/inner-force/TierHandler.skeleton'
 import {
-  AllowedInventoryItemTypes,
   calculateBloodCost,
   calculateBloodEffects,
   extractItemRarity,
   formatItemName,
   getBloodIcon,
   getBloodsByTab,
-  getReadableNumber,
 } from '@/utils/index'
 import { useAtomValue } from 'jotai'
-import millify from 'millify'
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
 
-const ItemRarities = [
-  'Legendary',
-  'Epic',
-  'Rare',
-  'Uncommon',
-  'Common',
-  'Default',
-]
-
-function divideByRarity(list: Array<[string, number]>) {
-  const resultList: Array<Array<[string, number]>> = [[], [], [], [], []]
-
-  for (const [item, value] of Object.values(list)) {
-    const itemRarity = extractItemRarity(item)
-    const rarityIndex = ItemRarities.indexOf(itemRarity)
-
-    if (rarityIndex === 5) continue // 'Default' rarity
-
-    resultList[rarityIndex].push([item, value])
+const TabButton = dynamic(
+  async () => await import('@/components/inner-force/TabButton'),
+  {
+    ssr: false,
+    loading: () => <TabButtonSkeleton />,
   }
-
-  return resultList.reverse()
-}
+)
+const EnergyCost = dynamic(
+  async () => await import('@/components/inner-force/EnergyCost'),
+  {
+    ssr: false,
+    loading: () => <EnergyCostSkeleton />,
+  }
+)
+const TierHandler = dynamic(
+  async () => await import('@/components/inner-force/TierHandler'),
+  {
+    ssr: false,
+    loading: () => <TierHandlerSkeleton />,
+  }
+)
+const ItemCostList = dynamic(
+  async () => await import('@/components/inner-force/ItemCostList'),
+  {
+    ssr: false,
+  }
+)
+const DesktopEffectsTable = dynamic(
+  async () => await import('@/components/inner-force/EffectsTable/Desktop'),
+  {
+    ssr: false,
+    loading: () => <DesktopEffectsTableSkeleton />,
+  }
+)
+const MobileEffectsTable = dynamic(
+  async () => await import('@/components/inner-force/EffectsTable/Mobile'),
+  {
+    ssr: false,
+    loading: () => <MobileEffectsTableSkeleton />,
+  }
+)
 
 export default function InnerForce() {
   const bloodTab = useAtomValue(InnerForceTabAtom)
@@ -114,54 +129,12 @@ export default function InnerForce() {
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <TierHandler />
 
-          <div className="flex items-center gap-4 rounded-full bg-primary-600 px-3 py-2 pr-6 text-xl font-bold text-white">
-            <Image
-              src={'/items/energy.webp'}
-              alt={'Energy icon'}
-              width={32}
-              height={32}
-            />
-            {getReadableNumber(
-              sortedResult.find(([name]) => name === 'energy')?.[1] ?? 0
-            )}
-          </div>
+          <EnergyCost
+            cost={sortedResult.find(([name]) => name === 'energy')?.[1]}
+          />
         </div>
 
-        <div className="flex flex-col gap-4">
-          {divideByRarity(sortedResult).map((rarityArray, index) => (
-            <ul className="flex items-center justify-center gap-4" key={index}>
-              {rarityArray.map(([name, value]) => {
-                const formattedName = formatItemName(name)
-                const itemRarity = extractItemRarity(name)
-
-                if (
-                  !AllowedInventoryItemTypes.includes(formattedName) ||
-                  formattedName === ('energy' as ItemWithRarity)
-                ) {
-                  return <></>
-                }
-
-                return (
-                  <li key={name} className="flex flex-col items-center gap-2">
-                    <ItemFrame item={formattedName} rarity={itemRarity} />
-                    <Tooltip.Wrapper>
-                      <Tooltip.Trigger
-                        asChild={false}
-                        aria-label="See detailed amount"
-                        className="w-max rounded bg-primary-600 px-3 py-1 text-center text-sm font-medium text-white"
-                      >
-                        {millify(value)}
-                      </Tooltip.Trigger>
-                      <Tooltip.Content>
-                        {getReadableNumber(value)}
-                      </Tooltip.Content>
-                    </Tooltip.Wrapper>
-                  </li>
-                )
-              })}
-            </ul>
-          ))}
-        </div>
+        <ItemCostList sortedResult={sortedResult} />
       </div>
 
       <MobileEffectsTable effectsObject={effectsObject} />

@@ -20,7 +20,7 @@ export default function MobileEffectsTable({
   >
 }) {
   return effectsObject.length > 0 ? (
-    <ul className="custom-scroll relative w-full sm:w-max flex flex-col sm:grid grid-cols-2 gap-1 overflow-auto rounded-md bg-primary-600 p-1 xl:hidden">
+    <ul className="custom-scroll relative w-full md:w-[43rem] flex flex-col sm:grid grid-cols-2 gap-1 overflow-auto rounded-md bg-primary-600 p-1 xl:hidden">
       {effectsObject.map(([name, value]) => {
         const formattedName = formatItemName(name)
 
