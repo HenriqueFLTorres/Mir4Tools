@@ -25,7 +25,7 @@ export default function TabButton({
   const minLevel = Math.min(
     ...Object.values(targetedObject).map((values) => values.initial)
   )
-  const maxLevel = Math.min(
+  const maxLevel = Math.max(
     ...Object.values(targetedObject).map((values) => values.final)
   )
   const currentTier = Math.round(minLevel / 5) + 1
