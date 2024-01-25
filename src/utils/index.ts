@@ -562,7 +562,6 @@ export const calculateBloodCost = (
 
       resultObj.energy =
         (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
-      console.log(levelstep, getReadableNumber(resultObj?.energy), getReadableNumber(bloodLevel.EnergyPerClick))
 
       for (const [key, value] of Object.entries(bloodContent)) {
         resultObj[key] = (resultObj?.[key] || 0) + (value as number)
@@ -588,7 +587,7 @@ export const calculateBloodEffects = (
 
     let bloodLevel =
       dataObject[bloodNameToSet[bloodName as BloodNames]][
-        (initial + 1) as keyof (typeof dataObject)[BloodSets]
+        initial as keyof (typeof dataObject)[BloodSets]
       ]
     let bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
 
@@ -626,9 +625,9 @@ export function formatEffectValue(name: string, value: number) {
     case 'Silence RES Boost':
     case 'Knockdown Success Boost':
     case 'Knockdown RES Boost':
-      return value / 10
+      return `${value / 10}%`
     default:
-      return value
+      return getReadableNumber(value)
   }
 }
 
