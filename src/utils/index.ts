@@ -524,7 +524,7 @@ export function getBloodSetObject(
       return {
         'Pinnacle Star': PinnacleStar,
         'Wind Hub': WindHub,
-        'Great Ruler': GreatUnion,
+        'Great Union': GreatUnion,
         'Earth Valley': EarthValley,
       }
     case 'Northern Profound Art':
@@ -560,10 +560,12 @@ export const calculateBloodCost = (
         ]
       const bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
 
+      resultObj.energy =
+        (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
+      console.log(levelstep, getReadableNumber(resultObj?.energy), getReadableNumber(bloodLevel.EnergyPerClick))
+
       for (const [key, value] of Object.entries(bloodContent)) {
         resultObj[key] = (resultObj?.[key] || 0) + (value as number)
-        resultObj.energy =
-          (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
       }
     }
   }
@@ -641,7 +643,7 @@ export function getValidBloodValue(bloodTab: BloodSets, value: number) {
     MAX_VALUE = 60
   }
 
-  if (value < 1) return 1
+  if (value < 0) return 0
   if (value > MAX_VALUE) return MAX_VALUE
   return value
 }
