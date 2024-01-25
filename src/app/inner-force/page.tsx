@@ -69,6 +69,7 @@ export default function InnerForce() {
 
   const sortedResult = useMemo(() => {
     const object = calculateBloodCost(bloodObject, mir4Class)
+
     const sortedObject = Object.entries(object)
       .sort(([name1], [name2]) => {
         const formatted1 = formatItemName(name1)

@@ -18,12 +18,19 @@ function divideByRarity(list: Array<[string, number]>) {
     const itemRarity = extractItemRarity(item)
     const rarityIndex = ItemRarities.indexOf(itemRarity)
 
+    if (
+      !AllowedInventoryItemTypes.includes(formatItemName(item)) ||
+      item === 'energy'
+    ) {
+      continue
+    }
+
     if (rarityIndex === 5) continue // 'Default' rarity
 
     resultList[rarityIndex].push([item, value])
   }
 
-  return resultList.reverse()
+  return resultList.reverse().filter((subArray) => subArray.length > 0)
 }
 
 export default function ItemCostList({
@@ -31,9 +38,11 @@ export default function ItemCostList({
 }: {
   sortedResult: Array<[string, number]>
 }) {
+  const itemsList = divideByRarity(sortedResult)
+
   return (
     <div className="flex w-max flex-col justify-start gap-4">
-      {divideByRarity(sortedResult).map((rarityArray, index) => (
+      {itemsList.map((rarityArray, index) => (
         <ul className="flex items-center gap-4" key={index}>
           {rarityArray.map(([name, value]) => {
             const formattedName = formatItemName(name)
