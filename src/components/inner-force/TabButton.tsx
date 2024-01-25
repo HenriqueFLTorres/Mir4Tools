@@ -2,7 +2,11 @@
 
 import { InnerForceBloodsAtom, InnerForceTabAtom } from '@/atoms/InnerForce'
 import { cn } from '@/utils/classNames'
-import { getBloodSetObject, toCamelCase } from '@/utils/index'
+import {
+  getBloodSetObject,
+  getValidBloodValue,
+  toCamelCase,
+} from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useMemo } from 'react'
@@ -28,14 +32,21 @@ export default function TabButton({
   const maxLevel = Math.max(
     ...Object.values(targetedObject).map((values) => values.final)
   )
+  const hasErrors = Object.values(targetedObject).some(
+    (values) =>
+      values.final < values.initial ||
+      values.initial !== getValidBloodValue(tabName, values.initial) ||
+      values.final !== getValidBloodValue(tabName, values.final)
+  )
   const currentTier = Math.round(minLevel / 5) + 1
   const nextTier = Math.round(maxLevel / 5) + 1
 
   return (
     <button
       className={cn(
-        'flex h-20 w-20 shrink-0 flex-col justify-center rounded border-2 border-transparent bg-primary-600/50 px-3 py-2 text-white transition-colors hover:border-primary-400 hover:bg-primary-600/80 sm:h-28 sm:w-28 xl:h-20 xl:w-52 xl:flex-row xl:items-center xl:justify-between',
+        'relative flex h-20 w-20 shrink-0 flex-col justify-center rounded border-2 border-transparent bg-primary-600/50 px-3 py-2 text-white transition-colors hover:border-primary-400 hover:bg-primary-600/80 sm:h-28 sm:w-28 xl:h-20 xl:w-52 xl:flex-row xl:items-center xl:justify-between',
         { 'border-primary-400 bg-primary-600/80': tab === tabName },
+        { 'border-csred-400 bg-csred-400/20': hasErrors },
         className
       )}
       onClick={() => setTab(tabName)}
