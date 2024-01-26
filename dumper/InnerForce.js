@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const stringTemplate = require('./STRING_TEMPLATE.json')
+const forceUpgrade = require('./CHARACTER_FORCE_LEVEL.json')
 const forceLevels = require('./CHARACTER_FORCE_BLOOD.json')
 const forceInfo = require('./CHARACTER_FORCE.json')
 const itemDataList = require('./ITEM.json')
@@ -8,6 +9,7 @@ const fs = require('fs')
 
 const CostJSON = {}
 const levelsData = forceLevels[0].Rows
+const forceUpgradeData = forceUpgrade[0].Rows
 const stringData = stringTemplate[0].Rows
 const itemsData = itemDataList[0].Rows
 const statusData = status[0].Rows
@@ -62,18 +64,30 @@ for (const [id, data] of Object.entries(levelsData)) {
 function retrieveCost(costObject) {
   const obj = {}
 
+  const classId = Number(costObject.UniqueID.toString().at(0)) * 1000000
+  const currentBloodId = Number(costObject.BloodSetID.toString().at(-1)) * 1000
+  const upgradeObject =
+    forceUpgradeData[
+      classId + currentBloodId + costObject.HardTraining_ForcePanelLevel
+    ]
+
   Array.from(Array(4).keys())
     .map((index) => {
       index = index + 1
 
-      const bloodName = getItemName(forceInfoData[costObject.BloodSetID][`Blood_Name_${index}`])
+      const bloodName = getItemName(
+        forceInfoData[costObject.BloodSetID][`Blood_Name_${index}`]
+      )
       obj[bloodName] = {}
 
       const effectKeyId = `Blood${index}_AttributeType`
       const effectKeyCount = `Blood${index}_AttributeValue`
+
+      const upgradeEffectKeyCount = `ForceReward_Attribute0${index}Value`
       if (costObject[effectKeyId] !== 0) {
-        obj[bloodName][getItemName(statusData[costObject[effectKeyId]].StringId)] =
-          costObject[effectKeyCount]
+        obj[bloodName][
+          getItemName(statusData[costObject[effectKeyId]].StringId)
+        ] = costObject[effectKeyCount] + upgradeObject[upgradeEffectKeyCount]
       }
 
       const objectKeyId = `Blood${index}_Training_NeedUse01Id`
