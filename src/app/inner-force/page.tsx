@@ -6,6 +6,7 @@ import BloodFrame from '@/components/inner-force/BloodFrame'
 import DesktopEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Desktop.Skeleton'
 import MobileEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Mobile.skeleton'
 import EnergyCostSkeleton from '@/components/inner-force/EnergyCost/Skeleton'
+import Mir4ClassToggler from '@/components/inner-force/Mir4ClassTogler'
 import TabButtonSkeleton from '@/components/inner-force/TabButton.skeleton'
 import TierHandlerSkeleton from '@/components/inner-force/TierHandler.skeleton'
 import {
@@ -117,6 +118,8 @@ export default function InnerForce() {
       </aside>
 
       <div className="flex max-w-[40rem] flex-col items-center gap-8">
+        <Mir4ClassToggler />
+
         <ol className="grid scale-[0.8] grid-cols-2 items-center gap-6 sm:scale-100 md:flex">
           {getBloodsByTab[bloodTab].map((blood) => (
             <BloodFrame
