@@ -3,15 +3,16 @@ import { InnerForceBloodsAtom, InnerForceTabAtom } from '@/atoms/InnerForce'
 import { SettingsAtom } from '@/atoms/Settings'
 import { ItemRarities } from '@/components/constitution/CostInformation'
 import BloodFrame from '@/components/inner-force/BloodFrame'
+import CostFrameSkeleton from '@/components/inner-force/CostFrame/Skeleton'
 import DesktopEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Desktop.Skeleton'
 import MobileEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Mobile.skeleton'
-import EnergyCostSkeleton from '@/components/inner-force/EnergyCost/Skeleton'
 import Mir4ClassToggler from '@/components/inner-force/Mir4ClassTogler'
 import TabButtonSkeleton from '@/components/inner-force/TabButton.skeleton'
 import TierHandlerSkeleton from '@/components/inner-force/TierHandler.skeleton'
 import {
   calculateBloodCost,
   calculateBloodEffects,
+  calculateUpgradeCost,
   extractItemRarity,
   formatItemName,
   getBloodIcon,
@@ -28,11 +29,11 @@ const TabButton = dynamic(
     loading: () => <TabButtonSkeleton />,
   }
 )
-const EnergyCost = dynamic(
-  async () => await import('@/components/inner-force/EnergyCost'),
+const CostFrame = dynamic(
+  async () => await import('@/components/inner-force/CostFrame'),
   {
     ssr: false,
-    loading: () => <EnergyCostSkeleton />,
+    loading: () => <CostFrameSkeleton />,
   }
 )
 const TierHandler = dynamic(
@@ -94,6 +95,32 @@ export default function InnerForce() {
     return sortedObject
   }, [JSON.stringify(bloodObject), mir4Class])
 
+  const upgradeResult = useMemo(() => {
+    const upgradeObject = calculateUpgradeCost(bloodObject)
+
+    const sortedObject = Object.entries(upgradeObject)
+      .sort(([name1], [name2]) => {
+        const formatted1 = formatItemName(name1)
+        const formatted2 = formatItemName(name2)
+
+        if (formatted1 > formatted2) return -1
+        if (formatted1 < formatted2) return 1
+
+        return 0
+      })
+      .sort(([name1], [name2]) => {
+        const rarity1 = ItemRarities.indexOf(extractItemRarity(name1))
+        const rarity2 = ItemRarities.indexOf(extractItemRarity(name2))
+
+        if (rarity1 > rarity2) return -1
+        if (rarity1 < rarity2) return 1
+
+        return 0
+      })
+
+    return sortedObject
+  }, [JSON.stringify(bloodObject), mir4Class])
+
   const effectsObject = useMemo(() => {
     const object = calculateBloodEffects(bloodObject, mir4Class)
     const formattedObject = Object.entries(object).sort(([name1], [name2]) => {
@@ -133,12 +160,24 @@ export default function InnerForce() {
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <TierHandler />
 
-          <EnergyCost
+          <CostFrame
+            name="Energy"
             cost={sortedResult.find(([name]) => name === 'energy')?.[1]}
+          />
+
+          <CostFrame
+            name="Copper"
+            cost={upgradeResult.find(([name]) => name === 'copper')?.[1]}
           />
         </div>
 
-        <ItemCostList sortedResult={sortedResult} />
+        <div className="flex flex-col gap-6">
+          <ItemCostList sortedResult={sortedResult} />
+
+          <h2 className="mt-4 text-xl font-bold md:text-2xl">Upgrade Cost</h2>
+
+          <ItemCostList sortedResult={upgradeResult} />
+        </div>
       </div>
 
       <MobileEffectsTable effectsObject={effectsObject} />

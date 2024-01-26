@@ -20,7 +20,8 @@ function divideByRarity(list: Array<[string, number]>) {
 
     if (
       !AllowedInventoryItemTypes.includes(formatItemName(item)) ||
-      item === 'energy'
+      item === 'energy' ||
+      item === 'copper'
     ) {
       continue
     }
@@ -50,7 +51,8 @@ export default function ItemCostList({
 
             if (
               !AllowedInventoryItemTypes.includes(formattedName) ||
-              formattedName === ('energy' as ItemWithRarity)
+              formattedName === ('energy' as ItemWithRarity) ||
+              formattedName === ('copper' as ItemWithRarity)
             ) {
               return <></>
             }

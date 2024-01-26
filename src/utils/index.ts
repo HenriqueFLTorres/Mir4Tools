@@ -3,6 +3,7 @@ import { type InnerForceObject } from '@/atoms/InnerForce'
 import {
   ArbalistInnerForce,
   DarkistInnerForce,
+  InnerForceUpgrade,
   LancerInnerForce,
   SorcererInnerForce,
   TaoistInnerForce,
@@ -604,6 +605,52 @@ export const calculateBloodEffects = (
 
     for (const [key, value] of Object.entries(bloodContent)) {
       resultObj[key] = { ...resultObj[key], final: value }
+    }
+  }
+
+  return resultObj
+}
+
+export const calculateUpgradeCost = (bloodObject: InnerForceObject) => {
+  const dataObject = InnerForceUpgrade
+
+  const sets: Partial<{ [key in BloodSets]: { start: number; end: number } }> =
+    {}
+  const resultObj: { [key in string]: number } = {}
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    if (initial === final) continue
+
+    const levelDifference = final - initial
+    if (levelDifference < 1) continue
+
+    const targetedObject = getBloodSetObject(bloodNameToSet[bloodName as BloodNames], bloodObject)
+
+    const minLevel = Math.min(
+      ...Object.values(targetedObject).map((values) => values.initial)
+    )
+    const maxLevel = Math.max(
+      ...Object.values(targetedObject).map((values) => values.final)
+    )
+    const currentTier = Math.round(minLevel / 5) + 1
+    const nextTier = Math.round(maxLevel / 5)
+
+    const currentSet = bloodNameToSet[bloodName as BloodNames]
+
+    sets[currentSet] = {
+      start: Math.min(sets?.[currentSet]?.start ?? currentTier, currentTier),
+      end: Math.max(sets?.[currentSet]?.end ?? nextTier, nextTier),
+    }
+  }
+  console.log(sets)
+  for (const [setName, { start, end }] of Object.entries(sets)) {
+    const levelIteration = getNumbersInRange(start, end)
+    for (const levelstep of levelIteration) {
+      const bloodObject = dataObject[setName as keyof typeof dataObject]
+      const content = bloodObject[levelstep as keyof typeof bloodObject]
+      console.log(levelstep, setName, content)
+      for (const [key, value] of Object.entries(content)) {
+        resultObj[key] = (resultObj?.[key] || 0) + (value as number)
+      }
     }
   }
 
