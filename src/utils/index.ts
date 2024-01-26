@@ -452,6 +452,7 @@ export const effectToBloodName: { [key in string]: BloodNames } = {
   'CRIT ATK DMG Boost': 'Divisive Action',
   'CRIT DMG Reduction': 'Waterbridge',
   'CRIT EVA': 'Springwater',
+  'Spell ATK': 'Sky Palace',
   'Spell DEF': 'Great Ruler',
   'Monster ATK DMG Boost': 'Royal Decree',
   'Monster DMG Reduction': 'Golden Jade',
