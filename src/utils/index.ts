@@ -631,7 +631,10 @@ export const calculateBloodEffects = (
       }
 
       resultObj[key] = {
-        initial: Number(value ?? 0) + upgradeEffectValue,
+        initial:
+          Number(value ?? 0) +
+          upgradeEffectValue +
+          (resultObj?.[key]?.initial || 0),
         final: 0,
       }
     }
@@ -650,13 +653,14 @@ export const calculateBloodEffects = (
       if (showInnerForcePromotion && final % 5 === 0) {
         // Only add upgrade effect when it's about to upgrade the tier
         upgradeEffectValue += Number(
-          upgradeObject?.[finalTier as keyof typeof upgradeObject]
-            ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ??
-            0
+          upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
+            key as keyof (typeof upgradeObject)['1']['Effects']
+          ] ?? 0
         )
       }
 
-      const finalValue = Number(value ?? 0) + upgradeEffectValue
+      const finalValue =
+        Number(value ?? 0) + upgradeEffectValue + (resultObj?.[key]?.final || 0)
 
       if (resultObj[key].initial === finalValue) delete resultObj?.[key]
       else {
