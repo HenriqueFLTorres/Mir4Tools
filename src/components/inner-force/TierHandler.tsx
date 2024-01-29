@@ -54,21 +54,23 @@ export default function TierHandler() {
   )
 
   return (
-    <div className="flex w-36 h-12 items-center text-base font-bold text-white">
+    <div className="flex h-12 w-36 items-center rounded-full bg-primary-500 text-base font-bold text-white">
       <button
         aria-label={'Decrement constitution tier'}
         onClick={() => handleStageChange('decrement')}
-        className="h-full rounded-l-full bg-primary-500 px-3 py-2 transition-colors hover:bg-primary-450"
+        className="h-full rounded-l-full px-3 py-2 transition-colors hover:bg-primary-450 disabled:bg-primary-600/50"
+        disabled={currentTier <= 1}
       >
         -
       </button>
-      <p className="flex h-full w-full justify-center items-center bg-primary-500 p-2 text-center">
+      <p className="flex h-full w-full items-center justify-center p-2 text-center">
         Tier {currentTier}
       </p>
       <button
         aria-label={'Increment constitution tier'}
         onClick={() => handleStageChange('increment')}
-        className="h-full rounded-r-full bg-primary-500 px-3 py-2 transition-colors hover:bg-primary-450"
+        className="h-full rounded-r-full px-3 py-2 transition-colors hover:bg-primary-450 disabled:bg-primary-600/50"
+        disabled={currentTier >= getMaxIFTier[bloodTab]}
       >
         +
       </button>
