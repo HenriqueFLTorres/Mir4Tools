@@ -11,6 +11,7 @@ import {
 import { useAtom, useAtomValue } from 'jotai'
 import Image from 'next/image'
 import { useMemo } from 'react'
+import { useTranslation } from '../../../public/locales/client'
 
 export default function TabButton({
   tabName,
@@ -21,6 +22,7 @@ export default function TabButton({
 } & Exclude<React.HTMLAttributes<HTMLButtonElement>, 'onClick'>) {
   const [tab, setTab] = useAtom(InnerForceTabAtom)
   const bloodObject = useAtomValue(InnerForceBloodsAtom)
+  const { t } = useTranslation()
 
   const targetedObject = useMemo(
     () => getBloodSetObject(tabName, bloodObject),
@@ -75,7 +77,7 @@ export default function TabButton({
             </span>
           )}
         </p>
-        <p className="max-w-[6rem]">{tabName}</p>
+        <p className="max-w-[6rem]">{t(tabName)}</p>
       </div>
     </button>
   )

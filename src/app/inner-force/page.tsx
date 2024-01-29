@@ -206,7 +206,7 @@ export default function InnerForce() {
           {showInnerForcePromotion && upgradeResult.length > 0 ? (
             <>
               <h2 className="mt-4 text-xl font-bold md:text-2xl">
-                Upgrade Cost
+                {t('Promotion Cost')}
               </h2>
 
               <ItemCostList sortedResult={upgradeResult} />
