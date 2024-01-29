@@ -87,7 +87,8 @@ function retrieveCost(costObject) {
       if (costObject[effectKeyId] !== 0) {
         obj[bloodName][
           getItemName(statusData[costObject[effectKeyId]].StringId)
-        ] = costObject[effectKeyCount] + upgradeObject[upgradeEffectKeyCount]
+        ] = costObject[effectKeyCount]
+        //  + upgradeObject[upgradeEffectKeyCount]
       }
 
       const objectKeyId = `Blood${index}_Training_NeedUse01Id`

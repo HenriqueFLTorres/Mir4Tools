@@ -597,14 +597,15 @@ export const calculateBloodEffects = (
   const upgradeData = getUpgradeDataByClass[mir4Class ?? 'Arbalist']
 
   const resultObj: { [key in string]: { initial: number; final: number } } = {}
+
   for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
-    if (initial === final && !showInnerForcePromotion) continue
+    if (initial === final) continue
 
     const levelDifference = final - initial
-    if (levelDifference <= 0 && !showInnerForcePromotion) continue
+    if (levelDifference <= 0) continue
 
-    const initialTier = Math.floor(initial / 5)
-    const finalTier = Math.floor((final - 1) / 5)
+    const initialTier = Math.floor(initial / 5) + 1
+    let finalTier = Math.floor((final - 1) / 5) + 1
 
     if (finalTier < 0) continue
 
@@ -616,25 +617,14 @@ export const calculateBloodEffects = (
 
     for (const [key, value] of Object.entries(bloodContent)) {
       if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
-      let upgradeEffectValue = 0
-
-      if (
-        initial % 5 === 0 &&
-        (!showInnerForcePromotion || levelDifference > 0)
-      ) {
-        // Only add an upgrade effect when the tier is upgraded. eg: 15 -> 16 (The tier of the user is 4, so we'll add a value to 15 because it's not caught on dumper)
-        upgradeEffectValue += Number(
-          upgradeObject?.[(initialTier - 1) as keyof typeof upgradeObject]
-            ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ??
-            0
-        )
-      }
+      const upgradeEffectValue = Number(
+        upgradeObject?.[initialTier as keyof typeof upgradeObject]?.Effects?.[
+          key as keyof (typeof upgradeObject)['1']['Effects']
+        ] ?? 0
+      )
 
       resultObj[key] = {
-        initial:
-          Number(value ?? 0) +
-          upgradeEffectValue +
-          (resultObj?.[key]?.initial || 0),
+        initial: Number(value ?? 0) + upgradeEffectValue,
         final: 0,
       }
     }
@@ -648,19 +638,21 @@ export const calculateBloodEffects = (
     for (const [key, value] of Object.entries(bloodContent)) {
       if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
 
-      let upgradeEffectValue = 0
-
-      if (showInnerForcePromotion && final % 5 === 0) {
-        // Only add upgrade effect when it's about to upgrade the tier
-        upgradeEffectValue += Number(
-          upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
-            key as keyof (typeof upgradeObject)['1']['Effects']
-          ] ?? 0
+      const addTierCondition = final % 5 === 0 && showInnerForcePromotion
+      if (addTierCondition) {
+        finalTier = Math.min(
+          finalTier + 1,
+          getMaxIFTier[bloodNameToSet[bloodName as BloodNames]]
         )
       }
 
-      const finalValue =
-        Number(value ?? 0) + upgradeEffectValue + (resultObj?.[key]?.final || 0)
+      const upgradeEffectValue = Number(
+        upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
+          key as keyof (typeof upgradeObject)['1']['Effects']
+        ] ?? 0
+      )
+
+      const finalValue = Number(value ?? 0) + upgradeEffectValue
 
       if (resultObj[key].initial === finalValue) delete resultObj?.[key]
       else {
@@ -764,4 +756,13 @@ export function getValidBloodValue(bloodTab: BloodSets, value: number) {
   if (value < 0) return 0
   if (value > MAX_VALUE) return MAX_VALUE
   return value
+}
+
+export const getMaxIFTier: { [key in BloodSets]: number } = {
+  'Muscle Strength Manual': 20,
+  'Nine Yang Manual': 20,
+  'Nine Yin Manual': 20,
+  'Northern Profound Art': 12,
+  'Toad Stance': 12,
+  'Violet Mist Art': 12,
 }
