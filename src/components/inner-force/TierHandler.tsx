@@ -54,7 +54,7 @@ export default function TierHandler() {
   )
 
   return (
-    <div className="flex h-12 items-center text-base font-bold text-white">
+    <div className="flex w-36 h-12 items-center text-base font-bold text-white">
       <button
         aria-label={'Decrement constitution tier'}
         onClick={() => handleStageChange('decrement')}
@@ -62,7 +62,7 @@ export default function TierHandler() {
       >
         -
       </button>
-      <p className="flex h-full items-center bg-primary-500 p-2 text-center">
+      <p className="flex h-full w-full justify-center items-center bg-primary-500 p-2 text-center">
         Tier {currentTier}
       </p>
       <button
