@@ -152,7 +152,7 @@ export default function InnerForce() {
   ])
 
   return (
-    <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
+    <div className="relative py-12 mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
       <aside className="custom-scroll mx-auto flex w-full max-w-max flex-row gap-4 overflow-x-auto py-4 xl:mx-0 xl:w-max xl:shrink-0 xl:flex-col xl:py-0">
         <TabButton tabName="Muscle Strength Manual" />
         <TabButton tabName="Nine Yin Manual" />
@@ -203,7 +203,7 @@ export default function InnerForce() {
         <div className="flex flex-col gap-6">
           <ItemCostList sortedResult={sortedResult} />
 
-          {showInnerForcePromotion ? (
+          {showInnerForcePromotion && upgradeResult.length > 0 ? (
             <>
               <h2 className="mt-4 text-xl font-bold md:text-2xl">
                 Upgrade Cost
