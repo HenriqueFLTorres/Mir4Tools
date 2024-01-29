@@ -6,6 +6,7 @@ interface SettingsAtomType {
   displayRarity: RarityTypes[]
   showOwnedItems: boolean
   class: Mir4Classes
+  showInnerForcePromotion: boolean
 }
 
 export const SettingsAtom = atomWithStorage<SettingsAtomType>(
@@ -16,6 +17,7 @@ export const SettingsAtom = atomWithStorage<SettingsAtomType>(
     displayRarity: ['Legendary', 'Epic', 'Rare'],
     showOwnedItems: true,
     class: 'Arbalist',
+    showInnerForcePromotion: false
   },
   undefined
 )

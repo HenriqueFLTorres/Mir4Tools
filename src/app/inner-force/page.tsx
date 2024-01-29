@@ -9,6 +9,7 @@ import MobileEffectsTableSkeleton from '@/components/inner-force/EffectsTable/Mo
 import Mir4ClassToggler from '@/components/inner-force/Mir4ClassTogler'
 import TabButtonSkeleton from '@/components/inner-force/TabButton.skeleton'
 import TierHandlerSkeleton from '@/components/inner-force/TierHandler.skeleton'
+import Checkbox from '@/components/shared/Checkbox'
 import {
   calculateBloodCost,
   calculateBloodEffects,
@@ -18,9 +19,10 @@ import {
   getBloodIcon,
   getBloodsByTab,
 } from '@/utils/index'
-import { useAtomValue } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import dynamic from 'next/dynamic'
 import { useMemo } from 'react'
+import { useTranslation } from '../../../public/locales/client'
 
 const TabButton = dynamic(
   async () => await import('@/components/inner-force/TabButton'),
@@ -67,7 +69,9 @@ const MobileEffectsTable = dynamic(
 export default function InnerForce() {
   const bloodTab = useAtomValue(InnerForceTabAtom)
   const bloodObject = useAtomValue(InnerForceBloodsAtom)
-  const { class: mir4Class } = useAtomValue(SettingsAtom)
+  const [{ class: mir4Class, showInnerForcePromotion }, setSettings] =
+    useAtom(SettingsAtom)
+  const { t } = useTranslation()
 
   const sortedResult = useMemo(() => {
     const object = calculateBloodCost(bloodObject, mir4Class)
@@ -96,7 +100,8 @@ export default function InnerForce() {
   }, [JSON.stringify(bloodObject), mir4Class])
 
   const upgradeResult = useMemo(() => {
-    const upgradeObject = calculateUpgradeCost(bloodObject)
+    if (!showInnerForcePromotion) return []
+    const upgradeObject = calculateUpgradeCost(bloodObject, mir4Class || 'Arbalist')
 
     const sortedObject = Object.entries(upgradeObject)
       .sort(([name1], [name2]) => {
@@ -119,10 +124,14 @@ export default function InnerForce() {
       })
 
     return sortedObject
-  }, [JSON.stringify(bloodObject), mir4Class])
+  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion])
 
   const effectsObject = useMemo(() => {
-    const object = calculateBloodEffects(bloodObject, mir4Class)
+    const object = calculateBloodEffects(
+      bloodObject,
+      mir4Class,
+      showInnerForcePromotion
+    )
     const formattedObject = Object.entries(object).sort(([name1], [name2]) => {
       if (name1 < name2) return -1
       if (name1 > name2) return 1
@@ -131,7 +140,7 @@ export default function InnerForce() {
     })
 
     return formattedObject
-  }, [JSON.stringify(bloodObject), mir4Class])
+  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion])
 
   return (
     <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
@@ -171,12 +180,29 @@ export default function InnerForce() {
           />
         </div>
 
+        <Checkbox
+          label={t('Show promotion cost')}
+          onCheckedChange={(checked) =>
+            setSettings((prev) => ({
+              ...prev,
+              showInnerForcePromotion: checked as boolean,
+            }))
+          }
+          checked={showInnerForcePromotion}
+        />
+
         <div className="flex flex-col gap-6">
           <ItemCostList sortedResult={sortedResult} />
 
-          <h2 className="mt-4 text-xl font-bold md:text-2xl">Upgrade Cost</h2>
+          {showInnerForcePromotion ? (
+            <>
+              <h2 className="mt-4 text-xl font-bold md:text-2xl">
+                Upgrade Cost
+              </h2>
 
-          <ItemCostList sortedResult={upgradeResult} />
+              <ItemCostList sortedResult={upgradeResult} />
+            </>
+          ) : null}
         </div>
       </div>
 

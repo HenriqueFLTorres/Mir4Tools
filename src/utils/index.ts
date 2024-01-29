@@ -1,12 +1,17 @@
 import { type Level } from '@/app/xp/page'
 import { type InnerForceObject } from '@/atoms/InnerForce'
 import {
+  ArbalistFU,
   ArbalistInnerForce,
+  DarkistFU,
   DarkistInnerForce,
-  InnerForceUpgrade,
+  LancerFU,
   LancerInnerForce,
+  SorcererFU,
   SorcererInnerForce,
+  TaoistFU,
   TaoistInnerForce,
+  WarriorFU,
   WarriorInnerForce,
 } from '@/data/InnerForce'
 import {
@@ -442,6 +447,15 @@ export const getDataByClass = {
   Darkist: DarkistInnerForce,
 }
 
+export const getUpgradeDataByClass = {
+  Warrior: WarriorFU,
+  Sorcerer: SorcererFU,
+  Taoist: TaoistFU,
+  Arbalist: ArbalistFU,
+  Lancer: LancerFU,
+  Darkist: DarkistFU,
+}
+
 export const effectToBloodName: { [key in string]: BloodNames } = {
   HP: 'Virtuous Elevation',
   MP: 'Antirelaxation',
@@ -576,25 +590,51 @@ export const calculateBloodCost = (
 
 export const calculateBloodEffects = (
   bloodObject: InnerForceObject,
-  mir4Class: Mir4Classes
+  mir4Class: Mir4Classes,
+  showInnerForcePromotion: boolean
 ) => {
   const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
+  const upgradeData = getUpgradeDataByClass[mir4Class ?? 'Arbalist']
 
   const resultObj: { [key in string]: { initial: number; final: number } } = {}
   for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
-    if (initial === final) continue
+    if (initial === final && !showInnerForcePromotion) continue
 
     const levelDifference = final - initial
-    if (levelDifference < 1) continue
+    if (levelDifference <= 0 && !showInnerForcePromotion) continue
 
+    const initialTier = Math.floor(initial / 5) - 1
+    const finalTier = Math.floor(final / 5) - 1
+
+    if (finalTier <= 0) continue
+
+    const bloodSet = bloodNameToSet[bloodName as BloodNames]
     let bloodLevel =
-      dataObject[bloodNameToSet[bloodName as BloodNames]][
-        initial as keyof (typeof dataObject)[BloodSets]
-      ]
+      dataObject[bloodSet][initial as keyof (typeof dataObject)[BloodSets]]
     let bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+    const upgradeObject = upgradeData[bloodSet]
 
     for (const [key, value] of Object.entries(bloodContent)) {
-      resultObj[key] = { initial: value, final: 0 }
+      if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
+
+      let upgradeEffectValue = 0
+
+      if (
+        initial % 5 === 0 &&
+        (!showInnerForcePromotion || levelDifference > 0)
+      ) {
+        // Only add an upgrade effect when the tier is upgraded. eg: 15 -> 16 (The tier of the user is 4, so we'll add a value to 15 because it's not caught on dumper)
+        upgradeEffectValue +=
+          Number(
+            upgradeObject?.[initialTier as keyof typeof upgradeObject]
+              ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']]
+          ) ?? 0
+      }
+
+      resultObj[key] = {
+        initial: Number(value ?? 0) + Number(upgradeEffectValue) ?? 0,
+        final: 0,
+      }
     }
 
     bloodLevel =
@@ -604,26 +644,54 @@ export const calculateBloodEffects = (
     bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
 
     for (const [key, value] of Object.entries(bloodContent)) {
-      resultObj[key] = { ...resultObj[key], final: value }
+      if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
+
+      let upgradeEffectValue = 0
+
+      if (showInnerForcePromotion && final % 5 === 0) {
+        // Only add upgrade effect when it's about to upgrade the tier
+        upgradeEffectValue +=
+          Number(
+            upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
+              key as keyof (typeof upgradeObject)['1']['Effects']
+            ]
+          ) ?? 0
+      }
+
+      const finalValue = Number(value ?? 0) + upgradeEffectValue
+
+      if (resultObj[key].initial === finalValue) delete resultObj?.[key]
+      else {
+        resultObj[key] = {
+          ...resultObj[key],
+          final: finalValue,
+        }
+      }
     }
   }
 
   return resultObj
 }
 
-export const calculateUpgradeCost = (bloodObject: InnerForceObject) => {
-  const dataObject = InnerForceUpgrade
-
+export const calculateUpgradeCost = (
+  bloodObject: InnerForceObject,
+  mir4Class: Mir4Classes
+) => {
   const sets: Partial<{ [key in BloodSets]: { start: number; end: number } }> =
     {}
   const resultObj: { [key in string]: number } = {}
+  const upgradeData = getUpgradeDataByClass[mir4Class]
+
   for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
     if (initial === final) continue
 
     const levelDifference = final - initial
     if (levelDifference < 1) continue
 
-    const targetedObject = getBloodSetObject(bloodNameToSet[bloodName as BloodNames], bloodObject)
+    const targetedObject = getBloodSetObject(
+      bloodNameToSet[bloodName as BloodNames],
+      bloodObject
+    )
 
     const minLevel = Math.min(
       ...Object.values(targetedObject).map((values) => values.initial)
@@ -631,8 +699,8 @@ export const calculateUpgradeCost = (bloodObject: InnerForceObject) => {
     const maxLevel = Math.max(
       ...Object.values(targetedObject).map((values) => values.final)
     )
-    const currentTier = Math.round(minLevel / 5) + 1
-    const nextTier = Math.round(maxLevel / 5)
+    const currentTier = Math.floor(minLevel / 5) + 1
+    const nextTier = Math.floor(maxLevel / 5)
 
     const currentSet = bloodNameToSet[bloodName as BloodNames]
 
@@ -641,14 +709,15 @@ export const calculateUpgradeCost = (bloodObject: InnerForceObject) => {
       end: Math.max(sets?.[currentSet]?.end ?? nextTier, nextTier),
     }
   }
-  console.log(sets)
+
   for (const [setName, { start, end }] of Object.entries(sets)) {
     const levelIteration = getNumbersInRange(start, end)
     for (const levelstep of levelIteration) {
-      const bloodObject = dataObject[setName as keyof typeof dataObject]
+      const bloodObject = upgradeData[setName as keyof typeof upgradeData]
       const content = bloodObject[levelstep as keyof typeof bloodObject]
-      console.log(levelstep, setName, content)
+
       for (const [key, value] of Object.entries(content)) {
+        if (key === 'Effects') continue
         resultObj[key] = (resultObj?.[key] || 0) + (value as number)
       }
     }
