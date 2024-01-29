@@ -4,7 +4,11 @@ import {
   InnerForceTabAtom,
   type InnerForceObject,
 } from '@/atoms/InnerForce'
-import { getBloodSetObject, getValidBloodValue } from '@/utils/index'
+import {
+  getBloodSetObject,
+  getMaxIFTier,
+  getValidBloodValue,
+} from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 
@@ -44,7 +48,10 @@ export default function TierHandler() {
   const minLevel = Math.min(
     ...Object.values(targetedObject).map((values) => values.initial)
   )
-  const currentTier = Math.round(minLevel / 5) + 1
+  const currentTier = Math.min(
+    Math.round(minLevel / 5) + 1,
+    getMaxIFTier[bloodTab]
+  )
 
   return (
     <div className="flex h-12 items-center text-base font-bold text-white">

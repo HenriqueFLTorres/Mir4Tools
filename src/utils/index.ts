@@ -589,7 +589,9 @@ export const calculateBloodCost = (
 }
 
 export const calculateBloodEffects = (
-  bloodObject: InnerForceObject,
+  bloodObject: Partial<{
+    [key in BloodNames]: { initial: number; final: number }
+  }>,
   mir4Class: Mir4Classes,
   showInnerForcePromotion: boolean
 ) => {
@@ -599,10 +601,8 @@ export const calculateBloodEffects = (
   const resultObj: { [key in string]: { initial: number; final: number } } = {}
 
   for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
-    if (initial === final) continue
-
     const levelDifference = final - initial
-    if (levelDifference <= 0) continue
+    if (levelDifference < 0) continue
 
     const initialTier = Math.floor(initial / 5) + 1
     let finalTier = Math.floor((final - 1) / 5) + 1
@@ -618,9 +618,12 @@ export const calculateBloodEffects = (
     for (const [key, value] of Object.entries(bloodContent)) {
       if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
       const upgradeEffectValue = Number(
-        upgradeObject?.[initialTier as keyof typeof upgradeObject]?.Effects?.[
-          key as keyof (typeof upgradeObject)['1']['Effects']
-        ] ?? 0
+        upgradeObject?.[
+          Math.min(
+            initialTier,
+            getMaxIFTier[bloodSet]
+          ) as keyof typeof upgradeObject
+        ]?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ?? 0
       )
 
       resultObj[key] = {
@@ -640,10 +643,7 @@ export const calculateBloodEffects = (
 
       const addTierCondition = final % 5 === 0 && showInnerForcePromotion
       if (addTierCondition) {
-        finalTier = Math.min(
-          finalTier + 1,
-          getMaxIFTier[bloodNameToSet[bloodName as BloodNames]]
-        )
+        finalTier = Math.min(finalTier + 1, getMaxIFTier[bloodSet])
       }
 
       const upgradeEffectValue = Number(
@@ -654,12 +654,9 @@ export const calculateBloodEffects = (
 
       const finalValue = Number(value ?? 0) + upgradeEffectValue
 
-      if (resultObj[key].initial === finalValue) delete resultObj?.[key]
-      else {
-        resultObj[key] = {
-          ...resultObj[key],
-          final: finalValue,
-        }
+      resultObj[key] = {
+        ...resultObj[key],
+        final: finalValue,
       }
     }
   }

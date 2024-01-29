@@ -17,6 +17,7 @@ import {
   extractItemRarity,
   formatItemName,
   getBloodIcon,
+  getBloodSetObject,
   getBloodsByTab,
 } from '@/utils/index'
 import { useAtom, useAtomValue } from 'jotai'
@@ -101,7 +102,10 @@ export default function InnerForce() {
 
   const upgradeResult = useMemo(() => {
     if (!showInnerForcePromotion) return []
-    const upgradeObject = calculateUpgradeCost(bloodObject, mir4Class || 'Arbalist')
+    const upgradeObject = calculateUpgradeCost(
+      bloodObject,
+      mir4Class || 'Arbalist'
+    )
 
     const sortedObject = Object.entries(upgradeObject)
       .sort(([name1], [name2]) => {
@@ -128,7 +132,7 @@ export default function InnerForce() {
 
   const effectsObject = useMemo(() => {
     const object = calculateBloodEffects(
-      bloodObject,
+      getBloodSetObject(bloodTab, bloodObject),
       mir4Class,
       showInnerForcePromotion
     )
@@ -140,7 +144,12 @@ export default function InnerForce() {
     })
 
     return formattedObject
-  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion])
+  }, [
+    JSON.stringify(bloodObject),
+    mir4Class,
+    showInnerForcePromotion,
+    bloodTab,
+  ])
 
   return (
     <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
