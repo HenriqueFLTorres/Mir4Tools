@@ -603,8 +603,8 @@ export const calculateBloodEffects = (
     const levelDifference = final - initial
     if (levelDifference <= 0 && !showInnerForcePromotion) continue
 
-    const initialTier = Math.floor(initial / 5) - 1
-    const finalTier = Math.floor(final / 5) - 1
+    const initialTier = Math.floor(initial / 5)
+    const finalTier = Math.floor((final - 1) / 5)
 
     if (finalTier <= 0) continue
 
@@ -616,7 +616,6 @@ export const calculateBloodEffects = (
 
     for (const [key, value] of Object.entries(bloodContent)) {
       if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
-
       let upgradeEffectValue = 0
 
       if (
@@ -624,15 +623,15 @@ export const calculateBloodEffects = (
         (!showInnerForcePromotion || levelDifference > 0)
       ) {
         // Only add an upgrade effect when the tier is upgraded. eg: 15 -> 16 (The tier of the user is 4, so we'll add a value to 15 because it's not caught on dumper)
-        upgradeEffectValue +=
-          Number(
-            upgradeObject?.[initialTier as keyof typeof upgradeObject]
-              ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']]
-          ) ?? 0
+        upgradeEffectValue += Number(
+          upgradeObject?.[(initialTier - 1) as keyof typeof upgradeObject]
+            ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ??
+            0
+        )
       }
 
       resultObj[key] = {
-        initial: Number(value ?? 0) + Number(upgradeEffectValue) ?? 0,
+        initial: Number(value ?? 0) + upgradeEffectValue,
         final: 0,
       }
     }
@@ -650,12 +649,11 @@ export const calculateBloodEffects = (
 
       if (showInnerForcePromotion && final % 5 === 0) {
         // Only add upgrade effect when it's about to upgrade the tier
-        upgradeEffectValue +=
-          Number(
-            upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
-              key as keyof (typeof upgradeObject)['1']['Effects']
-            ]
-          ) ?? 0
+        upgradeEffectValue += Number(
+          upgradeObject?.[finalTier as keyof typeof upgradeObject]
+            ?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ??
+            0
+        )
       }
 
       const finalValue = Number(value ?? 0) + upgradeEffectValue

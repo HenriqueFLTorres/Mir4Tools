@@ -38,8 +38,8 @@ export default function TabButton({
       values.initial !== getValidBloodValue(tabName, values.initial) ||
       values.final !== getValidBloodValue(tabName, values.final)
   )
-  const currentTier = Math.round(minLevel / 5) + 1
-  const nextTier = Math.round(maxLevel / 5) + 1
+  const currentTier = Math.floor(minLevel / 5) + 1
+  const nextTier = Math.floor((maxLevel - 1) / 5) + 1
 
   return (
     <button
