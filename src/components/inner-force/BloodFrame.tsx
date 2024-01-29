@@ -26,13 +26,16 @@ export default function BloodFrame({
       ...prev,
       [bloodName]: {
         ...prev[bloodName],
-        [type]: getValidBloodValue(bloodNameToSet[bloodName], Number(e.currentTarget.value.replace(/\D/g, ''))),
+        [type]: getValidBloodValue(
+          bloodNameToSet[bloodName],
+          Number(e.currentTarget.value.replace(/\D/g, ''))
+        ),
       },
     }))
 
   return (
     <li>
-      <label className="group flex h-32 w-32 cursor-pointer flex-col items-center justify-center transition-transform will-change-transform">
+      <label className="group flex h-32 w-32 flex-col items-center justify-center transition-transform will-change-transform">
         <Image
           src="/images/skill-frame.svg"
           alt=""
@@ -41,10 +44,10 @@ export default function BloodFrame({
           className="select-none object-contain "
         />
         <Icon className="absolute h-14 w-14 -translate-y-1" />
-        <div className="absolute flex translate-y-[2.75rem] items-center gap-[1.35rem] text-xs font-bold text-white">
+        <div className="absolute flex translate-x-[0.04rem] translate-y-[2.75rem] items-center gap-[0.85rem] text-xs font-bold text-white">
           <input
             className={cn(
-              'w-8 shrink-0 bg-transparent text-center focus:outline-none',
+              'h-10 w-10 shrink-0 bg-transparent text-center focus:outline-none',
               {
                 'text-csred-400 selection:bg-csred-400/20':
                   bloodValues[bloodName].initial > bloodValues[bloodName].final,
@@ -57,7 +60,7 @@ export default function BloodFrame({
           />
           <input
             className={cn(
-              'w-8 shrink-0 bg-transparent text-center focus:outline-none',
+              'h-10 w-10 shrink-0 bg-transparent text-center focus:outline-none',
               {
                 'text-csred-400 selection:bg-csred-400/20':
                   bloodValues[bloodName].final < bloodValues[bloodName].initial,
