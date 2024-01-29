@@ -606,7 +606,7 @@ export const calculateBloodEffects = (
     const initialTier = Math.floor(initial / 5)
     const finalTier = Math.floor((final - 1) / 5)
 
-    if (finalTier <= 0) continue
+    if (finalTier < 0) continue
 
     const bloodSet = bloodNameToSet[bloodName as BloodNames]
     let bloodLevel =
