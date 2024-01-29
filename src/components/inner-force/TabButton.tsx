@@ -4,6 +4,7 @@ import { InnerForceBloodsAtom, InnerForceTabAtom } from '@/atoms/InnerForce'
 import { cn } from '@/utils/classNames'
 import {
   getBloodSetObject,
+  getMaxIFTier,
   getValidBloodValue,
   toCamelCase,
 } from '@/utils/index'
@@ -38,8 +39,14 @@ export default function TabButton({
       values.initial !== getValidBloodValue(tabName, values.initial) ||
       values.final !== getValidBloodValue(tabName, values.final)
   )
-  const currentTier = Math.floor(minLevel / 5) + 1
-  const nextTier = Math.floor((maxLevel - 1) / 5) + 1
+  const currentTier = Math.min(
+    Math.floor(minLevel / 5) + 1,
+    getMaxIFTier[tabName]
+  )
+  const nextTier = Math.min(
+    Math.floor((maxLevel - 1) / 5) + 1,
+    getMaxIFTier[tabName]
+  )
 
   return (
     <button
