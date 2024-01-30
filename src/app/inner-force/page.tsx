@@ -75,7 +75,7 @@ export default function InnerForce() {
   const { t } = useTranslation()
 
   const sortedResult = useMemo(() => {
-    const object = calculateBloodCost(bloodObject, mir4Class)
+    const object = calculateBloodCost(getBloodSetObject(bloodTab, bloodObject), mir4Class)
 
     const sortedObject = Object.entries(object)
       .sort(([name1], [name2]) => {
@@ -98,12 +98,12 @@ export default function InnerForce() {
       })
 
     return sortedObject
-  }, [JSON.stringify(bloodObject), mir4Class])
+  }, [JSON.stringify(bloodObject), mir4Class, bloodTab])
 
   const upgradeResult = useMemo(() => {
     if (!showInnerForcePromotion) return []
     const upgradeObject = calculateUpgradeCost(
-      bloodObject,
+      getBloodSetObject(bloodTab, bloodObject),
       mir4Class || 'Arbalist'
     )
 
@@ -128,7 +128,7 @@ export default function InnerForce() {
       })
 
     return sortedObject
-  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion])
+  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion, bloodTab])
 
   const effectsObject = useMemo(() => {
     const object = calculateBloodEffects(
@@ -150,6 +150,8 @@ export default function InnerForce() {
     showInnerForcePromotion,
     bloodTab,
   ])
+
+  console.log(upgradeResult)
 
   return (
     <div className="relative py-12 mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
@@ -203,7 +205,7 @@ export default function InnerForce() {
         <div className="flex flex-col gap-6">
           <ItemCostList sortedResult={sortedResult} />
 
-          {showInnerForcePromotion && upgradeResult.length > 0 ? (
+          {showInnerForcePromotion && upgradeResult.length > 1 ? (
             <>
               <h2 className="mt-4 text-xl font-bold md:text-2xl">
                 {t('Promotion Cost')}

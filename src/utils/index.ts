@@ -485,7 +485,7 @@ export const effectToBloodName: { [key in string]: BloodNames } = {
 
 export function getBloodSetObject(
   currentSet: BloodSets,
-  originalObject: InnerForceObject
+  originalObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>
 ): Partial<{ [key in BloodNames]: { initial: number; final: number } }> {
   const {
     'Sky Palace': SkyPalace,
@@ -556,7 +556,7 @@ export function getBloodSetObject(
 }
 
 export const calculateBloodCost = (
-  bloodObject: InnerForceObject,
+  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
   mir4Class: Mir4Classes
 ) => {
   const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
@@ -665,7 +665,7 @@ export const calculateBloodEffects = (
 }
 
 export const calculateUpgradeCost = (
-  bloodObject: InnerForceObject,
+  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
   mir4Class: Mir4Classes
 ) => {
   const sets: Partial<{ [key in BloodSets]: { start: number; end: number } }> =
