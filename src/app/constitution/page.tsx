@@ -12,7 +12,7 @@ const ConstitutionStatusSelector = dynamic(
 
 export default function Constitution() {
   return (
-    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center gap-8 px-6 pt-20 selection:bg-primary-800">
+    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center gap-8 md:pl-[5.25rem] px-6 pt-32 md:pt-20 selection:bg-primary-800">
       <div className="-pt-24 relative z-10 flex scale-75 items-center justify-center md:mb-28 md:mt-8 md:scale-125 lg:scale-100">
         <ConstitutionStatusSelector />
         <TierHandler />

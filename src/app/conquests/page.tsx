@@ -7,7 +7,7 @@ import ConquestStageHandler from '@/components/conquests/StageHandler'
 
 export default function Conquests() {
   return (
-    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center pt-[4.3125rem] selection:bg-primary-800 2xl:pt-24">
+    <div className="relative mx-auto flex h-screen w-full max-w-[90rem] flex-col items-center pt-[8rem] selection:bg-primary-800 md:pl-[3.75rem] md:pt-[4.3125rem] 2xl:pt-24">
       <ConquestSelection />
 
       <section className="flex w-full flex-col items-center px-4 py-4 text-white lg:px-8">

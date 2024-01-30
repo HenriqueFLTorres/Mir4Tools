@@ -1,19 +1,29 @@
 'use client'
 
 import Modal from '@/components/shared/Modal'
-import Heart from '@/icons/Heart'
+import { cn } from '@/utils/classNames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from '../../../../public/locales/client'
 
-export default function SupportUs() {
+export default function SupportUs({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode[]
+}) {
   const { t } = useTranslation()
 
   return (
     <Modal.Wrapper>
-      <Modal.Trigger className="flex shrink-0 items-center justify-stretch gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10">
-        <Heart className="h-6 w-6 fill-white" />
-        {t('Support Us')}!
+      <Modal.Trigger
+        className={cn(
+          'flex shrink-0 items-center justify-stretch gap-4 rounded p-3 text-base font-medium text-white transition-colors hover:bg-white/10',
+          className
+        )}
+      >
+        {children}
       </Modal.Trigger>
       <Modal.Content className="items-center gap-6 pb-6 backdrop-blur-xl">
         <header className="flex w-full items-center justify-between">

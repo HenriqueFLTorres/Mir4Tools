@@ -1,5 +1,4 @@
 import { type Level } from '@/app/xp/page'
-import { type InnerForceObject } from '@/atoms/InnerForce'
 import {
   ArbalistFU,
   ArbalistInnerForce,

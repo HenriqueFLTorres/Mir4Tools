@@ -151,10 +151,8 @@ export default function InnerForce() {
     bloodTab,
   ])
 
-  console.log(upgradeResult)
-
   return (
-    <div className="relative py-12 mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 pt-28 selection:bg-primary-800 xl:flex-row xl:items-start">
+    <div className="relative py-12 mx-auto flex w-full flex-col items-center justify-center gap-8 md:pl-[5.25rem] px-6 pt-40 md:pt-24 selection:bg-primary-800 xl:flex-row xl:items-start">
       <aside className="custom-scroll mx-auto flex w-full max-w-max flex-row gap-4 overflow-x-auto py-4 xl:mx-0 xl:w-max xl:shrink-0 xl:flex-col xl:py-0">
         <TabButton tabName="Muscle Strength Manual" />
         <TabButton tabName="Nine Yin Manual" />
