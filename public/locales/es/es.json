@@ -15,6 +15,7 @@
   "Additional Costs": "Costes adicionales",
   "Patch Notes": "Notas del parche",
   "Join our group!": "¡Unirse a nuestro grupo!",
+  "NEW!": "¡NUEVO!",
 
   "__pages__": "",
 
@@ -129,6 +130,7 @@
   "Maps": "Mapas",
 
   "__inner_force__": "",
+  "Inner Force": "Chi",
   "Promotion Cost": "Costo de promoción",
   "Character Status": "Estado del personaje",
   "Muscle Strength Manual": "Técnica de Musculación",
@@ -142,7 +144,7 @@
   "CRIT ATK DMG Boost": "Aum. de Daño de At. Crít.",
   "CRIT DMG Reduction": "Reducc. de Daño Crít.",
   "CRIT EVA": "Eva. de Crít.",
-  "Monster ATK DMG Boost":  "Aum. de Daño de At. de monst.",
+  "Monster ATK DMG Boost": "Aum. de Daño de At. de monst.",
   "Monster DMG Reduction": "Reducc. de Daño de monstruo",
   "Skill ATK DMG Boost": "Aum. de Daño de At. de habil.",
   "Skill DMG Reduction": "Reducc. de Daño de habil.",

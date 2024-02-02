@@ -194,6 +194,7 @@ function NavGroup({
   isSidebarExpanded: boolean
   title: string
 }) {
+  const { t } = useTranslation()
   const pathName = usePathname()
 
   return (
@@ -245,7 +246,7 @@ function NavGroup({
                 { 'opacity-100': isSidebarExpanded }
               )}
             >
-              NEW!
+              {t('NEW!')}
             </span>
           ) : null}
         </Link>
