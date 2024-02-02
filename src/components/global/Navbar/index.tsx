@@ -47,9 +47,9 @@ export default function GlobalNavbar({
 
       <aside
         className={cn(
-          'absolute z-[40] flex w-full flex-row-reverse items-center gap-2 overflow-x-hidden border-b border-white/10 bg-pink-400 bg-primary-400/5 pt-[4.3rem] drop-shadow-md backdrop-blur-xl transition-[width,_max-width] duration-500 will-change-[width,_max-width] md:fixed md:h-screen md:w-16 md:max-w-[3.75rem] md:flex-row md:flex-col md:gap-6 md:border-b-0 md:border-r md:pt-[5.25rem]',
+          'fixed z-[40] flex w-full flex-row-reverse items-center gap-2 overflow-x-hidden border-b border-white/10 bg-pink-400 bg-primary-400/5 pt-[4.3rem] drop-shadow-md backdrop-blur-xl transition-[width,_max-width] duration-500 will-change-[width,_max-width,_padding-top] md:fixed md:h-screen md:w-16 md:max-w-[3.75rem] md:flex-col md:gap-6 md:border-b-0 md:border-r md:pt-[5.3rem]',
           {
-            'fixed h-screen flex-col pt-[5.3rem] md:absolute md:w-96 md:max-w-[24rem] md:pt-[4.3rem]':
+            'fixed h-screen flex-col pt-[5.3rem] md:absolute md:w-96 md:max-w-[24rem]':
               isSidebarExpanded,
           }
         )}
