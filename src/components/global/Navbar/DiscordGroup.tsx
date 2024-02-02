@@ -14,8 +14,8 @@ export default function DiscordGroup({
       target="_blank"
       rel="noreferrer"
       className={cn(
-        'flex h-10 w-full max-w-[2.5rem] shrink-0 items-center gap-4 overflow-hidden rounded p-2 transition-[color,_max-width] duration-500 hover:bg-white/10',
-        { 'max-w-[22.5rem]': isSidebarExpanded }
+        'relative flex h-10 w-full max-w-[2.5rem] shrink-0 items-center gap-4 overflow-hidden rounded p-2 transition-[color,_max-width] duration-500 hover:bg-white/10',
+        { 'w-full max-w-none md:max-w-[22.5rem]': isSidebarExpanded }
       )}
     >
       <Discord className="h-6 w-6 shrink-0 fill-white" />
