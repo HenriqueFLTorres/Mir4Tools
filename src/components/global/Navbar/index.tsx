@@ -64,7 +64,7 @@ export default function GlobalNavbar({
               isSidebarExpanded,
           }
         )}
-        style={{ paddingTop: sidebarHeight }}
+        style={{ paddingTop: sidebarHeight + (isSidebarExpanded ? 16 : 0) }}
       >
         <button
           aria-label={isSidebarExpanded ? 'shrink sidebar' : 'expand sidebar'}
