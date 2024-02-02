@@ -22,7 +22,7 @@ export default function TotalCost({
         {t('Total')}
       </h2>
 
-      <div className="flex w-full flex-col gap-5 md:flex-row">
+      <div className="flex w-full flex-col gap-5 lg:flex-row">
         <section
           id="totalCostWithRarity"
           className="flex w-full flex-col gap-6"

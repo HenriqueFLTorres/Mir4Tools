@@ -30,7 +30,7 @@ export default function CraftingMain() {
   const formattedRecipe = formatRecipeToDisplay(itemFullRecipe)
 
   return (
-    <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 pb-14 pt-44 md:p-14 md:pt-24">
+    <div className="mx-auto flex w-full max-w-[120rem] flex-col gap-4 overflow-x-auto px-5 md:pl-[7.25rem] pb-14 pt-44 md:p-14 md:pt-24">
       <section className="mb-4 flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16">
         <div className="flex items-center gap-6">
           <ItemSelector />

@@ -1,4 +1,43 @@
 import { type Level } from '@/app/xp/page'
+import {
+  ArbalistFU,
+  ArbalistInnerForce,
+  DarkistFU,
+  DarkistInnerForce,
+  LancerFU,
+  LancerInnerForce,
+  SorcererFU,
+  SorcererInnerForce,
+  TaoistFU,
+  TaoistInnerForce,
+  WarriorFU,
+  WarriorInnerForce,
+} from '@/data/InnerForce'
+import {
+  Alkaid,
+  Antirelaxation,
+  CentenaryCongregation,
+  DiviseAction,
+  Dubhe,
+  EarthValley,
+  EmbroideredThrone,
+  FertileScale,
+  GoldenJade,
+  GreatRuler,
+  GreatUnion,
+  LandsEnd,
+  Mizar,
+  PinnacleStar,
+  PulsingSky,
+  Quorum,
+  RoyalDecree,
+  SkyPalace,
+  Springwater,
+  UnitedHeaven,
+  VirtuousElevation,
+  Waterbridge,
+  WindHub,
+} from '@/icons/inner-force/index'
 import { atom } from 'jotai'
 
 export const rarityRegex = /(\[L\].|\[E\].|\[R\].|\[UC\].)/gm
@@ -122,6 +161,11 @@ export const AllowedInventoryItemTypes = [
   'snow_panax',
   'unihorn_slice',
   'virtue_pill',
+  'greater_yang_pill',
+  'greater_yin_pill',
+  'lesser_yang_pill',
+  'lesser_yin_pill',
+  'epic_azureum_mineral_fluid',
 ]
 
 export function deepMerge(targetObject: any, sourceObject: any) {
@@ -184,6 +228,7 @@ export const prepareItemForDisplay = (
 export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
   if (name === 'Copper' || name === 'Darksteel') return 'Default'
   if (name === 'Glittering Powder' || name === 'Life Essence') return 'Uncommon'
+  if (name === 'Epic Azureum Mineral Fluid') return 'Epic'
 
   const rarity = name.match(/^([\S]+)/gm)
 
@@ -300,4 +345,420 @@ export function getMiningSpeedValue(input: number, isPercentage: boolean) {
 
   const percentageValue = (100 * baseSeconds) / input - 100
   return Math.round(percentageValue).toString()
+}
+
+export function getNumbersInRange(start: number, end: number) {
+  return Array.from(
+    { length: (end - start) / 1 + 1 },
+    (_, index) => start + index * 1
+  )
+}
+
+export const getBloodIcon = {
+  Alkaid,
+  Antirelaxation,
+  'Centenary Congregation': CentenaryCongregation,
+  'Divisive Action': DiviseAction,
+  Dubhe,
+  'Earth Valley': EarthValley,
+  'Embroidered Throne': EmbroideredThrone,
+  'Fertile Scale': FertileScale,
+  'Golden Jade': GoldenJade,
+  'Great Ruler': GreatRuler,
+  'Great Union': GreatUnion,
+  'Heart Core': SkyPalace,
+  "Land's End": LandsEnd,
+  Mizar,
+  'Pinnacle Star': PinnacleStar,
+  'Pulsing Sky': PulsingSky,
+  Quorum,
+  'Royal Decree': RoyalDecree,
+  'Sky Palace': SkyPalace,
+  Springwater,
+  'United Heaven': UnitedHeaven,
+  'Virtuous Elevation': VirtuousElevation,
+  Waterbridge,
+  'Wind Hub': WindHub,
+}
+
+export const bloodNameToSet: { [key in BloodNames]: BloodSets } = {
+  'Sky Palace': 'Muscle Strength Manual',
+  'Royal Decree': 'Muscle Strength Manual',
+  'Pulsing Sky': 'Muscle Strength Manual',
+  'Great Ruler': 'Muscle Strength Manual',
+  "Land's End": 'Nine Yin Manual',
+  'Centenary Congregation': 'Nine Yin Manual',
+  'Embroidered Throne': 'Nine Yin Manual',
+  'Golden Jade': 'Nine Yin Manual',
+  'Heart Core': 'Nine Yang Manual',
+  'Virtuous Elevation': 'Nine Yang Manual',
+  Antirelaxation: 'Nine Yang Manual',
+  Springwater: 'Nine Yang Manual',
+  'Pinnacle Star': 'Violet Mist Art',
+  'Wind Hub': 'Violet Mist Art',
+  'Great Union': 'Violet Mist Art',
+  'Earth Valley': 'Violet Mist Art',
+  Dubhe: 'Northern Profound Art',
+  'Fertile Scale': 'Northern Profound Art',
+  Mizar: 'Northern Profound Art',
+  Alkaid: 'Northern Profound Art',
+  'Divisive Action': 'Toad Stance',
+  Waterbridge: 'Toad Stance',
+  'United Heaven': 'Toad Stance',
+  Quorum: 'Toad Stance',
+}
+
+export const getBloodsByTab: { [key in BloodSets]: BloodNames[] } = {
+  'Muscle Strength Manual': [
+    'Sky Palace',
+    'Royal Decree',
+    'Pulsing Sky',
+    'Great Ruler',
+  ],
+  'Nine Yin Manual': [
+    "Land's End",
+    'Centenary Congregation',
+    'Embroidered Throne',
+    'Golden Jade',
+  ],
+  'Nine Yang Manual': [
+    'Heart Core',
+    'Virtuous Elevation',
+    'Antirelaxation',
+    'Springwater',
+  ],
+  'Violet Mist Art': [
+    'Pinnacle Star',
+    'Wind Hub',
+    'Great Union',
+    'Earth Valley',
+  ],
+  'Northern Profound Art': ['Dubhe', 'Fertile Scale', 'Mizar', 'Alkaid'],
+  'Toad Stance': ['Divisive Action', 'Waterbridge', 'United Heaven', 'Quorum'],
+}
+
+export const getDataByClass = {
+  Warrior: WarriorInnerForce,
+  Sorcerer: SorcererInnerForce,
+  Taoist: TaoistInnerForce,
+  Arbalist: ArbalistInnerForce,
+  Lancer: LancerInnerForce,
+  Darkist: DarkistInnerForce,
+}
+
+export const getUpgradeDataByClass = {
+  Warrior: WarriorFU,
+  Sorcerer: SorcererFU,
+  Taoist: TaoistFU,
+  Arbalist: ArbalistFU,
+  Lancer: LancerFU,
+  Darkist: DarkistFU,
+}
+
+export const effectToBloodName: { [key in string]: BloodNames } = {
+  HP: 'Virtuous Elevation',
+  MP: 'Antirelaxation',
+  'PHYS ATK': 'Sky Palace',
+  'PHYS DEF': 'Pulsing Sky',
+  Accuracy: "Land's End",
+  EVA: 'Centenary Congregation',
+  CRIT: 'Embroidered Throne',
+  'CRIT ATK DMG Boost': 'Divisive Action',
+  'CRIT DMG Reduction': 'Waterbridge',
+  'CRIT EVA': 'Springwater',
+  'Spell ATK': 'Sky Palace',
+  'Spell DEF': 'Great Ruler',
+  'Monster ATK DMG Boost': 'Royal Decree',
+  'Monster DMG Reduction': 'Golden Jade',
+  'Skill ATK DMG Boost': 'United Heaven',
+  'Skill DMG Reduction': 'Quorum',
+  'Stun Success Boost': 'Pinnacle Star',
+  'Stun RES Boost': 'Wind Hub',
+  'Debilitation Success Boost': 'Great Union',
+  'Debilitation RES Boost': 'Earth Valley',
+  'Silence Success Boost': 'Dubhe',
+  'Silence RES Boost': 'Fertile Scale',
+  'Knockdown Success Boost': 'Mizar',
+  'Knockdown RES Boost': 'Alkaid',
+}
+
+export function getBloodSetObject(
+  currentSet: BloodSets,
+  originalObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>
+): Partial<{ [key in BloodNames]: { initial: number; final: number } }> {
+  const {
+    'Sky Palace': SkyPalace,
+    'Royal Decree': RoyalDecree,
+    'Pulsing Sky': PulsingSky,
+    'Great Ruler': GreatRuler,
+    "Land's End": LandsEnd,
+    'Centenary Congregation': CentenaryCongregation,
+    'Embroidered Throne': EmbroideredThrone,
+    'Golden Jade': GoldenJade,
+    'Heart Core': HeartCore,
+    'Virtuous Elevation': VirtuousElevation,
+    Antirelaxation,
+    Springwater,
+    'Pinnacle Star': PinnacleStar,
+    'Wind Hub': WindHub,
+    'Great Union': GreatUnion,
+    'Earth Valley': EarthValley,
+    Dubhe,
+    'Fertile Scale': FertileScale,
+    Mizar,
+    Alkaid,
+    'Divisive Action': DiviseAction,
+    Waterbridge,
+    'United Heaven': UnitedHeaven,
+    Quorum,
+  } = originalObject
+
+  switch (currentSet) {
+    case 'Muscle Strength Manual':
+      return {
+        'Sky Palace': SkyPalace,
+        'Royal Decree': RoyalDecree,
+        'Pulsing Sky': PulsingSky,
+        'Great Ruler': GreatRuler,
+      }
+    case 'Nine Yin Manual':
+      return {
+        "Land's End": LandsEnd,
+        'Centenary Congregation': CentenaryCongregation,
+        'Embroidered Throne': EmbroideredThrone,
+        'Golden Jade': GoldenJade,
+      }
+    case 'Nine Yang Manual':
+      return {
+        'Heart Core': HeartCore,
+        'Virtuous Elevation': VirtuousElevation,
+        Antirelaxation,
+        Springwater,
+      }
+    case 'Violet Mist Art':
+      return {
+        'Pinnacle Star': PinnacleStar,
+        'Wind Hub': WindHub,
+        'Great Union': GreatUnion,
+        'Earth Valley': EarthValley,
+      }
+    case 'Northern Profound Art':
+      return { Dubhe, 'Fertile Scale': FertileScale, Mizar, Alkaid }
+    case 'Toad Stance':
+      return {
+        'Divisive Action': DiviseAction,
+        Waterbridge,
+        'United Heaven': UnitedHeaven,
+        Quorum,
+      }
+  }
+}
+
+export const calculateBloodCost = (
+  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
+  mir4Class: Mir4Classes
+) => {
+  const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
+
+  const resultObj: { [key in string]: number } = {}
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    if (initial === final) continue
+
+    const levelDifference = final - initial
+    if (levelDifference < 1) continue
+
+    const levelIteration = getNumbersInRange(initial + 1, final)
+    for (const levelstep of levelIteration) {
+      const bloodLevel =
+        dataObject[bloodNameToSet[bloodName as BloodNames]][
+          levelstep as keyof (typeof dataObject)[BloodSets]
+        ]
+      const bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+
+      resultObj.energy =
+        (resultObj?.energy || 0) + (bloodLevel.EnergyPerClick as number)
+
+      for (const [key, value] of Object.entries(bloodContent)) {
+        resultObj[key] = (resultObj?.[key] || 0) + (value as number)
+      }
+    }
+  }
+
+  return resultObj
+}
+
+export const calculateBloodEffects = (
+  bloodObject: Partial<{
+    [key in BloodNames]: { initial: number; final: number }
+  }>,
+  mir4Class: Mir4Classes,
+  showInnerForcePromotion: boolean
+) => {
+  const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
+  const upgradeData = getUpgradeDataByClass[mir4Class ?? 'Arbalist']
+
+  const resultObj: { [key in string]: { initial: number; final: number } } = {}
+
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    const levelDifference = final - initial
+    if (levelDifference < 0) continue
+
+    const initialTier = Math.floor(initial / 5) + 1
+    let finalTier = Math.floor((final - 1) / 5) + 1
+
+    if (finalTier < 0) continue
+
+    const bloodSet = bloodNameToSet[bloodName as BloodNames]
+    let bloodLevel =
+      dataObject[bloodSet][initial as keyof (typeof dataObject)[BloodSets]]
+    let bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+    const upgradeObject = upgradeData[bloodSet]
+
+    for (const [key, value] of Object.entries(bloodContent)) {
+      if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
+      const upgradeEffectValue = Number(
+        upgradeObject?.[
+          Math.min(
+            initialTier,
+            getMaxIFTier[bloodSet]
+          ) as keyof typeof upgradeObject
+        ]?.Effects?.[key as keyof (typeof upgradeObject)['1']['Effects']] ?? 0
+      )
+
+      resultObj[key] = {
+        initial: Number(value ?? 0) + upgradeEffectValue,
+        final: 0,
+      }
+    }
+
+    bloodLevel =
+      dataObject[bloodNameToSet[bloodName as BloodNames]][
+        final as keyof (typeof dataObject)[BloodSets]
+      ]
+    bloodContent = bloodLevel[bloodName as keyof typeof bloodLevel]
+
+    for (const [key, value] of Object.entries(bloodContent)) {
+      if (AllowedInventoryItemTypes.includes(formatItemName(key))) continue
+
+      const addTierCondition = final % 5 === 0 && showInnerForcePromotion
+      if (addTierCondition) {
+        finalTier = Math.min(finalTier + 1, getMaxIFTier[bloodSet])
+      }
+
+      const upgradeEffectValue = Number(
+        upgradeObject?.[finalTier as keyof typeof upgradeObject]?.Effects?.[
+          key as keyof (typeof upgradeObject)['1']['Effects']
+        ] ?? 0
+      )
+
+      const finalValue = Number(value ?? 0) + upgradeEffectValue
+
+      resultObj[key] = {
+        ...resultObj[key],
+        final: finalValue,
+      }
+    }
+  }
+
+  return resultObj
+}
+
+export const calculateUpgradeCost = (
+  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
+  mir4Class: Mir4Classes
+) => {
+  const sets: Partial<{ [key in BloodSets]: { start: number; end: number } }> =
+    {}
+  const resultObj: { [key in string]: number } = {}
+  const upgradeData = getUpgradeDataByClass[mir4Class]
+
+  for (const [bloodName, { initial, final }] of Object.entries(bloodObject)) {
+    if (initial === final) continue
+
+    const levelDifference = final - initial
+    if (levelDifference < 1) continue
+
+    const targetedObject = getBloodSetObject(
+      bloodNameToSet[bloodName as BloodNames],
+      bloodObject
+    )
+
+    const minLevel = Math.min(
+      ...Object.values(targetedObject).map((values) => values.initial)
+    )
+    const maxLevel = Math.max(
+      ...Object.values(targetedObject).map((values) => values.final)
+    )
+    const currentTier = Math.floor(minLevel / 5) + 1
+    const nextTier = Math.floor(maxLevel / 5)
+
+    const currentSet = bloodNameToSet[bloodName as BloodNames]
+
+    sets[currentSet] = {
+      start: Math.min(sets?.[currentSet]?.start ?? currentTier, currentTier),
+      end: Math.max(sets?.[currentSet]?.end ?? nextTier, nextTier),
+    }
+  }
+
+  for (const [setName, { start, end }] of Object.entries(sets)) {
+    const levelIteration = getNumbersInRange(start, end)
+    for (const levelstep of levelIteration) {
+      const bloodObject = upgradeData[setName as keyof typeof upgradeData]
+      const content = bloodObject[levelstep as keyof typeof bloodObject]
+
+      for (const [key, value] of Object.entries(content)) {
+        if (key === 'Effects') continue
+        resultObj[key] = (resultObj?.[key] || 0) + (value as number)
+      }
+    }
+  }
+
+  return resultObj
+}
+
+export function formatEffectValue(name: string, value: number) {
+  switch (name) {
+    case 'CRIT ATK DMG Boost':
+    case 'CRIT DMG Reduction':
+    case 'Monster ATK DMG Boost':
+    case 'Monster DMG Reduction':
+    case 'Skill ATK DMG Boost':
+    case 'Skill DMG Reduction':
+    case 'Stun Success Boost':
+    case 'Stun RES Boost':
+    case 'Debilitation Success Boost':
+    case 'Debilitation RES Boost':
+    case 'Silence Success Boost':
+    case 'Silence RES Boost':
+    case 'Knockdown Success Boost':
+    case 'Knockdown RES Boost':
+      return `${value / 10}%`
+    default:
+      return getReadableNumber(value)
+  }
+}
+
+export function getValidBloodValue(bloodTab: BloodSets, value: number) {
+  let MAX_VALUE = 100
+
+  if (
+    ['Violet Mist Art', 'Northern Profound Art', 'Toad Stance'].includes(
+      bloodTab
+    )
+  ) {
+    MAX_VALUE = 60
+  }
+
+  if (value < 0) return 0
+  if (value > MAX_VALUE) return MAX_VALUE
+  return value
+}
+
+export const getMaxIFTier: { [key in BloodSets]: number } = {
+  'Muscle Strength Manual': 20,
+  'Nine Yang Manual': 20,
+  'Nine Yin Manual': 20,
+  'Northern Profound Art': 12,
+  'Toad Stance': 12,
+  'Violet Mist Art': 12,
 }

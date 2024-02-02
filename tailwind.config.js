@@ -47,6 +47,9 @@ module.exports = {
         csred: {
           400: '#ed5f69',
         },
+        success: {
+          400: '#62CA63',
+        },
       },
       keyframes: {
         contentShow: {

@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <GlobalNavbar>
         <ExperienceNavExtesion />
       </GlobalNavbar>
-      <div className="relative px-5 pt-40 lg:pt-24 max-w-7xl mx-auto flex w-full flex-col items-center py-8 selection:bg-primary-800 [&>div]:mx-auto [&>div]:flex [&>div]:h-full [&>div]:w-full [&>div]:flex-col [&>div]:items-center">
+      <div className="relative md:pl-20 px-5 pt-44 md:pt-24 max-w-7xl mx-auto flex w-full flex-col items-center py-8 selection:bg-primary-800 [&>div]:mx-auto [&>div]:flex [&>div]:h-full [&>div]:w-full [&>div]:flex-col [&>div]:items-center">
         {children}
       </div>
     </div>

@@ -35,7 +35,7 @@ export default function Maps() {
   const currentMapFloors = mapFloors?.[toCamelCase(lastMap) as subMapsWithFloor]
 
   return (
-    <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-32 selection:bg-primary-800">
+    <div className="relative mx-auto flex w-full max-w-[90rem] justify-center gap-4 px-6 pt-40 selection:bg-primary-800 md:pl-[5.25rem] md:pt-32">
       <div
         className={cn(
           'relative flex min-h-[45rem] w-auto max-w-5xl flex-col gap-4 rounded-md border-2 border-white/10 p-4 backdrop-blur-md',
@@ -80,7 +80,7 @@ export default function Maps() {
               setMapsStack((prev) => [...prev, 'Secret Peak'])
               setMapFloor(0)
             }}
-            className="group relative ml-auto flex h-[12rem] w-[35rem] items-end justify-end overflow-hidden rounded-md p-2 text-2xl font-bold text-white transition-[width,height] hover:h-[16rem] hover:w-[40rem]"
+            className="group relative ml-auto flex h-[12rem] w-full items-end justify-end overflow-hidden rounded-md p-2 text-2xl font-bold text-white transition-[width,height] hover:h-[16rem] hover:w-[40rem] md:w-[35rem]"
           >
             <Image
               src={'/maps/secret_peak_miniature.webp'}
@@ -106,7 +106,11 @@ export default function Maps() {
         />
       </div>
 
-      {isNavigationMap ? <></> : <ManageMap mapFloor={currentMapFloors?.[mapsFloor]} />}
+      {isNavigationMap ? (
+        <></>
+      ) : (
+        <ManageMap mapFloor={currentMapFloors?.[mapsFloor]} />
+      )}
     </div>
   )
 }

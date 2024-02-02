@@ -4,11 +4,11 @@ import ShardItem from '@/components/magic-square-shop/ShardItem'
 
 export default function MagicSquareShop() {
   return (
-    <section className="mx-auto flex w-full max-w-[80rem] flex-col gap-12 overflow-x-auto px-5 pb-14 !pt-40 text-white md:p-14 xl:flex-row xl:justify-center xl:gap-24">
+    <section className="mx-auto flex w-full max-w-[80rem] flex-col gap-12 overflow-x-auto px-5 !pt-40 pb-14 text-white md:p-14 md:pl-20 xl:flex-row xl:justify-center xl:gap-24">
       <div className="relative flex w-full flex-col gap-8">
         <h2 className="text-3xl font-bold">What you have</h2>
 
-        <ul className="flex flex-row justify-center flex-wrap xl:grid xl:grid-cols-4 gap-4">
+        <ul className="flex flex-row flex-wrap justify-center gap-4 xl:grid xl:grid-cols-4">
           <ShardItem item="ethereal_shard" rarity="Epic" />
           <ShardItem item="lunar_shard" rarity="Epic" />
           <ShardItem item="solar_shard" rarity="Epic" />

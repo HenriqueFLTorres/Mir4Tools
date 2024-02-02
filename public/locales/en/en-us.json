@@ -15,6 +15,7 @@
   "Additional Costs": "Additional Costs",
   "Patch Notes": "Patch Notes",
   "Join our group!": "Join our group!",
+  "NEW!": "NEW!",
 
   "__pages__": "",
 
@@ -127,6 +128,34 @@
 
   "__maps__": "",
   "Maps": "Maps",
+
+  "__inner_force__": "",
+  "Inner Force": "Inner Force",
+  "Promotion Cost": "Promotion Cost",
+  "Character Status": "Character Status",
+  "Muscle Strength Manual": "Muscle Strength Manual",
+  "Nine Yin Manual": "Nine Yin Manual",
+  "Nine Yang Manual": "Nine Yang Manual",
+  "Violet Mist Art": "Violet Mist Art",
+  "Northern Profound Art": "Northern Profound Art",
+  "Toad Stance": "Toad Stance",
+
+  "CRIT": "CRIT",
+  "CRIT ATK DMG Boost": "CRIT ATK DMG Boost",
+  "CRIT DMG Reduction": "CRIT DMG Reduction",
+  "CRIT EVA": "CRIT EVA",
+  "Monster ATK DMG Boost": "Monster ATK DMG Boost",
+  "Monster DMG Reduction": "Monster DMG Reduction",
+  "Skill ATK DMG Boost": "Skill ATK DMG Boost",
+  "Skill DMG Reduction": "Skill DMG Reduction",
+  "Stun Success Boost": "Stun Success Boost",
+  "Stun RES Boost": "Stun RES Boost",
+  "Debilitation Success Boost": "Debilitation Success Boost",
+  "Debilitation RES Boost": "Debilitation RES Boost",
+  "Silence Success Boost": "Silence Success Boost",
+  "Silence RES Boost": "Silence RES Boost",
+  "Knockdown Success Boost": "Knockdown Success Boost",
+  "Knockdown RES Boost": "Knockdown RES Boost",
 
   "__walkthrough__": "",
 

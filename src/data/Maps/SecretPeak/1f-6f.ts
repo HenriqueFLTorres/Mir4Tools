@@ -219,11 +219,6 @@ export const secretPeak1f6f: mapNodesObject = {
     rarity: 'Epic',
     type: 'darksteel',
   },
-  '0d6a008d7d7c9': {
-    pos: [19, 53.33],
-    rarity: 'Epic',
-    type: 'darksteel',
-  },
   '8928b26c1448': {
     pos: [14.5, 42.17],
     rarity: 'Epic',
@@ -249,11 +244,6 @@ export const secretPeak1f6f: mapNodesObject = {
     rarity: 'Legendary',
     type: 'darksteel',
   },
-  f942ed5129e6b: {
-    pos: [48.83, 45.83],
-    rarity: 'Legendary',
-    type: 'darksteel',
-  },
   f52da6f129f21: {
     pos: [35.5, 33],
     rarity: 'Legendary',
@@ -261,6 +251,26 @@ export const secretPeak1f6f: mapNodesObject = {
   },
   '8dee7b7eee254': {
     pos: [56.17, 22.67],
+    rarity: 'Legendary',
+    type: 'darksteel',
+  },
+  '1c61d3112431f': {
+    pos: [16.5, 51.83],
+    rarity: 'Epic',
+    type: 'darksteel',
+  },
+  '2b488af267e25': {
+    pos: [46.67, 44.67],
+    rarity: 'Legendary',
+    type: 'darksteel',
+  },
+  a4e17b8366846: {
+    pos: [49, 46],
+    rarity: 'Legendary',
+    type: 'darksteel',
+  },
+  '61823bba2fa45': {
+    pos: [37.33, 36],
     rarity: 'Legendary',
     type: 'darksteel',
   },

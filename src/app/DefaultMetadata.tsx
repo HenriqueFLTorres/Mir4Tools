@@ -87,6 +87,13 @@ export const RouteMetadata = {
     image: '/seo/misc.webp',
     imageAlt: 'Miscellaneous banner',
   }),
+  InnerForce: getSeo({
+    title: 'Inner Force',
+    description:
+      'A page used to calculate and show the effects of inner force levels.',
+    image: '/seo/inner-force.webp',
+    imageAlt: 'Inner Force banner',
+  }),
 }
 
 export function getSeo({
