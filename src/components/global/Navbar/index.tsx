@@ -14,7 +14,7 @@ import { default as PatchNotesIcon } from '@/icons/PatchNotes'
 import { cn } from '@/utils/classNames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ChangeLanguage from './ChangeLanguage'
 import DiscordGroup from './DiscordGroup'
@@ -22,6 +22,7 @@ import ManageSettings from './ManageSettings'
 import PatchNotes from './PatchNotes'
 import SupportUs from './SupportUs'
 
+const NAVBAR_HEIGHT = 69
 export default function GlobalNavbar({
   children,
 }: {
@@ -29,7 +30,17 @@ export default function GlobalNavbar({
 }) {
   const { t } = useTranslation()
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false)
-  const navSection = useRef<HTMLElement>(null)
+  const [sidebarHeight, setSidebarHeight] = useState(69)
+
+  const handleScroll = () =>
+    setSidebarHeight(Math.max(NAVBAR_HEIGHT - window.scrollY, 0))
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <>
@@ -47,20 +58,17 @@ export default function GlobalNavbar({
 
       <aside
         className={cn(
-          'fixed z-[40] flex w-full flex-row-reverse items-center gap-2 overflow-x-hidden border-b border-white/10 bg-pink-400 bg-primary-400/5 pt-[4.3rem] drop-shadow-md backdrop-blur-xl transition-[width,_max-width] duration-500 will-change-[width,_max-width,_padding-top] md:fixed md:h-screen md:w-16 md:max-w-[3.75rem] md:flex-col md:gap-6 md:border-b-0 md:border-r md:pt-[5.3rem]',
+          'fixed z-[40] flex w-full flex-row-reverse items-center gap-2 overflow-x-hidden border-b border-white/10 bg-pink-400 bg-primary-400/5 pt-[4.3rem] drop-shadow-md backdrop-blur-xl transition-[width,_max-width] duration-500 will-change-[width,_max-width] md:fixed md:h-screen md:w-16 md:max-w-[3.75rem] md:flex-col md:gap-6 md:border-b-0 md:border-r md:!pt-[5.3rem]',
           {
             'fixed h-screen flex-col pt-[5.3rem] md:absolute md:w-96 md:max-w-[24rem]':
               isSidebarExpanded,
           }
         )}
-        ref={navSection}
+        style={{ paddingTop: sidebarHeight }}
       >
         <button
           aria-label={isSidebarExpanded ? 'shrink sidebar' : 'expand sidebar'}
-          onClick={() => {
-            setIsSidebarExpanded((prev) => !prev)
-            navSection.current?.scrollIntoView({ behavior: 'smooth' })
-          }}
+          onClick={() => setIsSidebarExpanded((prev) => !prev)}
           className={cn(
             'relative z-[2] mx-3 flex h-10 w-full max-w-[2.5rem] shrink-0 items-center justify-center rounded-md bg-black/20 p-2 outline-none transition-[color,_max-width] duration-500 hover:bg-black/40',
             { 'max-w-[calc(100vw-3rem)] md:max-w-[22.5rem]': isSidebarExpanded }
