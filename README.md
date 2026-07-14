@@ -33,7 +33,7 @@ Used to subtract items from total cost in pages like Crafting Calculator and Con
 
 ## Pages 📃
 
-### Crafting Calculator - [mir4tools.com](www.mir4tools.com)
+### Crafting Calculator - [mir4tools.app](www.mir4tools.app)
 <br/>
 Here you can calculate the craft of all your items. If you want to see the cost subtracting your current items, you can use the Inventory feature and set up your inventory. (that information is being saved in local storage)
 <br/><br/>
@@ -43,7 +43,7 @@ Here you can calculate the craft of all your items. If you want to see the cost 
   <image width="49%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/a2a741f2-546a-4791-96fa-d0c081a17b5c" alt="Inventory Open screenshot" />
 </div>
 
-### Experience Calculator - [mir4tools.com/xp](www.mir4tools.com/xp)
+### Experience Calculator - [mir4tools.app/xp](www.mir4tools.app/xp)
 <br/>
 Here you can measure and predict your experience gains through time, it accepts an input based on the website's stopwatch of 5 minutes or your gains of EXP per minute. There is also the Magic Square/Secret Peak and Vigor feature for additional predictions or calculations.
 <br/><br/>
@@ -53,7 +53,7 @@ Here you can measure and predict your experience gains through time, it accepts 
   <image width="20%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/ed295bbf-86b1-4e52-820a-dc8e69f9c862" alt="Experience Calculator mobile screenshot" />
 </div>
 
-### Conquests Page - [mir4tools.com/conquests](www.mir4tools.com/conquests)
+### Conquests Page - [mir4tools.app/conquests](www.mir4tools.app/conquests)
 <br/>
 On this page, you can select any conquest building by clicking on the image and see the cost to upgrade it in the game, as well as their conditions, time taken, and effects gained.
 <br/><br/>
@@ -63,7 +63,7 @@ On this page, you can select any conquest building by clicking on the image and 
   <image width="20%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/3fd13735-cf40-4da8-b49f-6581c28beaee" alt="Conquests page mobile screenshot" />
 </div>
 
-### Constitution Page - [mir4tools.com/constitution](www.mir4tools.com/constitution)
+### Constitution Page - [mir4tools.app/constitution](www.mir4tools.app/constitution)
 <br/>
 Here is where you can calculate the cost to step up your constitution levels, you set the levels by choosing a tier or manually by clicking on their icon and the cost and status gained will be shown below.
 <br/><br/>

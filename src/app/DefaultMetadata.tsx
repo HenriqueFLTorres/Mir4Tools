@@ -6,7 +6,7 @@ export const DefaultMetadata: Metadata = {
   keywords: ['mir4', 'mir4 tools', 'mir4 calculator', 'mir4 exp calculator'],
   themeColor: '#473E65',
   openGraph: {
-    url: 'https://www.mir4tools.com/',
+    url: 'https://www.mir4tools.app/',
     siteName: 'Mir4 Tools',
     images: [
       {
