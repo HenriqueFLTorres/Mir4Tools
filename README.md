@@ -27,7 +27,7 @@ Pages has a walkthrough system to present the page for new users, by clicking on
 <image width="40%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/a3a87b06-f4f4-4299-9707-5d781bf0dc48" alt="Walkthrough system screenshot" />
 
 ### Inventory Feature
-Used to subtract items from total cost in pages like Crafting Calculator and Constitution, also support an input given by the [Mir4 Tools Discord bot](https://github.com/HenriqueFLTorres/Mir4Tools-Bot)
+Used to subtract items from total cost in pages like Crafting Calculator and Constitution
 
 <image width="50%" src="https://github.com/HenriqueFLTorres/Mir4Tools/assets/96752883/a2a741f2-546a-4791-96fa-d0c081a17b5c" alt="Inventory Open screenshot" />
 
