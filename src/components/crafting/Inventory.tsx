@@ -8,16 +8,15 @@ import {
   ItemRarities,
 } from '@/utils/index'
 import { useAtom, useSetAtom } from 'jotai'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { toast } from 'react-hot-toast'
 import { useTranslation } from '../../../public/locales/client'
-import ImageMatchingModal from './ImageMatchingModal'
 import ResetInventory from './ResetInventory'
 
 export default function Inventory() {
   const [inventory, setInventory] = useAtom(InventoryAtom)
   const setShowInventory = useSetAtom(showInventoryAtom)
-  const [showImageMatching, setShowImageMatching] = useState(false)
+
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -53,14 +52,9 @@ export default function Inventory() {
   return (
     <div className="flex w-full max-w-[100rem] flex-col gap-8 self-center font-main">
       <header className="flex items-center justify-end gap-4">
-        <h2 className="text-3xl text-primary-200 mr-auto">{t('Inventory')}</h2>
+        <h2 className="mr-auto text-3xl text-primary-200">{t('Inventory')}</h2>
 
         <ResetInventory />
-
-        <ImageMatchingModal
-          show={showImageMatching}
-          setShow={setShowImageMatching}
-        />
 
         <button
           onClick={() => {

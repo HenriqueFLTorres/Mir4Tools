@@ -115,6 +115,7 @@ type ItemComponentProps = {
 
 const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } = {
   Default: 'border-[#272043] bg-default-frame',
+  Mythic: 'border-[#8F6239] bg-mythic-frame',
   Legendary: 'border-[#DCC529] bg-legendary-frame',
   Epic: 'border-[#761B29] bg-epic-frame',
   Rare: 'border-[#2F60A8] bg-rare-frame',

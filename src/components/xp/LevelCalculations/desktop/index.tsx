@@ -28,7 +28,7 @@ export default function DesktopLevelCalculations() {
       !!levels.initial && !!levels.final ? levels.final - levels.initial : 0
 
     for (let i = 0; i < levelDistance; i++) {
-      XPToDesiredLevel += XPPerLevel[(Number(levels.final) - i - 1) as Level]
+      XPToDesiredLevel += Number(XPPerLevel[(Number(levels.final) - i - 1) as Level])
     }
   }
 

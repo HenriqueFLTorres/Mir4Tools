@@ -40,7 +40,7 @@ import {
 } from '@/icons/inner-force/index'
 import { atom } from 'jotai'
 
-export const rarityRegex = /(\[L\].|\[E\].|\[R\].|\[UC\].)/gm
+export const rarityRegex = /(\[M\].|\[L\].|\[E\].|\[R\].|\[UC\].)/gm
 
 export const ComplementaryItems = [
   'Darksteel',
@@ -89,7 +89,7 @@ export const formatForPercentage = (value: string) => {
 export const formatLevel = (value: string): Level => {
   value = value.replace(/\D/g, '')
   value = value.replace(/^(\d{3})(.+)/g, '$1')
-  return Number(value) > 190 ? 190 : (Number(value) as Level)
+  return Number(value) > 250 ? 250 : (Number(value) as Level)
 }
 
 export const getPercentage = (
@@ -124,6 +124,7 @@ export const itemTierToQuantity = {
 } as const
 
 export const ItemRarities: RarityTypes[] = [
+  'Mythic',
   'Legendary',
   'Epic',
   'Rare',
@@ -235,6 +236,8 @@ export const extractItemRarity = (name: string): RarityTypes | 'Default' => {
   if (rarity === null) return 'Common'
 
   switch (rarity[0]) {
+    case '[M]':
+      return 'Mythic'
     case '[L]':
       return 'Legendary'
     case '[E]':
@@ -329,6 +332,13 @@ export const createNodeGroups = (currentMapPoints: {
 
 export function formatItemName(name: string): ItemWithRarity {
   const nameWithoutRarity = name.replace(rarityRegex, '')
+
+  // the game names every rarity variant of this item "Azureum Mineral
+  // Fluid" without a rarity prefix, but it was originally keyed as
+  // "epic_azureum_mineral_fluid" - keep that key for every variant
+  if (nameWithoutRarity === 'Azureum Mineral Fluid') {
+    return 'epic_azureum_mineral_fluid' as ItemWithRarity
+  }
 
   return nameWithoutRarity
     .toLocaleLowerCase()
@@ -484,7 +494,9 @@ export const effectToBloodName: { [key in string]: BloodNames } = {
 
 export function getBloodSetObject(
   currentSet: BloodSets,
-  originalObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>
+  originalObject: Partial<{
+    [key in BloodNames]: { initial: number; final: number }
+  }>
 ): Partial<{ [key in BloodNames]: { initial: number; final: number } }> {
   const {
     'Sky Palace': SkyPalace,
@@ -555,7 +567,9 @@ export function getBloodSetObject(
 }
 
 export const calculateBloodCost = (
-  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
+  bloodObject: Partial<{
+    [key in BloodNames]: { initial: number; final: number }
+  }>,
   mir4Class: Mir4Classes
 ) => {
   const dataObject = getDataByClass[mir4Class ?? 'Arbalist']
@@ -664,7 +678,9 @@ export const calculateBloodEffects = (
 }
 
 export const calculateUpgradeCost = (
-  bloodObject: Partial<{ [key in BloodNames]: { initial: number; final: number } }>,
+  bloodObject: Partial<{
+    [key in BloodNames]: { initial: number; final: number }
+  }>,
   mir4Class: Mir4Classes
 ) => {
   const sets: Partial<{ [key in BloodSets]: { start: number; end: number } }> =
@@ -739,14 +755,14 @@ export function formatEffectValue(name: string, value: number) {
 }
 
 export function getValidBloodValue(bloodTab: BloodSets, value: number) {
-  let MAX_VALUE = 100
+  let MAX_VALUE = 130
 
   if (
     ['Violet Mist Art', 'Northern Profound Art', 'Toad Stance'].includes(
       bloodTab
     )
   ) {
-    MAX_VALUE = 60
+    MAX_VALUE = 90
   }
 
   if (value < 0) return 0
@@ -755,10 +771,10 @@ export function getValidBloodValue(bloodTab: BloodSets, value: number) {
 }
 
 export const getMaxIFTier: { [key in BloodSets]: number } = {
-  'Muscle Strength Manual': 20,
-  'Nine Yang Manual': 20,
-  'Nine Yin Manual': 20,
-  'Northern Profound Art': 12,
-  'Toad Stance': 12,
-  'Violet Mist Art': 12,
+  'Muscle Strength Manual': 26,
+  'Nine Yang Manual': 26,
+  'Nine Yin Manual': 26,
+  'Northern Profound Art': 18,
+  'Toad Stance': 18,
+  'Violet Mist Art': 18,
 }

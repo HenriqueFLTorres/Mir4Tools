@@ -70,10 +70,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001003: 'Reach Character Lv. 30',
-          98001102: 'Nefariox Ruins 2F common mission 9x',
+          98001102: 'Nefariox Ruins 2F Common Mission 9x',
         },
         Effects: {
-          'Character Max Level': 60,
+          'Character Max Level': 70,
           'Unified Market Tax Rate Reduction': '-3% (22%)',
           'Boss ATK DMG Boost': '9.00%',
           'Boss DMG Reduction': '9.00%',
@@ -116,11 +116,11 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001005: 'Reach Character Lv. 40',
-          98001104: 'Demon Bull Temple All Floors common mission 38x',
-          98001205: 'Ginkgo Valley common mission 15x',
+          98001104: 'Demon Bull Temple All Floors Common Mission 38x',
+          98001205: 'Ginkgo Valley Common Mission 15x',
         },
         Effects: {
-          'Character Max Level': 70,
+          'Character Max Level': 80,
           'Unified Market Tax Rate Reduction': '-5% (20%)',
           'Boss ATK DMG Boost': '15.00%',
           'Boss DMG Reduction': '15.00%',
@@ -140,10 +140,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001006: 'Reach Character Lv. 45',
-          98001105: 'Bicheon Town common mission 14x',
+          98001105: 'Bicheon Town Common Mission 14x',
         },
         Effects: {
-          'Character Max Level': 70,
+          'Character Max Level': 80,
           'Unified Market Tax Rate Reduction': '-6% (19%)',
           'Boss ATK DMG Boost': '15.00%',
           'Boss DMG Reduction': '15.00%',
@@ -163,10 +163,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001007: 'Reach Character Lv. 50',
-          98001106: 'Snake Pit common mission 17x',
+          98001106: 'Snake Pit Common Mission 17x',
         },
         Effects: {
-          'Character Max Level': 80,
+          'Character Max Level': 90,
           'Unified Market Tax Rate Reduction': '-8% (17%)',
           'Boss ATK DMG Boost': '18.00%',
           'Boss DMG Reduction': '18.00%',
@@ -186,10 +186,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001008: 'Reach Character Lv. 55',
-          98001107: 'Viperbeast Plain common mission 14x',
+          98001107: 'Viperbeast Plain Common Mission 14x',
         },
         Effects: {
-          'Character Max Level': 80,
+          'Character Max Level': 90,
           'Unified Market Tax Rate Reduction': '-11% (14%)',
           'Boss ATK DMG Boost': '18.00%',
           'Boss DMG Reduction': '18.00%',
@@ -210,10 +210,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001009: 'Reach Character Lv. 60',
-          98001108: 'Death Gorge All Floors common mission 32x',
+          98001108: 'Death Gorge All Floors Common Mission 32x',
         },
         Effects: {
-          'Character Max Level': 80,
+          'Character Max Level': 100,
           'Unified Market Tax Rate Reduction': '-15% (10%)',
           'Boss ATK DMG Boost': '21.00%',
           'Boss DMG Reduction': '21.00%',
@@ -234,10 +234,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001010: 'Reach Character Lv. 65',
-          98001109: 'Abandoned Mine All Floors common mission 43x',
+          98001109: 'Abandoned Mine All Floors Common Mission 43x',
         },
         Effects: {
-          'Character Max Level': 80,
+          'Character Max Level': 100,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '21.00%',
           'Boss DMG Reduction': '21.00%',
@@ -259,11 +259,11 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001011: 'Reach Character Lv. 70',
-          98001110: 'Secret Mine All Floors common mission 28x',
+          98001110: 'Secret Mine All Floors Common Mission 28x',
           98001211: 'Seocheon Trading Post Common Mission 15x',
         },
         Effects: {
-          'Character Max Level': 100,
+          'Character Max Level': 110,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '24.00%',
           'Boss DMG Reduction': '24.00%',
@@ -288,7 +288,7 @@ const ConquestTowersData: {
           98001111: 'Phantom Woods Common Mission 14x',
         },
         Effects: {
-          'Character Max Level': 100,
+          'Character Max Level': 110,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '24.00%',
           'Boss DMG Reduction': '24.00%',
@@ -310,10 +310,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001013: 'Reach Character Lv. 85',
-          98001112: "Heaven's Way Peak Lower Level common mission 12x",
+          98001112: "Heaven's Way Peak Lower Level Common Mission 12x",
         },
         Effects: {
-          'Character Max Level': 100,
+          'Character Max Level': 120,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '27.00%',
           'Boss DMG Reduction': '27.00%',
@@ -335,10 +335,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001014: 'Reach Character Lv. 90',
-          98001113: "Heaven's Way Peak Upper Level common mission 9x",
+          98001113: "Heaven's Way Peak Upper Level Common Mission 9x",
         },
         Effects: {
-          'Character Max Level': 100,
+          'Character Max Level': 120,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '27.00%',
           'Boss DMG Reduction': '27.00%',
@@ -360,10 +360,10 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001015: 'Reach Character Lv. 95',
-          98001114: 'Redmoon Mountain common mission 11x',
+          98001114: 'Redmoon Mountain Common Mission 11x',
         },
         Effects: {
-          'Character Max Level': 110,
+          'Character Max Level': 130,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '30.00%',
           'Boss DMG Reduction': '30.00%',
@@ -389,7 +389,7 @@ const ConquestTowersData: {
           98001116: 'Desert Road Common Mission 12x',
         },
         Effects: {
-          'Character Max Level': 120,
+          'Character Max Level': 130,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '30.00%',
           'Boss DMG Reduction': '30.00%',
@@ -412,10 +412,10 @@ const ConquestTowersData: {
         Achievement: {
           98001017: 'Reach Character Lv. 105',
           98001117: 'Sabuk Town Common Mission 14x',
-          98001118: 'Ant Hole Common Mission 27x',
+          98001118: 'Ant Hole All Floors Common Mission 27x',
         },
         Effects: {
-          'Character Max Level': 130,
+          'Character Max Level': 140,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '33.00%',
           'Boss DMG Reduction': '33.00%',
@@ -464,7 +464,7 @@ const ConquestTowersData: {
         Achievement: {
           98001020: 'Reach Character Lv. 120',
           98001121: 'Rockcut Tomb 3F Common Mission 15x',
-          98001122: 'Bladehaven 1 - 2F Common Mission 26x',
+          98001122: 'Bladehaven All Floors Common Mission 26x',
         },
         Effects: {
           'Character Max Level': 150,
@@ -592,7 +592,8 @@ const ConquestTowersData: {
         Achievement: {
           98001025: 'Reach Character Lv. 150',
           98001129: 'Mirage Ship Inner Cabins Common Mission 14x',
-          98001130: '[World 1] Demon Bull Temple 1F - 3F Common Mission 41x',
+          98001130:
+            '[World 1] Demon Bull Temple All Floors Common Mission 41x',
         },
         Effects: {
           'Character Max Level': 185,
@@ -618,13 +619,121 @@ const ConquestTowersData: {
         Achievement: {
           98001026: 'Reach Character Lv. 155',
           98001131: 'Mirage Ship Engine Room Common Mission 14x',
-          98001132: '[World 8] Abandoned Mine 1F - 3F Common Mission 39x',
+          98001132: '[World 8] Abandoned Mine All Floors Common Mission 39x',
         },
         Effects: {
           'Character Max Level': 190,
           'Unified Market Tax Rate Reduction': '-20% (5%)',
           'Boss ATK DMG Boost': '57.00%',
           'Boss DMG Reduction': '57.00%',
+        },
+      },
+      {
+        Step: 26,
+        Power: 10973,
+        UpgradeTime: 5270400,
+        Cost: {
+          Copper: 60000000,
+          Darksteel: 18000000,
+          Energy: 18000000,
+        },
+        Building: {
+          'Tower of Quintessence': 25,
+          'Millennial Tree': 25,
+          'Tower of Victory': 25,
+        },
+        Achievement: {
+          98001027: 'Reach Character Lv. 160',
+          98001133: '[World 2] Seocheon Trading Post Common Mission 8x',
+          98001134: "[World 2] Heaven's Way Peak Common Mission 9x",
+        },
+        Effects: {
+          'Character Max Level': 195,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
+          'Boss ATK DMG Boost': '60.00%',
+          'Boss DMG Reduction': '60.00%',
+        },
+      },
+      {
+        Step: 27,
+        Power: 12399,
+        UpgradeTime: 5702400,
+        Cost: {
+          Copper: 84000000,
+          Darksteel: 25200000,
+          Energy: 25200000,
+        },
+        Building: {
+          'Tower of Quintessence': 26,
+          'Millennial Tree': 26,
+          'Tower of Victory': 26,
+        },
+        Achievement: {
+          98001028: 'Reach Character Lv. 165',
+          98001135: '[World 5] Nine Dragon Ice Field Common Mission 9x',
+          98001136: '[World 5] Illusion Temple Common Mission 8x',
+        },
+        Effects: {
+          'Character Max Level': 200,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
+          'Boss ATK DMG Boost': '63.00%',
+          'Boss DMG Reduction': '63.00%',
+        },
+      },
+      {
+        Step: 28,
+        Power: 13776,
+        UpgradeTime: 6134400,
+        Cost: {
+          Copper: 114000000,
+          Darksteel: 34000000,
+          Energy: 34000000,
+        },
+        Building: {
+          'Tower of Quintessence': 27,
+          'Millennial Tree': 27,
+          'Tower of Victory': 27,
+        },
+        Achievement: {
+          98001029: 'Reach Character Lv. 170',
+          98001137:
+            'Complete a [Layer 1 World 1] Seven Valleys Mountain common mission 8 times 8x',
+          98001138:
+            'Complete a [Layer 1 World 1] Roaring Flame Island common mission 7 times 7x',
+        },
+        Effects: {
+          'Character Max Level': 205,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
+          'Boss ATK DMG Boost': '66.00%',
+          'Boss DMG Reduction': '66.00%',
+        },
+      },
+      {
+        Step: 29,
+        Power: 15306,
+        UpgradeTime: 6566400,
+        Cost: {
+          Copper: 152000000,
+          Darksteel: 46000000,
+          Energy: 46000000,
+        },
+        Building: {
+          'Tower of Quintessence': 28,
+          'Millennial Tree': 28,
+          'Tower of Victory': 28,
+        },
+        Achievement: {
+          98001030: 'Reach Character Lv. 175',
+          98001139:
+            'Complete a [Layer 1 World 2] Underground Jail common mission 7 times 7x',
+          98001140:
+            'Complete a [Layer 1 World 2] Nine Dragon Palace common mission 7 times 7x',
+        },
+        Effects: {
+          'Character Max Level': 210,
+          'Unified Market Tax Rate Reduction': '-20% (5%)',
+          'Boss ATK DMG Boost': '69.00%',
+          'Boss DMG Reduction': '69.00%',
         },
       },
     ],
@@ -641,7 +750,7 @@ const ConquestTowersData: {
         },
         Building: {},
         Achievement: {
-          98002001: '[Elite] Nefariox Necropolis 1F common mission 13x',
+          98002001: '[Elite] Nefariox Necropolis 1F Common Mission 13x',
         },
         Effects: {
           'PHYS DEF': 10,
@@ -659,7 +768,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 2,
         },
         Achievement: {
-          98002002: '[Elite] Nefariox Necropolis 2F common mission 13x',
+          98002002: '[Elite] Nefariox Necropolis 2F Common Mission 13x',
         },
         Effects: {
           'PHYS DEF': 20,
@@ -677,7 +786,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98002003: '[Elite] Demon Bull Temple 1F common mission 11x',
+          98002003: '[Elite] Demon Bull Temple 1F Common Mission 11x',
         },
         Effects: {
           'PHYS DEF': 30,
@@ -696,7 +805,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 4,
         },
         Achievement: {
-          98002004: '[Elite] Demon Bull Temple 3F common mission 13x',
+          98002004: '[Elite] Demon Bull Temple 3F Common Mission 13x',
         },
         Effects: {
           'PHYS DEF': 40,
@@ -715,7 +824,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 5,
         },
         Achievement: {
-          98002005: '[Elite] Viperbeast Plain common mission 8x',
+          98002005: '[Elite] Viperbeast Plain Common Mission 8x',
         },
         Effects: {
           'PHYS DEF': 50,
@@ -734,7 +843,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 6,
         },
         Achievement: {
-          98002006: '[Elite] Death Gorge Upper Level common mission 12x',
+          98002006: '[Elite] Upper Death Gorge Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 50,
@@ -753,7 +862,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 7,
         },
         Achievement: {
-          98002007: '[Elite] Death Gorge Lower Level common mission 12x',
+          98002007: '[Elite] Lower Death Gorge Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 60,
@@ -772,7 +881,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 8,
         },
         Achievement: {
-          98002008: '[Elite] Abandoned Mine 1F common mission 12x',
+          98002008: '[Elite] Abandoned Mine 1F Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 60,
@@ -791,7 +900,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 9,
         },
         Achievement: {
-          98002009: '[Elite] Abandoned Mine 3F common mission 12x',
+          98002009: '[Elite] Abandoned Mine 3F Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 70,
@@ -810,7 +919,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 10,
         },
         Achievement: {
-          98002010: '[Elite] Secret Mine 1F common mission 12x',
+          98002010: '[Elite] Secret Mine 1F Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 70,
@@ -829,7 +938,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 11,
         },
         Achievement: {
-          98002011: '[Elite] Secret Mine 2F common mission 12x',
+          98002011: '[Elite] Secret Mine 2F Common Mission 12x',
         },
         Effects: {
           'PHYS DEF': 80,
@@ -848,7 +957,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 12,
         },
         Achievement: {
-          98002012: '[Elite] Phantom Woods common mission 8x',
+          98002012: '[Elite] Phantom Woods Common Mission 8x',
         },
         Effects: {
           'PHYS DEF': 80,
@@ -867,7 +976,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 13,
         },
         Achievement: {
-          98002013: "[Elite] Heaven's Way Peak Upper Level common mission 8x",
+          98002013: "[Elite] Heaven's Way Peak Upper Level Common Mission 8x",
         },
         Effects: {
           'PHYS DEF': 90,
@@ -886,7 +995,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 14,
         },
         Achievement: {
-          98002014: '[Elite] Redmoon Mountain common mission 8x',
+          98002014: '[Elite] Redmoon Mountain Common Mission 8x',
         },
         Effects: {
           'PHYS DEF': 90,
@@ -905,7 +1014,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 15,
         },
         Achievement: {
-          98002015: '[Elite] Redmoon Gorge common mission 36x',
+          98002015: '[Elite] Redmoon Gorge Common Mission 36x',
         },
         Effects: {
           'PHYS DEF': 100,
@@ -944,7 +1053,8 @@ const ConquestTowersData: {
           'Tower of Conquest': 17,
         },
         Achievement: {
-          98002018: '[Elite] Underground Jail Common Mission 11x',
+          98002018:
+            '[Elite] Sabuk Castle Underground Jail Common Mission 11x',
           98002019: '[Elite] Ant Hole 2F Common Mission 11x',
         },
         Effects: {
@@ -1025,8 +1135,10 @@ const ConquestTowersData: {
           'Tower of Conquest': 21,
         },
         Achievement: {
-          98002027: '[Elite] Great Sabuk Wall Supply Depot Common Mission 11x',
-          98002028: '[Elite] Great Sabuk Wall Control Room Common Mission 11x',
+          98002027:
+            '[Elite] Great Sabuk Wall Supply Depot Common Mission 11x',
+          98002028:
+            '[Elite] Great Sabuk Wall Control Room Common Mission 11x',
         },
         Effects: {
           'PHYS DEF': 150,
@@ -1113,6 +1225,86 @@ const ConquestTowersData: {
           'Darksteel Storage Boost': 75000000,
         },
       },
+      {
+        Step: 26,
+        Power: 4696,
+        UpgradeTime: 2635200,
+        Cost: {
+          Copper: 45000000,
+          Energy: 13500000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+        },
+        Achievement: {
+          98002303: 'Reach Vermilion Bird Mystique Stage 6 6x',
+          98002403: 'Reach Blue Dragon Mystique Stage 6 6x',
+        },
+        Effects: {
+          'PHYS DEF': 200,
+          'Darksteel Storage Boost': 75000000,
+        },
+      },
+      {
+        Step: 27,
+        Power: 5307,
+        UpgradeTime: 2851200,
+        Cost: {
+          Copper: 63000000,
+          Energy: 18900000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+        },
+        Achievement: {
+          98002304: 'Reach Vermilion Bird Mystique Stage 7 7x',
+          98002404: 'Reach Blue Dragon Mystique Stage 7 7x',
+        },
+        Effects: {
+          'PHYS DEF': 210,
+          'Darksteel Storage Boost': 80000000,
+        },
+      },
+      {
+        Step: 28,
+        Power: 5897,
+        UpgradeTime: 3067200,
+        Cost: {
+          Copper: 86000000,
+          Energy: 26000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+        },
+        Achievement: {
+          98002305: 'Reach Vermilion Bird Mystique Stage 8 8x',
+          98002405: 'Reach Blue Dragon Mystique Stage 8 8x',
+        },
+        Effects: {
+          'PHYS DEF': 220,
+          'Darksteel Storage Boost': 80000000,
+        },
+      },
+      {
+        Step: 29,
+        Power: 6552,
+        UpgradeTime: 3283200,
+        Cost: {
+          Copper: 114000000,
+          Energy: 35000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+        },
+        Achievement: {
+          98002306: 'Reach Vermilion Bird Mystique Stage 9 9x',
+          98002406: 'Reach Blue Dragon Mystique Stage 9 9x',
+        },
+        Effects: {
+          'PHYS DEF': 230,
+          'Darksteel Storage Boost': 85000000,
+        },
+      },
     ],
   },
   Mine: {
@@ -1127,7 +1319,7 @@ const ConquestTowersData: {
         },
         Building: {},
         Achievement: {
-          98003101: 'Mine Darksteel 20x',
+          98003101: 'Mine Darksteel 2x',
         },
         Effects: {
           'Spell DEF': 10,
@@ -1145,7 +1337,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 2,
         },
         Achievement: {
-          98003002: 'Mine Ores 300x',
+          98003002: 'Mine Ores 30x',
         },
         Effects: {
           'Spell DEF': 20,
@@ -1163,7 +1355,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98003103: 'Mine Darksteel 80x',
+          98003103: 'Mine Darksteel 8x',
         },
         Effects: {
           'Spell DEF': 30,
@@ -1182,7 +1374,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 4,
         },
         Achievement: {
-          98003204: 'Bicheon Valley 1F common mission 7x',
+          98003204: 'Bicheon Valley 1F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 40,
@@ -1201,7 +1393,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 5,
         },
         Achievement: {
-          98003005: 'Mine Ores 700x',
+          98003005: 'Mine Ores 70x',
         },
         Effects: {
           'Spell DEF': 50,
@@ -1220,7 +1412,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 6,
         },
         Achievement: {
-          98003206: 'Bicheon Valley 2F common mission 6x',
+          98003206: 'Bicheon Valley 2F Common Mission 6x',
         },
         Effects: {
           'Spell DEF': 50,
@@ -1239,7 +1431,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 7,
         },
         Achievement: {
-          98003007: 'Mine Ores 2000x',
+          98003007: 'Mine Ores 200x',
         },
         Effects: {
           'Spell DEF': 60,
@@ -1258,7 +1450,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 8,
         },
         Achievement: {
-          98003208: 'Bicheon Valley 4F common mission 6x',
+          98003208: 'Bicheon Valley 4F Common Mission 6x',
         },
         Effects: {
           'Spell DEF': 60,
@@ -1277,7 +1469,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 9,
         },
         Achievement: {
-          98003109: 'Mine Darksteel 7900x',
+          98003109: 'Mine Darksteel 790x',
         },
         Effects: {
           'Spell DEF': 70,
@@ -1296,7 +1488,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 10,
         },
         Achievement: {
-          98003210: 'Snake Valley 1F common mission 7x',
+          98003210: 'Snake Valley 1F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 70,
@@ -1315,7 +1507,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 11,
         },
         Achievement: {
-          98003211: 'Snake Valley 2F common mission 7x',
+          98003211: 'Snake Valley 2F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 80,
@@ -1334,7 +1526,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 12,
         },
         Achievement: {
-          98003212: 'Snake Valley 3F common mission 7x',
+          98003212: 'Snake Valley 3F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 80,
@@ -1353,7 +1545,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 13,
         },
         Achievement: {
-          98003213: 'Snake Valley 4F common mission 6x',
+          98003213: 'Snake Valley 4F Common Mission 6x',
         },
         Effects: {
           'Spell DEF': 90,
@@ -1372,7 +1564,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 14,
         },
         Achievement: {
-          98003214: 'Redmoon Valley 1F common mission 7x',
+          98003214: 'Redmoon Valley 1F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 90,
@@ -1391,7 +1583,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 15,
         },
         Achievement: {
-          98003215: 'Redmoon Valley 2F common mission 7x',
+          98003215: 'Redmoon Valley 2F Common Mission 7x',
         },
         Effects: {
           'Spell DEF': 100,
@@ -1410,7 +1602,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 16,
         },
         Achievement: {
-          98003016: 'Mine ore 11000 times',
+          98003016: 'Mine ores 1100 times',
           98003216: 'Redmoon Valley 3F Common Mission 7x',
         },
         Effects: {
@@ -1430,7 +1622,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 17,
         },
         Achievement: {
-          98003117: 'Mine Darksteel 19600 times',
+          98003117: 'Mine Darksteel 1960 times',
           98003217: 'Redmoon Valley 4F Common Mission 6x',
         },
         Effects: {
@@ -1490,8 +1682,8 @@ const ConquestTowersData: {
           'Tower of Conquest': 20,
         },
         Achievement: {
-          98003222: 'Defeat Bicheon Valley Lightning Blade Revenant 2x',
-          98003223: 'Defeat Snake Valley Demonic Phantom Dragon 2x',
+          98003230: 'Defeat 10 Unique Monsters at Phantasia Valley 1F 10x',
+          98003231: 'Defeat 10 Unique Monsters at Phantasia Valley 2F 10x',
         },
         Effects: {
           'Spell DEF': 140,
@@ -1510,8 +1702,8 @@ const ConquestTowersData: {
           'Tower of Conquest': 21,
         },
         Achievement: {
-          98003224: 'Defeat Redmoon Valley Sagittarion Phantomgeist 2x',
-          98003225: 'Defeat Phantasia Valley Heavenly Asura 2x',
+          98003232: 'Defeat 10 Unique Monsters at Phantasia Valley 3F 10x',
+          98003233: 'Defeat 10 Unique Monsters at Phantasia Valley 4F 10x',
         },
         Effects: {
           'Spell DEF': 150,
@@ -1598,6 +1790,86 @@ const ConquestTowersData: {
           'Darksteel Gain Boost': '245.00%',
         },
       },
+      {
+        Step: 26,
+        Power: 1569,
+        UpgradeTime: 2635200,
+        Cost: {
+          Copper: 45000000,
+          Energy: 13500000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+        },
+        Achievement: {
+          98002103: 'Reach Unicorn Lion Mystique Stage 6 6x',
+          98002203: 'Reach Black Tortoise Mystique Stage 6 6x',
+        },
+        Effects: {
+          'Spell DEF': 200,
+          'Darksteel Gain Boost': '255.00%',
+        },
+      },
+      {
+        Step: 27,
+        Power: 1773,
+        UpgradeTime: 2851200,
+        Cost: {
+          Copper: 63000000,
+          Energy: 18900000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+        },
+        Achievement: {
+          98002104: 'Reach Unicorn Lion Mystique Stage 7 7x',
+          98002204: 'Reach Black Tortoise Mystique Stage 7 7x',
+        },
+        Effects: {
+          'Spell DEF': 210,
+          'Darksteel Gain Boost': '265.00%',
+        },
+      },
+      {
+        Step: 28,
+        Power: 1970,
+        UpgradeTime: 3067200,
+        Cost: {
+          Copper: 86000000,
+          Energy: 26000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+        },
+        Achievement: {
+          98002105: 'Reach Unicorn Lion Mystique Stage 8 8x',
+          98002205: 'Reach Black Tortoise Mystique Stage 8 8x',
+        },
+        Effects: {
+          'Spell DEF': 220,
+          'Darksteel Gain Boost': '275.00%',
+        },
+      },
+      {
+        Step: 29,
+        Power: 2189,
+        UpgradeTime: 3283200,
+        Cost: {
+          Copper: 114000000,
+          Energy: 35000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+        },
+        Achievement: {
+          98002106: 'Reach Unicorn Lion Mystique Stage 9 9x',
+          98002206: 'Reach Black Tortoise Mystique Stage 9 9x',
+        },
+        Effects: {
+          'Spell DEF': 230,
+          'Darksteel Gain Boost': '285.00%',
+        },
+      },
     ],
   },
   'Millennial Tree': {
@@ -1612,7 +1884,7 @@ const ConquestTowersData: {
         },
         Building: {},
         Achievement: {
-          98005001: 'Gather Herbs 100x',
+          98005001: 'Gather Herbs 10x',
         },
         Effects: {
           'PHYS DEF': 10,
@@ -1650,7 +1922,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98005003: 'Gather Herbs 100x',
+          98005003: 'Gather Herbs 10x',
         },
         Effects: {
           'PHYS DEF': 30,
@@ -1692,7 +1964,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 5,
         },
         Achievement: {
-          98005005: 'Gather Herbs 500x',
+          98005005: 'Gather Herbs 50x',
         },
         Effects: {
           'PHYS DEF': 50,
@@ -1734,7 +2006,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 7,
         },
         Achievement: {
-          98005007: 'Gather Herbs 800x',
+          98005007: 'Gather Herbs 80x',
         },
         Effects: {
           'PHYS DEF': 60,
@@ -1776,7 +2048,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 9,
         },
         Achievement: {
-          98005009: 'Gather Herbs 1500x',
+          98005009: 'Gather Herbs 150x',
         },
         Effects: {
           'PHYS DEF': 70,
@@ -1819,7 +2091,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001012: 'Reach Character Lv. 80',
-          98005011: 'Gather Herbs 4000x',
+          98005011: 'Gather Herbs 400x',
         },
         Effects: {
           'PHYS DEF': 80,
@@ -1929,7 +2201,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001017: 'Reach Character Lv. 105',
-          98005012: 'Gather herbs 7000 times',
+          98005012: 'Gather herbs 700 times',
           98005116: 'Promote Constitution to Tier 11',
         },
         Effects: {
@@ -1952,7 +2224,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001018: 'Reach Character Lv. 110',
-          98005013: 'Gather herbs 14000 times',
+          98005013: 'Gather herbs 1400 times',
           98005117: 'Promote Constitution to Tier 12',
         },
         Effects: {
@@ -1976,7 +2248,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001019: 'Reach Character Lv. 115',
-          98005014: 'Gather Herbs 12000x',
+          98005014: 'Gather Herbs 1200x',
           98005118: 'Promote Constitution to Tier 13',
         },
         Effects: {
@@ -2000,7 +2272,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001020: 'Reach Character Lv. 120',
-          98005015: 'Gather Herbs 12000x',
+          98005015: 'Gather Herbs 1200x',
           98005119: 'Promote Constitution to Tier 14',
         },
         Effects: {
@@ -2141,6 +2413,94 @@ const ConquestTowersData: {
           'Max Number of Secret Peak Tickets': '+1',
         },
       },
+      {
+        Step: 26,
+        Power: 1569,
+        UpgradeTime: 3952800,
+        Cost: {
+          Copper: 30000000,
+          Energy: 9000000,
+          Darksteel: 9000000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+          Portal: 25,
+        },
+        Achievement: {
+          98005126: 'Promote Constitution to Tier 21',
+        },
+        Effects: {
+          'PHYS DEF': 200,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
+        },
+      },
+      {
+        Step: 27,
+        Power: 1773,
+        UpgradeTime: 4276800,
+        Cost: {
+          Copper: 42000000,
+          Energy: 12600000,
+          Darksteel: 12600000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+          Portal: 26,
+        },
+        Achievement: {
+          98005127: 'Promote Constitution to Tier 22',
+        },
+        Effects: {
+          'PHYS DEF': 210,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
+        },
+      },
+      {
+        Step: 28,
+        Power: 1970,
+        UpgradeTime: 4600800,
+        Cost: {
+          Copper: 57000000,
+          Energy: 17000000,
+          Darksteel: 17000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+          Portal: 27,
+        },
+        Achievement: {
+          98005128: 'Promote Constitution to Tier 23',
+        },
+        Effects: {
+          'PHYS DEF': 220,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
+        },
+      },
+      {
+        Step: 29,
+        Power: 2189,
+        UpgradeTime: 4924800,
+        Cost: {
+          Copper: 76000000,
+          Energy: 23000000,
+          Darksteel: 23000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+          Portal: 28,
+        },
+        Achievement: {
+          98005129: 'Promote Constitution to Tier 24',
+        },
+        Effects: {
+          'PHYS DEF': 230,
+          'Max Number of Magic Square Tickets': '+1',
+          'Max Number of Secret Peak Tickets': '+1',
+        },
+      },
     ],
   },
   'Training Sanctum': {
@@ -2175,7 +2535,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 2,
         },
         Achievement: {
-          98006102: 'Collect Energy 300 times',
+          98006102: 'Collect Energy 30 times',
         },
         Effects: {
           MP: 100,
@@ -2195,7 +2555,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98006103: 'Collect Energy 400 times',
+          98006103: 'Collect Energy 40 times',
         },
         Effects: {
           MP: 150,
@@ -2216,7 +2576,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 4,
         },
         Achievement: {
-          98006104: 'Collect Energy 1100 times',
+          98006104: 'Collect Energy 110 times',
         },
         Effects: {
           MP: 200,
@@ -2468,9 +2828,9 @@ const ConquestTowersData: {
           'Tower of Conquest': 16,
         },
         Achievement: {
-          98006504: 'Promote to Tier 2 Violet Mist Art',
-          98006604: 'Promote to Tier 2 Northern Profound Art',
-          98006704: 'Promote to Tier 2 Toad Stance',
+          98006504: 'Promote Violet Mist Art to Tier 2',
+          98006604: 'Promote Northern Profound Art to Tier 2',
+          98006704: 'Promote Toad Stance to Tier 2',
         },
         Effects: {
           MP: 500,
@@ -2514,9 +2874,9 @@ const ConquestTowersData: {
           'Tower of Conquest': 18,
         },
         Achievement: {
-          98006505: 'Promote to Tier 3 Violet Mist Art',
-          98006605: 'Promote to Tier 3 Northern Profound Art',
-          98006707: 'Promote to Tier 4 Toad Stance 2x',
+          98006505: 'Promote Violet Mist Art to Tier 3',
+          98006605: 'Promote Northern Profound Art to Tier 3',
+          98006707: 'Promote Toad Stance to Tier 4 2x',
         },
         Effects: {
           MP: 600,
@@ -2560,9 +2920,9 @@ const ConquestTowersData: {
           'Tower of Conquest': 20,
         },
         Achievement: {
-          98006506: 'Promote to Tier 4 Violet Mist Art',
-          98006606: 'Promote to Tier 4 Northern Profound Art',
-          98006708: 'Promote to Tier 5 Toad Stance',
+          98006506: 'Promote Violet Mist Art to Tier 4',
+          98006606: 'Promote Northern Profound Art to Tier 4',
+          98006708: 'Promote Toad Stance to Tier 5',
         },
         Effects: {
           MP: 700,
@@ -2606,9 +2966,9 @@ const ConquestTowersData: {
           'Tower of Conquest': 22,
         },
         Achievement: {
-          98006507: 'Promote to Tier 5 Violet Mist Art',
-          98006607: 'Promote to Tier 5 Northern Profound Art',
-          98006709: 'Promote to Tier 6 Toad Stance',
+          98006507: 'Promote Violet Mist Art to Tier 5',
+          98006607: 'Promote Northern Profound Art to Tier 5',
+          98006709: 'Promote Toad Stance to Tier 6',
         },
         Effects: {
           MP: 800,
@@ -2652,9 +3012,9 @@ const ConquestTowersData: {
           'Tower of Conquest': 24,
         },
         Achievement: {
-          98006508: 'Promote to Tier 6 Violet Mist Art',
-          98006608: 'Promote to Tier 6 Northern Profound Art',
-          98006710: 'Promote to Tier 7 Toad Stance',
+          98006508: 'Promote Violet Mist Art to Tier 6',
+          98006608: 'Promote Northern Profound Art to Tier 6',
+          98006710: 'Promote Toad Stance to Tier 7',
         },
         Effects: {
           MP: 900,
@@ -2684,6 +3044,98 @@ const ConquestTowersData: {
           'Copper Gain Boost': '52.00%',
           'Energy Storage Limit Boost': 75000000,
           'PvP DMG Reduction': '19.00%',
+        },
+      },
+      {
+        Step: 26,
+        Power: 1569,
+        UpgradeTime: 2635200,
+        Cost: {
+          Copper: 45000000,
+          Darksteel: 13500000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+        },
+        Achievement: {
+          98006509: 'Promote Violet Mist Art to Tier 9 3x',
+          98006609: 'Promote Northern Profound Art to Tier 9 3x',
+          98006711: 'Promote Toad Stance to Tier 10 3x',
+        },
+        Effects: {
+          MP: 1000,
+          'Copper Gain Boost': '54.00%',
+          'Energy Storage Limit Boost': 75000000,
+          'PvP DMG Reduction': '20.00%',
+        },
+      },
+      {
+        Step: 27,
+        Power: 1773,
+        UpgradeTime: 2851200,
+        Cost: {
+          Copper: 63000000,
+          Darksteel: 18900000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+        },
+        Achievement: {
+          98006217: 'Promote Muscle Strength Manual to Tier 17 2x',
+          98006322: 'Promote Nine Yin Manual to Tier 18 2x',
+          98006422: 'Promote Nine Yang Manual to Tier 18 2x',
+        },
+        Effects: {
+          MP: 1050,
+          'Copper Gain Boost': '56.00%',
+          'Energy Storage Limit Boost': 80000000,
+          'PvP DMG Reduction': '21.00%',
+        },
+      },
+      {
+        Step: 28,
+        Power: 1970,
+        UpgradeTime: 3067200,
+        Cost: {
+          Copper: 86000000,
+          Darksteel: 26000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+        },
+        Achievement: {
+          98006510: 'Promote Violet Mist Art to Tier 11 2x',
+          98006610: 'Promote Northern Profound Art to Tier 11 2x',
+          98006712: 'Promote Toad Stance to Tier 12 2x',
+        },
+        Effects: {
+          MP: 1100,
+          'Copper Gain Boost': '57.00%',
+          'Energy Storage Limit Boost': 85000000,
+          'PvP DMG Reduction': '22.00%',
+        },
+      },
+      {
+        Step: 29,
+        Power: 2189,
+        UpgradeTime: 3283200,
+        Cost: {
+          Copper: 114000000,
+          Darksteel: 34000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+        },
+        Achievement: {
+          98006218: 'Promote Muscle Strength Manual to Tier 19 2x',
+          98006323: 'Promote Nine Yin Manual to Tier 20 2x',
+          98006423: 'Promote Nine Yang Manual to Tier 20 2x',
+        },
+        Effects: {
+          MP: 1150,
+          'Copper Gain Boost': '58.00%',
+          'Energy Storage Limit Boost': 90000000,
+          'PvP DMG Reduction': '23.00%',
         },
       },
     ],
@@ -2740,7 +3192,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98008003: 'Ginkgo Valley Request 7x',
+          98008003: 'Ginkgo Valley Request 4x',
         },
         Effects: {
           'Hunting EXP Boost': '7.00%',
@@ -2784,7 +3236,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 5,
         },
         Achievement: {
-          98008005: 'Bicheon Castle Request 38x',
+          98008005: 'Bicheon Castle Request 19x',
         },
         Effects: {
           'Hunting EXP Boost': '10.00%',
@@ -2832,7 +3284,7 @@ const ConquestTowersData: {
           Mine: 6,
         },
         Achievement: {
-          98008007: 'Bicheon Town Request 28x',
+          98008007: 'Bicheon Town Request 14x',
         },
         Effects: {
           'Hunting EXP Boost': '14.00%',
@@ -2880,7 +3332,7 @@ const ConquestTowersData: {
           Mine: 8,
         },
         Achievement: {
-          98008009: 'Snake Pit Request 27x',
+          98008009: 'Snake Pit Request 14x',
         },
         Effects: {
           'Hunting EXP Boost': '18.00%',
@@ -2929,7 +3381,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001012: 'Reach Character Lv. 80',
-          98008011: "Sinner's Shire Request 30x",
+          98008011: "Sinner's Shire Request 15x",
         },
         Effects: {
           'Hunting EXP Boost': '24.00%',
@@ -2979,7 +3431,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001014: 'Reach Character Lv. 90',
-          98008013: 'Seocheon Trading Post Request 17x',
+          98008013: 'Seocheon Trading Post Request 9x',
         },
         Effects: {
           'Hunting EXP Boost': '30.00%',
@@ -3004,8 +3456,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001015: 'Reach Character Lv. 95',
-          98008014: 'Phantom Woods Request 31x',
-          98008015: 'Spiritual Center Request 78x',
+          98008014: 'Phantom Woods Request 16x',
+          98008015: 'Spiritual Center Request 39x',
         },
         Effects: {
           'Hunting EXP Boost': '32.00%',
@@ -3030,8 +3482,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001016: 'Reach Character Lv. 100',
-          98008016: "Heaven's Way Peak Lower Level Request 4x",
-          98008017: 'Redmoon Mountain Request 4x',
+          98008016: "Heaven's Way Peak Lower Level Request 2x",
+          98008017: 'Redmoon Mountain Request 2x',
         },
         Effects: {
           'Hunting EXP Boost': '36.00%',
@@ -3056,8 +3508,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001017: 'Reach Character Lv. 105',
-          98008018: 'Phantasia Desert Request 14x',
-          98008019: 'Desert Road Request 4x',
+          98008018: 'Phantasia Desert Request 7x',
+          98008019: 'Desert Road Request 2x',
         },
         Effects: {
           'Hunting EXP Boost': '40.00%',
@@ -3082,7 +3534,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001018: 'Reach Character Lv. 110',
-          98008020: 'Sabuk Town Request 14x',
+          98008020: 'Sabuk Town Request 7x',
         },
         Effects: {
           'Hunting EXP Boost': '44.00%',
@@ -3107,8 +3559,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001019: 'Reach Character Lv. 115',
-          98008021: 'Phantasia Desert Request 5x',
-          98008022: 'Sabuk Town Request 5x',
+          98008021: 'Phantasia Desert Request 3x',
+          98008022: 'Sabuk Town Request 3x',
         },
         Effects: {
           'Hunting EXP Boost': '48.00%',
@@ -3133,7 +3585,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001020: 'Reach Character Lv. 120',
-          98008023: 'Sabuk Castle Request 37x',
+          98008023: 'Sabuk Castle Request 19x',
         },
         Effects: {
           'Hunting EXP Boost': '52.00%',
@@ -3157,8 +3609,8 @@ const ConquestTowersData: {
           Mine: 19,
         },
         Achievement: {
-          98008024: 'Sabuk Town Request 5x',
-          98008025: 'Sabuk Castle Request 15x',
+          98008024: 'Sabuk Town Request 3x',
+          98008025: 'Sabuk Castle Request 8x',
         },
         Effects: {
           'Hunting EXP Boost': '56.00%',
@@ -3182,7 +3634,7 @@ const ConquestTowersData: {
           Mine: 20,
         },
         Achievement: {
-          98008026: 'Gorge Cliff Path Request 15x',
+          98008026: 'Gorge Cliff Path Request 8x',
         },
         Effects: {
           'Hunting EXP Boost': '60.00%',
@@ -3233,7 +3685,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98008030: 'Complete Exemplar in Life',
-          98008031: 'Nine Dragon Ice Field Requests 27x',
+          98008031: 'Nine Dragon Ice Field Requests 14x',
         },
         Effects: {
           'Hunting EXP Boost': '68.00%',
@@ -3257,7 +3709,7 @@ const ConquestTowersData: {
           Mine: 23,
         },
         Achievement: {
-          98008032: 'Mirage Ship Deck Request 22x',
+          98008032: 'Mirage Ship Deck Request 11x',
         },
         Effects: {
           'Hunting EXP Boost': '72.00%',
@@ -3281,13 +3733,114 @@ const ConquestTowersData: {
           Mine: 24,
         },
         Achievement: {
-          98008033: 'Mirage Ship Inner Cabins Request 19x',
+          98008033: 'Mirage Ship Inner Cabins Request 10x',
         },
         Effects: {
           'Hunting EXP Boost': '80.00%',
           'Magic Stone Slot Expansion': '-',
           'Unsealed Slot Expansion': '+13',
           'PvP ATK DMG Boost': '19.00%',
+        },
+      },
+      {
+        Step: 26,
+        Power: 3127,
+        UpgradeTime: 3952800,
+        Cost: {
+          Copper: 30000000,
+          Darksteel: 9000000,
+          Energy: 9000000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+          Forge: 25,
+          Mine: 25,
+        },
+        Achievement: {
+          98008034: '[World 2] Seocheon Trading Post Request 7x',
+          98008035: '[World 2] Redmoon Mountain Request 14x',
+        },
+        Effects: {
+          'Hunting EXP Boost': '84.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+13',
+          'PvP ATK DMG Boost': '20.00%',
+        },
+      },
+      {
+        Step: 27,
+        Power: 3534,
+        UpgradeTime: 4276800,
+        Cost: {
+          Copper: 42000000,
+          Darksteel: 12600000,
+          Energy: 12600000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+          Forge: 26,
+          Mine: 26,
+        },
+        Achievement: {
+          98008036: '[World 5] Nine Dragon Ice Field Request 20x',
+        },
+        Effects: {
+          'Hunting EXP Boost': '88.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+14',
+          'PvP ATK DMG Boost': '21.00%',
+        },
+      },
+      {
+        Step: 28,
+        Power: 3927,
+        UpgradeTime: 4600800,
+        Cost: {
+          Copper: 57000000,
+          Darksteel: 17000000,
+          Energy: 17000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+          Forge: 27,
+          Mine: 27,
+        },
+        Achievement: {
+          98008037:
+            'Complete a [Layer 1 World 1] Unseo Town request 4 times 4x',
+          98008038:
+            'Complete a [Layer 1 World 1] Seven Valleys Mountain request 9 times 9x',
+        },
+        Effects: {
+          'Hunting EXP Boost': '92.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+14',
+          'PvP ATK DMG Boost': '22.00%',
+        },
+      },
+      {
+        Step: 29,
+        Power: 4364,
+        UpgradeTime: 4924800,
+        Cost: {
+          Copper: 76000000,
+          Darksteel: 23000000,
+          Energy: 23000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+          Forge: 28,
+          Mine: 28,
+        },
+        Achievement: {
+          98008039:
+            'Complete a [Layer 1 World 2] Nine Dragon Ice Field request 14 times 14x',
+        },
+        Effects: {
+          'Hunting EXP Boost': '96.00%',
+          'Magic Stone Slot Expansion': '-',
+          'Unsealed Slot Expansion': '+15',
+          'PvP ATK DMG Boost': '23.00%',
         },
       },
     ],
@@ -3304,7 +3857,7 @@ const ConquestTowersData: {
         },
         Building: {},
         Achievement: {
-          98004101: 'Clear Raid 2 times',
+          98004101: 'Clear Raid 1 times',
         },
         Effects: {
           'Spell DEF': 10,
@@ -3323,7 +3876,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 2,
         },
         Achievement: {
-          98004002: 'Clear Boss Raid 2 times',
+          98004002: 'Clear Boss Raid 1 times',
         },
         Effects: {
           'Spell DEF': 20,
@@ -3342,7 +3895,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 3,
         },
         Achievement: {
-          98004103: 'Clear Raid 2 times',
+          98004103: 'Clear Raid 1 times',
           98004203: 'Complete 2 Codices',
         },
         Effects: {
@@ -3364,7 +3917,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 4,
         },
         Achievement: {
-          98004004: 'Clear Boss Raid 3 times',
+          98004004: 'Clear Boss Raid 2 times',
         },
         Effects: {
           'Spell DEF': 40,
@@ -3385,7 +3938,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 5,
         },
         Achievement: {
-          98004105: 'Clear Raid 3 times',
+          98004105: 'Clear Raid 2 times',
           98004205: 'Complete 2 Codices',
         },
         Effects: {
@@ -3407,7 +3960,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 6,
         },
         Achievement: {
-          98004006: 'Clear Boss Raid 11 times',
+          98004006: 'Clear Boss Raid 6 times',
         },
         Effects: {
           'Spell DEF': 50,
@@ -3428,7 +3981,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 7,
         },
         Achievement: {
-          98004107: 'Clear Raid 13 times',
+          98004107: 'Clear Raid 7 times',
           98004207: 'Complete 6 Codices',
         },
         Effects: {
@@ -3450,7 +4003,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 8,
         },
         Achievement: {
-          98004008: 'Clear Boss Raid 19 times',
+          98004008: 'Clear Boss Raid 10 times',
         },
         Effects: {
           'Spell DEF': 60,
@@ -3471,7 +4024,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 9,
         },
         Achievement: {
-          98004109: 'Clear Raid 30 times',
+          98004109: 'Clear Raid 15 times',
           98004209: 'Complete 20 Codices',
         },
         Effects: {
@@ -3493,7 +4046,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 10,
         },
         Achievement: {
-          98004010: 'Clear Boss Raid 25 times',
+          98004010: 'Clear Boss Raid 13 times',
         },
         Effects: {
           'Spell DEF': 70,
@@ -3515,7 +4068,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001012: 'Reach Character Lv. 80',
-          98004111: 'Clear Raid 75 times',
+          98004111: 'Clear Raid 38 times',
           98004211: 'Complete 30 Codices',
         },
         Effects: {
@@ -3538,7 +4091,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001013: 'Reach Character Lv. 85',
-          98004012: 'Clear Boss Raid 30 times',
+          98004012: 'Clear Boss Raid 15 times',
         },
         Effects: {
           'Spell DEF': 80,
@@ -3560,7 +4113,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001014: 'Reach Character Lv. 90',
-          98004113: 'Clear Raid 90 times',
+          98004113: 'Clear Raid 45 times',
           98004213: 'Complete 60 Codices',
         },
         Effects: {
@@ -3583,7 +4136,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001015: 'Reach Character Lv. 95',
-          98004014: 'Clear Boss Raid 40 times',
+          98004014: 'Clear Boss Raid 20 times',
         },
         Effects: {
           'Spell DEF': 90,
@@ -3605,7 +4158,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001016: 'Reach Character Lv. 100',
-          98004115: 'Clear Raid 120 times',
+          98004115: 'Clear Raid 60 times',
           98004215: 'Complete 30 Codices',
         },
         Effects: {
@@ -3628,7 +4181,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001017: 'Reach Character Lv. 105',
-          98004015: 'Clear Boss Raid 50 times',
+          98004015: 'Clear Boss Raid 25 times',
         },
         Effects: {
           'Spell DEF': 100,
@@ -3650,7 +4203,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001018: 'Reach Character Lv. 110',
-          98004117: 'Clear Raid 150 times',
+          98004117: 'Clear Raid 75 times',
           98004216: 'Complete 30 Codices',
         },
         Effects: {
@@ -3675,8 +4228,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001019: 'Reach Character Lv. 115',
-          98004016: 'Clear Boss Raid 50 times',
-          98004118: 'Clear Raid 150 times',
+          98004016: 'Clear Boss Raid 25 times',
+          98004118: 'Clear Raid 75 times',
         },
         Effects: {
           'Spell DEF': 120,
@@ -3700,8 +4253,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001020: 'Reach Character Lv. 120',
-          98004017: 'Clear Boss Raid 60 times',
-          98004119: 'Clear Raid 150 times',
+          98004017: 'Clear Boss Raid 30 times',
+          98004119: 'Clear Raid 75 times',
         },
         Effects: {
           'Spell DEF': 130,
@@ -3724,8 +4277,8 @@ const ConquestTowersData: {
           'Holy Shrine': 19,
         },
         Achievement: {
-          98004303: 'Boss Raid Deranged Hellbound Revenant 20x',
-          98004401: 'Raid Hidden Altar 25x',
+          98004303: 'Boss Raid Deranged Hellbound Revenant 10x',
+          98004401: 'Raid Hidden Altar 13x',
         },
         Effects: {
           'Spell DEF': 140,
@@ -3748,8 +4301,8 @@ const ConquestTowersData: {
           'Holy Shrine': 20,
         },
         Achievement: {
-          98004301: 'Boss Raid Ghostly Bogey 5x',
-          98004402: 'Defeat Sabuk Execution Ground Hwangwoong 20x',
+          98004301: 'Boss Raid Ghostly Bogey 3x',
+          98004402: 'Defeat Sabuk Execution Ground Hwangwoong 10x',
         },
         Effects: {
           'Spell DEF': 150,
@@ -3772,8 +4325,8 @@ const ConquestTowersData: {
           'Holy Shrine': 21,
         },
         Achievement: {
-          98004302: 'Boss Raid Claydoh GEN 10x',
-          98004404: 'Hell Raid Triumphant Tiger Demon King 10x',
+          98004302: 'Boss Raid Claydoh GEN 5x',
+          98004404: 'Hell Raid Triumphant Tiger Demon King 5x',
         },
         Effects: {
           'Spell DEF': 160,
@@ -3796,8 +4349,8 @@ const ConquestTowersData: {
           'Holy Shrine': 22,
         },
         Achievement: {
-          98004403: 'Raid Vipergeist Prison 25x',
-          98004406: 'Hell Raid Inferno Chief 15x',
+          98004403: 'Raid Vipergeist Jail 13x',
+          98004406: 'Hell Raid Inferno Chief 8x',
         },
         Effects: {
           'Spell DEF': 170,
@@ -3820,8 +4373,8 @@ const ConquestTowersData: {
           'Holy Shrine': 23,
         },
         Achievement: {
-          98004405: 'Boss Raid Heavenly Asura 15x',
-          98004408: 'Hell Raid Blood-crazed Oddevil 20x',
+          98004405: 'Boss Raid Heavenly Asura 8x',
+          98004408: 'Hell Raid Blood-crazed Oddevil 10x',
         },
         Effects: {
           'Spell DEF': 180,
@@ -3844,10 +4397,102 @@ const ConquestTowersData: {
           'Holy Shrine': 24,
         },
         Achievement: {
-          98004409: 'Boss Raid Nefariox Celestial Overlord 15x',
+          98004409: 'Boss Raid Nefariox Celestial Overlord 8x',
         },
         Effects: {
           'Spell DEF': 190,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
+        },
+      },
+      {
+        Step: 26,
+        Power: 3127,
+        UpgradeTime: 3952800,
+        Cost: {
+          Copper: 30000000,
+          Darksteel: 9000000,
+          Energy: 9000000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+          'Training Sanctum': 25,
+          'Holy Shrine': 25,
+        },
+        Achievement: {
+          98004410: 'Raid Void Demon Tempering Facility 18x',
+        },
+        Effects: {
+          'Spell DEF': 200,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
+        },
+      },
+      {
+        Step: 27,
+        Power: 3534,
+        UpgradeTime: 4276800,
+        Cost: {
+          Copper: 42000000,
+          Darksteel: 12600000,
+          Energy: 12600000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+          'Training Sanctum': 26,
+          'Holy Shrine': 26,
+        },
+        Achievement: {
+          98004411: 'Boss Raid Frothing Sagittarion 13x',
+        },
+        Effects: {
+          'Spell DEF': 210,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
+        },
+      },
+      {
+        Step: 28,
+        Power: 3927,
+        UpgradeTime: 4600800,
+        Cost: {
+          Copper: 57000000,
+          Darksteel: 17000000,
+          Energy: 17000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+          'Training Sanctum': 27,
+          'Holy Shrine': 27,
+        },
+        Achievement: {
+          98004412: "[Raid] Ghost Honing Corps's Underbase 18x",
+        },
+        Effects: {
+          'Spell DEF': 220,
+          'Max Number of Raid Tickets': '+1',
+          'Mystical Piece Slot Expansion': '+7',
+        },
+      },
+      {
+        Step: 29,
+        Power: 4364,
+        UpgradeTime: 4924800,
+        Cost: {
+          Copper: 76000000,
+          Darksteel: 23000000,
+          Energy: 23000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+          'Training Sanctum': 28,
+          'Holy Shrine': 28,
+        },
+        Achievement: {
+          98004413: '[Raid] Shrine of Sanguine Flowers 25x',
+        },
+        Effects: {
+          'Spell DEF': 230,
           'Max Number of Raid Tickets': '+1',
           'Mystical Piece Slot Expansion': '+7',
         },
@@ -4065,7 +4710,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 11,
         },
         Achievement: {
-          98009111: 'Clan cooperation 370x',
+          98009111: 'Clan cooperation 200x',
         },
         Effects: {
           'Character HP': 2400,
@@ -4106,7 +4751,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 13,
         },
         Achievement: {
-          98009113: 'Clan cooperation 600x',
+          98009113: 'Clan cooperation 300x',
         },
         Effects: {
           'Character HP': 2700,
@@ -4147,7 +4792,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 15,
         },
         Achievement: {
-          98009115: 'Clan cooperation 1300x',
+          98009115: 'Clan cooperation 400x',
         },
         Effects: {
           'Character HP': 3000,
@@ -4208,9 +4853,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98009018: 'Clan support 1500x',
-          98009116: 'Clan cooperation 1500x',
-          98009215:
-            'Conquest Achievement Requirement - Temp script for Mystery',
+          98009116: 'Clan cooperation 800x',
+          98009215: 'Complete Wedding Vow',
         },
         Effects: {
           'Character HP': 3600,
@@ -4366,6 +5010,90 @@ const ConquestTowersData: {
           'Max number of Free EXP restores': '+5',
         },
       },
+      {
+        Step: 26,
+        Power: 3127,
+        UpgradeTime: 3952800,
+        Cost: {
+          Copper: 45000000,
+          Darksteel: 13500000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+        },
+        Achievement: {
+          98009308: 'Solitude Training God Realm Stage 1 24x',
+          98009604: 'Clan Expedition Chakravarti Darkmaur 5x',
+        },
+        Effects: {
+          'Character HP': 6000,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
+        },
+      },
+      {
+        Step: 27,
+        Power: 3534,
+        UpgradeTime: 4276800,
+        Cost: {
+          Copper: 63000000,
+          Darksteel: 18900000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+        },
+        Achievement: {
+          98009219: 'Complete Deep Resentments',
+          98009309: 'Solitude Training God Realm Stage 5 32x',
+        },
+        Effects: {
+          'Character HP': 6300,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
+        },
+      },
+      {
+        Step: 28,
+        Power: 3927,
+        UpgradeTime: 4600800,
+        Cost: {
+          Copper: 86000000,
+          Darksteel: 26000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+        },
+        Achievement: {
+          98009310: 'Solitude Training God Realm Stage 6 8x',
+          98009605: 'Complete Clan Expedition Ice Demon Deity MAJ 5 times 5x',
+        },
+        Effects: {
+          'Character HP': 6600,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
+        },
+      },
+      {
+        Step: 29,
+        Power: 4364,
+        UpgradeTime: 4924800,
+        Cost: {
+          Copper: 114000000,
+          Darksteel: 34000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+        },
+        Achievement: {
+          98009220: 'Complete the Overcorrection Mystery 1 time',
+          98009311: 'Solitude Training God Realm Stage 7 8x',
+        },
+        Effects: {
+          'Character HP': 6900,
+          'Energy Gain Boost': '20.00%',
+          'Max number of Free EXP restores': '+5',
+        },
+      },
     ],
   },
   Portal: {
@@ -4380,7 +5108,7 @@ const ConquestTowersData: {
         },
         Building: {},
         Achievement: {
-          98007201: 'Bicheon Labyrinth 1F common mission 15x',
+          98007201: 'Bicheon Labyrinth 1F Common Mission 15x',
         },
         Effects: {
           'PHYS ATK': 20,
@@ -4398,7 +5126,7 @@ const ConquestTowersData: {
           'Tower of Conquest': 2,
         },
         Achievement: {
-          98007202: 'Bicheon Labyrinth 2F common mission 15x',
+          98007202: 'Bicheon Labyrinth 2F Common Mission 15x',
         },
         Effects: {
           'PHYS ATK': 40,
@@ -4418,8 +5146,8 @@ const ConquestTowersData: {
           'Training Sanctum': 2,
         },
         Achievement: {
-          98007003: 'Enter Magic Square 1 times',
-          98007203: 'Bicheon Labyrinth 3F common mission 10x',
+          98007003: 'Use Magic Square 1 time(s)',
+          98007203: 'Bicheon Labyrinth 3F Common Mission 10x',
         },
         Effects: {
           'PHYS ATK': 60,
@@ -4441,7 +5169,7 @@ const ConquestTowersData: {
           'Training Sanctum': 3,
         },
         Achievement: {
-          98007204: 'Demon Bull Labyrinth 1F common mission 16x',
+          98007204: 'Demon Bull Labyrinth 1F Common Mission 16x',
           98007304: 'Combine Spirit Stones 1 times',
         },
         Effects: {
@@ -4464,8 +5192,8 @@ const ConquestTowersData: {
           'Holy Shrine': 4,
         },
         Achievement: {
-          98007105: 'Enter Secret Peak 1 times',
-          98007205: 'Demon Bull Labyrinth 2F common mission 10x',
+          98007105: 'Use Secret Peak 1 time(s)',
+          98007205: 'Demon Bull Labyrinth 2F Common Mission 10x',
         },
         Effects: {
           'PHYS ATK': 100,
@@ -4487,7 +5215,7 @@ const ConquestTowersData: {
           'Training Sanctum': 5,
         },
         Achievement: {
-          98007206: 'Demon Bull Labyrinth 3F common mission 10x',
+          98007206: 'Demon Bull Labyrinth 3F Common Mission 10x',
           98007406: 'Obtain 10 Spirit Stones',
         },
         Effects: {
@@ -4510,8 +5238,8 @@ const ConquestTowersData: {
           'Training Sanctum': 6,
         },
         Achievement: {
-          98007007: 'Enter Magic Square 9 times',
-          98007207: 'Snake Pit Labyrinth 1F common mission 11x',
+          98007007: 'Use Magic Square 5 time(s)',
+          98007207: 'Snake Pit Labyrinth 1F Common Mission 11x',
         },
         Effects: {
           'PHYS ATK': 140,
@@ -4533,7 +5261,7 @@ const ConquestTowersData: {
           'Holy Shrine': 7,
         },
         Achievement: {
-          98007208: 'Snake Pit Labyrinth 2F common mission 10x',
+          98007208: 'Snake Pit Labyrinth 2F Common Mission 10x',
           98007308: 'Combine Spirit Stones 19 times',
         },
         Effects: {
@@ -4556,8 +5284,8 @@ const ConquestTowersData: {
           'Training Sanctum': 8,
         },
         Achievement: {
-          98007109: 'Enter Secret Peak 19 times',
-          98007209: 'Snake Pit Labyrinth 3F common mission 10x',
+          98007109: 'Use Secret Peak 10 time(s)',
+          98007209: 'Snake Pit Labyrinth 3F Common Mission 10x',
         },
         Effects: {
           'PHYS ATK': 180,
@@ -4579,7 +5307,7 @@ const ConquestTowersData: {
           'Training Sanctum': 9,
         },
         Achievement: {
-          98007210: 'Abandoned Mine Labyrinth 1F common mission 10x',
+          98007210: 'Abandoned Mine Labyrinth 1F Common Mission 10x',
           98007410: 'Obtain 50 Spirit Stones',
         },
         Effects: {
@@ -4603,8 +5331,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001012: 'Reach Character Lv. 80',
-          98007011: 'Enter Magic Square 40 times',
-          98007211: 'Abandoned Mine Labyrinth 2F common mission 10x',
+          98007011: 'Use Magic Square 20 time(s)',
+          98007211: 'Abandoned Mine Labyrinth 2F Common Mission 10x',
         },
         Effects: {
           'PHYS ATK': 220,
@@ -4627,7 +5355,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001013: 'Reach Character Lv. 85',
-          98007212: 'Abandoned Mine Labyrinth 3F common mission 10x',
+          98007212: 'Abandoned Mine Labyrinth 3F Common Mission 10x',
           98007312: 'Combine Spirit Stones 30 times',
         },
         Effects: {
@@ -4651,8 +5379,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001014: 'Reach Character Lv. 90',
-          98007113: 'Enter Secret Peak 80 times',
-          98007213: "Heaven's Way Labyrinth 1F common mission 10x",
+          98007113: 'Use Secret Peak 40 time(s)',
+          98007213: "Heaven's Way Labyrinth 1F Common Mission 10x",
         },
         Effects: {
           'PHYS ATK': 260,
@@ -4675,7 +5403,7 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001015: 'Reach Character Lv. 95',
-          98007214: "Heaven's Way Labyrinth 2F common mission 10x",
+          98007214: "Heaven's Way Labyrinth 2F Common Mission 10x",
           98007414: 'Obtain 240 Spirit Stones',
         },
         Effects: {
@@ -4699,8 +5427,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001016: 'Reach Character Lv. 100',
-          98007015: 'Enter Magic Square 150 times',
-          98007215: "Heaven's Way Labyrinth 3F common mission 10x",
+          98007015: 'Use Magic Square 75 time(s)',
+          98007215: "Heaven's Way Labyrinth 3F Common Mission 10x",
         },
         Effects: {
           'PHYS ATK': 300,
@@ -4723,8 +5451,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001017: 'Reach Character Lv. 105',
-          98007216: 'Phantasia Labyrinth 1F common mission 11x',
-          98007217: 'Phantasia Labyrinth 2F common mission 11x',
+          98007216: 'Phantasia Labyrinth 1F Common Mission 11x',
+          98007217: 'Phantasia Labyrinth 2F Common Mission 11x',
         },
         Effects: {
           'PHYS ATK': 320,
@@ -4747,8 +5475,8 @@ const ConquestTowersData: {
         },
         Achievement: {
           98001018: 'Reach Character Lv. 110',
-          98007218: 'Phantasia Labyrinth 3F common mission 11x',
-          98007219: 'Phantasia Labyrinth 4F common mission 11x',
+          98007218: 'Phantasia Labyrinth 3F Common Mission 11x',
+          98007219: 'Phantasia Labyrinth 4F Common Mission 10x',
         },
         Effects: {
           'PHYS ATK': 340,
@@ -4925,6 +5653,92 @@ const ConquestTowersData: {
           'Unlock Spirit Slot': '-',
         },
       },
+      {
+        Step: 26,
+        Power: 1569,
+        UpgradeTime: 2635200,
+        Cost: {
+          Copper: 30000000,
+          Darksteel: 9000000,
+          Energy: 9000000,
+        },
+        Building: {
+          'Tower of Conquest': 26,
+        },
+        Achievement: {
+          98007603: 'Reach White Tiger Mystique Stage 6 6x',
+          98007701: '[World 2] Redmoon Mountain Common Mission 9x',
+        },
+        Effects: {
+          'PHYS ATK': 520,
+          'Unlock Spirit Slot': '-',
+        },
+      },
+      {
+        Step: 27,
+        Power: 1773,
+        UpgradeTime: 2851200,
+        Cost: {
+          Copper: 42000000,
+          Darksteel: 12600000,
+          Energy: 12600000,
+        },
+        Building: {
+          'Tower of Conquest': 27,
+        },
+        Achievement: {
+          98007604: 'Reach White Tiger Mystique Stage 7 7x',
+          98007702: '[World 5] Great Sabuk Wall Common Mission 9x',
+        },
+        Effects: {
+          'PHYS ATK': 540,
+          'Unlock Spirit Slot': '-',
+        },
+      },
+      {
+        Step: 28,
+        Power: 1970,
+        UpgradeTime: 3067200,
+        Cost: {
+          Copper: 57000000,
+          Darksteel: 17000000,
+          Energy: 17000000,
+        },
+        Building: {
+          'Tower of Conquest': 28,
+        },
+        Achievement: {
+          98007605: 'Reach White Tiger Mystique Stage 8 8x',
+          98007703:
+            'Complete a [Layer 1 World 1] Unseo Town common mission 7 times 7x',
+        },
+        Effects: {
+          'PHYS ATK': 560,
+          'Unlock Spirit Slot': '-',
+        },
+      },
+      {
+        Step: 29,
+        Power: 2189,
+        UpgradeTime: 3283200,
+        Cost: {
+          Copper: 76000000,
+          Darksteel: 23000000,
+          Energy: 23000000,
+        },
+        Building: {
+          'Tower of Conquest': 29,
+        },
+        Achievement: {
+          98007606: 'Reach White Tiger Mystique Stage 9 9x',
+          98007704:
+            'Complete a [Layer 1 World 2] Celestial Blood Valley common mission 7 times 7x',
+        },
+        Effects: {
+          'PHYS ATK': 580,
+          'Unlock Spirit Slot': '-',
+        },
+      },
     ],
   },
   'Sanctuary of Hydra': {
@@ -4947,7 +5761,7 @@ const ConquestTowersData: {
           98009209: 'Complete A Noble Cause',
         },
         Effects: {
-          'Daily Septaria Gain': '1',
+          'Daily Septaria Gain': 1,
           Accuracy: 2,
           EVA: 2,
         },
@@ -4970,7 +5784,7 @@ const ConquestTowersData: {
           98011101: "Complete Cryptic Stone's Whereabouts 1",
         },
         Effects: {
-          'Daily Septaria Gain': '2',
+          'Daily Septaria Gain': 2,
           Accuracy: 4,
           EVA: 4,
         },
@@ -4993,7 +5807,7 @@ const ConquestTowersData: {
           98011201: 'Complete Hydrakin 1',
         },
         Effects: {
-          'Daily Septaria Gain': '5',
+          'Daily Septaria Gain': 5,
           Accuracy: 6,
           EVA: 6,
         },
@@ -5016,7 +5830,7 @@ const ConquestTowersData: {
           98011301: "Complete Cryptic Stone's Whereabouts 2",
         },
         Effects: {
-          'Daily Septaria Gain': '6',
+          'Daily Septaria Gain': 6,
           Accuracy: 8,
           EVA: 8,
         },
@@ -5040,7 +5854,7 @@ const ConquestTowersData: {
           98011401: "Complete Cryptic Stone's Whereabouts 3",
         },
         Effects: {
-          'Daily Septaria Gain': '7',
+          'Daily Septaria Gain': 7,
           Accuracy: 10,
           EVA: 10,
         },
@@ -5063,7 +5877,7 @@ const ConquestTowersData: {
           98011501: 'Complete Hydrakin 2',
         },
         Effects: {
-          'Daily Septaria Gain': '10',
+          'Daily Septaria Gain': 10,
           Accuracy: 12,
           EVA: 12,
         },
@@ -5087,7 +5901,7 @@ const ConquestTowersData: {
           98011002: 'Defeat Immortal Ogre at Magic Square 5F',
         },
         Effects: {
-          'Daily Septaria Gain': '11',
+          'Daily Septaria Gain': 11,
           Accuracy: 14,
           EVA: 14,
         },
@@ -5111,7 +5925,7 @@ const ConquestTowersData: {
           98011004: 'Defeat Bloody Yeticlops at Secret Peak 5F',
         },
         Effects: {
-          'Daily Septaria Gain': '12',
+          'Daily Septaria Gain': 12,
           Accuracy: 16,
           EVA: 16,
         },
@@ -5135,7 +5949,7 @@ const ConquestTowersData: {
           98011601: 'Complete Hydrakin 3',
         },
         Effects: {
-          'Daily Septaria Gain': '15',
+          'Daily Septaria Gain': 15,
           Accuracy: 18,
           EVA: 18,
         },
@@ -5160,7 +5974,7 @@ const ConquestTowersData: {
           98011701: 'Complete Orders From Above',
         },
         Effects: {
-          'Daily Septaria Gain': '16',
+          'Daily Septaria Gain': 16,
           Accuracy: 20,
           EVA: 20,
         },
@@ -5180,13 +5994,12 @@ const ConquestTowersData: {
           Portal: 17,
         },
         Achievement: {
-          98009215:
-            'Conquest Achievement Requirement - Temp script for Mystery',
+          98009215: 'Complete Wedding Vow',
           98011007: 'Defeat Unyielding Dusk Armado at Secret Peak 6F',
           98011008: 'Defeat Beastial Gorefiend Squasher at Secret Peak 6F',
         },
         Effects: {
-          'Daily Septaria Gain': '17',
+          'Daily Septaria Gain': 17,
           Accuracy: 22,
           EVA: 22,
         },
@@ -5209,7 +6022,7 @@ const ConquestTowersData: {
           98011801: 'Complete Hydra of the Abyss',
         },
         Effects: {
-          'Daily Septaria Gain': '20',
+          'Daily Septaria Gain': 20,
           Accuracy: 24,
           EVA: 24,
         },
@@ -5232,7 +6045,7 @@ const ConquestTowersData: {
           98011901: 'Complete Weaken the Hydrakin 2',
         },
         Effects: {
-          'Daily Septaria Gain': '25',
+          'Daily Septaria Gain': 25,
           Accuracy: 28,
           EVA: 28,
         },

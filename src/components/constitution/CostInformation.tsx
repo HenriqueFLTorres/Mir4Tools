@@ -19,13 +19,14 @@ import ItemFrame from '../crafting/ItemFrame'
 import Checkbox from '../shared/Checkbox'
 
 export const ItemRarities = [
+  'Mythic',
   'Legendary',
   'Epic',
   'Rare',
   'Uncommon',
   'Common',
   'Default',
-] as const
+  ] as const
 
 export default function ConstitutionCostInformation() {
   const levels = useAtomValue(statusLevelsAtom)

@@ -4,6 +4,7 @@ import { rarityVariantStyles } from '../crafting/ItemFrame'
 
 export default function RarityToggle({
   isActive = {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,

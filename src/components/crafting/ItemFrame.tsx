@@ -2,14 +2,16 @@ import { cn } from '@/utils/classNames'
 import Image from 'next/image'
 import { type HTMLAttributes } from 'react'
 
-export const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } = {
-  Default: 'border-[#272043] bg-default-frame',
-  Legendary: 'border-[#DCC529] bg-legendary-frame',
-  Epic: 'border-[#761B29] bg-epic-frame',
-  Rare: 'border-[#2F60A8] bg-rare-frame',
-  Uncommon: 'border-[#38896B] bg-uncommon-frame',
-  Common: 'border-[#6D737A] bg-common-frame',
-}
+export const rarityVariantStyles: { [key in RarityTypes | 'Default']: string } =
+  {
+    Default: 'border-[#272043] bg-default-frame',
+    Mythic: 'border-[#8F6239] bg-mythic-frame',
+    Legendary: 'border-[#DCC529] bg-legendary-frame',
+    Epic: 'border-[#761B29] bg-epic-frame',
+    Rare: 'border-[#2F60A8] bg-rare-frame',
+    Uncommon: 'border-[#38896B] bg-uncommon-frame',
+    Common: 'border-[#6D737A] bg-common-frame',
+  }
 
 export default function ItemFrame({
   item,

@@ -18,7 +18,7 @@ export default function InnerVigor() {
   const acquiredXPWithVigor = XPPerMinute * 60 * vigor
 
   const acquiredPercentage = levels.initial
-    ? ((acquiredXPWithVigor / XPPerLevel[`${levels.initial}`]) * 100).toFixed(4)
+    ? ((acquiredXPWithVigor / Number(XPPerLevel[`${levels.initial}`])) * 100).toFixed(4)
     : '0.0000'
 
   useEffect(() => {

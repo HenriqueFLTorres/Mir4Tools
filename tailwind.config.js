@@ -26,6 +26,7 @@ module.exports = {
         'secondary-radial':
           'radial-gradient(52.27% 52.27% at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(126, 115, 173, 0.1) 0.01%, rgba(126, 115, 173, 0) 100%);',
         'default-frame': 'linear-gradient(180deg, #1A1730 0%, #272043 100%);',
+        'mythic-frame': 'linear-gradient(180deg, #2B1712 0%, #A17749 100%);',
         'legendary-frame': 'linear-gradient(180deg, #693D0C 0%, #C6B214 100%);',
         'epic-frame': 'linear-gradient(180deg, #2F0D16 0%, #A42522 100%);',
         'rare-frame': 'linear-gradient(180deg, #152333 0%, #295491 100%);',

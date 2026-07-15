@@ -82,6 +82,7 @@ describe('Properly return item recipe with inventory', () => {
         {
           ...defaultInventoryValue,
           steel: {
+            Mythic: { traddable: 0, nonTraddable: 0 },
             Legendary: { traddable: 10, nonTraddable: 0 },
             Epic: { traddable: 25, nonTraddable: 75 },
             Rare: { traddable: 725, nonTraddable: 3000 },
@@ -125,6 +126,7 @@ describe('Properly return item recipe with inventory', () => {
             Legendary: { traddable: 100, nonTraddable: 0 },
           },
           steel: {
+            ...defaultFullItemObject,
             Legendary: { traddable: 74, nonTraddable: 0 },
             Epic: { traddable: 25, nonTraddable: 92650 },
             Rare: { traddable: 725, nonTraddable: 3000 },
@@ -160,6 +162,7 @@ describe('Properly return item recipe with inventory', () => {
         {
           ...defaultInventoryValue,
           steel: {
+            ...defaultFullItemObject,
             Legendary: { traddable: 10, nonTraddable: 0 },
             Epic: { traddable: 25, nonTraddable: 75 },
             Rare: { traddable: 725, nonTraddable: 3000 },

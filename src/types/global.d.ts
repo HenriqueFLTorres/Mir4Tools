@@ -1,4 +1,10 @@
-type RarityTypes = 'Legendary' | 'Epic' | 'Rare' | 'Uncommon' | 'Common'
+type RarityTypes =
+  | 'Mythic'
+  | 'Legendary'
+  | 'Epic'
+  | 'Rare'
+  | 'Uncommon'
+  | 'Common'
 
 type ItemTypes =
   | 'anima_stone'

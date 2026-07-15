@@ -126,7 +126,7 @@ const generateTableData = (
 
     if (XPToTargetLevel - XPEarned < 0) return
 
-    const percentageOfCurrent = (XPEarned / XPPerLevel[currentLvl]) * 100
+    const percentageOfCurrent = (XPEarned / Number(XPPerLevel[currentLvl])) * 100
 
     return result.push({
       levelReached: currentLvl,

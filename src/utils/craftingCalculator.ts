@@ -9,7 +9,10 @@ import {
 
 export const defaultItemObject = { traddable: 0, nonTraddable: 0 }
 
-export const defaultFullItemObject = {
+export const defaultFullItemObject: {
+  [key in RarityTypes]: { traddable: number; nonTraddable: number }
+} = {
+  Mythic: { traddable: 0, nonTraddable: 0 },
   Legendary: { traddable: 0, nonTraddable: 0 },
   Epic: { traddable: 0, nonTraddable: 0 },
   Rare: { traddable: 0, nonTraddable: 0 },
@@ -17,8 +20,9 @@ export const defaultFullItemObject = {
   Common: { traddable: 0, nonTraddable: 0 },
 }
 
-export const defaultInventoryValue = {
+export const defaultInventoryValue: InventoryType = {
   anima_stone: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -26,6 +30,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   blue_devil_stone: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -33,6 +38,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   evil_minded_orb: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -40,6 +46,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   exorcism_bauble: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -47,6 +54,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   illuminating_fragment: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -54,6 +62,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   moon_shadow_stone: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -61,6 +70,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   platinum: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -68,6 +78,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   steel: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -75,6 +86,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   quintessence: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -86,6 +98,7 @@ export const defaultInventoryValue = {
   darksteel: 0,
   energy: 0,
   dragon_scale: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -93,6 +106,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   dragon_claw: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -100,6 +114,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   dragon_eye: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -107,6 +122,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   dragon_horn: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -114,6 +130,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   dragon_leather: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -121,6 +138,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   century_fruit: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -128,6 +146,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   eternal_snow_panax: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -135,6 +154,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   flower_oil: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -142,6 +162,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   herb_leaf: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -149,6 +170,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   herb_root: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -156,6 +178,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   moonlight_magic_stone: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -163,6 +186,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   purified_water: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -170,6 +194,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   reishi: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -177,6 +202,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   snow_panax: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -184,6 +210,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   unihorn_slice: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -191,6 +218,7 @@ export const defaultInventoryValue = {
     Common: { traddable: 0, nonTraddable: 0 },
   },
   virtue_pill: {
+    Mythic: { traddable: 0, nonTraddable: 0 },
     Legendary: { traddable: 0, nonTraddable: 0 },
     Epic: { traddable: 0, nonTraddable: 0 },
     Rare: { traddable: 0, nonTraddable: 0 },
@@ -245,13 +273,7 @@ export function getFullItemRecipe(
     const totalResource = ((result[item] || 0) + amount) * tierMultiplier
     const totalAmount = Math.max(totalResource - ownedAmount, 0)
 
-    getItemRecipe(
-      item,
-      itemRarity,
-      result,
-      totalAmount,
-      inventory
-    )
+    getItemRecipe(item, itemRarity, result, totalAmount, inventory)
 
     result[item] = totalAmount
   }
@@ -281,7 +303,7 @@ export function getItemRecipe(
   const nameWithoutRarity = itemName.replace(rarityRegex, '')
   const itemRecipe =
     BaseResourceCost?.[nameWithoutRarity as keyof typeof BaseResourceCost]?.[
-      rarity as Exclude<RarityTypes, 'Rare' | 'Uncommon' | 'Common'>
+      rarity as Exclude<RarityTypes, 'Mythic' | 'Rare' | 'Uncommon' | 'Common'>
     ]
 
   if (!itemRecipe) return

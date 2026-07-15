@@ -40,7 +40,12 @@ export default function TableCostFragment({
     itemRecipe =
       BaseResourceCost[
         name.replace(rarityRegex, '') as keyof typeof BaseResourceCost
-      ]?.[rarity as Exclude<RarityTypes, 'Rare' | 'Uncommon' | 'Common'>]
+      ]?.[
+        rarity as Exclude<
+          RarityTypes,
+          'Mythic' | 'Rare' | 'Uncommon' | 'Common'
+        >
+      ]
   }
 
   const itemHasRecipe = Object.keys(itemRecipe ?? {}).length > 0

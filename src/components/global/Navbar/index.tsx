@@ -17,7 +17,6 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useTranslation } from '../../../../public/locales/client'
 import ChangeLanguage from './ChangeLanguage'
-import DiscordGroup from './DiscordGroup'
 import ManageSettings from './ManageSettings'
 import PatchNotes from './PatchNotes'
 import SupportUs from './SupportUs'
@@ -158,8 +157,6 @@ export default function GlobalNavbar({
               </p>
             </PatchNotes>
 
-            <DiscordGroup isSidebarExpanded={isSidebarExpanded} />
-
             <SupportUs
               className={cn(
                 'relative flex h-10 w-full max-w-[2.5rem] shrink-0 items-center gap-4 overflow-hidden rounded p-2 transition-[color,_max-width] duration-500 hover:bg-white/10',
@@ -218,7 +215,7 @@ function NavGroup({
         {title}
       </h2>
 
-      {list.map(({ href, label, Icon, isNew }) => (
+      {list.map(({ href, label, Icon, isNew, isUpdated }) => (
         <Link
           href={href}
           key={label}
@@ -249,6 +246,16 @@ function NavGroup({
               {t('NEW!')}
             </span>
           ) : null}
+          {isUpdated ? (
+            <span
+              className={cn(
+                'ml-auto rounded bg-[#6B4E8B] px-2 py-1 text-base font-bold text-white opacity-0 transition-opacity duration-500',
+                { 'opacity-100': isSidebarExpanded }
+              )}
+            >
+              {t('UPDATED!')}
+            </span>
+          ) : null}
         </Link>
       ))}
     </nav>
@@ -259,7 +266,8 @@ type linksList = Array<{
   href: string
   label: string
   Icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
-  isNew: boolean
+  isNew?: boolean
+  isUpdated?: boolean
 }>
 
 const getCalculatorsLinks = (t: (key: string) => string): linksList => [
@@ -267,25 +275,23 @@ const getCalculatorsLinks = (t: (key: string) => string): linksList => [
     href: '/',
     label: t('Crafting Calculator'),
     Icon: Forge,
-    isNew: false,
   },
   {
     href: '/xp',
     label: t('Experience Calculator'),
     Icon: EXP,
-    isNew: false,
+    isUpdated: true,
   },
   {
     href: '/constitution',
     label: t('Constitution'),
     Icon: Constitution,
-    isNew: false,
   },
   {
     href: '/inner-force',
     label: t('Inner Force'),
     Icon: InnerForce,
-    isNew: true,
+    isUpdated: true,
   },
 ]
 
@@ -294,24 +300,21 @@ const getOthersLinks = (t: (key: string) => string): linksList => [
     href: '/conquests',
     label: t('Conquests'),
     Icon: Conquest,
-    isNew: false,
+    isUpdated: true,
   },
   {
     href: '/maps',
     label: t('Maps'),
     Icon: Monument,
-    isNew: false,
   },
   {
     href: '/magic-square-shop',
     label: t('Magic Square Shop'),
     Icon: Monument,
-    isNew: false,
   },
   {
     href: '/misc',
     label: t('Miscellaneous'),
     Icon: Misc,
-    isNew: false,
   },
 ]

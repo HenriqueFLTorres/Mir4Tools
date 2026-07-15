@@ -1,7 +1,7 @@
 import WalkthroughWrapper from '@/components/WalkthroughWrapper'
 import '@/styles/globals.css'
 import { cn } from '@/utils/classNames'
-import { PT_Serif, Rubik } from '@next/font/google'
+import { PT_Serif, Rubik } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
 import { Toaster } from 'react-hot-toast'

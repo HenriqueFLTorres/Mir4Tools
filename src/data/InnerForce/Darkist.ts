@@ -2115,6 +2115,696 @@ const DarkistInnerForce = {
         'Epic Azureum Mineral Fluid': 26,
       },
     },
+    101: {
+      EnergyPerClick: 2000000,
+      'Sky Palace': {
+        'Spell ATK': 455,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 505,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 606,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Ruler': {
+        'Spell DEF': 606,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    102: {
+      EnergyPerClick: 2000000,
+      'Sky Palace': {
+        'Spell ATK': 459,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 510,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 612,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Ruler': {
+        'Spell DEF': 612,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    103: {
+      EnergyPerClick: 2000000,
+      'Sky Palace': {
+        'Spell ATK': 464,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 515,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 618,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Ruler': {
+        'Spell DEF': 618,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    104: {
+      EnergyPerClick: 2000000,
+      'Sky Palace': {
+        'Spell ATK': 468,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 520,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 624,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Ruler': {
+        'Spell DEF': 624,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    105: {
+      EnergyPerClick: 2000000,
+      'Sky Palace': {
+        'Spell ATK': 473,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 525,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 630,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Ruler': {
+        'Spell DEF': 630,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    106: {
+      EnergyPerClick: 3000000,
+      'Sky Palace': {
+        'Spell ATK': 477,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 530,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 636,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Great Ruler': {
+        'Spell DEF': 636,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    107: {
+      EnergyPerClick: 3000000,
+      'Sky Palace': {
+        'Spell ATK': 482,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 535,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 642,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Great Ruler': {
+        'Spell DEF': 642,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    108: {
+      EnergyPerClick: 3000000,
+      'Sky Palace': {
+        'Spell ATK': 486,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 540,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 648,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Great Ruler': {
+        'Spell DEF': 648,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    109: {
+      EnergyPerClick: 3000000,
+      'Sky Palace': {
+        'Spell ATK': 491,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 545,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 654,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Great Ruler': {
+        'Spell DEF': 654,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    110: {
+      EnergyPerClick: 3000000,
+      'Sky Palace': {
+        'Spell ATK': 495,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 550,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 660,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Great Ruler': {
+        'Spell DEF': 660,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    111: {
+      EnergyPerClick: 4000000,
+      'Sky Palace': {
+        'Spell ATK': 500,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 555,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 666,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Ruler': {
+        'Spell DEF': 666,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    112: {
+      EnergyPerClick: 4000000,
+      'Sky Palace': {
+        'Spell ATK': 504,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 560,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 672,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Ruler': {
+        'Spell DEF': 672,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    113: {
+      EnergyPerClick: 4000000,
+      'Sky Palace': {
+        'Spell ATK': 509,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 565,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 678,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Ruler': {
+        'Spell DEF': 678,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    114: {
+      EnergyPerClick: 4000000,
+      'Sky Palace': {
+        'Spell ATK': 513,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 570,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 684,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Ruler': {
+        'Spell DEF': 684,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    115: {
+      EnergyPerClick: 4000000,
+      'Sky Palace': {
+        'Spell ATK': 518,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 575,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 690,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Ruler': {
+        'Spell DEF': 690,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    116: {
+      EnergyPerClick: 5000000,
+      'Sky Palace': {
+        'Spell ATK': 522,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 580,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 696,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Ruler': {
+        'Spell DEF': 696,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    117: {
+      EnergyPerClick: 5000000,
+      'Sky Palace': {
+        'Spell ATK': 527,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 585,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 702,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Ruler': {
+        'Spell DEF': 702,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    118: {
+      EnergyPerClick: 5000000,
+      'Sky Palace': {
+        'Spell ATK': 531,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 590,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 708,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Ruler': {
+        'Spell DEF': 708,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    119: {
+      EnergyPerClick: 5000000,
+      'Sky Palace': {
+        'Spell ATK': 536,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 595,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 714,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Ruler': {
+        'Spell DEF': 714,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    120: {
+      EnergyPerClick: 5000000,
+      'Sky Palace': {
+        'Spell ATK': 540,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 600,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 720,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Ruler': {
+        'Spell DEF': 720,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    121: {
+      EnergyPerClick: 5500000,
+      'Sky Palace': {
+        'Spell ATK': 545,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 605,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 726,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Ruler': {
+        'Spell DEF': 726,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    122: {
+      EnergyPerClick: 5500000,
+      'Sky Palace': {
+        'Spell ATK': 549,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 610,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 732,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Ruler': {
+        'Spell DEF': 732,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    123: {
+      EnergyPerClick: 5500000,
+      'Sky Palace': {
+        'Spell ATK': 554,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 615,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 738,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Ruler': {
+        'Spell DEF': 738,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    124: {
+      EnergyPerClick: 5500000,
+      'Sky Palace': {
+        'Spell ATK': 558,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 620,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 744,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Ruler': {
+        'Spell DEF': 744,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    125: {
+      EnergyPerClick: 5500000,
+      'Sky Palace': {
+        'Spell ATK': 563,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 625,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 750,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Ruler': {
+        'Spell DEF': 750,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    126: {
+      EnergyPerClick: 6000000,
+      'Sky Palace': {
+        'Spell ATK': 567,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 630,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 756,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Ruler': {
+        'Spell DEF': 756,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    127: {
+      EnergyPerClick: 6000000,
+      'Sky Palace': {
+        'Spell ATK': 572,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 635,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 762,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Ruler': {
+        'Spell DEF': 762,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    128: {
+      EnergyPerClick: 6000000,
+      'Sky Palace': {
+        'Spell ATK': 576,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 640,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 768,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Ruler': {
+        'Spell DEF': 768,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    129: {
+      EnergyPerClick: 6000000,
+      'Sky Palace': {
+        'Spell ATK': 581,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 645,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 774,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Ruler': {
+        'Spell DEF': 774,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    130: {
+      EnergyPerClick: 6000000,
+      'Sky Palace': {
+        'Spell ATK': 585,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Royal Decree': {
+        'Monster ATK DMG Boost': 650,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Pulsing Sky': {
+        'PHYS DEF': 780,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Ruler': {
+        'Spell DEF': 780,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
   },
   'Nine Yin Manual': {
     0: {
@@ -4230,6 +4920,696 @@ const DarkistInnerForce = {
         'Monster DMG Reduction': 800,
         '[L] Lesser Yin Pill': 21,
         'Epic Azureum Mineral Fluid': 26,
+      },
+    },
+    101: {
+      EnergyPerClick: 2000000,
+      "Land's End": {
+        Accuracy: 404,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Centenary Congregation': {
+        EVA: 404,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Embroidered Throne': {
+        CRIT: 808,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 808,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    102: {
+      EnergyPerClick: 2000000,
+      "Land's End": {
+        Accuracy: 408,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Centenary Congregation': {
+        EVA: 408,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Embroidered Throne': {
+        CRIT: 816,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 816,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    103: {
+      EnergyPerClick: 2000000,
+      "Land's End": {
+        Accuracy: 412,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Centenary Congregation': {
+        EVA: 412,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Embroidered Throne': {
+        CRIT: 824,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 824,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    104: {
+      EnergyPerClick: 2000000,
+      "Land's End": {
+        Accuracy: 416,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Centenary Congregation': {
+        EVA: 416,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Embroidered Throne': {
+        CRIT: 832,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 832,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    105: {
+      EnergyPerClick: 2000000,
+      "Land's End": {
+        Accuracy: 420,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Centenary Congregation': {
+        EVA: 420,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Embroidered Throne': {
+        CRIT: 840,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 840,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    106: {
+      EnergyPerClick: 3000000,
+      "Land's End": {
+        Accuracy: 424,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Centenary Congregation': {
+        EVA: 424,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Embroidered Throne': {
+        CRIT: 848,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 848,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    107: {
+      EnergyPerClick: 3000000,
+      "Land's End": {
+        Accuracy: 428,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Centenary Congregation': {
+        EVA: 428,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Embroidered Throne': {
+        CRIT: 856,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 856,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    108: {
+      EnergyPerClick: 3000000,
+      "Land's End": {
+        Accuracy: 432,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Centenary Congregation': {
+        EVA: 432,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Embroidered Throne': {
+        CRIT: 864,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 864,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    109: {
+      EnergyPerClick: 3000000,
+      "Land's End": {
+        Accuracy: 436,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Centenary Congregation': {
+        EVA: 436,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Embroidered Throne': {
+        CRIT: 872,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 872,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    110: {
+      EnergyPerClick: 3000000,
+      "Land's End": {
+        Accuracy: 440,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Centenary Congregation': {
+        EVA: 440,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Embroidered Throne': {
+        CRIT: 880,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 880,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    111: {
+      EnergyPerClick: 4000000,
+      "Land's End": {
+        Accuracy: 444,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Centenary Congregation': {
+        EVA: 444,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Embroidered Throne': {
+        CRIT: 888,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 888,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    112: {
+      EnergyPerClick: 4000000,
+      "Land's End": {
+        Accuracy: 448,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Centenary Congregation': {
+        EVA: 448,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Embroidered Throne': {
+        CRIT: 896,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 896,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    113: {
+      EnergyPerClick: 4000000,
+      "Land's End": {
+        Accuracy: 452,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Centenary Congregation': {
+        EVA: 452,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Embroidered Throne': {
+        CRIT: 904,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 904,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    114: {
+      EnergyPerClick: 4000000,
+      "Land's End": {
+        Accuracy: 456,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Centenary Congregation': {
+        EVA: 456,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Embroidered Throne': {
+        CRIT: 912,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 912,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    115: {
+      EnergyPerClick: 4000000,
+      "Land's End": {
+        Accuracy: 460,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Centenary Congregation': {
+        EVA: 460,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Embroidered Throne': {
+        CRIT: 920,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 920,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    116: {
+      EnergyPerClick: 5000000,
+      "Land's End": {
+        Accuracy: 464,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Centenary Congregation': {
+        EVA: 464,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Embroidered Throne': {
+        CRIT: 928,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 928,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    117: {
+      EnergyPerClick: 5000000,
+      "Land's End": {
+        Accuracy: 468,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Centenary Congregation': {
+        EVA: 468,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Embroidered Throne': {
+        CRIT: 936,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 936,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    118: {
+      EnergyPerClick: 5000000,
+      "Land's End": {
+        Accuracy: 472,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Centenary Congregation': {
+        EVA: 472,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Embroidered Throne': {
+        CRIT: 944,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 944,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    119: {
+      EnergyPerClick: 5000000,
+      "Land's End": {
+        Accuracy: 476,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Centenary Congregation': {
+        EVA: 476,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Embroidered Throne': {
+        CRIT: 952,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 952,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    120: {
+      EnergyPerClick: 5000000,
+      "Land's End": {
+        Accuracy: 480,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Centenary Congregation': {
+        EVA: 480,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Embroidered Throne': {
+        CRIT: 960,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 960,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    121: {
+      EnergyPerClick: 5500000,
+      "Land's End": {
+        Accuracy: 484,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Centenary Congregation': {
+        EVA: 484,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Embroidered Throne': {
+        CRIT: 968,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 968,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    122: {
+      EnergyPerClick: 5500000,
+      "Land's End": {
+        Accuracy: 488,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Centenary Congregation': {
+        EVA: 488,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Embroidered Throne': {
+        CRIT: 976,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 976,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    123: {
+      EnergyPerClick: 5500000,
+      "Land's End": {
+        Accuracy: 492,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Centenary Congregation': {
+        EVA: 492,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Embroidered Throne': {
+        CRIT: 984,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 984,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    124: {
+      EnergyPerClick: 5500000,
+      "Land's End": {
+        Accuracy: 496,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Centenary Congregation': {
+        EVA: 496,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Embroidered Throne': {
+        CRIT: 992,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 992,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    125: {
+      EnergyPerClick: 5500000,
+      "Land's End": {
+        Accuracy: 500,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Centenary Congregation': {
+        EVA: 500,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Embroidered Throne': {
+        CRIT: 1000,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1000,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    126: {
+      EnergyPerClick: 6000000,
+      "Land's End": {
+        Accuracy: 504,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Centenary Congregation': {
+        EVA: 504,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Embroidered Throne': {
+        CRIT: 1008,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1008,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    127: {
+      EnergyPerClick: 6000000,
+      "Land's End": {
+        Accuracy: 508,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Centenary Congregation': {
+        EVA: 508,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Embroidered Throne': {
+        CRIT: 1016,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1016,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    128: {
+      EnergyPerClick: 6000000,
+      "Land's End": {
+        Accuracy: 512,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Centenary Congregation': {
+        EVA: 512,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Embroidered Throne': {
+        CRIT: 1024,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1024,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    129: {
+      EnergyPerClick: 6000000,
+      "Land's End": {
+        Accuracy: 516,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Centenary Congregation': {
+        EVA: 516,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Embroidered Throne': {
+        CRIT: 1032,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1032,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    130: {
+      EnergyPerClick: 6000000,
+      "Land's End": {
+        Accuracy: 520,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Centenary Congregation': {
+        EVA: 520,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Embroidered Throne': {
+        CRIT: 1040,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Golden Jade': {
+        'Monster DMG Reduction': 1040,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
       },
     },
   },
@@ -6349,6 +7729,696 @@ const DarkistInnerForce = {
         'Epic Azureum Mineral Fluid': 26,
       },
     },
+    101: {
+      EnergyPerClick: 2000000,
+      'Heart Core': {
+        'Spell ATK': 454,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Virtuous Elevation': {
+        HP: 10100,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Antirelaxation: {
+        MP: 2525,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Springwater: {
+        'CRIT EVA': 808,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    102: {
+      EnergyPerClick: 2000000,
+      'Heart Core': {
+        'Spell ATK': 459,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Virtuous Elevation': {
+        HP: 10200,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Antirelaxation: {
+        MP: 2550,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Springwater: {
+        'CRIT EVA': 816,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    103: {
+      EnergyPerClick: 2000000,
+      'Heart Core': {
+        'Spell ATK': 463,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Virtuous Elevation': {
+        HP: 10300,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Antirelaxation: {
+        MP: 2575,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Springwater: {
+        'CRIT EVA': 824,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    104: {
+      EnergyPerClick: 2000000,
+      'Heart Core': {
+        'Spell ATK': 468,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Virtuous Elevation': {
+        HP: 10400,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Antirelaxation: {
+        MP: 2600,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Springwater: {
+        'CRIT EVA': 832,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    105: {
+      EnergyPerClick: 2000000,
+      'Heart Core': {
+        'Spell ATK': 472,
+        '[L] Greater Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Virtuous Elevation': {
+        HP: 10500,
+        '[L] Greater Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Antirelaxation: {
+        MP: 2625,
+        '[L] Lesser Yang Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Springwater: {
+        'CRIT EVA': 840,
+        '[L] Lesser Yin Pill': 24,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    106: {
+      EnergyPerClick: 3000000,
+      'Heart Core': {
+        'Spell ATK': 477,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Virtuous Elevation': {
+        HP: 10600,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Antirelaxation: {
+        MP: 2650,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Springwater: {
+        'CRIT EVA': 848,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    107: {
+      EnergyPerClick: 3000000,
+      'Heart Core': {
+        'Spell ATK': 481,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Virtuous Elevation': {
+        HP: 10700,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Antirelaxation: {
+        MP: 2675,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Springwater: {
+        'CRIT EVA': 856,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    108: {
+      EnergyPerClick: 3000000,
+      'Heart Core': {
+        'Spell ATK': 486,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Virtuous Elevation': {
+        HP: 10800,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Antirelaxation: {
+        MP: 2700,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Springwater: {
+        'CRIT EVA': 864,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    109: {
+      EnergyPerClick: 3000000,
+      'Heart Core': {
+        'Spell ATK': 490,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Virtuous Elevation': {
+        HP: 10900,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Antirelaxation: {
+        MP: 2725,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Springwater: {
+        'CRIT EVA': 872,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    110: {
+      EnergyPerClick: 3000000,
+      'Heart Core': {
+        'Spell ATK': 495,
+        '[L] Greater Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      'Virtuous Elevation': {
+        HP: 11000,
+        '[L] Greater Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Antirelaxation: {
+        MP: 2750,
+        '[L] Lesser Yang Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+      Springwater: {
+        'CRIT EVA': 880,
+        '[L] Lesser Yin Pill': 27,
+        '[L] Azureum Mineral Fluid': 4,
+      },
+    },
+    111: {
+      EnergyPerClick: 4000000,
+      'Heart Core': {
+        'Spell ATK': 499,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Virtuous Elevation': {
+        HP: 11100,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Antirelaxation: {
+        MP: 2775,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Springwater: {
+        'CRIT EVA': 888,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    112: {
+      EnergyPerClick: 4000000,
+      'Heart Core': {
+        'Spell ATK': 504,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Virtuous Elevation': {
+        HP: 11200,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Antirelaxation: {
+        MP: 2800,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Springwater: {
+        'CRIT EVA': 896,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    113: {
+      EnergyPerClick: 4000000,
+      'Heart Core': {
+        'Spell ATK': 508,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Virtuous Elevation': {
+        HP: 11300,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Antirelaxation: {
+        MP: 2825,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Springwater: {
+        'CRIT EVA': 904,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    114: {
+      EnergyPerClick: 4000000,
+      'Heart Core': {
+        'Spell ATK': 513,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Virtuous Elevation': {
+        HP: 11400,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Antirelaxation: {
+        MP: 2850,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Springwater: {
+        'CRIT EVA': 912,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    115: {
+      EnergyPerClick: 4000000,
+      'Heart Core': {
+        'Spell ATK': 517,
+        '[L] Greater Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Virtuous Elevation': {
+        HP: 11500,
+        '[L] Greater Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Antirelaxation: {
+        MP: 2875,
+        '[L] Lesser Yang Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Springwater: {
+        'CRIT EVA': 920,
+        '[L] Lesser Yin Pill': 30,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    116: {
+      EnergyPerClick: 5000000,
+      'Heart Core': {
+        'Spell ATK': 522,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Virtuous Elevation': {
+        HP: 11600,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Antirelaxation: {
+        MP: 2900,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Springwater: {
+        'CRIT EVA': 928,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    117: {
+      EnergyPerClick: 5000000,
+      'Heart Core': {
+        'Spell ATK': 526,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Virtuous Elevation': {
+        HP: 11700,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Antirelaxation: {
+        MP: 2925,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Springwater: {
+        'CRIT EVA': 936,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    118: {
+      EnergyPerClick: 5000000,
+      'Heart Core': {
+        'Spell ATK': 531,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Virtuous Elevation': {
+        HP: 11800,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Antirelaxation: {
+        MP: 2950,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Springwater: {
+        'CRIT EVA': 944,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    119: {
+      EnergyPerClick: 5000000,
+      'Heart Core': {
+        'Spell ATK': 535,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Virtuous Elevation': {
+        HP: 11900,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Antirelaxation: {
+        MP: 2975,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Springwater: {
+        'CRIT EVA': 952,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    120: {
+      EnergyPerClick: 5000000,
+      'Heart Core': {
+        'Spell ATK': 540,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Virtuous Elevation': {
+        HP: 12000,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Antirelaxation: {
+        MP: 3000,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Springwater: {
+        'CRIT EVA': 960,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    121: {
+      EnergyPerClick: 5500000,
+      'Heart Core': {
+        'Spell ATK': 544,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Virtuous Elevation': {
+        HP: 12100,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Antirelaxation: {
+        MP: 3025,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Springwater: {
+        'CRIT EVA': 968,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    122: {
+      EnergyPerClick: 5500000,
+      'Heart Core': {
+        'Spell ATK': 549,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Virtuous Elevation': {
+        HP: 12200,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Antirelaxation: {
+        MP: 3050,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Springwater: {
+        'CRIT EVA': 976,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    123: {
+      EnergyPerClick: 5500000,
+      'Heart Core': {
+        'Spell ATK': 553,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Virtuous Elevation': {
+        HP: 12300,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Antirelaxation: {
+        MP: 3075,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Springwater: {
+        'CRIT EVA': 984,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    124: {
+      EnergyPerClick: 5500000,
+      'Heart Core': {
+        'Spell ATK': 558,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Virtuous Elevation': {
+        HP: 12400,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Antirelaxation: {
+        MP: 3100,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Springwater: {
+        'CRIT EVA': 992,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    125: {
+      EnergyPerClick: 5500000,
+      'Heart Core': {
+        'Spell ATK': 562,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Virtuous Elevation': {
+        HP: 12500,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Antirelaxation: {
+        MP: 3125,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Springwater: {
+        'CRIT EVA': 1000,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    126: {
+      EnergyPerClick: 6000000,
+      'Heart Core': {
+        'Spell ATK': 567,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Virtuous Elevation': {
+        HP: 12600,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Antirelaxation: {
+        MP: 3150,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Springwater: {
+        'CRIT EVA': 1008,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    127: {
+      EnergyPerClick: 6000000,
+      'Heart Core': {
+        'Spell ATK': 571,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Virtuous Elevation': {
+        HP: 12700,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Antirelaxation: {
+        MP: 3175,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Springwater: {
+        'CRIT EVA': 1016,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    128: {
+      EnergyPerClick: 6000000,
+      'Heart Core': {
+        'Spell ATK': 576,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Virtuous Elevation': {
+        HP: 12800,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Antirelaxation: {
+        MP: 3200,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Springwater: {
+        'CRIT EVA': 1024,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    129: {
+      EnergyPerClick: 6000000,
+      'Heart Core': {
+        'Spell ATK': 580,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Virtuous Elevation': {
+        HP: 12900,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Antirelaxation: {
+        MP: 3225,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Springwater: {
+        'CRIT EVA': 1032,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    130: {
+      EnergyPerClick: 6000000,
+      'Heart Core': {
+        'Spell ATK': 585,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Virtuous Elevation': {
+        HP: 13000,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Antirelaxation: {
+        MP: 3250,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Springwater: {
+        'CRIT EVA': 1040,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
   },
   'Violet Mist Art': {
     0: {
@@ -7744,6 +9814,696 @@ const DarkistInnerForce = {
         'Debilitation RES Boost': 300,
         '[L] Lesser Yin Pill': 9,
         'Epic Azureum Mineral Fluid': 14,
+      },
+    },
+    61: {
+      EnergyPerClick: 1500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 305,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 305,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 305,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 305,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    62: {
+      EnergyPerClick: 1500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 310,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 310,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 310,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 310,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    63: {
+      EnergyPerClick: 1500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 315,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 315,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 315,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 315,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    64: {
+      EnergyPerClick: 1500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 320,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 320,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 320,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 320,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    65: {
+      EnergyPerClick: 1500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 325,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 325,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 325,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 325,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    66: {
+      EnergyPerClick: 2500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 330,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 330,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 330,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 330,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    67: {
+      EnergyPerClick: 2500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 335,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 335,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 335,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 335,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    68: {
+      EnergyPerClick: 2500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 340,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 340,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 340,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 340,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    69: {
+      EnergyPerClick: 2500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 345,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 345,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 345,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 345,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    70: {
+      EnergyPerClick: 2500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 350,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 350,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 350,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 350,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    71: {
+      EnergyPerClick: 3500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 355,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 355,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 355,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 355,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    72: {
+      EnergyPerClick: 3500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 360,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 360,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 360,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 360,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    73: {
+      EnergyPerClick: 3500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 365,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 365,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 365,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 365,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    74: {
+      EnergyPerClick: 3500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 370,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 370,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 370,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 370,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    75: {
+      EnergyPerClick: 3500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 375,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 375,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 375,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 375,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    76: {
+      EnergyPerClick: 4500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 380,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 380,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 380,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 380,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    77: {
+      EnergyPerClick: 4500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 385,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 385,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 385,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 385,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    78: {
+      EnergyPerClick: 4500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 390,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 390,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 390,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 390,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    79: {
+      EnergyPerClick: 4500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 395,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 395,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 395,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 395,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    80: {
+      EnergyPerClick: 4500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 400,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 400,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 400,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 400,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    81: {
+      EnergyPerClick: 5500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 405,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 405,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 405,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 405,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    82: {
+      EnergyPerClick: 5500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 410,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 410,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 410,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 410,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    83: {
+      EnergyPerClick: 5500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 415,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 415,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 415,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 415,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    84: {
+      EnergyPerClick: 5500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 420,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 420,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 420,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 420,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    85: {
+      EnergyPerClick: 5500000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 425,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 425,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 425,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 425,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    86: {
+      EnergyPerClick: 6000000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 430,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 430,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 430,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 430,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    87: {
+      EnergyPerClick: 6000000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 435,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 435,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 435,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 435,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    88: {
+      EnergyPerClick: 6000000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 440,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 440,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 440,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 440,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    89: {
+      EnergyPerClick: 6000000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 445,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 445,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 445,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 445,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    90: {
+      EnergyPerClick: 6000000,
+      'Pinnacle Star': {
+        'Stun Success Boost': 450,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Wind Hub': {
+        'Stun RES Boost': 450,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Great Union': {
+        'Debilitation Success Boost': 450,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Earth Valley': {
+        'Debilitation RES Boost': 450,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
       },
     },
   },
@@ -9143,6 +11903,696 @@ const DarkistInnerForce = {
         'Epic Azureum Mineral Fluid': 14,
       },
     },
+    61: {
+      EnergyPerClick: 1500000,
+      Dubhe: {
+        'Silence Success Boost': 305,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 305,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 305,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 305,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    62: {
+      EnergyPerClick: 1500000,
+      Dubhe: {
+        'Silence Success Boost': 310,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 310,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 310,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 310,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    63: {
+      EnergyPerClick: 1500000,
+      Dubhe: {
+        'Silence Success Boost': 315,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 315,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 315,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 315,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    64: {
+      EnergyPerClick: 1500000,
+      Dubhe: {
+        'Silence Success Boost': 320,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 320,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 320,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 320,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    65: {
+      EnergyPerClick: 1500000,
+      Dubhe: {
+        'Silence Success Boost': 325,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 325,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 325,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 325,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    66: {
+      EnergyPerClick: 2500000,
+      Dubhe: {
+        'Silence Success Boost': 330,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 330,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 330,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 330,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    67: {
+      EnergyPerClick: 2500000,
+      Dubhe: {
+        'Silence Success Boost': 335,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 335,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 335,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 335,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    68: {
+      EnergyPerClick: 2500000,
+      Dubhe: {
+        'Silence Success Boost': 340,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 340,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 340,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 340,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    69: {
+      EnergyPerClick: 2500000,
+      Dubhe: {
+        'Silence Success Boost': 345,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 345,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 345,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 345,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    70: {
+      EnergyPerClick: 2500000,
+      Dubhe: {
+        'Silence Success Boost': 350,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 350,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 350,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 350,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    71: {
+      EnergyPerClick: 3500000,
+      Dubhe: {
+        'Silence Success Boost': 355,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 355,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 355,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 355,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    72: {
+      EnergyPerClick: 3500000,
+      Dubhe: {
+        'Silence Success Boost': 360,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 360,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 360,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 360,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    73: {
+      EnergyPerClick: 3500000,
+      Dubhe: {
+        'Silence Success Boost': 365,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 365,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 365,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 365,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    74: {
+      EnergyPerClick: 3500000,
+      Dubhe: {
+        'Silence Success Boost': 370,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 370,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 370,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 370,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    75: {
+      EnergyPerClick: 3500000,
+      Dubhe: {
+        'Silence Success Boost': 375,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 375,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 375,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 375,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    76: {
+      EnergyPerClick: 4500000,
+      Dubhe: {
+        'Silence Success Boost': 380,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 380,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 380,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 380,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    77: {
+      EnergyPerClick: 4500000,
+      Dubhe: {
+        'Silence Success Boost': 385,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 385,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 385,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 385,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    78: {
+      EnergyPerClick: 4500000,
+      Dubhe: {
+        'Silence Success Boost': 390,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 390,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 390,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 390,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    79: {
+      EnergyPerClick: 4500000,
+      Dubhe: {
+        'Silence Success Boost': 395,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 395,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 395,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 395,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    80: {
+      EnergyPerClick: 4500000,
+      Dubhe: {
+        'Silence Success Boost': 400,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 400,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 400,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 400,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    81: {
+      EnergyPerClick: 5500000,
+      Dubhe: {
+        'Silence Success Boost': 405,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 405,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 405,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 405,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    82: {
+      EnergyPerClick: 5500000,
+      Dubhe: {
+        'Silence Success Boost': 410,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 410,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 410,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 410,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    83: {
+      EnergyPerClick: 5500000,
+      Dubhe: {
+        'Silence Success Boost': 415,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 415,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 415,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 415,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    84: {
+      EnergyPerClick: 5500000,
+      Dubhe: {
+        'Silence Success Boost': 420,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 420,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 420,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 420,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    85: {
+      EnergyPerClick: 5500000,
+      Dubhe: {
+        'Silence Success Boost': 425,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 425,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 425,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 425,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    86: {
+      EnergyPerClick: 6000000,
+      Dubhe: {
+        'Silence Success Boost': 430,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 430,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 430,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 430,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    87: {
+      EnergyPerClick: 6000000,
+      Dubhe: {
+        'Silence Success Boost': 435,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 435,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 435,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 435,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    88: {
+      EnergyPerClick: 6000000,
+      Dubhe: {
+        'Silence Success Boost': 440,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 440,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 440,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 440,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    89: {
+      EnergyPerClick: 6000000,
+      Dubhe: {
+        'Silence Success Boost': 445,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 445,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 445,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 445,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    90: {
+      EnergyPerClick: 6000000,
+      Dubhe: {
+        'Silence Success Boost': 450,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'Fertile Scale': {
+        'Silence RES Boost': 450,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Mizar: {
+        'Knockdown Success Boost': 450,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Alkaid: {
+        'Knockdown RES Boost': 450,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
   },
   'Toad Stance': {
     0: {
@@ -10540,6 +13990,696 @@ const DarkistInnerForce = {
         'Epic Azureum Mineral Fluid': 14,
       },
     },
+    61: {
+      EnergyPerClick: 1500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1220,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1220,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 457,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 457,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    62: {
+      EnergyPerClick: 1500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1240,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1240,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 465,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 465,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    63: {
+      EnergyPerClick: 1500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1260,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1260,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 472,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 472,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    64: {
+      EnergyPerClick: 1500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1280,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1280,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 480,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 480,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    65: {
+      EnergyPerClick: 1500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1300,
+        '[L] Greater Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1300,
+        '[L] Greater Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 487,
+        '[L] Lesser Yang Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 487,
+        '[L] Lesser Yin Pill': 12,
+        '[L] Azureum Mineral Fluid': 2,
+      },
+    },
+    66: {
+      EnergyPerClick: 2500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1320,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1320,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 495,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 495,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    67: {
+      EnergyPerClick: 2500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1340,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1340,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 502,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 502,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    68: {
+      EnergyPerClick: 2500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1360,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1360,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 510,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 510,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    69: {
+      EnergyPerClick: 2500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1380,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1380,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 517,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 517,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    70: {
+      EnergyPerClick: 2500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1400,
+        '[L] Greater Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1400,
+        '[L] Greater Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 525,
+        '[L] Lesser Yang Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 525,
+        '[L] Lesser Yin Pill': 15,
+        '[L] Azureum Mineral Fluid': 3,
+      },
+    },
+    71: {
+      EnergyPerClick: 3500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1420,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1420,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 532,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 532,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    72: {
+      EnergyPerClick: 3500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1440,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1440,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 540,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 540,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    73: {
+      EnergyPerClick: 3500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1460,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1460,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 547,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 547,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    74: {
+      EnergyPerClick: 3500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1480,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1480,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 555,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 555,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    75: {
+      EnergyPerClick: 3500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1500,
+        '[L] Greater Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1500,
+        '[L] Greater Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 562,
+        '[L] Lesser Yang Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 562,
+        '[L] Lesser Yin Pill': 18,
+        '[L] Azureum Mineral Fluid': 5,
+      },
+    },
+    76: {
+      EnergyPerClick: 4500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1520,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1520,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 570,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 570,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    77: {
+      EnergyPerClick: 4500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1540,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1540,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 577,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 577,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    78: {
+      EnergyPerClick: 4500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1560,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1560,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 585,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 585,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    79: {
+      EnergyPerClick: 4500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1580,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1580,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 592,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 592,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    80: {
+      EnergyPerClick: 4500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1600,
+        '[M] Greater Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1600,
+        '[M] Greater Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 600,
+        '[M] Lesser Yang Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 600,
+        '[M] Lesser Yin Pill': 4,
+        '[L] Azureum Mineral Fluid': 6,
+      },
+    },
+    81: {
+      EnergyPerClick: 5500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1620,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1620,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 607,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 607,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    82: {
+      EnergyPerClick: 5500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1640,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1640,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 615,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 615,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    83: {
+      EnergyPerClick: 5500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1660,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1660,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 622,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 622,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    84: {
+      EnergyPerClick: 5500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1680,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1680,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 630,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 630,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    85: {
+      EnergyPerClick: 5500000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1700,
+        '[M] Greater Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1700,
+        '[M] Greater Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 637,
+        '[M] Lesser Yang Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 637,
+        '[M] Lesser Yin Pill': 7,
+        '[L] Azureum Mineral Fluid': 7,
+      },
+    },
+    86: {
+      EnergyPerClick: 6000000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1720,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1720,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 645,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 645,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    87: {
+      EnergyPerClick: 6000000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1740,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1740,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 652,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 652,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    88: {
+      EnergyPerClick: 6000000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1760,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1760,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 660,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 660,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    89: {
+      EnergyPerClick: 6000000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1780,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1780,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 667,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 667,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
+    90: {
+      EnergyPerClick: 6000000,
+      'Divisive Action': {
+        'CRIT ATK DMG Boost': 1800,
+        '[M] Greater Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Waterbridge: {
+        'CRIT DMG Reduction': 1800,
+        '[M] Greater Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      'United Heaven': {
+        'Skill ATK DMG Boost': 675,
+        '[M] Lesser Yang Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+      Quorum: {
+        'Skill DMG Reduction': 675,
+        '[M] Lesser Yin Pill': 10,
+        '[L] Azureum Mineral Fluid': 8,
+      },
+    },
   },
 } as const
 
@@ -10793,12 +14933,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 36,
     },
     20: {
-      copper: 0,
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 120,
       Effects: {
         'Spell ATK': 171,
         'Monster ATK DMG Boost': 190,
         'PHYS DEF': 228,
         'Spell DEF': 228,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    21: {
+      copper: 35000000,
+      '[L] Moonlight Magic Stone': 132,
+      Effects: {
+        'Spell ATK': 180,
+        'Monster ATK DMG Boost': 200,
+        'PHYS DEF': 240,
+        'Spell DEF': 240,
+      },
+      '[L] Blue Devil Stone': 132,
+      '[L] Purified Water': 66,
+      '[L] Virtue Pill': 44,
+    },
+    22: {
+      copper: 50000000,
+      '[L] Moonlight Magic Stone': 144,
+      Effects: {
+        'Spell ATK': 189,
+        'Monster ATK DMG Boost': 210,
+        'PHYS DEF': 252,
+        'Spell DEF': 252,
+      },
+      '[L] Blue Devil Stone': 144,
+      '[L] Purified Water': 72,
+      '[L] Virtue Pill': 48,
+    },
+    23: {
+      copper: 65000000,
+      '[L] Moonlight Magic Stone': 156,
+      Effects: {
+        'Spell ATK': 198,
+        'Monster ATK DMG Boost': 220,
+        'PHYS DEF': 264,
+        'Spell DEF': 264,
+      },
+      '[L] Blue Devil Stone': 156,
+      '[L] Purified Water': 78,
+      '[L] Virtue Pill': 52,
+    },
+    24: {
+      copper: 80000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        'Spell ATK': 207,
+        'Monster ATK DMG Boost': 230,
+        'PHYS DEF': 276,
+        'Spell DEF': 276,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    25: {
+      copper: 95000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        'Spell ATK': 216,
+        'Monster ATK DMG Boost': 240,
+        'PHYS DEF': 288,
+        'Spell DEF': 288,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    26: {
+      copper: 0,
+      Effects: {
+        'Spell ATK': 225,
+        'Monster ATK DMG Boost': 250,
+        'PHYS DEF': 300,
+        'Spell DEF': 300,
       },
     },
   },
@@ -11051,12 +15269,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 36,
     },
     20: {
-      copper: 0,
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 120,
       Effects: {
         Accuracy: 152,
         EVA: 152,
         CRIT: 304,
         'Monster DMG Reduction': 304,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    21: {
+      copper: 35000000,
+      '[L] Moonlight Magic Stone': 132,
+      Effects: {
+        Accuracy: 160,
+        EVA: 160,
+        CRIT: 320,
+        'Monster DMG Reduction': 320,
+      },
+      '[L] Blue Devil Stone': 132,
+      '[L] Purified Water': 66,
+      '[L] Virtue Pill': 44,
+    },
+    22: {
+      copper: 50000000,
+      '[L] Moonlight Magic Stone': 144,
+      Effects: {
+        Accuracy: 168,
+        EVA: 168,
+        CRIT: 336,
+        'Monster DMG Reduction': 336,
+      },
+      '[L] Blue Devil Stone': 144,
+      '[L] Purified Water': 72,
+      '[L] Virtue Pill': 48,
+    },
+    23: {
+      copper: 65000000,
+      '[L] Moonlight Magic Stone': 156,
+      Effects: {
+        Accuracy: 176,
+        EVA: 176,
+        CRIT: 352,
+        'Monster DMG Reduction': 352,
+      },
+      '[L] Blue Devil Stone': 156,
+      '[L] Purified Water': 78,
+      '[L] Virtue Pill': 52,
+    },
+    24: {
+      copper: 80000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        Accuracy: 184,
+        EVA: 184,
+        CRIT: 368,
+        'Monster DMG Reduction': 368,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    25: {
+      copper: 95000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        Accuracy: 192,
+        EVA: 192,
+        CRIT: 384,
+        'Monster DMG Reduction': 384,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    26: {
+      copper: 0,
+      Effects: {
+        Accuracy: 200,
+        EVA: 200,
+        CRIT: 400,
+        'Monster DMG Reduction': 400,
       },
     },
   },
@@ -11309,12 +15605,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 36,
     },
     20: {
-      copper: 0,
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 120,
       Effects: {
         'Spell ATK': 171,
         HP: 3800,
         MP: 950,
         'CRIT EVA': 304,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    21: {
+      copper: 35000000,
+      '[L] Moonlight Magic Stone': 132,
+      Effects: {
+        'Spell ATK': 180,
+        HP: 4000,
+        MP: 1000,
+        'CRIT EVA': 320,
+      },
+      '[L] Blue Devil Stone': 132,
+      '[L] Purified Water': 66,
+      '[L] Virtue Pill': 44,
+    },
+    22: {
+      copper: 50000000,
+      '[L] Moonlight Magic Stone': 144,
+      Effects: {
+        'Spell ATK': 189,
+        HP: 4200,
+        MP: 1050,
+        'CRIT EVA': 336,
+      },
+      '[L] Blue Devil Stone': 144,
+      '[L] Purified Water': 72,
+      '[L] Virtue Pill': 48,
+    },
+    23: {
+      copper: 65000000,
+      '[L] Moonlight Magic Stone': 156,
+      Effects: {
+        'Spell ATK': 198,
+        HP: 4400,
+        MP: 1100,
+        'CRIT EVA': 352,
+      },
+      '[L] Blue Devil Stone': 156,
+      '[L] Purified Water': 78,
+      '[L] Virtue Pill': 52,
+    },
+    24: {
+      copper: 80000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        'Spell ATK': 207,
+        HP: 4600,
+        MP: 1150,
+        'CRIT EVA': 368,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    25: {
+      copper: 95000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        'Spell ATK': 216,
+        HP: 4800,
+        MP: 1200,
+        'CRIT EVA': 384,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    26: {
+      copper: 0,
+      Effects: {
+        'Spell ATK': 225,
+        HP: 5000,
+        MP: 1250,
+        'CRIT EVA': 400,
       },
     },
   },
@@ -11463,12 +15837,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 24,
     },
     12: {
-      copper: 0,
+      copper: 12000000,
+      '[L] Moonlight Magic Stone': 84,
       Effects: {
         'Stun Success Boost': 110,
         'Stun RES Boost': 110,
         'Debilitation Success Boost': 110,
         'Debilitation RES Boost': 110,
+      },
+      '[L] Blue Devil Stone': 84,
+      '[L] Purified Water': 42,
+      '[L] Virtue Pill': 28,
+    },
+    13: {
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 96,
+      Effects: {
+        'Stun Success Boost': 120,
+        'Stun RES Boost': 120,
+        'Debilitation Success Boost': 120,
+        'Debilitation RES Boost': 120,
+      },
+      '[L] Blue Devil Stone': 96,
+      '[L] Purified Water': 48,
+      '[L] Virtue Pill': 32,
+    },
+    14: {
+      copper: 28000000,
+      '[L] Moonlight Magic Stone': 108,
+      Effects: {
+        'Stun Success Boost': 130,
+        'Stun RES Boost': 130,
+        'Debilitation Success Boost': 130,
+        'Debilitation RES Boost': 130,
+      },
+      '[L] Blue Devil Stone': 108,
+      '[L] Purified Water': 54,
+      '[L] Virtue Pill': 36,
+    },
+    15: {
+      copper: 36000000,
+      '[L] Moonlight Magic Stone': 120,
+      Effects: {
+        'Stun Success Boost': 140,
+        'Stun RES Boost': 140,
+        'Debilitation Success Boost': 140,
+        'Debilitation RES Boost': 140,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    16: {
+      copper: 44000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        'Stun Success Boost': 150,
+        'Stun RES Boost': 150,
+        'Debilitation Success Boost': 150,
+        'Debilitation RES Boost': 150,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    17: {
+      copper: 52000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        'Stun Success Boost': 160,
+        'Stun RES Boost': 160,
+        'Debilitation Success Boost': 160,
+        'Debilitation RES Boost': 160,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    18: {
+      copper: 0,
+      Effects: {
+        'Stun Success Boost': 170,
+        'Stun RES Boost': 170,
+        'Debilitation Success Boost': 170,
+        'Debilitation RES Boost': 170,
       },
     },
   },
@@ -11617,12 +16069,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 24,
     },
     12: {
-      copper: 0,
+      copper: 12000000,
+      '[L] Moonlight Magic Stone': 84,
       Effects: {
         'Silence Success Boost': 110,
         'Silence RES Boost': 110,
         'Knockdown Success Boost': 110,
         'Knockdown RES Boost': 110,
+      },
+      '[L] Blue Devil Stone': 84,
+      '[L] Purified Water': 42,
+      '[L] Virtue Pill': 28,
+    },
+    13: {
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 96,
+      Effects: {
+        'Silence Success Boost': 120,
+        'Silence RES Boost': 120,
+        'Knockdown Success Boost': 120,
+        'Knockdown RES Boost': 120,
+      },
+      '[L] Blue Devil Stone': 96,
+      '[L] Purified Water': 48,
+      '[L] Virtue Pill': 32,
+    },
+    14: {
+      copper: 28000000,
+      '[L] Moonlight Magic Stone': 108,
+      Effects: {
+        'Silence Success Boost': 130,
+        'Silence RES Boost': 130,
+        'Knockdown Success Boost': 130,
+        'Knockdown RES Boost': 130,
+      },
+      '[L] Blue Devil Stone': 108,
+      '[L] Purified Water': 54,
+      '[L] Virtue Pill': 36,
+    },
+    15: {
+      copper: 36000000,
+      '[L] Moonlight Magic Stone': 120,
+      Effects: {
+        'Silence Success Boost': 140,
+        'Silence RES Boost': 140,
+        'Knockdown Success Boost': 140,
+        'Knockdown RES Boost': 140,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    16: {
+      copper: 44000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        'Silence Success Boost': 150,
+        'Silence RES Boost': 150,
+        'Knockdown Success Boost': 150,
+        'Knockdown RES Boost': 150,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    17: {
+      copper: 52000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        'Silence Success Boost': 160,
+        'Silence RES Boost': 160,
+        'Knockdown Success Boost': 160,
+        'Knockdown RES Boost': 160,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    18: {
+      copper: 0,
+      Effects: {
+        'Silence Success Boost': 170,
+        'Silence RES Boost': 170,
+        'Knockdown Success Boost': 170,
+        'Knockdown RES Boost': 170,
       },
     },
   },
@@ -11771,12 +16301,90 @@ export const InnerForceUpgrade = {
       '[L] Virtue Pill': 24,
     },
     12: {
-      copper: 0,
+      copper: 12000000,
+      '[L] Moonlight Magic Stone': 84,
       Effects: {
         'CRIT ATK DMG Boost': 440,
         'CRIT DMG Reduction': 440,
         'Skill ATK DMG Boost': 165,
         'Skill DMG Reduction': 165,
+      },
+      '[L] Blue Devil Stone': 84,
+      '[L] Purified Water': 42,
+      '[L] Virtue Pill': 28,
+    },
+    13: {
+      copper: 20000000,
+      '[L] Moonlight Magic Stone': 96,
+      Effects: {
+        'CRIT ATK DMG Boost': 480,
+        'CRIT DMG Reduction': 480,
+        'Skill ATK DMG Boost': 180,
+        'Skill DMG Reduction': 180,
+      },
+      '[L] Blue Devil Stone': 96,
+      '[L] Purified Water': 48,
+      '[L] Virtue Pill': 32,
+    },
+    14: {
+      copper: 28000000,
+      '[L] Moonlight Magic Stone': 108,
+      Effects: {
+        'CRIT ATK DMG Boost': 520,
+        'CRIT DMG Reduction': 520,
+        'Skill ATK DMG Boost': 195,
+        'Skill DMG Reduction': 195,
+      },
+      '[L] Blue Devil Stone': 108,
+      '[L] Purified Water': 54,
+      '[L] Virtue Pill': 36,
+    },
+    15: {
+      copper: 36000000,
+      '[L] Moonlight Magic Stone': 120,
+      Effects: {
+        'CRIT ATK DMG Boost': 560,
+        'CRIT DMG Reduction': 560,
+        'Skill ATK DMG Boost': 210,
+        'Skill DMG Reduction': 210,
+      },
+      '[L] Blue Devil Stone': 120,
+      '[L] Purified Water': 60,
+      '[L] Virtue Pill': 40,
+    },
+    16: {
+      copper: 44000000,
+      '[M] Moonlight Magic Stone': 20,
+      Effects: {
+        'CRIT ATK DMG Boost': 600,
+        'CRIT DMG Reduction': 600,
+        'Skill ATK DMG Boost': 225,
+        'Skill DMG Reduction': 225,
+      },
+      '[M] Blue Devil Stone': 20,
+      '[M] Purified Water': 10,
+      '[M] Virtue Pill': 5,
+    },
+    17: {
+      copper: 52000000,
+      '[M] Moonlight Magic Stone': 40,
+      Effects: {
+        'CRIT ATK DMG Boost': 640,
+        'CRIT DMG Reduction': 640,
+        'Skill ATK DMG Boost': 240,
+        'Skill DMG Reduction': 240,
+      },
+      '[M] Blue Devil Stone': 40,
+      '[M] Purified Water': 20,
+      '[M] Virtue Pill': 10,
+    },
+    18: {
+      copper: 0,
+      Effects: {
+        'CRIT ATK DMG Boost': 680,
+        'CRIT DMG Reduction': 680,
+        'Skill ATK DMG Boost': 255,
+        'Skill DMG Reduction': 255,
       },
     },
   },

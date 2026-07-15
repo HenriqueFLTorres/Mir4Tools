@@ -23,7 +23,7 @@ export default function DesktopEffectsTable({
   const { t } = useTranslation()
 
   return (
-    <div className="relative flex-col hidden max-h-[calc(100vh-10rem)] w-[23rem] rounded-md bg-primary-600 p-1 md:rounded-xl xl:flex">
+    <div className="relative hidden max-h-[calc(100vh-10rem)] w-[23rem] flex-col rounded-md bg-primary-600 p-1 md:rounded-xl xl:flex">
       <h2 className="w-full px-4 py-2 text-center">{t('Character Status')}</h2>
       <ul className="custom-scroll flex flex-col gap-1 overflow-auto">
         {effectsObject.map(([name, value]) => {

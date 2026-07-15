@@ -18,6 +18,7 @@ export const rarityVisibilityAtom = atom<{
   darksteel: rarityVibilityObject
 }>({
   energy: {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,
@@ -25,6 +26,7 @@ export const rarityVisibilityAtom = atom<{
     Common: true,
   },
   mining: {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,
@@ -32,6 +34,7 @@ export const rarityVisibilityAtom = atom<{
     Common: true,
   },
   chest: {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,
@@ -39,6 +42,7 @@ export const rarityVisibilityAtom = atom<{
     Common: true,
   },
   gather: {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,
@@ -46,6 +50,7 @@ export const rarityVisibilityAtom = atom<{
     Common: true,
   },
   darksteel: {
+    Mythic: true,
     Legendary: true,
     Epic: true,
     Rare: true,

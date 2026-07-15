@@ -19,6 +19,7 @@ export default function ShardItem({
         className={
           'flex w-20 flex-col overflow-hidden rounded bg-primary-600 px-2 py-1 text-xs text-white sm:text-base'
         }
+        aria-label="amount input"
       >
         <input
           className={

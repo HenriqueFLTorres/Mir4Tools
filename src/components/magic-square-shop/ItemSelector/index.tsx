@@ -120,7 +120,7 @@ function checkRecipe(
     const formattedName = formatItemName(curItem)
     const rarity = extractItemRarity(curItem) as Exclude<
       RarityTypes,
-      'Legendary' | 'Common'
+      'Mythic' | 'Legendary' | 'Common'
     >
 
     const maxCraftPossible = Math.floor(

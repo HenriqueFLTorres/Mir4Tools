@@ -75,7 +75,10 @@ export default function InnerForce() {
   const { t } = useTranslation()
 
   const sortedResult = useMemo(() => {
-    const object = calculateBloodCost(getBloodSetObject(bloodTab, bloodObject), mir4Class)
+    const object = calculateBloodCost(
+      getBloodSetObject(bloodTab, bloodObject),
+      mir4Class
+    )
 
     const sortedObject = Object.entries(object)
       .sort(([name1], [name2]) => {
@@ -128,7 +131,12 @@ export default function InnerForce() {
       })
 
     return sortedObject
-  }, [JSON.stringify(bloodObject), mir4Class, showInnerForcePromotion, bloodTab])
+  }, [
+    JSON.stringify(bloodObject),
+    mir4Class,
+    showInnerForcePromotion,
+    bloodTab,
+  ])
 
   const effectsObject = useMemo(() => {
     const object = calculateBloodEffects(
@@ -152,7 +160,7 @@ export default function InnerForce() {
   ])
 
   return (
-    <div className="relative py-12 mx-auto flex w-full flex-col items-center justify-center gap-8 md:pl-[5.25rem] px-6 pt-40 md:pt-24 selection:bg-primary-800 xl:flex-row xl:items-start">
+    <div className="relative mx-auto flex w-full flex-col items-center justify-center gap-8 px-6 py-12 pt-40 selection:bg-primary-800 md:pl-[5.25rem] md:pt-24 xl:flex-row xl:items-start">
       <aside className="custom-scroll mx-auto flex w-full max-w-max flex-row gap-4 overflow-x-auto py-4 xl:mx-0 xl:w-max xl:shrink-0 xl:flex-col xl:py-0">
         <TabButton tabName="Muscle Strength Manual" />
         <TabButton tabName="Nine Yin Manual" />

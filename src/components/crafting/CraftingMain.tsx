@@ -106,6 +106,7 @@ function formatRecipeToDisplay(object: Record<string, number>) {
       [string, number]
     >
   } = {
+    Mythic: [],
     Legendary: [],
     Epic: [],
     Rare: [],

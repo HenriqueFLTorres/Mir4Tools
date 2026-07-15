@@ -1,6 +1,11 @@
 const EquipmentCost: EquipmentCost = {
   weapon: {
     primary: {
+      Mythic: {
+        'Vermilion Bird Godly Bow': 1,
+        "Divine Dragon's Soul": 3,
+        '[M] Eternal Steel': 10,
+      },
       Legendary: {
         '[L] Steel': 300,
         '[L] Evil Minded Orb': 100,
@@ -27,6 +32,11 @@ const EquipmentCost: EquipmentCost = {
       },
     },
     secondary: {
+      Mythic: {
+        'Vermilion Bird Godly Quiver': 1,
+        "Divine Dragon's Soul": 3,
+        '[M] Eternal Steel': 10,
+      },
       Legendary: {
         '[L] Steel': 300,
         '[L] Evil Minded Orb': 100,
@@ -54,6 +64,11 @@ const EquipmentCost: EquipmentCost = {
     },
   },
   armor: {
+    Mythic: {
+      'Skyweb Secret Outfit Top': 1,
+      "Divine Dragon's Soul": 3,
+      '[M] Eternal Coldsteel': 10,
+    },
     Legendary: {
       '[L] Steel': 300,
       '[L] Quintessence': 100,
@@ -80,6 +95,11 @@ const EquipmentCost: EquipmentCost = {
     },
   },
   jewelry: {
+    Mythic: {
+      'Mythic Necklace': 1,
+      "Divine Dragon's Soul": 3,
+      '[M] Eternal Cold Jade': 10,
+    },
     Legendary: {
       '[L] Platinum': 300,
       '[L] Illuminating Fragment': 100,
@@ -106,6 +126,11 @@ const EquipmentCost: EquipmentCost = {
     },
   },
   earrings: {
+    Mythic: {
+      'Mythic Earrings': 1,
+      "Divine Dragon's Soul": 3,
+      '[M] Eternal Cold Jade': 10,
+    },
     Legendary: {
       '[L] Platinum': 300,
       '[L] Illuminating Fragment': 100,
